@@ -186,15 +186,17 @@ const JikgwanGaja = () => {
   const updateCurrentLineupCallback = useCallback(updateCurrentLineup, [selectedDate, selectedTeam, gameLineups, playerSongs]);
   
   useEffect(() => {
-    fetchJsonDataCallback();
-  }, [fetchJsonDataCallback]);
+    fetchJsonData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   useEffect(() => {
     if (gameLineups.length > 0 && playerSongs.length > 0) {
-      updateCurrentLineupCallback();
+      updateCurrentLineup();
     }
-  }, [gameLineups, playerSongs, updateCurrentLineupCallback]);
-    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedDate, selectedTeam, gameLineups, playerSongs]);
+  
 // 팀명 정규화 함수 추가
 const normalizeTeamName = (teamName) => {
   const teamMap = {
