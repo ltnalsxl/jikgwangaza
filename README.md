@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All JSON data files used by the app are located under `public/data/` for easy access.
 
 ## Available Scripts
 
