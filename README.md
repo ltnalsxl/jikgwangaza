@@ -22,4 +22,4 @@ npm test      # run unit tests
 npm run build # build for production
 ```
 
-Running these commands requires Node.js 20 or later.
+Running these commands requires **Node.js 20 or later**.
