@@ -2,13 +2,6 @@ import YouTube from 'react-youtube';
 import React, { useState, useRef, useEffect } from 'react';
 import { Circle, Heart, Star, MessageCircle, Play, Pause, SkipBack, SkipForward, Share2, Plus, Music, RefreshCw, Trophy, Users, Filter, Settings, Search, AlertCircle } from 'lucide-react';
 
-// simple helper to avoid logs in production
-const debugLog = (...args) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(...args);
-  }
-};
-
 
 // JikgwanGaja 컴포넌트 시작 부분에 추가
 const getTeamInfo = (team) => {
@@ -160,8 +153,6 @@ const JikgwanGaja = () => {
   const [isComposing, setIsComposing] = useState(false);
   const [immediateSearch, setImmediateSearch] = useState('');
   const searchRef = useRef('');
-  const [isMuted, setIsMuted] = useState(true);
-  const [teamChantMuted, setTeamChantMuted] = useState({});
   const playerRef = useRef(null);
   
   const handleChange = (e) => {
@@ -191,11 +182,7 @@ const JikgwanGaja = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [teamChantsCache, setTeamChantsCache] = useState({});
-  const [lineupsCache, setLineupsCache] = useState({});
   const fetchedRefs = useRef({ teamChants: {}, gameLineups: {} });
-  
-  const [players, setPlayers] = useState(null);
 
   // 컴포넌트 마운트 시 데이터 로드 추가
   useEffect(() => {
@@ -340,18 +327,12 @@ const fetchJsonData = async () => {
 };
 
   const updateCurrentLineup = () => {
-    debugLog('=== updateCurrentLineup 시작 ===');
-    debugLog('selectedDate:', selectedDate);
-    debugLog('selectedTeam:', selectedTeam);
-    debugLog('gameLineups 전체:', gameLineups);
-    debugLog('playerSongs 전체:', playerSongs);
   
     // iOS Safari 호환 날짜 정규화 함수
     const normalizeDate = (dateStr) => {
       if (!dateStr) return null;
       
       let cleanDateStr = dateStr.toString().trim();
-      debugLog('날짜 정규화 시도:', cleanDateStr);
       
       // "Tue Jun 03 2025 00:00:00 GMT+0900" 형식 처리
       if (cleanDateStr.includes('GMT')) {
@@ -364,14 +345,12 @@ const fetchJsonData = async () => {
             'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
           };
           const result = `${year}-${monthMap[month]}-${day.padStart(2, '0')}`;
-          debugLog('GMT 형식 변환 결과:', result);
           return result;
         }
       }
       
       // 이미 YYYY-MM-DD 형식이면 그대로 반환
       if (/^\d{4}-\d{2}-\d{2}$/.test(cleanDateStr)) {
-        debugLog('이미 정규 형식:', cleanDateStr);
         return cleanDateStr;
       }
       
@@ -383,19 +362,16 @@ const fetchJsonData = async () => {
           const month = String(date.getMonth() + 1).padStart(2, '0');
           const day = String(date.getDate()).padStart(2, '0');
           const result = `${year}-${month}-${day}`;
-          debugLog('Date 객체 변환 결과:', result);
           return result;
         }
       } catch (e) {
         console.error('날짜 파싱 실패:', cleanDateStr, e);
       }
       
-      debugLog('날짜 정규화 실패:', cleanDateStr);
       return null;
     };
   
     const selectedDateISO = normalizeDate(selectedDate);
-    debugLog('선택된 날짜 ISO:', selectedDateISO);
     
     if (!selectedDateISO) {
       console.warn('선택된 날짜가 유효하지 않습니다:', selectedDate);
@@ -406,13 +382,11 @@ const fetchJsonData = async () => {
     // 오늘 경기 찾기
     const todayGame = gameLineups.find(game => {
       if (!game || !game.id) {
-        debugLog('게임 ID 없음:', game);
         return false;
       }
   
       const idParts = game.id.split('_');
       if (idParts.length < 2) {
-        debugLog('잘못된 게임 ID 형식:', game.id);
         return false;
       }
   
@@ -420,26 +394,20 @@ const fetchJsonData = async () => {
       const gameTeam = idParts[idParts.length - 1];
       const gameDateISO = normalizeDate(gameDateStr);
   
-      debugLog(`게임 체크: ${game.id} -> 날짜: ${gameDateISO}, 팀: ${gameTeam}`);
-      debugLog(`매칭 체크: 날짜(${gameDateISO === selectedDateISO}), 팀(${gameTeam === selectedTeam})`);
   
       return gameDateISO === selectedDateISO && gameTeam === selectedTeam;
     });
   
-    debugLog('찾은 오늘 경기:', todayGame);
   
     // 라인업 구성 함수
     const buildLineup = (sourceGame) => {
       if (!sourceGame || !Array.isArray(sourceGame.lineup)) {
-        debugLog('유효하지 않은 소스 게임:', sourceGame);
         return [];
       }
   
-      debugLog('라인업 구성 시작:', sourceGame.lineup);
   
       const lineup = sourceGame.lineup.map((lineupPlayer, index) => {
         if (!lineupPlayer || !lineupPlayer.playerName) {
-          debugLog('유효하지 않은 선수:', lineupPlayer);
           return null;
         }
   
@@ -447,7 +415,6 @@ const fetchJsonData = async () => {
           song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
         );
   
-        debugLog(`선수 ${lineupPlayer.playerName} 응원가:`, song ? '찾음' : '없음');
   
         return {
           ...lineupPlayer,
@@ -463,19 +430,16 @@ const fetchJsonData = async () => {
         };
       }).filter(Boolean);
   
-      debugLog('구성된 라인업:', lineup);
       return lineup;
     };
   
     // 오늘 경기가 있으면 사용
     if (todayGame && Array.isArray(todayGame.lineup) && todayGame.lineup.length > 0) {
       const lineup = buildLineup(todayGame);
-      debugLog('오늘 경기 라인업 설정:', lineup);
       setCurrentLineup(lineup);
       return;
     }
   
-    debugLog('오늘 경기 없음, 이전 경기 찾기 시작');
   
     // 이전 경기 찾기
     const previousGames = gameLineups
@@ -490,7 +454,6 @@ const fetchJsonData = async () => {
         const gameDateISO = normalizeDate(gameDateStr);
         
         const isValidGame = gameDateISO && gameDateISO < selectedDateISO && gameTeam === selectedTeam;
-        debugLog(`이전 경기 체크: ${game.id} -> 유효: ${isValidGame}`);
         
         return isValidGame;
       })
@@ -500,19 +463,15 @@ const fetchJsonData = async () => {
         return dateB.localeCompare(dateA); // 최신순
       });
   
-    debugLog('찾은 이전 경기들:', previousGames);
   
     const previousGame = previousGames[0];
     if (previousGame && Array.isArray(previousGame.lineup) && previousGame.lineup.length > 0) {
       const lineup = buildLineup(previousGame);
-      debugLog('이전 경기 라인업 설정:', lineup);
       setCurrentLineup(lineup);
     } else {
-      debugLog('매칭되는 경기 없음, 빈 라인업 설정');
       setCurrentLineup([]);
     }
   
-    debugLog('=== updateCurrentLineup 종료 ===');
   };
   
   const getCurrentGame = () => {
@@ -580,19 +539,14 @@ const fetchJsonData = async () => {
   };
 
   const toggleLike = (songId) => {
-    debugLog('toggleLike 호출됨:', songId);
-    debugLog('현재 likedSongs:', likedSongs);
     
     const newLiked = new Set(likedSongs);
     if (newLiked.has(songId)) {
       newLiked.delete(songId);
-      debugLog('좋아요 제거:', songId);
     } else {
       newLiked.add(songId);
-      debugLog('좋아요 추가:', songId);
     }
     
-    debugLog('새로운 likedSongs:', newLiked);
     setLikedSongs(newLiked);
   };
 
@@ -1053,11 +1007,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
   };
   
   const LineupTab = () => {
-    debugLog('=== LineupTab 렌더링 ===');
-    debugLog('currentLineup:', currentLineup);
     
     const currentGame = getCurrentGame();
-    debugLog('LineupTab의 currentGame:', currentGame);
     
     return (
       <div className="space-y-3">
@@ -1163,8 +1114,6 @@ const LyricsSection = ({ chant, hasVideo }) => {
     const currentChant = { ...playerSongs[currentPlayer] } || {};
     
     // 디버깅용 로그
-    debugLog('PlayerTab - playSource:', playSource);
-    debugLog('PlayerTab - currentChant:', currentChant);
     
     // 라인업에서 온 경우에만 오늘의 정보로 덮어쓰기
     if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
