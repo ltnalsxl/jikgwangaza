@@ -1,25 +1,27 @@
 # JikgwanGaja
 
-JikgwanGaja is a React application for browsing KBO lineups, player walk-up songs and team chants. All information is kept in JSON files that ship with the repo so the app can run entirely offline.
+JikgwanGaja is a lightweight React application for browsing KBO lineups,
+walk-up songs and team chants. All information ships as JSON so the
+website can run entirely offline.
 
-## Updating JSON data
+## JSON-driven workflow
 
-1. Edit the JSON files inside the top level `data/` folder.
-2. Copy the updated files into `public/data/` so they are picked up by the web app:
-   ```bash
-   cp data/*.json public/data/
-   ```
-3. Commit the changes in both folders.
+The JSON files inside `data/` are the source of truth. During deployment
+these files are copied into `public/data/` so the browser can fetch them
+directly at runtime.
 
-The app reads the JSON files directly from `public/data/` at runtime.
+Data is maintained in a Google Sheet. A Google Apps Script exports the
+sheet to JSON and automatically commits the updated files to GitHub. The
+script overwrites the contents of both `data/` and `public/data/` to keep
+the repository in sync with the spreadsheet.
 
-## Basic npm commands
+## Development commands
 
 ```bash
 npm install   # install dependencies
-npm start     # start development server
+npm start     # start the development server
 npm test      # run unit tests
 npm run build # build for production
 ```
 
-Running these commands requires Node.js 20 or later.
+Node.js 20 or later is required.
