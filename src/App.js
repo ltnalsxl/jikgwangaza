@@ -177,7 +177,7 @@ const JikgwanGaja = () => {
   };
   
 
-  // Firebase 데이터 상태
+  // 데이터 상태
   const [playerSongs, setPlayerSongs] = useState([]);
   const [gameLineups, setGameLineups] = useState([]);
   const [currentLineup, setCurrentLineup] = useState([]);
@@ -1069,7 +1069,7 @@ const LyricsSection = ({ chant, hasVideo }) => {
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
             <div className="flex items-center gap-2 text-yellow-800">
               <AlertCircle className="w-5 h-5" />
-              <span className="text-sm">Firebase 연결 오류: {error}</span>
+              <span className="text-sm">데이터 로드 오류: {error}</span>
             </div>
           </div>
         )} 
