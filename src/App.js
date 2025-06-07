@@ -140,13 +140,6 @@ const JikgwanGaja = () => {
     const dd = String(today.getDate()).padStart(2, '0');
     return `${yyyy}-${mm}-${dd}`;
   });
-  const [expandedLyrics, setExpandedLyrics] = useState({});
-  const toggleLyrics = (id) => {
-    setExpandedLyrics((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
 
   const [selectedTeam, setSelectedTeam] = useState('KIA');
   const [sortBy, setSortBy] = useState('name');
@@ -160,8 +153,6 @@ const JikgwanGaja = () => {
   const [isComposing, setIsComposing] = useState(false);
   const [immediateSearch, setImmediateSearch] = useState('');
   const searchRef = useRef('');
-  const [isMuted, setIsMuted] = useState(true);
-  const [teamChantMuted, setTeamChantMuted] = useState({});
   const playerRef = useRef(null);
   
   const handleChange = (e) => {
@@ -191,23 +182,18 @@ const JikgwanGaja = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [teamChantsCache, setTeamChantsCache] = useState({});
-  const [lineupsCache, setLineupsCache] = useState({});
-  const fetchedRefs = useRef({ teamChants: {}, gameLineups: {} });
+  const fetchJsonDataCallback = useCallback(fetchJsonData, []);
+  const updateCurrentLineupCallback = useCallback(updateCurrentLineup, [selectedDate, selectedTeam, gameLineups, playerSongs]);
   
-  const [players, setPlayers] = useState(null);
-
-  // 컴포넌트 마운트 시 데이터 로드 추가
   useEffect(() => {
-    fetchJsonData();
-  }, []); // 빈 배열로 한 번만 실행
-
-  // 기존 useEffect는 그대로 유지
+    fetchJsonDataCallback();
+  }, [fetchJsonDataCallback]);
+  
   useEffect(() => {
     if (gameLineups.length > 0 && playerSongs.length > 0) {
-      updateCurrentLineup();
+      updateCurrentLineupCallback();
     }
-  }, [selectedDate, selectedTeam, gameLineups, playerSongs]);
+  }, [gameLineups, playerSongs, updateCurrentLineupCallback]);
     
 // 팀명 정규화 함수 추가
 const normalizeTeamName = (teamName) => {
@@ -838,72 +824,6 @@ const getSortedChants = () => {
         </button>
         <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all">
           <Plus className="w-4 h-4 text-gray-600" />
-        </button>
-      </div>
-    </div>
-  );
-
-  const TeamChantCard = ({ chant }) => (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow">
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex-1">
-          <h3 className="font-bold text-lg">{chant.chantTitle}</h3>
-          <p className="text-gray-600 text-sm">{chant.situation}</p>
-        </div>
-        <button
-          onClick={() => {
-            const playerIndex = teamChants.findIndex(c => c.id === chant.id);
-            setCurrentPlayer(playerIndex);
-            setPlaySource('teamChants');
-            setShowPlayer(true);
-          }}
-        >
-          <Heart 
-            className={`w-5 h-5 transition-colors ${
-              likedSongs.has(chant.id) ? 'text-red-500 fill-red-500' : 'text-gray-300'
-            }`} 
-          />
-        </button>
-      </div>
-      
-      <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1">
-            <Heart className="w-4 h-4" />
-            <span>{chant.likes.toLocaleString()}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Circle className="w-4 h-4" />
-            <span>{chant.views.toLocaleString()}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 text-yellow-400" />
-            <span>{chant.rating}</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-1">
-          <MessageCircle className="w-4 h-4" />
-          <span>{chant.comments}</span>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <button 
-          className="flex-1 bg-[#0ea5e9] text-white py-2 px-4 rounded-lg hover:bg-[#0284c7] transition-colors flex items-center justify-center gap-2"
-          onClick={() => {
-            const playerIndex = teamChants.findIndex(c => c.id === chant.id);
-            setCurrentPlayer(playerIndex);
-            setShowPlayer(true);
-          }}
-        >
-          <Play className="w-4 h-4" />
-          재생
-        </button>
-        <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-          <Share2 className="w-4 h-4" />
-        </button>
-        <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-          <Plus className="w-4 h-4" />
         </button>
       </div>
     </div>
