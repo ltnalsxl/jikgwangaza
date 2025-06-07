@@ -1,6 +1,32 @@
 import YouTube from 'react-youtube';
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, SkipForward, SkipBack, Users, Settings, Circle, Music, Search, Heart, Star, TrendingUp, Filter, Share2, Plus, MessageCircle, ThumbsUp, RefreshCw, AlertCircle, Trophy } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  SkipForward,
+  SkipBack,
+  Users,
+  Settings,
+  Circle,
+  Music,
+  Search,
+  Heart,
+  Star,
+  TrendingUp,
+  Filter,
+  Share2,
+  Plus,
+  MessageCircle,
+  ThumbsUp,
+  RefreshCw,
+  AlertCircle,
+  Trophy
+} from 'lucide-react';
+import PlayerCard from './components/PlayerCard';
+import ChantCard from './components/ChantCard';
+import LyricsSection from './components/LyricsSection';
+import TeamChantVideo from './components/TeamChantVideo';
+import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -10,118 +36,9 @@ const debugLog = (...args) => {
 };
 
 
-// JikgwanGaja 컴포넌트 시작 부분에 추가
-const getTeamInfo = (team) => {
-  const teamData = {
-    'KIA': { 
-      color: '#EA0029', 
-      text: 'KIA',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png'
-    },
-    '두산': { 
-      color: '#131230', 
-      text: '두산',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png'
-    }, 
-    'LG': { 
-      color: '#C30452', 
-      text: 'LG',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LG.png'
-    },
-    '삼성': { 
-      color: '#074CA1', 
-      text: '삼성',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png'
-    },
-    '롯데': { 
-      color: '#041E42', 
-      text: '롯데',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png'
-    },
-    'SSG': { 
-      color: '#CE0E2D', 
-      text: 'SSG',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png'
-    },
-    '키움': { 
-      color: '#570514', 
-      text: '키움',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png'
-    },
-    '한화': { 
-      color: '#FF6600', 
-      text: '한화',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png'
-    },
-    'NC': { 
-      color: '#315288', 
-      text: 'NC',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_NC.png'
-    },
-    'KT': { 
-      color: '#000000', 
-      text: 'KT',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_KT.png'
-    }
-  };
-  return teamData[team] || { 
-    color: '#0ea5e9', 
-    text: '⚾',
-    logo: null 
-  };
-};
 
-const getBattingOrder = (order, position) => {
-  // 투수(P)인 경우 타순 표시 안 함
-  if (position === 'P') {
-    return '';
-  }
-  return `${order}번타자`;
-};
 
-const getPositionKorean = (position) => {
-  const positionMap = {
-    'P': '투수',
-    'C': '포수',
-    '1B': '1루수',
-    '2B': '2루수', 
-    '3B': '3루수',
-    'SS': '유격수',
-    'LF': '좌익수',
-    'CF': '중견수',
-    'RF': '우익수',
-    'DH': '지명타자',
-    'PH': '대타',
-    'PR': '대주자'
-  };
-  return positionMap[position] || position;
-};
 
-// YouTube 컴포넌트를 분리하여 리렌더링 방지
-// TeamChantVideo 컴포넌트 수정
-// TeamChantVideo 컴포넌트를 이렇게 수정
-const TeamChantVideo = React.memo(({ youtubeId, chantTitle, opts }) => {
-  if (youtubeId && youtubeId !== '') {
-    return (
-      <div key={`container-${youtubeId}`}>
-        <YouTube
-          key={youtubeId}
-          videoId={youtubeId}
-          opts={opts}
-        />
-      </div>
-    );
-  }
-  
-  return (
-    <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
-      <div>
-        <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-        <p className="text-lg">{chantTitle}</p>
-      </div>
-    </div>
-  );
-});
 
 const JikgwanGaja = () => {
   
@@ -689,182 +606,7 @@ const getSortedChants = () => {
     }
   }
 
-  const PlayerCard = ({ player, index, isActive }) => (
-    <div 
-      className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-        isActive 
-          ? 'border-[#005BAC] bg-blue-50 shadow-lg scale-105' 
-          : 'border-gray-200 bg-white hover:border-gray-300'
-      }`}
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex-1" onClick={() => setCurrentPlayer(index)}>
-          <div className="flex items-center gap-3">
-            <span className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
-              {player.order || index + 1}
-            </span>
-            <div>
-              <h3 className="font-bold text-lg">{player.playerName}</h3>
-              <p className="text-gray-600 text-sm">{player.position}</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-        <button
-          onClick={() => {
-            const globalIndex = playerSongs.findIndex(song => 
-              song.playerName === player.playerName && song.team === selectedTeam
-            );
-            
-            // playerSongs에 선수가 있든 없든 PlayerTab으로 화면 전환
-            if (globalIndex !== -1) {
-              setCurrentPlayer(globalIndex); // 찾은 경우 해당 선수 인덱스 설정
-            } else {
-              // playerSongs에 없는 선수인 경우 임시 인덱스나 기본값 설정
-               setCurrentPlayer(0); // 예시: 임시로 첫 선수 인덱스 사용
-            }
 
-            setCurrentLineupIndex(index); // 라인업에서의 인덱스는 항상 저장
-            setPlaySource('lineup'); // 라인업 모드 설정
-            setShowPlayer(true); // ✅ 항상 화면 전환
-          }}
-            className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
-          >
-            <Play className="w-4 h-4" />
-          </button>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleLike(player.id);
-            }}
-          >
-            <Heart 
-              className={`w-5 h-5 transition-colors ${
-                likedSongs.has(player.id) ? 'text-red-500 fill-red-500' : 'text-gray-300'
-              }`} 
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-
-  const ChantCard = ({ chant }) => (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-4 hover:shadow-lg hover:border-gray-300 transition-all duration-200">
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <h3 className="font-bold text-lg text-gray-900">{chant.playerName}</h3>
-          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 mt-1">
-            <div className="flex items-center gap-1">
-              {getTeamInfo(chant.team).logo && (
-                <img 
-                  src={getTeamInfo(chant.team).logo}
-                  alt={chant.team}
-                  className="w-4 h-4 object-contain"
-                />
-              )}
-              <span className="font-medium px-2 py-1 rounded-full text-xs" style={{ 
-                backgroundColor: `${getTeamInfo(chant.team).color}15`,
-                color: getTeamInfo(chant.team).color 
-              }}>
-                {chant.team}
-              </span>
-            </div>
-            {chant.position && (
-              <>
-                <span className="text-gray-300">•</span>
-                <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                  {getPositionKorean(chant.position)}
-                </span>
-              </>
-            )}
-            {/* 좋아요 수 표시 추가 */}
-            <span className="text-gray-300">•</span>
-            <div className="flex items-center gap-1">
-              <Heart className="w-3 h-3 text-red-400" />
-              <span className="text-xs text-gray-500">{chant.likes.toLocaleString()}</span>
-            </div>
-          </div>
-        </div>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleLike(chant.id);
-          }}
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-        >
-          <Heart 
-            className={`w-5 h-5 transition-all ${
-              likedSongs.has(chant.id) 
-                ? 'text-red-500 fill-red-500 scale-110' 
-                : 'text-gray-300 hover:text-red-400'
-            }`} 
-          />
-        </button>
-      </div>
-  
-      <div className="flex items-center gap-2">
-        <button 
-          className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-          onClick={() => {
-            const playerIndex = playerSongs.findIndex(c => c.id === chant.id);
-            if (playerIndex !== -1) {
-              setCurrentPlayer(playerIndex);
-              setPlaySource('explore');
-              setShowPlayer(true);
-            }
-          }}
-        >
-          <Play className="w-4 h-4" />
-          재생
-        </button>
-        <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all">
-          <Share2 className="w-4 h-4 text-gray-600" />
-        </button>
-        <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all">
-          <Plus className="w-4 h-4 text-gray-600" />
-        </button>
-      </div>
-    </div>
-  );
-
-  // 가사 토글을 위한 별도 컴포넌트
-const LyricsSection = ({ chant, hasVideo }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  if (!chant.lyrics) return null;
-  
-  return (
-    <div className="p-4">
-      {hasVideo ? (
-        <div>
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors mb-3 font-medium"
-          >
-            <Music className="w-4 h-4" />
-            {isExpanded ? '가사 숨기기' : '가사 보기'}
-          </button>
-          {isExpanded && (
-            <div className="bg-gray-50 p-4 rounded-lg text-sm whitespace-pre-wrap text-gray-800 leading-relaxed border border-gray-200">
-              {chant.lyrics}
-            </div>
-          )}
-        </div>
-      ) : (
-        <div>
-          <div className="flex items-center gap-2 text-gray-700 mb-3 font-medium">
-            <Music className="w-4 h-4" />
-            응원가 가사
-          </div>
-          <div className="bg-gray-50 p-4 rounded-lg text-sm whitespace-pre-wrap text-gray-800 leading-relaxed border border-gray-200">
-            {chant.lyrics}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
   const TeamChantsTab = () => {
     const currentTeamChants = teamChants.filter(chant => chant.team === selectedTeam);
@@ -1030,11 +772,19 @@ const LyricsSection = ({ chant, hasVideo }) => {
             
             {currentLineup.length > 0 ? (
               currentLineup.map((player, index) => (
-                <PlayerCard 
-                  key={player.id || index} 
-                  player={player} 
-                  index={index} 
+                <PlayerCard
+                  key={player.id || index}
+                  player={player}
+                  index={index}
                   isActive={currentPlayer === index}
+                  playerSongs={playerSongs}
+                  selectedTeam={selectedTeam}
+                  setCurrentPlayer={setCurrentPlayer}
+                  setCurrentLineupIndex={setCurrentLineupIndex}
+                  setPlaySource={setPlaySource}
+                  setShowPlayer={setShowPlayer}
+                  toggleLike={toggleLike}
+                  likedSongs={likedSongs}
                 />
               ))
             ) : (
@@ -1388,7 +1138,16 @@ const LyricsSection = ({ chant, hasVideo }) => {
         )}
         
         {filteredChants.map((chant) => (
-          <ChantCard key={chant.id} chant={chant} />
+          <ChantCard
+            key={chant.id}
+            chant={chant}
+            playerSongs={playerSongs}
+            setCurrentPlayer={setCurrentPlayer}
+            setPlaySource={setPlaySource}
+            setShowPlayer={setShowPlayer}
+            toggleLike={toggleLike}
+            likedSongs={likedSongs}
+          />
         ))}
         
         {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체' || showOnlyLiked) && !isComposing && (
