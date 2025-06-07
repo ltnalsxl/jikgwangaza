@@ -41,6 +41,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.27.5",
     "@nicolo-ribaudo/eslint-scope-5-internals": "^5.1.1-v1",

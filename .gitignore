@@ -24,10 +24,10 @@
 .env.production
 .env.production.local
 
-# Firebase config (민감 정보 포함 가능)
+# Backend config (may contain sensitive info)
 firebase.js
 
-# Firebase Hosting / Functions 배포 시 생성되는 파일
+# Hosting deployment artifacts
 .firebaserc
 .firebase/
 firebase-debug.log*
