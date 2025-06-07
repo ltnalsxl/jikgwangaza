@@ -192,7 +192,7 @@ const JikgwanGaja = () => {
 
   // 컴포넌트 마운트 시 데이터 로드 추가
   useEffect(() => {
-    fetchFirebaseData();
+    fetchJsonData();
   }, []); // 빈 배열로 한 번만 실행
 
   // 기존 useEffect는 그대로 유지
@@ -246,218 +246,91 @@ const normalizeTeamName = (teamName) => {
   return teamMap[teamName] || teamName;
 };
 
-const fetchFirebaseData = async () => {
+const fetchJsonData = async () => {
   setLoading(true);
   setError(null);
-  
+
   try {
-    // 모든 데이터를 가져오기 위한 함수
-    // 🔁 fetchAllDocuments를 공통 유틸로 분리
-    const fetchAllDocuments = async (collectionName, queryParam = '') => {
-      let allDocuments = [];
-      let pageToken = null;
+    const base = process.env.PUBLIC_URL || '';
+    const [songsData, lineupsData, teamChantsData, kboPlayersData] = await Promise.all([
+      fetch(`${base}/data/playerSongs.json`).then(res => res.json()),
+      fetch(`${base}/data/gameLineups.json`).then(res => res.json()),
+      fetch(`${base}/data/teamChants.json`).then(res => res.json()),
+      fetch(`${base}/data/kboPlayers.json`).then(res => res.json())
+    ]);
 
-      do {
-        const url = new URL(`${FIREBASE_BASE_URL}/${collectionName}`);
-        url.searchParams.append('pageSize', '1000');
-        if (queryParam) {
-          url.searchParams.append('where', queryParam); // Firestore REST API 쿼리는 제한됨
-        }
-        if (pageToken) {
-          url.searchParams.append('pageToken', pageToken);
-        }
+    const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
 
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`${collectionName} 데이터를 불러올 수 없습니다: ${response.status}`);
-        }
+    const parsedSongs = Array.isArray(songsData)
+      ? songsData.map(song => {
+          const playerTeam = normalizeTeamName(song.team);
+          const kboPlayer = parsedKboPlayers.find(p =>
+            normalizeTeamName(p.teamName) === playerTeam && p.playerName === song.playerName
+          );
 
-        const data = await response.json();
-        if (data.documents) {
-          allDocuments = allDocuments.concat(data.documents);
-        }
-
-        pageToken = data.nextPageToken;
-      } while (pageToken);
-
-      return { documents: allDocuments };
-    };
-
-
-    // 모든 컬렉션 데이터 가져오기 (페이지네이션 포함)
-    console.log('🔄 Firebase 데이터 로드 시작...');
-    
-    // 병렬 처리 X → 순차 처리로 Firestore 부담 완화
-    const songsData = await fetchAllDocuments('playerSongs');
-    const lineupsData = await fetchAllDocuments('gameLineups');
-
-    // 500ms 간격 두기
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const teamChantsData = await fetchAllDocuments('teamChants');
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const kboPlayersData = await fetchAllDocuments('kboPlayers');
-
-    console.log('📊 로드된 데이터 요약:');
-    console.log(`- playerSongs: ${songsData.documents?.length || 0}개`);
-    console.log(`- gameLineups: ${lineupsData.documents?.length || 0}개`);
-    console.log(`- teamChants: ${teamChantsData.documents?.length || 0}개`);
-    console.log(`- kboPlayers: ${kboPlayersData.documents?.length || 0}개`);
- 
-    // kboPlayers 파싱 - 선수 상세 정보
-    const parsedKboPlayers = kboPlayersData.documents ? kboPlayersData.documents.map(doc => {
-      const fields = doc.fields || {};
-      return {
-        id: doc.name.split('/').pop(),
-        teamCode: fields.teamCode?.stringValue || '',
-        teamName: fields.teamName?.stringValue || '',
-        number: fields.number?.stringValue || '',
-        playerName: fields.playerName?.stringValue || '',
-        position: fields.position?.stringValue || '',
-        throwBat: fields.throwBat?.stringValue || '',
-        birth: fields.birth?.stringValue || '',
-        body: fields.body?.stringValue || '',
-        updatedAt: fields.updatedAt?.stringValue || ''
-      };
-    }) : [];
-
-    console.log(`🔍 kboPlayers 파싱 완료: ${parsedKboPlayers.length}명`);
-    
-    // 팀별 선수 수 확인
-    const playersByTeam = parsedKboPlayers.reduce((acc, player) => {
-      const team = player.teamName || '미분류';
-      acc[team] = (acc[team] || 0) + 1;
-      return acc;
-    }, {});
-    
-    console.log('👥 팀별 kboPlayers 현황:');
-    Object.entries(playersByTeam).forEach(([team, count]) => {
-      console.log(`  ${team}: ${count}명`);
-    });
- 
-    // playerSongs 파싱 - kboPlayers와 연결 (정규화된 팀명으로)
-    const parsedSongs = songsData.documents ? songsData.documents.map(doc => {
-      const fields = doc.fields || {};
-      const playerNameFromId = decodeURIComponent(doc.name.split('/').pop());
-      
-      // 팀명 정규화
-      const originalPlayerTeam = fields.team?.stringValue || '';
-      const playerTeam = normalizeTeamName(originalPlayerTeam);
-      
-      console.log(`🔍 선수 매칭 시도: ${playerNameFromId} (${originalPlayerTeam} -> ${playerTeam})`);
-      
-      // kboPlayers에서 매칭되는 선수 찾기 (정규화된 팀명으로)
-      const kboPlayer = parsedKboPlayers.find(player => {
-        const normalizedKboTeam = normalizeTeamName(player.teamName);
-        const normalizedKboCode = normalizeTeamName(player.teamCode);
-        
-        const nameMatch = player.playerName === playerNameFromId;
-        const teamMatch = normalizedKboTeam === playerTeam || normalizedKboCode === playerTeam;
-        
-        if (nameMatch && teamMatch) {
-          console.log(`✅ 매칭 성공: ${playerNameFromId} (${playerTeam}) -> kboPlayer: ${player.teamName}`);
-          return true;
-        }
-        
-        return false;
-      });
-
-      // 매칭 실패 시 디버깅 정보
-      if (!kboPlayer && playerNameFromId) {
-        console.log(`❌ 매칭 실패: ${playerNameFromId} (${playerTeam})`);
-        
-        // 같은 이름의 선수들 찾기
-        const sameNamePlayers = parsedKboPlayers.filter(p => p.playerName === playerNameFromId);
-        if (sameNamePlayers.length > 0) {
-          console.log(`  → 같은 이름 선수들:`, sameNamePlayers.map(p => `${p.teamName}(${p.teamCode})`));
-        }
-      }
-
-      return {
-        id: playerNameFromId,
-        playerName: fields.playerName?.stringValue || playerNameFromId,
-        team: playerTeam, // 정규화된 팀명 사용
-        chantTitle: fields.chantTitle?.stringValue || `${playerNameFromId} 응원가`,
-        youtubeId: fields.youtubeId?.stringValue || '',
-        type: fields.type?.stringValue || '응원가',
-        createdAt: fields.createdAt?.stringValue || '',
-        // kboPlayers에서 가져온 추가 정보
-        position: kboPlayer?.position || '',
-        number: kboPlayer?.number || '',
-        throwBat: kboPlayer?.throwBat || '',
-        birth: kboPlayer?.birth || '',
-        body: kboPlayer?.body || '',
-        teamCode: kboPlayer?.teamCode || '',
-        originalTeam: originalPlayerTeam, // 원본 팀명 보존
-        // 임시 메타데이터
-        likes: Math.floor(Math.random() * 2000) + 500,
-        views: Math.floor(Math.random() * 30000) + 5000,
-        rating: (Math.random() * 1 + 4).toFixed(1),
-        comments: Math.floor(Math.random() * 200) + 20,
-        tags: ['신나는', '쉬운', '인기'],
-        addedDate: new Date().toISOString().split('T')[0]
-      };
-    }).filter(song => song.playerName) : [];
-   
-      // gameLineups 파싱 - 기존과 동일
-      const parsedLineups = lineupsData.documents ? lineupsData.documents.map(doc => {
-        const fields = doc.fields || {};
-        const lineup = fields.lineup?.arrayValue?.values?.map(item => {
-          const lineupFields = item.mapValue?.fields || {};
           return {
-            order: parseInt(lineupFields.order?.integerValue || 0),
-            playerName: lineupFields.playerName?.stringValue || '',
-            position: lineupFields.position?.stringValue || ''
+            id: `${playerTeam}_${song.playerName}`,
+            playerName: song.playerName,
+            team: playerTeam,
+            chantTitle: song.chantTitle || `${song.playerName} 응원가`,
+            youtubeId: song.youtubeId || '',
+            type: song.type || '응원가',
+            createdAt: song.createdAt || '',
+            position: kboPlayer?.position || '',
+            number: kboPlayer?.number || '',
+            throwBat: kboPlayer?.throwBat || '',
+            birth: kboPlayer?.birth || '',
+            body: kboPlayer?.body || '',
+            teamCode: kboPlayer?.teamCode || '',
+            originalTeam: song.team,
+            likes: Math.floor(Math.random() * 2000) + 500,
+            views: Math.floor(Math.random() * 30000) + 5000,
+            rating: (Math.random() * 1 + 4).toFixed(1),
+            comments: Math.floor(Math.random() * 200) + 20,
+            tags: ['신나는', '쉬운', '인기'],
+            addedDate: new Date().toISOString().split('T')[0]
           };
-        }) || [];
-   
-        return {
-          id: doc.name.split('/').pop(),
-          date: fields.date?.stringValue || '',
-          team: fields.team?.stringValue || '',
-          home: fields.home?.stringValue || '',
-          away: fields.away?.stringValue || '',
-          location: fields.location?.stringValue || '',
-          lineup: lineup.sort((a, b) => a.order - b.order)
-        };
-      }) : [];
-   
-      // teamChants 파싱
-      // teamChants 파싱
-      const parsedTeamChants = teamChantsData.documents ? teamChantsData.documents.map(doc => {
-        const fields = doc.fields || {};
-        return {
-          id: doc.name.split('/').pop(),
-          team: fields.team?.stringValue || '',
-          situation: fields.situation?.stringValue || '',
-          chantTitle: fields.chantTitle?.stringValue || '',
-          youtubeId: fields.youtubeId?.stringValue || '',
-          createdAt: fields.createdAt?.timestampValue || '',
-          lyrics: fields.lyrics?.stringValue || '', // ✅ ✅ ✅ 여기 추가
-          // 임시 메타데이터
+        })
+      : [];
+
+    const parsedLineups = Array.isArray(lineupsData)
+      ? lineupsData.map(game => ({
+          id: game.id,
+          date: game.date,
+          team: game.team,
+          home: game.home,
+          away: game.away,
+          location: game.location,
+          lineup: Array.isArray(game.lineup) ? game.lineup.sort((a, b) => a.order - b.order) : []
+        }))
+      : [];
+
+    const parsedTeamChants = Array.isArray(teamChantsData)
+      ? teamChantsData.map((chant, idx) => ({
+          id: chant.id || `${chant.team}_${idx}`,
+          team: chant.team,
+          situation: chant.situation,
+          chantTitle: chant.chantTitle,
+          youtubeId: chant.youtubeId,
+          createdAt: chant.createdAt,
+          lyrics: chant.lyrics,
           likes: Math.floor(Math.random() * 3000) + 1000,
           views: Math.floor(Math.random() * 50000) + 10000,
           rating: (Math.random() * 1 + 4).toFixed(1),
           comments: Math.floor(Math.random() * 200) + 50
-        };
-      }) : [];
+        }))
+      : [];
 
-   
-      console.log('파싱된 kboPlayers:', parsedKboPlayers);
-      console.log('연결된 playerSongs:', parsedSongs);
-      console.log('파싱된 gameLineups:', parsedLineups);
-      console.log('파싱된 teamChants:', parsedTeamChants);
-   
-      setPlayerSongs(parsedSongs);
-      setGameLineups(parsedLineups);
-      setTeamChants(parsedTeamChants);
-      
-    } catch (err) {
-      console.error('Firebase 데이터 로드 오류:', err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-   };
+    setPlayerSongs(parsedSongs);
+    setGameLineups(parsedLineups);
+    setTeamChants(parsedTeamChants);
+  } catch (err) {
+    console.error('JSON 데이터 로드 오류:', err);
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const updateCurrentLineup = () => {
     console.log('=== updateCurrentLineup 시작 ===');
@@ -1105,8 +978,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"> {/* 배경 추가 */}
               {filteredChants.length}개
             </span>
-            <button 
-              onClick={fetchFirebaseData}
+            <button
+              onClick={fetchJsonData}
               className="p-2 text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded-full" // hover:bg-blue-50 rounded-full 추가
             >
               <RefreshCw className="w-4 h-4" />
@@ -1183,8 +1056,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
       <div className="space-y-3">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-800">오늘의 라인업</h2>
-          <button 
-            onClick={fetchFirebaseData}
+          <button
+            onClick={fetchJsonData}
             className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
@@ -1570,8 +1443,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
         </h2>
         <div className="flex items-center gap-2">
           <span className="text-sm text-gray-500">{filteredChants.length}개</span>
-          <button 
-            onClick={fetchFirebaseData}
+          <button
+            onClick={fetchJsonData}
             className="p-1 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
@@ -1690,8 +1563,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
             </span>
           )}
         </button>
-        <button 
-          onClick={fetchFirebaseData}
+        <button
+          onClick={fetchJsonData}
           className="bg-gray-100 rounded-full p-2 hover:bg-gray-200 transition-colors"
         >
           <RefreshCw className="w-5 h-5 text-gray-600" />
