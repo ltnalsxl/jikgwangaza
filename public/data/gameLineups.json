@@ -1,13 +1,1302 @@
 [
   {
-    "id": "2024-06-01_KIA",
-    "date": "2024-06-01",
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_KIA",
+    "date": "2025-06-02T15:00:00.000Z",
     "team": "KIA",
-    "home": "KIA",
+    "home": "두산",
+    "away": "KIA",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "박찬호",
+        "position": "유격수"
+      },
+      {
+        "order": 2,
+        "playerName": "최원준",
+        "position": "우익수"
+      },
+      {
+        "order": 3,
+        "playerName": "윤도현",
+        "position": "2루수"
+      },
+      {
+        "order": 4,
+        "playerName": "위즈덤",
+        "position": "3루수"
+      },
+      {
+        "order": 5,
+        "playerName": "오선우",
+        "position": "지명타자"
+      },
+      {
+        "order": 6,
+        "playerName": "김석환",
+        "position": "좌익수"
+      },
+      {
+        "order": 7,
+        "playerName": "황대인",
+        "position": "1루수"
+      },
+      {
+        "order": 8,
+        "playerName": "김태군",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "김호령",
+        "position": "중견수"
+      },
+      {
+        "order": 10,
+        "playerName": "양현종",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_두산",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "두산",
+    "home": "두산",
+    "away": "KIA",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "정수빈",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "김대한",
+        "position": "좌익수"
+      },
+      {
+        "order": 3,
+        "playerName": "케이브",
+        "position": "우익수"
+      },
+      {
+        "order": 4,
+        "playerName": "김재환",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "김기연",
+        "position": "포수"
+      },
+      {
+        "order": 6,
+        "playerName": "임종성",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "김민혁",
+        "position": "1루수"
+      },
+      {
+        "order": 8,
+        "playerName": "김준상",
+        "position": "2루수"
+      },
+      {
+        "order": 9,
+        "playerName": "박준순",
+        "position": "유격수"
+      },
+      {
+        "order": 10,
+        "playerName": "곽빈",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_NC",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "NC",
+    "home": "NC",
+    "away": "LG",
+    "location": "창원",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "한석현",
+        "position": "우익수"
+      },
+      {
+        "order": 2,
+        "playerName": "김주원",
+        "position": "유격수"
+      },
+      {
+        "order": 3,
+        "playerName": "박건우",
+        "position": "지명타자"
+      },
+      {
+        "order": 4,
+        "playerName": "데이비슨",
+        "position": "1루수"
+      },
+      {
+        "order": 5,
+        "playerName": "권희동",
+        "position": "좌익수"
+      },
+      {
+        "order": 6,
+        "playerName": "김휘집",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "천재환",
+        "position": "중견수"
+      },
+      {
+        "order": 8,
+        "playerName": "김형준",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "김한별",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "목지훈",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_LG",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "LG",
+    "home": "NC",
+    "away": "LG",
+    "location": "창원",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "박해민",
+        "position": "CF"
+      },
+      {
+        "order": 2,
+        "playerName": "김현수",
+        "position": "LF"
+      },
+      {
+        "order": 3,
+        "playerName": "오스틴",
+        "position": "1B"
+      },
+      {
+        "order": 4,
+        "playerName": "문보경",
+        "position": "DH"
+      },
+      {
+        "order": 5,
+        "playerName": "박동원",
+        "position": "C"
+      },
+      {
+        "order": 6,
+        "playerName": "오지환",
+        "position": "SS"
+      },
+      {
+        "order": 7,
+        "playerName": "문성주",
+        "position": "RF"
+      },
+      {
+        "order": 8,
+        "playerName": "구본혁",
+        "position": "3B"
+      },
+      {
+        "order": 9,
+        "playerName": "신민재",
+        "position": "2B"
+      },
+      {
+        "order": 10,
+        "playerName": "송승기",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_키움",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "키움",
+    "home": "롯데",
+    "away": "키움",
+    "location": "사직",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "송성문",
+        "position": "3루수"
+      },
+      {
+        "order": 2,
+        "playerName": "최주환",
+        "position": "지명타자"
+      },
+      {
+        "order": 3,
+        "playerName": "임지열",
+        "position": "우익수"
+      },
+      {
+        "order": 4,
+        "playerName": "김건희",
+        "position": "포수"
+      },
+      {
+        "order": 5,
+        "playerName": "이형종",
+        "position": "좌익수"
+      },
+      {
+        "order": 6,
+        "playerName": "오선진",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "송지후",
+        "position": "2루수"
+      },
+      {
+        "order": 8,
+        "playerName": "어준서",
+        "position": "유격수"
+      },
+      {
+        "order": 9,
+        "playerName": "박수종",
+        "position": "중견수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_롯데",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "롯데",
+    "home": "롯데",
+    "away": "키움",
+    "location": "사직",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "장두성",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "고승민",
+        "position": "2루수"
+      },
+      {
+        "order": 3,
+        "playerName": "레이예스",
+        "position": "좌익수"
+      },
+      {
+        "order": 4,
+        "playerName": "전준우",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "윤동희",
+        "position": "우익수"
+      },
+      {
+        "order": 6,
+        "playerName": "전민재",
+        "position": "유격수"
+      },
+      {
+        "order": 7,
+        "playerName": "손호영",
+        "position": "3루수"
+      },
+      {
+        "order": 8,
+        "playerName": "유강남",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "정훈",
+        "position": "1루수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_삼성",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "삼성",
+    "home": "SSG",
+    "away": "삼성",
+    "location": "문학",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "김지찬",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "류지혁",
+        "position": "2루수"
+      },
+      {
+        "order": 3,
+        "playerName": "박승규",
+        "position": "우익수"
+      },
+      {
+        "order": 4,
+        "playerName": "디아즈",
+        "position": "1루수"
+      },
+      {
+        "order": 5,
+        "playerName": "강민호",
+        "position": "포수"
+      },
+      {
+        "order": 6,
+        "playerName": "구자욱",
+        "position": "좌익수"
+      },
+      {
+        "order": 7,
+        "playerName": "김영웅",
+        "position": "지명타자"
+      },
+      {
+        "order": 8,
+        "playerName": "이재현",
+        "position": "유격수"
+      },
+      {
+        "order": 9,
+        "playerName": "양도근",
+        "position": "3루수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_SSG",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "SSG",
+    "home": "SSG",
+    "away": "삼성",
+    "location": "문학",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "최지훈",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "에레디아",
+        "position": "좌익수"
+      },
+      {
+        "order": 3,
+        "playerName": "최정",
+        "position": "지명타자"
+      },
+      {
+        "order": 4,
+        "playerName": "한유섬",
+        "position": "우익수"
+      },
+      {
+        "order": 5,
+        "playerName": "고명준",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "박성한",
+        "position": "유격수"
+      },
+      {
+        "order": 7,
+        "playerName": "이지영",
+        "position": "포수"
+      },
+      {
+        "order": 8,
+        "playerName": "정준재",
+        "position": "2루수"
+      },
+      {
+        "order": 9,
+        "playerName": "김찬형",
+        "position": "3루수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_KT",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "KT",
+    "home": "한화",
+    "away": "KT",
+    "location": "대전",
+    "lineup": [
+      {
+        "order": 10,
+        "playerName": "쿠에바스",
+        "position": "투수"
+      },
+      {
+        "order": 1,
+        "playerName": "김민혁",
+        "position": "좌익수"
+      },
+      {
+        "order": 2,
+        "playerName": "이정훈",
+        "position": "1루수"
+      },
+      {
+        "order": 3,
+        "playerName": "안현민",
+        "position": "우익수"
+      },
+      {
+        "order": 4,
+        "playerName": "로하스",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "허경민",
+        "position": "3루수"
+      },
+      {
+        "order": 6,
+        "playerName": "장성우",
+        "position": "포수"
+      },
+      {
+        "order": 7,
+        "playerName": "장진혁",
+        "position": "중견수"
+      },
+      {
+        "order": 8,
+        "playerName": "박민석",
+        "position": "2루수"
+      },
+      {
+        "order": 9,
+        "playerName": "권동진",
+        "position": "유격수"
+      }
+    ]
+  },
+  {
+    "id": "Tue Jun 03 2025 00:00:00 GMT+0900 (Korean Standard Time)_한화",
+    "date": "2025-06-02T15:00:00.000Z",
+    "team": "한화",
+    "home": "한화",
+    "away": "KT",
+    "location": "대전",
+    "lineup": [
+      {
+        "order": 10,
+        "playerName": "폰세",
+        "position": "투수"
+      },
+      {
+        "order": 1,
+        "playerName": "플로리얼",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "하주석",
+        "position": "유격수"
+      },
+      {
+        "order": 3,
+        "playerName": "문현빈",
+        "position": "좌익수"
+      },
+      {
+        "order": 4,
+        "playerName": "노시환",
+        "position": "3루수"
+      },
+      {
+        "order": 5,
+        "playerName": "채은성",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "이진영",
+        "position": "우익수"
+      },
+      {
+        "order": 7,
+        "playerName": "최인호",
+        "position": "지명타자"
+      },
+      {
+        "order": 8,
+        "playerName": "최재훈",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "이도윤",
+        "position": "2루수"
+      }
+    ]
+  },
+  {
+    "id": "Wed Jun 04 2025 00:00:00 GMT+0900 (Korean Standard Time)_KIA",
+    "date": "2025-06-03T15:00:00.000Z",
+    "team": "KIA",
+    "home": "두산",
+    "away": "KIA",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "박찬호",
+        "position": "유격수"
+      },
+      {
+        "order": 2,
+        "playerName": "최원준",
+        "position": "우익수"
+      },
+      {
+        "order": 3,
+        "playerName": "윤도현",
+        "position": "2루수"
+      },
+      {
+        "order": 4,
+        "playerName": "최형우",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "오선우",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "위즈덤",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "김석환",
+        "position": "좌익수"
+      },
+      {
+        "order": 8,
+        "playerName": "김태군",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "김호령",
+        "position": "중견수"
+      },
+      {
+        "order": 10,
+        "playerName": "네일",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Wed Jun 04 2025 00:00:00 GMT+0900 (Korean Standard Time)_두산",
+    "date": "2025-06-03T15:00:00.000Z",
+    "team": "두산",
+    "home": "두산",
+    "away": "KIA",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "정수빈",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "케이브",
+        "position": "우익수"
+      },
+      {
+        "order": 3,
+        "playerName": "양의지",
+        "position": "포수"
+      },
+      {
+        "order": 4,
+        "playerName": "김재환",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "김민석",
+        "position": "좌익수"
+      },
+      {
+        "order": 6,
+        "playerName": "김민혁",
+        "position": "1루수"
+      },
+      {
+        "order": 7,
+        "playerName": "이선우",
+        "position": "유격수"
+      },
+      {
+        "order": 8,
+        "playerName": "박준순",
+        "position": "3루수"
+      },
+      {
+        "order": 9,
+        "playerName": "김준상",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "최민석",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_롯데",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "롯데",
+    "home": "두산",
     "away": "롯데",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "김동혁",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "고승민",
+        "position": "1루수"
+      },
+      {
+        "order": 3,
+        "playerName": "레이예스",
+        "position": "지명타자"
+      },
+      {
+        "order": 4,
+        "playerName": "전준우",
+        "position": "좌익수"
+      },
+      {
+        "order": 5,
+        "playerName": "전민재",
+        "position": "유격수"
+      },
+      {
+        "order": 6,
+        "playerName": "손호영",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "유강남",
+        "position": "포수"
+      },
+      {
+        "order": 8,
+        "playerName": "한태양",
+        "position": "2루수"
+      },
+      {
+        "order": 9,
+        "playerName": "한승현",
+        "position": "우익수"
+      },
+      {
+        "order": 10,
+        "playerName": "나균안",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_두산",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "두산",
+    "home": "두산",
+    "away": "롯데",
+    "location": "잠실",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "케이브",
+        "position": "우익수"
+      },
+      {
+        "order": 2,
+        "playerName": "김동준",
+        "position": "지명타자"
+      },
+      {
+        "order": 3,
+        "playerName": "양의지",
+        "position": "포수"
+      },
+      {
+        "order": 4,
+        "playerName": "김재환",
+        "position": "좌익수"
+      },
+      {
+        "order": 5,
+        "playerName": "김민석",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "박준순",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "김대한",
+        "position": "중견수"
+      },
+      {
+        "order": 8,
+        "playerName": "박계범",
+        "position": "유격수"
+      },
+      {
+        "order": 9,
+        "playerName": "여동건",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "잭로그",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_NC",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "NC",
+    "home": "삼성",
+    "away": "NC",
+    "location": "대구",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "권희동",
+        "position": "좌익수"
+      },
+      {
+        "order": 2,
+        "playerName": "김주원",
+        "position": "유격수"
+      },
+      {
+        "order": 3,
+        "playerName": "박민우",
+        "position": "2루수"
+      },
+      {
+        "order": 4,
+        "playerName": "데이비슨",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "박건우",
+        "position": "우익수"
+      },
+      {
+        "order": 6,
+        "playerName": "오영수",
+        "position": "1루수"
+      },
+      {
+        "order": 7,
+        "playerName": "천재환",
+        "position": "중견수"
+      },
+      {
+        "order": 8,
+        "playerName": "김형준",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "김휘집",
+        "position": "3루수"
+      },
+      {
+        "order": 10,
+        "playerName": "김녹원",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_삼성",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "삼성",
+    "home": "삼성",
+    "away": "NC",
+    "location": "대구",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "김지찬",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "김태훈",
+        "position": "우익수"
+      },
+      {
+        "order": 3,
+        "playerName": "구자욱",
+        "position": "좌익수"
+      },
+      {
+        "order": 4,
+        "playerName": "디아즈",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "강민호",
+        "position": "포수"
+      },
+      {
+        "order": 6,
+        "playerName": "김영웅",
+        "position": "3루수"
+      },
+      {
+        "order": 7,
+        "playerName": "이재현",
+        "position": "유격수"
+      },
+      {
+        "order": 8,
+        "playerName": "류지혁",
+        "position": "1루수"
+      },
+      {
+        "order": 9,
+        "playerName": "양도근",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "원태인",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_SSG",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "SSG",
+    "home": "KT",
+    "away": "SSG",
+    "location": "수원",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "최지훈",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "에레디아",
+        "position": "좌익수"
+      },
+      {
+        "order": 3,
+        "playerName": "최정",
+        "position": "지명타자"
+      },
+      {
+        "order": 4,
+        "playerName": "한유섬",
+        "position": "우익수"
+      },
+      {
+        "order": 5,
+        "playerName": "고명준",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "박성한",
+        "position": "유격수"
+      },
+      {
+        "order": 7,
+        "playerName": "조형우",
+        "position": "포수"
+      },
+      {
+        "order": 8,
+        "playerName": "정준재",
+        "position": "2루수"
+      },
+      {
+        "order": 9,
+        "playerName": "김찬형",
+        "position": "3루수"
+      },
+      {
+        "order": 10,
+        "playerName": "전형준",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_KT",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "KT",
+    "home": "KT",
+    "away": "SSG",
+    "location": "수원",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "배정대",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "천성호",
+        "position": "2루수"
+      },
+      {
+        "order": 3,
+        "playerName": "안현민",
+        "position": "우익수"
+      },
+      {
+        "order": 4,
+        "playerName": "로하스",
+        "position": "좌익수"
+      },
+      {
+        "order": 5,
+        "playerName": "장성우",
+        "position": "포수"
+      },
+      {
+        "order": 6,
+        "playerName": "이정훈",
+        "position": "지명타자"
+      },
+      {
+        "order": 7,
+        "playerName": "허경민",
+        "position": "3루수"
+      },
+      {
+        "order": 8,
+        "playerName": "오윤석",
+        "position": "1루수"
+      },
+      {
+        "order": 9,
+        "playerName": "권동진",
+        "position": "유격수"
+      },
+      {
+        "order": 10,
+        "playerName": "소형준",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_한화",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "한화",
+    "home": "KIA",
+    "away": "한화",
     "location": "광주",
     "lineup": [
-      {"order": 1, "playerName": "김선빈", "position": "SS"}
+      {
+        "order": 1,
+        "playerName": "플로리얼",
+        "position": "중견수"
+      },
+      {
+        "order": 2,
+        "playerName": "최인호",
+        "position": "지명타자"
+      },
+      {
+        "order": 3,
+        "playerName": "문현빈",
+        "position": "좌익수"
+      },
+      {
+        "order": 4,
+        "playerName": "노시환",
+        "position": "3루수"
+      },
+      {
+        "order": 5,
+        "playerName": "채은성",
+        "position": "1루수"
+      },
+      {
+        "order": 6,
+        "playerName": "이진영",
+        "position": "우익수"
+      },
+      {
+        "order": 7,
+        "playerName": "하주석",
+        "position": "유격수"
+      },
+      {
+        "order": 8,
+        "playerName": "최재훈",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "이도윤",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "엄상백",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_KIA",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "KIA",
+    "home": "KIA",
+    "away": "한화",
+    "location": "광주",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "박찬호",
+        "position": "유격수"
+      },
+      {
+        "order": 2,
+        "playerName": "최원준",
+        "position": "중견수"
+      },
+      {
+        "order": 3,
+        "playerName": "오선우",
+        "position": "1루수"
+      },
+      {
+        "order": 4,
+        "playerName": "최형우",
+        "position": "지명타자"
+      },
+      {
+        "order": 5,
+        "playerName": "위즈덤",
+        "position": "3루수"
+      },
+      {
+        "order": 6,
+        "playerName": "고종욱",
+        "position": "좌익수"
+      },
+      {
+        "order": 7,
+        "playerName": "김석환",
+        "position": "우익수"
+      },
+      {
+        "order": 8,
+        "playerName": "김태군",
+        "position": "포수"
+      },
+      {
+        "order": 9,
+        "playerName": "윤도현",
+        "position": "2루수"
+      },
+      {
+        "order": 10,
+        "playerName": "윤영철",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_LG",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "LG",
+    "home": "키움",
+    "away": "LG",
+    "location": "고척",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "2루수",
+        "position": "신민재"
+      },
+      {
+        "order": 2,
+        "playerName": "우익수",
+        "position": "송찬의"
+      },
+      {
+        "order": 3,
+        "playerName": "1루수",
+        "position": "오스틴"
+      },
+      {
+        "order": 4,
+        "playerName": "지명타자",
+        "position": "문보경"
+      },
+      {
+        "order": 5,
+        "playerName": "포수",
+        "position": "박동원"
+      },
+      {
+        "order": 6,
+        "playerName": "좌익수",
+        "position": "문성주"
+      },
+      {
+        "order": 7,
+        "playerName": "3루수",
+        "position": "문정빈"
+      },
+      {
+        "order": 8,
+        "playerName": "유격수",
+        "position": "구본혁"
+      },
+      {
+        "order": 9,
+        "playerName": "중견수",
+        "position": "박해민"
+      },
+      {
+        "order": 10,
+        "playerName": "치리노스",
+        "position": "투수"
+      }
+    ]
+  },
+  {
+    "id": "Fri Jun 06 2025 00:00:00 GMT+0900 (Korean Standard Time)_키움",
+    "date": "2025-06-05T15:00:00.000Z",
+    "team": "키움",
+    "home": "키움",
+    "away": "LG",
+    "location": "고척",
+    "lineup": [
+      {
+        "order": 1,
+        "playerName": "3루수",
+        "position": "송성문"
+      },
+      {
+        "order": 2,
+        "playerName": "1루수",
+        "position": "최주환"
+      },
+      {
+        "order": 3,
+        "playerName": "중견수",
+        "position": "이주형"
+      },
+      {
+        "order": 4,
+        "playerName": "지명타자",
+        "position": "김동엽"
+      },
+      {
+        "order": 5,
+        "playerName": "좌익수",
+        "position": "임지열"
+      },
+      {
+        "order": 6,
+        "playerName": "우익수",
+        "position": "원성준"
+      },
+      {
+        "order": 7,
+        "playerName": "2루수",
+        "position": "송지후"
+      },
+      {
+        "order": 8,
+        "playerName": "포수",
+        "position": "김건희"
+      },
+      {
+        "order": 9,
+        "playerName": "유격수",
+        "position": "어준서"
+      },
+      {
+        "order": 10,
+        "playerName": "로젠버그",
+        "position": "투수"
+      }
     ]
   }
 ]
