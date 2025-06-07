@@ -2,6 +2,13 @@ import YouTube from 'react-youtube';
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Users, Settings, Circle, Music, Search, Heart, Star, TrendingUp, Filter, Share2, Plus, MessageCircle, ThumbsUp, RefreshCw, AlertCircle, Trophy } from 'lucide-react';
 
+// simple helper to avoid logs in production
+const debugLog = (...args) => {
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(...args);
+  }
+};
+
 
 // JikgwanGaja 컴포넌트 시작 부분에 추가
 const getTeamInfo = (team) => {
@@ -333,18 +340,18 @@ const fetchJsonData = async () => {
 };
 
   const updateCurrentLineup = () => {
-    console.log('=== updateCurrentLineup 시작 ===');
-    console.log('selectedDate:', selectedDate);
-    console.log('selectedTeam:', selectedTeam);
-    console.log('gameLineups 전체:', gameLineups);
-    console.log('playerSongs 전체:', playerSongs);
+    debugLog('=== updateCurrentLineup 시작 ===');
+    debugLog('selectedDate:', selectedDate);
+    debugLog('selectedTeam:', selectedTeam);
+    debugLog('gameLineups 전체:', gameLineups);
+    debugLog('playerSongs 전체:', playerSongs);
   
     // iOS Safari 호환 날짜 정규화 함수
     const normalizeDate = (dateStr) => {
       if (!dateStr) return null;
       
       let cleanDateStr = dateStr.toString().trim();
-      console.log('날짜 정규화 시도:', cleanDateStr);
+      debugLog('날짜 정규화 시도:', cleanDateStr);
       
       // "Tue Jun 03 2025 00:00:00 GMT+0900" 형식 처리
       if (cleanDateStr.includes('GMT')) {
@@ -357,14 +364,14 @@ const fetchJsonData = async () => {
             'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
           };
           const result = `${year}-${monthMap[month]}-${day.padStart(2, '0')}`;
-          console.log('GMT 형식 변환 결과:', result);
+          debugLog('GMT 형식 변환 결과:', result);
           return result;
         }
       }
       
       // 이미 YYYY-MM-DD 형식이면 그대로 반환
       if (/^\d{4}-\d{2}-\d{2}$/.test(cleanDateStr)) {
-        console.log('이미 정규 형식:', cleanDateStr);
+        debugLog('이미 정규 형식:', cleanDateStr);
         return cleanDateStr;
       }
       
@@ -376,19 +383,19 @@ const fetchJsonData = async () => {
           const month = String(date.getMonth() + 1).padStart(2, '0');
           const day = String(date.getDate()).padStart(2, '0');
           const result = `${year}-${month}-${day}`;
-          console.log('Date 객체 변환 결과:', result);
+          debugLog('Date 객체 변환 결과:', result);
           return result;
         }
       } catch (e) {
         console.error('날짜 파싱 실패:', cleanDateStr, e);
       }
       
-      console.log('날짜 정규화 실패:', cleanDateStr);
+      debugLog('날짜 정규화 실패:', cleanDateStr);
       return null;
     };
   
     const selectedDateISO = normalizeDate(selectedDate);
-    console.log('선택된 날짜 ISO:', selectedDateISO);
+    debugLog('선택된 날짜 ISO:', selectedDateISO);
     
     if (!selectedDateISO) {
       console.warn('선택된 날짜가 유효하지 않습니다:', selectedDate);
@@ -399,13 +406,13 @@ const fetchJsonData = async () => {
     // 오늘 경기 찾기
     const todayGame = gameLineups.find(game => {
       if (!game || !game.id) {
-        console.log('게임 ID 없음:', game);
+        debugLog('게임 ID 없음:', game);
         return false;
       }
   
       const idParts = game.id.split('_');
       if (idParts.length < 2) {
-        console.log('잘못된 게임 ID 형식:', game.id);
+        debugLog('잘못된 게임 ID 형식:', game.id);
         return false;
       }
   
@@ -413,26 +420,26 @@ const fetchJsonData = async () => {
       const gameTeam = idParts[idParts.length - 1];
       const gameDateISO = normalizeDate(gameDateStr);
   
-      console.log(`게임 체크: ${game.id} -> 날짜: ${gameDateISO}, 팀: ${gameTeam}`);
-      console.log(`매칭 체크: 날짜(${gameDateISO === selectedDateISO}), 팀(${gameTeam === selectedTeam})`);
+      debugLog(`게임 체크: ${game.id} -> 날짜: ${gameDateISO}, 팀: ${gameTeam}`);
+      debugLog(`매칭 체크: 날짜(${gameDateISO === selectedDateISO}), 팀(${gameTeam === selectedTeam})`);
   
       return gameDateISO === selectedDateISO && gameTeam === selectedTeam;
     });
   
-    console.log('찾은 오늘 경기:', todayGame);
+    debugLog('찾은 오늘 경기:', todayGame);
   
     // 라인업 구성 함수
     const buildLineup = (sourceGame) => {
       if (!sourceGame || !Array.isArray(sourceGame.lineup)) {
-        console.log('유효하지 않은 소스 게임:', sourceGame);
+        debugLog('유효하지 않은 소스 게임:', sourceGame);
         return [];
       }
   
-      console.log('라인업 구성 시작:', sourceGame.lineup);
+      debugLog('라인업 구성 시작:', sourceGame.lineup);
   
       const lineup = sourceGame.lineup.map((lineupPlayer, index) => {
         if (!lineupPlayer || !lineupPlayer.playerName) {
-          console.log('유효하지 않은 선수:', lineupPlayer);
+          debugLog('유효하지 않은 선수:', lineupPlayer);
           return null;
         }
   
@@ -440,7 +447,7 @@ const fetchJsonData = async () => {
           song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
         );
   
-        console.log(`선수 ${lineupPlayer.playerName} 응원가:`, song ? '찾음' : '없음');
+        debugLog(`선수 ${lineupPlayer.playerName} 응원가:`, song ? '찾음' : '없음');
   
         return {
           ...lineupPlayer,
@@ -456,19 +463,19 @@ const fetchJsonData = async () => {
         };
       }).filter(Boolean);
   
-      console.log('구성된 라인업:', lineup);
+      debugLog('구성된 라인업:', lineup);
       return lineup;
     };
   
     // 오늘 경기가 있으면 사용
     if (todayGame && Array.isArray(todayGame.lineup) && todayGame.lineup.length > 0) {
       const lineup = buildLineup(todayGame);
-      console.log('오늘 경기 라인업 설정:', lineup);
+      debugLog('오늘 경기 라인업 설정:', lineup);
       setCurrentLineup(lineup);
       return;
     }
   
-    console.log('오늘 경기 없음, 이전 경기 찾기 시작');
+    debugLog('오늘 경기 없음, 이전 경기 찾기 시작');
   
     // 이전 경기 찾기
     const previousGames = gameLineups
@@ -483,7 +490,7 @@ const fetchJsonData = async () => {
         const gameDateISO = normalizeDate(gameDateStr);
         
         const isValidGame = gameDateISO && gameDateISO < selectedDateISO && gameTeam === selectedTeam;
-        console.log(`이전 경기 체크: ${game.id} -> 유효: ${isValidGame}`);
+        debugLog(`이전 경기 체크: ${game.id} -> 유효: ${isValidGame}`);
         
         return isValidGame;
       })
@@ -493,19 +500,19 @@ const fetchJsonData = async () => {
         return dateB.localeCompare(dateA); // 최신순
       });
   
-    console.log('찾은 이전 경기들:', previousGames);
+    debugLog('찾은 이전 경기들:', previousGames);
   
     const previousGame = previousGames[0];
     if (previousGame && Array.isArray(previousGame.lineup) && previousGame.lineup.length > 0) {
       const lineup = buildLineup(previousGame);
-      console.log('이전 경기 라인업 설정:', lineup);
+      debugLog('이전 경기 라인업 설정:', lineup);
       setCurrentLineup(lineup);
     } else {
-      console.log('매칭되는 경기 없음, 빈 라인업 설정');
+      debugLog('매칭되는 경기 없음, 빈 라인업 설정');
       setCurrentLineup([]);
     }
   
-    console.log('=== updateCurrentLineup 종료 ===');
+    debugLog('=== updateCurrentLineup 종료 ===');
   };
   
   const getCurrentGame = () => {
@@ -573,19 +580,19 @@ const fetchJsonData = async () => {
   };
 
   const toggleLike = (songId) => {
-    console.log('toggleLike 호출됨:', songId);
-    console.log('현재 likedSongs:', likedSongs);
+    debugLog('toggleLike 호출됨:', songId);
+    debugLog('현재 likedSongs:', likedSongs);
     
     const newLiked = new Set(likedSongs);
     if (newLiked.has(songId)) {
       newLiked.delete(songId);
-      console.log('좋아요 제거:', songId);
+      debugLog('좋아요 제거:', songId);
     } else {
       newLiked.add(songId);
-      console.log('좋아요 추가:', songId);
+      debugLog('좋아요 추가:', songId);
     }
     
-    console.log('새로운 likedSongs:', newLiked);
+    debugLog('새로운 likedSongs:', newLiked);
     setLikedSongs(newLiked);
   };
 
@@ -1046,11 +1053,11 @@ const LyricsSection = ({ chant, hasVideo }) => {
   };
   
   const LineupTab = () => {
-    console.log('=== LineupTab 렌더링 ===');
-    console.log('currentLineup:', currentLineup);
+    debugLog('=== LineupTab 렌더링 ===');
+    debugLog('currentLineup:', currentLineup);
     
     const currentGame = getCurrentGame();
-    console.log('LineupTab의 currentGame:', currentGame);
+    debugLog('LineupTab의 currentGame:', currentGame);
     
     return (
       <div className="space-y-3">
@@ -1156,8 +1163,8 @@ const LyricsSection = ({ chant, hasVideo }) => {
     const currentChant = { ...playerSongs[currentPlayer] } || {};
     
     // 디버깅용 로그
-    console.log('PlayerTab - playSource:', playSource);
-    console.log('PlayerTab - currentChant:', currentChant);
+    debugLog('PlayerTab - playSource:', playSource);
+    debugLog('PlayerTab - currentChant:', currentChant);
     
     // 라인업에서 온 경우에만 오늘의 정보로 덮어쓰기
     if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
