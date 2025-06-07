@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci && npm run build
+      - run: npm ci
+      - run: CI=false npm run build
       - run: npm install -g firebase-tools
       - run: firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}"
