@@ -1,5 +1,6 @@
 import YouTube from 'react-youtube';
 import React, { useState, useRef, useEffect } from 'react';
+import { Circle, Heart, Star, MessageCircle, Play, Pause, SkipBack, SkipForward, Share2, Plus, Music, RefreshCw, Trophy, Users, Filter, Settings, Search, AlertCircle } from 'lucide-react';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
