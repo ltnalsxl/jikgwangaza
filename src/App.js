@@ -213,6 +213,9 @@ const JikgwanGaja = () => {
           return null;
         }
   
+        // 만약 lineupPlayer에 선발투수 정보가 있을 때 null 체크
+        const pitcherName = lineupPlayer.starting_pitcher?.name || "-";
+  
         const song = playerSongs.find(song => 
           song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
         );
@@ -328,14 +331,14 @@ const JikgwanGaja = () => {
     return gameLineups.find(game => {
       if (!game || !game.id) return false;
   
+      // 새로운 ID 구조 "YYYY-MM-DD_팀명" 처리
       const idParts = game.id.split('_');
-      if (idParts.length < 2) return false;
+      if (idParts.length !== 2) return false;
   
-      const gameDateStr = idParts[0];
-      const gameTeam = idParts[idParts.length - 1];
-      const gameDateISO = normalizeDate(gameDateStr);
+      const gameDateStr = idParts[0]; // YYYY-MM-DD
+      const gameTeam = idParts[1];    // 팀명
   
-      return gameDateISO === selectedDateISO && gameTeam === selectedTeam;
+      return gameDateStr === selectedDateISO && gameTeam === selectedTeam;
     });
   };
   
