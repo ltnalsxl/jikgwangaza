@@ -964,6 +964,38 @@ const getSortedChants = () => {
     </div>
   );
 
+  // 날짜 옵션 생성 함수
+  const getDateOptions = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    // 라인업 데이터에서 날짜 추출
+    const gameDates = gameLineups
+      .filter(game => {
+        const idParts = game.id.split('_');
+        return idParts.length === 2 && idParts[1] === selectedTeam;
+      })
+      .map(game => game.id.split('_')[0]);
+
+    // 중복 제거 및 정렬
+    const uniqueDates = [...new Set([...gameDates, todayStr])].sort();
+
+    return uniqueDates.map(date => {
+      const dateObj = new Date(date);
+      const month = dateObj.getMonth() + 1;
+      const day = dateObj.getDate();
+      const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+      const dayName = dayNames[dateObj.getDay()];
+      return {
+        value: date,
+        label: `${month}월 ${day}일 (${dayName})`
+      };
+    });
+  };
+
  return (
    <div className="max-w-md mx-auto bg-white min-h-screen">
      {/* 헤더 */}
@@ -1043,21 +1075,11 @@ const getSortedChants = () => {
             onChange={(e) => setSelectedDate(e.target.value)}
             className="bg-gray-50 text-gray-900 text-sm rounded-lg px-4 py-2 border border-gray-200 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
           >
-            <option value="2025-03-25" className="text-gray-900">3월 25일 (화)</option>
-            <option value="2025-03-26" className="text-gray-900">3월 26일 (수)</option>
-            <option value="2025-03-27" className="text-gray-900">3월 27일 (목)</option>
-            <option value="2025-03-28" className="text-gray-900">3월 28일 (금)</option>
-            <option value="2025-03-29" className="text-gray-900">3월 29일 (토)</option>
-            <option value="2025-03-30" className="text-gray-900">3월 30일 (일)</option>
-            <option value="2025-06-06" className="text-gray-900">6월 6일 (금)</option>
-            <option value="2025-06-07" className="text-gray-900">6월 7일 (토)</option>
-            <option value="2025-06-08" className="text-gray-900">6월 8일 (일)</option>
-            <option value="2025-06-09" className="text-gray-900">6월 9일 (월)</option>
-            <option value="2025-06-10" className="text-gray-900">6월 10일 (화)</option>
-            <option value="2025-06-11" className="text-gray-900">6월 11일 (수)</option>
-            <option value="2025-06-12" className="text-gray-900">6월 12일 (목)</option>
-            <option value="2025-06-13" className="text-gray-900">6월 13일 (금)</option>
-            <option value="2025-06-14" className="text-gray-900">6월 14일 (토)</option>
+            {getDateOptions().map(({ value, label }) => (
+              <option key={value} value={value} className="text-gray-900">
+                {label}
+              </option>
+            ))}
           </select>
           
           <select 
