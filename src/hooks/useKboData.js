@@ -93,7 +93,9 @@ const useKboData = () => {
       const lineupFiles = Array.isArray(lineupIndex)
         ? await Promise.all(
             lineupIndex.map((file) =>
-              fetch(`${base}/data/kbo_crawler_data/${file}`).then((res) => res.json())
+              fetch(
+                `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`
+              ).then((res) => res.json())
             )
           )
         : [];

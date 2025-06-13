@@ -5,7 +5,9 @@ JikgwanGaja is a React application for browsing KBO lineups, player walk-up song
 ## Updating JSON data
 
 Edit the JSON files directly inside `public/data/` and commit your changes.
-The app reads the JSON files from this folder at runtime.
+Lineup information is now stored in `public/data/kbo_crawler_data` where
+`index.json` lists the individual game files.  The app reads these JSON files
+at runtime.
 
 ## Basic npm commands
 
