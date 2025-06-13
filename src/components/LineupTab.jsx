@@ -110,7 +110,7 @@ const LineupTab = ({
               const recentGame = gameLineups
                 .filter((game) => {
                   const idParts = game.id.split('_');
-                  return idParts[idParts.length - 1] === selectedTeam;
+                  return idParts.length === 2 && idParts[1] === selectedTeam;
                 })
                 .sort((a, b) => {
                   const dateA = a.id.split('_')[0];
@@ -119,7 +119,8 @@ const LineupTab = ({
                 })[0];
 
               if (recentGame) {
-                setSelectedDate(recentGame.id.split('_')[0]);
+                const recentDate = recentGame.id.split('_')[0];
+                setSelectedDate(recentDate);
               }
             }}
             className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
