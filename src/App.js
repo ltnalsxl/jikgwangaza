@@ -555,7 +555,6 @@ const getSortedChants = () => {
 
   
 
-  };
 
 
   // 날짜 옵션 생성 함수
