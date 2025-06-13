@@ -27,6 +27,7 @@ import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
 import TeamChantVideo from './components/TeamChantVideo';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
+import { normalizeDate } from './utils/date';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -248,53 +249,7 @@ const fetchJsonData = async () => {
     debugLog('gameLineups 전체:', gameLineups);
     debugLog('playerSongs 전체:', playerSongs);
   
-    // iOS Safari 호환 날짜 정규화 함수
-    const normalizeDate = (dateStr) => {
-      if (!dateStr) return null;
-      
-      let cleanDateStr = dateStr.toString().trim();
-      debugLog('날짜 정규화 시도:', cleanDateStr);
-      
-      // "Tue Jun 03 2025 00:00:00 GMT+0900" 형식 처리
-      if (cleanDateStr.includes('GMT')) {
-        const match = cleanDateStr.match(/(\w+)\s+(\w+)\s+(\d+)\s+(\d+)/);
-        if (match) {
-          const [, , month, day, year] = match;
-          const monthMap = {
-            'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
-            'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
-            'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
-          };
-          const result = `${year}-${monthMap[month]}-${day.padStart(2, '0')}`;
-          debugLog('GMT 형식 변환 결과:', result);
-          return result;
-        }
-      }
-      
-      // 이미 YYYY-MM-DD 형식이면 그대로 반환
-      if (/^\d{4}-\d{2}-\d{2}$/.test(cleanDateStr)) {
-        debugLog('이미 정규 형식:', cleanDateStr);
-        return cleanDateStr;
-      }
-      
-      // Date 객체로 파싱 시도
-      try {
-        const date = new Date(cleanDateStr);
-        if (!isNaN(date.getTime())) {
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
-          const result = `${year}-${month}-${day}`;
-          debugLog('Date 객체 변환 결과:', result);
-          return result;
-        }
-      } catch (e) {
-        console.error('날짜 파싱 실패:', cleanDateStr, e);
-      }
-      
-      debugLog('날짜 정규화 실패:', cleanDateStr);
-      return null;
-    };
+    // iOS Safari 호환 날짜 정규화
   
     const selectedDateISO = normalizeDate(selectedDate);
     debugLog('선택된 날짜 ISO:', selectedDateISO);
@@ -418,42 +373,7 @@ const fetchJsonData = async () => {
   };
   
   const getCurrentGame = () => {
-    const normalizeDate = (dateStr) => {
-      if (!dateStr) return null;
-      
-      let cleanDateStr = dateStr.toString().trim();
-      
-      if (cleanDateStr.includes('GMT')) {
-        const match = cleanDateStr.match(/(\w+)\s+(\w+)\s+(\d+)\s+(\d+)/);
-        if (match) {
-          const [, , month, day, year] = match;
-          const monthMap = {
-            'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
-            'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
-            'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
-          };
-          return `${year}-${monthMap[month]}-${day.padStart(2, '0')}`;
-        }
-      }
-      
-      if (/^\d{4}-\d{2}-\d{2}$/.test(cleanDateStr)) {
-        return cleanDateStr;
-      }
-      
-      try {
-        const date = new Date(cleanDateStr);
-        if (!isNaN(date.getTime())) {
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
-          return `${year}-${month}-${day}`;
-        }
-      } catch (e) {
-        console.warn('날짜 파싱 실패:', cleanDateStr, e);
-      }
-      
-      return null;
-    };
+    // normalize date for Safari
   
     const selectedDateISO = normalizeDate(selectedDate);
   
