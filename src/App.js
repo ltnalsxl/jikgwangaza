@@ -27,6 +27,7 @@ import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
 import TeamChantVideo from './components/TeamChantVideo';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
+import { transformLineups } from './utils/lineupTransformer';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -202,17 +203,7 @@ const fetchJsonData = async () => {
         })
       : [];
 
-    const parsedLineups = Array.isArray(lineupsData)
-      ? lineupsData.map(game => ({
-          id: game.id,
-          date: game.date,
-          team: game.team,
-          home: game.home,
-          away: game.away,
-          location: game.location,
-          lineup: Array.isArray(game.lineup) ? game.lineup.sort((a, b) => a.order - b.order) : []
-        }))
-      : [];
+    const parsedLineups = transformLineups(lineupsData);
 
     const parsedTeamChants = Array.isArray(teamChantsData)
       ? teamChantsData.map((chant, idx) => ({
