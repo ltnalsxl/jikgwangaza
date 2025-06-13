@@ -18,6 +18,7 @@ const LineupTab = ({
   setCurrentLineupIndex,
   setPlaySource,
   setShowPlayer,
+  setIsPlaying,
   toggleLike,
   gameLineups,
   setSelectedDate,
@@ -88,6 +89,7 @@ const LineupTab = ({
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
+                setIsPlaying={setIsPlaying}
                 toggleLike={toggleLike}
                 likedSongs={likedSongs}
               />

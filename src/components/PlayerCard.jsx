@@ -11,6 +11,7 @@ const PlayerCard = ({
   setCurrentLineupIndex,
   setPlaySource,
   setShowPlayer,
+  setIsPlaying,
   toggleLike,
   likedSongs
 }) => (
@@ -49,6 +50,7 @@ const PlayerCard = ({
             setCurrentLineupIndex(index);
             setPlaySource('lineup');
             setShowPlayer(true);
+            setIsPlaying(true);
           }}
           className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
         >

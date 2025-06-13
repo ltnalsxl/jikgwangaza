@@ -8,6 +8,7 @@ const ChantCard = ({
   setCurrentPlayer,
   setPlaySource,
   setShowPlayer,
+  setIsPlaying,
   toggleLike,
   likedSongs,
   handleShare
@@ -73,6 +74,7 @@ const ChantCard = ({
             setCurrentPlayer(playerIndex);
             setPlaySource('explore');
             setShowPlayer(true);
+            setIsPlaying(true);
           }
         }}
       >

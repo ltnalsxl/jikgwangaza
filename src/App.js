@@ -85,6 +85,16 @@ const JikgwanGaja = () => {
     }
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
+
+  useEffect(() => {
+    if (playerRef.current) {
+      if (isPlaying) {
+        playerRef.current.playVideo();
+      } else {
+        playerRef.current.pauseVideo();
+      }
+    }
+  }, [isPlaying]);
   
   const handleChange = (e) => {
     const newValue = e.target.value;
@@ -540,7 +550,7 @@ const getSortedChants = () => {
       height: '200',
       playerVars: {
         autoplay: 0,
-        mute: 1,
+        mute: 0,
         controls: 1,
         rel: 0,
       }
@@ -668,8 +678,8 @@ const getSortedChants = () => {
       width: '100%',
       height: '235',
       playerVars: {
-        autoplay: 1,
-        mute: 1,
+        autoplay: 0,
+        mute: 0,
         controls: 1,
         rel: 0,
       }
@@ -773,6 +783,9 @@ const getSortedChants = () => {
                 opts={opts}
                 onReady={(event) => {
                   playerRef.current = event.target;
+                  if (isPlaying) {
+                    event.target.playVideo();
+                  }
                 }}
               />
             ) : (
@@ -963,6 +976,7 @@ const getSortedChants = () => {
             setCurrentPlayer={setCurrentPlayer}
             setPlaySource={setPlaySource}
             setShowPlayer={setShowPlayer}
+            setIsPlaying={setIsPlaying}
             toggleLike={toggleLike}
             likedSongs={likedSongs}
             handleShare={handleShare}
@@ -1248,6 +1262,7 @@ const getSortedChants = () => {
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
+                setIsPlaying={setIsPlaying}
                 toggleLike={toggleLike}
                 gameLineups={gameLineups}
                 setSelectedDate={setSelectedDate}
