@@ -12,7 +12,7 @@ const TeamChantVideo = React.memo(({ youtubeId, chantTitle, opts }) => {
   }
 
   return (
-    <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
+    <div className="flex items-center justify-center h-full text-center text-white bg-gray-900 dark:bg-gray-800">
       <div>
         <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
         <p className="text-lg">{chantTitle}</p>

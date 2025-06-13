@@ -17,8 +17,8 @@ const PlayerCard = ({
   <div
     className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
       isActive
-        ? 'border-[#005BAC] bg-blue-50 shadow-lg scale-105'
-        : 'border-gray-200 bg-white hover:border-gray-300'
+        ? 'border-[#005BAC] bg-blue-50 dark:bg-gray-800 shadow-lg scale-105'
+        : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600'
     }`}
   >
     <div className="flex items-center justify-between">
@@ -28,8 +28,8 @@ const PlayerCard = ({
             {player.order || index + 1}
           </span>
           <div>
-            <h3 className="font-bold text-lg">{player.playerName}</h3>
-            <p className="text-gray-600 text-sm">{player.position}</p>
+            <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">{player.playerName}</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">{player.position}</p>
           </div>
         </div>
       </div>
