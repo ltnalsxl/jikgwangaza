@@ -491,6 +491,36 @@ const getSortedChants = () => {
     }
   }
 
+  const handleShare = async (song) => {
+    const url = song?.youtubeId
+      ? `https://www.youtube.com/watch?v=${song.youtubeId}`
+      : window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: song?.chantTitle,
+          text: `${song?.playerName} 응원가`,
+          url
+        });
+        return;
+      } catch (err) {
+        console.error('Share failed', err);
+      }
+    }
+
+    if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(url);
+        alert('링크가 클립보드에 복사되었습니다.');
+      } catch (err) {
+        alert('링크 복사에 실패했습니다.');
+      }
+    } else {
+      alert('공유 기능을 지원하지 않는 브라우저입니다.');
+    }
+  };
+
 
 
   const TeamChantsTab = () => {
@@ -606,7 +636,7 @@ const getSortedChants = () => {
   };
   
 
-  const PlayerTab = () => {
+  const PlayerTab = ({ handleShare }) => {
     const currentChant = { ...playerSongs[currentPlayer] } || {};
     
     // 디버깅용 로그
@@ -785,7 +815,10 @@ const getSortedChants = () => {
   
         {/* 액션 버튼 */}
         <div className="flex items-center gap-3">
-          <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+          <button
+            onClick={() => handleShare(currentChant)}
+            className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+          >
             <Share2 className="w-4 h-4" />
             공유
           </button>
@@ -932,6 +965,7 @@ const getSortedChants = () => {
             setShowPlayer={setShowPlayer}
             toggleLike={toggleLike}
             likedSongs={likedSongs}
+            handleShare={handleShare}
           />
         ))}
         
@@ -1193,7 +1227,7 @@ const getSortedChants = () => {
               <SkipBack className="w-5 h-5" />
               라인업으로 돌아가기
             </button>
-            <PlayerTab />
+            <PlayerTab handleShare={handleShare} />
           </div>
         ) : (
           <>
