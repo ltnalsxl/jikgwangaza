@@ -203,15 +203,65 @@ const fetchJsonData = async () => {
       : [];
 
     const parsedLineups = Array.isArray(lineupsData)
-      ? lineupsData.map(game => ({
-          id: game.id,
-          date: game.date,
-          team: game.team,
-          home: game.home,
-          away: game.away,
-          location: game.location,
-          lineup: Array.isArray(game.lineup) ? game.lineup.sort((a, b) => a.order - b.order) : []
-        }))
+      ? lineupsData.flatMap(game => {
+          // 새 형식(starting_lineups) 지원
+          if (game.starting_lineups) {
+            const homeObj = Array.isArray(game.teams)
+              ? game.teams.find(t => t.is_home)
+              : null;
+            const awayObj = Array.isArray(game.teams)
+              ? game.teams.find(t => !t.is_home)
+              : null;
+            const home = homeObj?.name || '';
+            const away = awayObj?.name || '';
+
+            const convertTeam = teamKey => {
+              const t = game.starting_lineups[teamKey];
+              if (!t) return null;
+
+              const batters = Array.isArray(t.starting_batters)
+                ? t.starting_batters.map(b => ({
+                    order: b.batting_order,
+                    playerName: b.name,
+                    position: b.position
+                  }))
+                : [];
+
+              if (t.starting_pitcher && t.starting_pitcher.name) {
+                batters.push({
+                  order: 10,
+                  playerName: t.starting_pitcher.name,
+                  position: t.starting_pitcher.position || '투수'
+                });
+              }
+
+              return {
+                id: `${game.date}_${t.team_name}`,
+                date: game.date,
+                team: t.team_name,
+                home,
+                away,
+                location: '',
+                lineup: batters.sort((a, b) => a.order - b.order)
+              };
+            };
+
+            return [convertTeam('team_1'), convertTeam('team_2')].filter(Boolean);
+          }
+
+          // 기존 형식
+          return {
+            id: game.id,
+            date: game.date,
+            team: game.team,
+            home: game.home,
+            away: game.away,
+            location: game.location,
+            lineup: Array.isArray(game.lineup)
+              ? game.lineup.sort((a, b) => a.order - b.order)
+              : []
+          };
+        })
       : [];
 
     const parsedTeamChants = Array.isArray(teamChantsData)
@@ -340,21 +390,32 @@ const fetchJsonData = async () => {
       debugLog('라인업 구성 시작:', sourceGame.lineup);
   
       const lineup = sourceGame.lineup.map((lineupPlayer, index) => {
-        if (!lineupPlayer || !lineupPlayer.playerName) {
+        if (!lineupPlayer) {
           debugLog('유효하지 않은 선수:', lineupPlayer);
           return null;
         }
-  
-        const song = playerSongs.find(song => 
-          song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
+
+        const playerName = lineupPlayer.playerName || lineupPlayer.name;
+        if (!playerName) {
+          debugLog('선수 이름 없음:', lineupPlayer);
+          return null;
+        }
+
+        const song = playerSongs.find(song =>
+          song && song.playerName === playerName && song.team === selectedTeam
         );
   
-        debugLog(`선수 ${lineupPlayer.playerName} 응원가:`, song ? '찾음' : '없음');
+        debugLog(`선수 ${playerName} 응원가:`, song ? '찾음' : '없음');
   
+        const order =
+          lineupPlayer.order ?? lineupPlayer.batting_order ?? index + 1;
+
         return {
           ...lineupPlayer,
-          id: song?.id || `temp_${lineupPlayer.playerName}_${index}`,
-          chantTitle: song?.chantTitle || `${lineupPlayer.playerName} 응원가`,
+          order,
+          playerName,
+          id: song?.id || `temp_${playerName}_${index}`,
+          chantTitle: song?.chantTitle || `${playerName} 응원가`,
           youtubeId: song?.youtubeId || 'example',
           likes: song?.likes || Math.floor(Math.random() * 1000) + 100,
           views: song?.views || Math.floor(Math.random() * 10000) + 1000,
