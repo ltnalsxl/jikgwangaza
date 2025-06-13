@@ -540,7 +540,7 @@ const getSortedChants = () => {
       height: '200',
       playerVars: {
         autoplay: 0,
-        mute: 1,
+        mute: 0,
         controls: 1,
         rel: 0,
       }
@@ -669,7 +669,7 @@ const getSortedChants = () => {
       height: '235',
       playerVars: {
         autoplay: 1,
-        mute: 1,
+        mute: 0,
         controls: 1,
         rel: 0,
       }
