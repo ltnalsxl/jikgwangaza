@@ -29,6 +29,9 @@ import LyricsSection from './components/LyricsSection';
 import TeamChantVideo from './components/TeamChantVideo';
 import LineupTab from './components/LineupTab';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
+import PlayerTab from './components/PlayerTab';
+import ExploreTab from './components/ExploreTab';
+import TeamChantsTab from './components/TeamChantsTab';
 import useKboData from './hooks/useKboData';
 
 // simple helper to avoid logs in production
@@ -550,494 +553,10 @@ const getSortedChants = () => {
 
 
 
-  const TeamChantsTab = () => {
-    const currentTeamChants = teamChants.filter(chant => chant.team === selectedTeam);
-    
-    // 상황별로 그룹화
-    const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
-      const situation = chant.situation || '기본 응원가';
-      if (!acc[situation]) acc[situation] = [];
-      acc[situation].push(chant);
-      return acc;
-    }, {});
-  
-  
-    const opts = {
-      width: '100%',
-      height: '200',
-      playerVars: {
-        autoplay: 0,
-        mute: 0,
-        controls: 1,
-        rel: 0,
-      }
-    };
-  
-    return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between mb-6"> {/* mb-4 → mb-6 */}
-          <h2 className="text-2xl font-bold text-gray-900"> {/* text-lg → text-2xl, text-gray-800 → text-gray-900 */}
-            {showOnlyLiked 
-              ? '❤️ 좋아한 응원가' 
-              : exploreTeamFilter === '전체' 
-                ? '전체 응원가' 
-                : `${exploreTeamFilter} 응원가`
-            }
-          </h2>
-          <div className="flex items-center gap-3"> {/* gap-2 → gap-3 */}
-            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"> {/* 배경 추가 */}
-              {filteredChants.length}개
-            </span>
-            <button
-              onClick={() => {
-                const today = new Date();
-                const yyyy = today.getFullYear();
-                const mm = String(today.getMonth() + 1).padStart(2, '0');
-                const dd = String(today.getDate()).padStart(2, '0');
-                setSelectedDate(`${yyyy}-${mm}-${dd}`);
-                fetchJsonData();
-              }}
-              className="p-2 text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded-full" // hover:bg-blue-50 rounded-full 추가
-            >
-              <RefreshCw className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-          
-        {loading ? (
-          <div className="text-center py-8">
-            <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
-            <p className="text-gray-600">팀 응원가를 불러오는 중...</p>
-          </div>
-        ) : currentTeamChants.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            <Trophy className="w-12 h-12 mx-auto mb-4 opacity-50" />
-            <p>{selectedTeam} 팀의 응원가가 없습니다</p>
-            <p className="text-sm mt-2">곧 추가될 예정입니다!</p>
-          </div>
-        ) : (
-          Object.entries(chantsBySituation).map(([situation, chants]) => (
-            <div key={situation} className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 border-b pb-2 flex items-center gap-2">
-                {getTeamInfo(selectedTeam).logo ? (
-                  <img 
-                    src={getTeamInfo(selectedTeam).logo}
-                    alt={selectedTeam}
-                    className="w-5 h-5 object-contain"
-                  />
-                ) : (
-                  <Trophy className="w-5 h-5" style={{ color: getTeamInfo(selectedTeam).color }} />
-                )}
-                {situation}
-              </h3>
-              
-              {chants.map(chant => (
-                <div key={chant.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
-                  {/* 제목 */}
-                  <div className="p-4 pb-2">
-                    <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
-                  </div>
-                  {/* YouTube 영상 */}
-                  <div className="relative w-full" style={{ paddingBottom: '56.25%', height: 0 }}>
-                    <div className="absolute top-0 left-0 w-full h-full z-0">
-                      <TeamChantVideo 
-                        youtubeId={chant.youtubeId}
-                        chantTitle={chant.chantTitle}
-                        opts={opts}
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* 가사 섹션 */}
-                <LyricsSection 
-                  chant={chant} 
-                  hasVideo={chant.youtubeId && chant.youtubeId !== ''} 
-                />
-                </div>
-              ))}
-            </div>
-          ))
-        )}
-      </div>
-    );
-  };
   
 
-  const PlayerTab = ({ handleShare }) => {
-    const currentChant = { ...playerSongs[currentPlayer] } || {};
-    
-    // 디버깅용 로그
-    debugLog('PlayerTab - playSource:', playSource);
-    debugLog('PlayerTab - currentChant:', currentChant);
-    
-    // 라인업에서 온 경우에만 오늘의 정보로 덮어쓰기
-    if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
-      const todayLineupPlayer = currentLineup[currentLineupIndex];
-      currentChant.order = todayLineupPlayer.order;
-      currentChant.position = todayLineupPlayer.position;
-    }
-  
-    // 실제 팀명 표시용 함수
-    const getDisplayTeam = () => {
-      if (playSource === 'lineup') {
-        return selectedTeam;
-      } else {
-        return currentChant.teamCode || currentChant.team || '알 수 없음';
-      }
-    };
-  
-    // 포지션 표시용 함수
-    const getDisplayPosition = () => {
-      return currentChant.position;
-    };
-  
-    const opts = {
-      width: '100%',
-      height: '235',
-      playerVars: {
-        autoplay: 1,
-        mute: 0,
-        controls: 1,
-        rel: 0,
-      }
-    };
-  
-    return (
-      <div className="space-y-6">
-        {/* 선수 상세 정보 카드 */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-          <div className="mb-4">
-            {/* 타순 정보 (라인업 모드에서만) */}
-            {playSource === 'lineup' && getBattingOrder(currentChant.order, getDisplayPosition()) && (
-              <p className="text-sm text-blue-600 mb-2 font-medium">
-                {getBattingOrder(currentChant.order, getDisplayPosition())}
-              </p>
-            )}
-            
-            {/* 선수명 */}
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">{currentChant.playerName}</h2>
-            
-            {/* 기본 정보 그리드 */}
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="space-y-3">
-              <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">소속팀</p>
-                <div className="flex items-center gap-2">
-                  {getTeamInfo(getDisplayTeam()).logo && (
-                    <img 
-                      src={getTeamInfo(getDisplayTeam()).logo}
-                      alt={getDisplayTeam()}
-                      className="w-5 h-5 object-contain"
-                    />
-                  )}
-                  <p className="text-lg font-semibold" style={{ color: getTeamInfo(getDisplayTeam()).color }}>
-                    {getDisplayTeam()}
-                  </p>
-                </div>
-              </div>
-                
-                {getDisplayPosition() && (
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide">포지션</p>
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      {getPositionKorean(getDisplayPosition())}
-                    </p>
-                  </div>
-                )}
-              </div>
-              
-              <div className="space-y-3">
-                {currentChant.number && (
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide">등번호</p>
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      {currentChant.number}번
-                    </p>
-                  </div>
-                )}
-                
-                {currentChant.throwBat && (
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide">투타</p>
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      {currentChant.throwBat}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* 추가 정보 */}
-            <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-              {currentChant.birth && (
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500">생년월일</span>
-                  <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
-                    {currentChant.birth.split('T')[0]}
-                  </span>
-                </div>
-              )}
-              
-              {currentChant.body && (
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500">체격</span>
-                  <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
-                    {currentChant.body}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-          
-        {/* YouTube 플레이어 */}
-        <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%', height: 0 }}>
-          <div className="absolute top-0 left-0 w-full h-full">
-            {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
-              <YouTube
-                key={`player-${currentChant.youtubeId}`}
-                videoId={currentChant.youtubeId}
-                opts={opts}
-                onReady={(event) => {
-                  playerRef.current = event.target;
-                }}
-              />
-            ) : (
-              <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
-                <div>
-                  <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
-                  <p className="text-sm opacity-70">응원가를 준비중입니다</p>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-  
-        {/* 컨트롤 버튼 */}
-        <div className="flex items-center justify-center gap-6">
-          <button 
-            onClick={playPrev}
-            disabled={(playSource === 'explore' && currentPlayer === 0) || (playSource === 'lineup' && currentLineupIndex === 0)}
-            className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
-          >
-            <SkipBack className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={togglePlay}
-            className="p-4 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors shadow-lg"
-          >
-            {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8" />}
-          </button>
-          
-          <button 
-            onClick={playNext}
-            disabled={(playSource === 'explore' && currentPlayer === playerSongs.length - 1) || (playSource === 'lineup' && currentLineupIndex === currentLineup.length - 1)}
-            className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
-          >
-            <SkipForward className="w-6 h-6" />
-          </button>
-        </div>
-  
-        {/* 액션 버튼 */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => handleShare(currentChant)}
-            className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-          >
-            <Share2 className="w-4 h-4" />
-            공유
-          </button>
-          <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-            <Plus className="w-4 h-4" />
-            플레이리스트
-          </button>
-        </div>
-      </div>
-    );
   };
 
-  const ExploreTab = () => (
-    <div className="space-y-4">
-      {/* 검색 및 필터 */}
-      <div className="space-y-3">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <input
-            type="text"
-            placeholder="선수명, 응원가 제목, 팀명, 포지션으로 검색"
-            value={searchQuery}
-            onChange={handleChange}
-            onCompositionStart={handleCompositionStart}
-            onCompositionEnd={handleCompositionEnd}
-            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50"
-          />
-        </div>
-        
-        {/* 팀 필터 추가 */}
-        <div className="flex items-center gap-3 overflow-x-auto pb-3 mb-4"> {/* gap-2 → gap-3, pb-2 → pb-3, mb-4 추가 */}
-        <Filter className="w-5 h-5 text-gray-500 flex-shrink-0" /> {/* w-4 h-4 → w-5 h-5 */}
-        <select 
-          value={exploreTeamFilter}
-          onChange={(e) => setExploreTeamFilter(e.target.value)}
-          className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent shadow-sm" 
-          // rounded-lg → rounded-xl, px-3 py-2 → px-4 py-3, shadow-sm 추가
-        >
-            <option value="전체">전체 팀</option>
-            <option value="KIA">KIA 타이거즈</option>
-            <option value="두산">두산 베어스</option>
-            <option value="LG">LG 트윈스</option>
-            <option value="삼성">삼성 라이온즈</option>
-            <option value="롯데">롯데 자이언츠</option>
-            <option value="SSG">SSG 랜더스</option>
-            <option value="키움">키움 히어로즈</option>
-            <option value="한화">한화 이글스</option>
-            <option value="NC">NC 다이노스</option>
-            <option value="KT">KT 위즈</option>
-          </select>
-        </div>
-        
-        <div className="flex items-center gap-3 overflow-x-auto pb-3">
-          {[
-            { key: 'popular', label: '인기순', icon: Heart, color: 'from-red-500 to-pink-500' },
-            { key: 'name', label: '가나다순', icon: Circle, color: 'from-blue-500 to-indigo-500' }
-          ].map(({ key, label, icon: Icon, color }) => (
-            <button
-              key={key}
-              onClick={() => setSortBy(key)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all font-medium ${
-                sortBy === key 
-                  ? `bg-gradient-to-r ${color} text-white shadow-lg shadow-gray-300 scale-105` 
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-sm'
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* 통계 카드 */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl p-4 text-white shadow-lg">
-          <h3 className="text-xl font-bold">{playerSongs.length}</h3>
-          <p className="text-sm text-blue-100 mt-1">총 응원가</p>
-        </div>
-        <button
-          onClick={() => setShowOnlyLiked(!showOnlyLiked)}
-          className={`bg-gradient-to-br rounded-2xl p-4 text-white transition-all transform duration-200 shadow-lg ${
-            showOnlyLiked 
-              ? 'from-pink-500 via-pink-600 to-rose-600 scale-105 shadow-xl ring-2 ring-pink-200' 
-              : 'from-purple-500 via-purple-600 to-purple-700 hover:scale-102 hover:shadow-xl'
-          }`}
-        >
-          <h3 className="text-xl font-bold">{likedSongs.size}</h3>
-          <p className="text-sm text-purple-100 mt-1">
-            {showOnlyLiked ? '💖 선택됨' : '좋아한 곡'}
-          </p>
-        </button>
-        <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-2xl p-4 text-white shadow-lg">
-          <h3 className="text-xl font-bold">{filteredChants.length}</h3>
-          <p className="text-sm text-emerald-100 mt-1">검색 결과</p>
-        </div>
-      </div>
-  
-      {/* 응원가 목록 */}
-      <div className="space-y-3">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold">
-          {showOnlyLiked 
-            ? '❤️ 좋아한 응원가' 
-            : exploreTeamFilter === '전체' 
-              ? '전체 응원가' 
-              : `${exploreTeamFilter} 응원가`
-          }
-        </h2>
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">{filteredChants.length}개</span>
-          <button
-            onClick={() => {
-              const today = new Date();
-              const yyyy = today.getFullYear();
-              const mm = String(today.getMonth() + 1).padStart(2, '0');
-              const dd = String(today.getDate()).padStart(2, '0');
-              setSelectedDate(`${yyyy}-${mm}-${dd}`);
-              fetchJsonData();
-            }}
-            className="p-1 text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <RefreshCw className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-        
-        {error && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-            <div className="flex items-center gap-2 text-yellow-800 text-sm">
-              <AlertCircle className="w-4 h-4" />
-              <span>데이터 로드 오류: 임시 데이터 표시 중</span>
-            </div>
-          </div>
-        )}
-        
-        {filteredChants.map((chant) => (
-          <ChantCard
-            key={chant.id}
-            chant={chant}
-            playerSongs={playerSongs}
-            setCurrentPlayer={setCurrentPlayer}
-            setPlaySource={setPlaySource}
-            setShowPlayer={setShowPlayer}
-            toggleLike={toggleLike}
-            likedSongs={likedSongs}
-            handleShare={handleShare}
-          />
-        ))}
-        
-        {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체' || showOnlyLiked) && !isComposing && (
-          <div className="text-center py-8 text-gray-500">
-            <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
-            <p>
-              {showOnlyLiked 
-                ? '좋아한 응원가가 없습니다'
-                : searchQuery 
-                  ? `"${searchQuery}"에 대한 검색 결과가 없습니다`
-                  : `${exploreTeamFilter} 팀의 응원가가 없습니다`
-              }
-            </p>
-            <div className="flex gap-2 justify-center mt-2">
-              {showOnlyLiked && (
-                <button 
-                  onClick={() => setShowOnlyLiked(false)}
-                  className="text-[#0ea5e9] text-sm"
-                >
-                  전체 응원가 보기
-                </button>
-              )}
-              {searchQuery && (
-                <button 
-                  onClick={() => setSearchQuery('')}
-                  className="text-[#0ea5e9] text-sm"
-                >
-                  검색어 지우기
-                </button>
-              )}
-              {exploreTeamFilter !== '전체' && (
-                <button 
-                  onClick={() => setExploreTeamFilter('전체')}
-                  className="text-[#0ea5e9] text-sm"
-                >
-                  전체 팀 보기
-                </button>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
 
   // 날짜 옵션 생성 함수
   const getDateOptions = () => {
@@ -1254,7 +773,19 @@ const getSortedChants = () => {
               <SkipBack className="w-5 h-5" />
               라인업으로 돌아가기
             </button>
-            <PlayerTab handleShare={handleShare} />
+            <PlayerTab
+              playerSongs={playerSongs}
+              currentPlayer={currentPlayer}
+              playSource={playSource}
+              currentLineup={currentLineup}
+              currentLineupIndex={currentLineupIndex}
+              selectedTeam={selectedTeam}
+              playPrev={playPrev}
+              playNext={playNext}
+              togglePlay={togglePlay}
+              isPlaying={isPlaying}
+              handleShare={handleShare}
+            />
           </div>
         ) : (
           <>
@@ -1281,8 +812,45 @@ const getSortedChants = () => {
                 handleShareLineup={handleShareLineup}
               />
             )}
-            {activeTab === 'teamChants' && <TeamChantsTab />}
-            {activeTab === 'explore' && <ExploreTab />}
+            {activeTab === 'teamChants' && (
+              <TeamChantsTab
+                teamChants={teamChants}
+                selectedTeam={selectedTeam}
+                showOnlyLiked={showOnlyLiked}
+                exploreTeamFilter={exploreTeamFilter}
+                filteredChants={filteredChants}
+                setSelectedDate={setSelectedDate}
+                fetchJsonData={fetchJsonData}
+                loading={loading}
+              />
+            )}
+            {activeTab === 'explore' && (
+              <ExploreTab
+                searchQuery={searchQuery}
+                handleChange={handleChange}
+                handleCompositionStart={handleCompositionStart}
+                handleCompositionEnd={handleCompositionEnd}
+                exploreTeamFilter={exploreTeamFilter}
+                setExploreTeamFilter={setExploreTeamFilter}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                playerSongs={playerSongs}
+                likedSongs={likedSongs}
+                showOnlyLiked={showOnlyLiked}
+                setShowOnlyLiked={setShowOnlyLiked}
+                filteredChants={filteredChants}
+                error={error}
+                setSelectedDate={setSelectedDate}
+                fetchJsonData={fetchJsonData}
+                setCurrentPlayer={setCurrentPlayer}
+                setPlaySource={setPlaySource}
+                setShowPlayer={setShowPlayer}
+                toggleLike={toggleLike}
+                handleShare={handleShare}
+                setSearchQuery={setSearchQuery}
+                isComposing={isComposing}
+              />
+            )}
           </>
         )}
       </div>
