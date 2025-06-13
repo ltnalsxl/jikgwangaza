@@ -51,7 +51,13 @@ const JikgwanGaja = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState('lineup');
   const [showPlayer, setShowPlayer] = useState(false);
-  const [selectedDate, setSelectedDate] = useState('2025-03-25');
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  });
 
   const [selectedTeam, setSelectedTeam] = useState('KIA');
   const [sortBy, setSortBy] = useState('name');
@@ -512,7 +518,14 @@ const getSortedChants = () => {
               {filteredChants.length}개
             </span>
             <button
-              onClick={fetchJsonData}
+              onClick={() => {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                setSelectedDate(`${yyyy}-${mm}-${dd}`);
+                fetchJsonData();
+              }}
               className="p-2 text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded-full" // hover:bg-blue-50 rounded-full 추가
             >
               <RefreshCw className="w-4 h-4" />
@@ -871,7 +884,14 @@ const getSortedChants = () => {
         <div className="flex items-center gap-2">
           <span className="text-sm text-gray-500">{filteredChants.length}개</span>
           <button
-            onClick={fetchJsonData}
+            onClick={() => {
+              const today = new Date();
+              const yyyy = today.getFullYear();
+              const mm = String(today.getMonth() + 1).padStart(2, '0');
+              const dd = String(today.getDate()).padStart(2, '0');
+              setSelectedDate(`${yyyy}-${mm}-${dd}`);
+              fetchJsonData();
+            }}
             className="p-1 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
@@ -1000,7 +1020,14 @@ const getSortedChants = () => {
           )}
         </button>
         <button
-          onClick={fetchJsonData}
+          onClick={() => {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            setSelectedDate(`${yyyy}-${mm}-${dd}`);
+            fetchJsonData();
+          }}
           className="bg-gray-100 rounded-full p-2 hover:bg-gray-200 transition-colors"
         >
           <RefreshCw className="w-5 h-5 text-gray-600" />
