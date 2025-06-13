@@ -44,10 +44,10 @@ const useKboData = () => {
     setError(null);
     try {
       const base = process.env.PUBLIC_URL || '';
-      const [songsData, lineupsData, teamChantsData, kboPlayersData] =
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData] =
         await Promise.all([
           fetch(`${base}/data/playerSongs.json`).then((res) => res.json()),
-          fetch(`${base}/data/gameLineups.json`).then((res) => res.json()),
+          fetch(`${base}/data/kbo_crawler_data/index.json`).then((res) => res.json()),
           fetch(`${base}/data/teamChants.json`).then((res) => res.json()),
           fetch(`${base}/data/kboPlayers.json`).then((res) => res.json()),
         ]);
@@ -90,18 +90,59 @@ const useKboData = () => {
           })
         : [];
 
-      const parsedLineups = Array.isArray(lineupsData)
-        ? lineupsData.map((game) => ({
-            id: game.id,
-            date: game.date,
-            team: game.team,
-            home: game.home,
-            away: game.away,
-            location: game.location,
-            lineup: Array.isArray(game.lineup)
-              ? game.lineup.sort((a, b) => a.order - b.order)
-              : [],
-          }))
+      const lineupFiles = Array.isArray(lineupIndex)
+        ? await Promise.all(
+            lineupIndex.map((file) =>
+              fetch(`${base}/data/kbo_crawler_data/${file}`).then((res) => res.json())
+            )
+          )
+        : [];
+
+      const parsedLineups = Array.isArray(lineupFiles)
+        ? lineupFiles.flatMap((game) => {
+            if (!game || !game.starting_lineups) return [];
+
+            const homeTeam = game.teams?.find((t) => t.is_home)?.name || '';
+            const awayTeam = game.teams?.find((t) => !t.is_home)?.name || '';
+            const dateStr = game.date;
+
+            const buildLineup = (lineupObj) =>
+              Array.isArray(lineupObj?.starting_batters)
+                ? lineupObj.starting_batters.map((b) => ({
+                    order: b.batting_order,
+                    playerName: b.name,
+                    position: b.position,
+                  }))
+                : [];
+
+            const team1Name = normalizeTeamName(game.starting_lineups.team_1.team_name);
+            const team2Name = normalizeTeamName(game.starting_lineups.team_2.team_name);
+
+            return [
+              {
+                id: `${new Date(dateStr).toString()}_${team1Name}`,
+                date: new Date(dateStr).toISOString(),
+                team: team1Name,
+                home: homeTeam,
+                away: awayTeam,
+                location: '',
+                lineup: buildLineup(game.starting_lineups.team_1).sort(
+                  (a, b) => a.order - b.order
+                ),
+              },
+              {
+                id: `${new Date(dateStr).toString()}_${team2Name}`,
+                date: new Date(dateStr).toISOString(),
+                team: team2Name,
+                home: homeTeam,
+                away: awayTeam,
+                location: '',
+                lineup: buildLineup(game.starting_lineups.team_2).sort(
+                  (a, b) => a.order - b.order
+                ),
+              },
+            ];
+          })
         : [];
 
       const parsedTeamChants = Array.isArray(teamChantsData)
