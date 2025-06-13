@@ -19,3 +19,8 @@ npm run build # build for production
 ```
 
 Running these commands requires **Node.js 20 or later**.
+
+## Sharing lineups
+
+Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the
+current team's lineup.
