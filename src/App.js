@@ -20,12 +20,14 @@ import {
   ThumbsUp,
   RefreshCw,
   AlertCircle,
-  Trophy
+  Trophy,
+  Calendar
 } from 'lucide-react';
 import PlayerCard from './components/PlayerCard';
 import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
 import TeamChantVideo from './components/TeamChantVideo';
+import NaverSportsCrawler from './components/NaverSportsCrawler';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 
 // simple helper to avoid logs in production
@@ -1326,7 +1328,7 @@ const getSortedChants = () => {
           <Trophy className="w-4 h-4 mx-auto mb-1" />
           <span className="text-xs">팀응원가</span>
         </button>
-        <button 
+        <button
           onClick={() => {
             setActiveTab('explore');
             setShowPlayer(false);
@@ -1339,6 +1341,20 @@ const getSortedChants = () => {
         >
           <Search className="w-4 h-4 mx-auto mb-1" />
           <span className="text-xs">탐색</span>
+        </button>
+        <button
+          onClick={() => {
+            setActiveTab('crawler');
+            setShowPlayer(false);
+          }}
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors ${
+            activeTab === 'crawler' && !showPlayer
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
+              : 'text-gray-600'
+          }`}
+        >
+          <Calendar className="w-4 h-4 mx-auto mb-1" />
+          <span className="text-xs">크롤러</span>
         </button>
       </div>
 
@@ -1360,6 +1376,7 @@ const getSortedChants = () => {
             {activeTab === 'lineup' && <LineupTab />}
             {activeTab === 'teamChants' && <TeamChantsTab />}
             {activeTab === 'explore' && <ExploreTab />}
+            {activeTab === 'crawler' && <NaverSportsCrawler />}
           </>
         )}
       </div>
