@@ -60,7 +60,8 @@ const LineupTab = ({
                   {currentGame.home} vs {currentGame.away}
                 </h3>
                 <p className="text-sm text-blue-600">
-                  {currentGame.location} • {formatDateKorean(currentGame.date)}
+                  {currentGame.location ? `${currentGame.location} • ` : ''}
+                  {formatDateKorean(currentGame.date)}
                 </p>
                 <p className="text-sm text-blue-600">
                   {currentLineup.length}개 응원가 • 총 재생시간 약 {Math.ceil(currentLineup.length * 2)}분

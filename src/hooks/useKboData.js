@@ -97,7 +97,7 @@ const useKboData = () => {
             team: game.team,
             home: game.home,
             away: game.away,
-            location: game.location,
+            location: game.location || '',
             lineup: Array.isArray(game.lineup)
               ? game.lineup.sort((a, b) => a.order - b.order)
               : [],
