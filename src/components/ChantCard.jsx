@@ -11,11 +11,11 @@ const ChantCard = ({
   toggleLike,
   likedSongs
 }) => (
-  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-4 hover:shadow-lg hover:border-gray-300 transition-all duration-200">
+  <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200">
     <div className="flex items-start justify-between mb-4">
       <div className="flex-1">
-        <h3 className="font-bold text-lg text-gray-900">{chant.playerName}</h3>
-        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 mt-1">
+        <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">{chant.playerName}</h3>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
           <div className="flex items-center gap-1">
             {getTeamInfo(chant.team).logo && (
               <img
@@ -34,15 +34,15 @@ const ChantCard = ({
           {chant.position && (
             <>
               <span className="text-gray-300">•</span>
-              <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
+              <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full text-xs">
                 {getPositionKorean(chant.position)}
               </span>
             </>
           )}
-          <span className="text-gray-300">•</span>
+          <span className="text-gray-300 dark:text-gray-600">•</span>
           <div className="flex items-center gap-1">
             <Heart className="w-3 h-3 text-red-400" />
-            <span className="text-xs text-gray-500">{chant.likes.toLocaleString()}</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">{chant.likes.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const ChantCard = ({
           e.stopPropagation();
           toggleLike(chant.id);
         }}
-        className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       >
         <Heart
           className={`w-5 h-5 transition-all ${
@@ -78,10 +78,10 @@ const ChantCard = ({
         <Play className="w-4 h-4" />
         재생
       </button>
-      <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all">
+      <button className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all">
         <Share2 className="w-4 h-4 text-gray-600" />
       </button>
-      <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all">
+      <button className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all">
         <Plus className="w-4 h-4 text-gray-600" />
       </button>
     </div>

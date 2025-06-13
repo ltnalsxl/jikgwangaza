@@ -20,7 +20,9 @@ import {
   ThumbsUp,
   RefreshCw,
   AlertCircle,
-  Trophy
+  Trophy,
+  Sun,
+  Moon
 } from 'lucide-react';
 import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
@@ -51,6 +53,9 @@ const JikgwanGaja = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState('lineup');
   const [showPlayer, setShowPlayer] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() =>
+    localStorage.getItem('theme') === 'dark'
+  );
   const [selectedDate, setSelectedDate] = useState(() => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -71,6 +76,15 @@ const JikgwanGaja = () => {
   const [immediateSearch, setImmediateSearch] = useState('');
   const searchRef = useRef('');
   const playerRef = useRef(null);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
   
   const handleChange = (e) => {
     const newValue = e.target.value;
@@ -547,7 +561,7 @@ const getSortedChants = () => {
         ) : (
           Object.entries(chantsBySituation).map(([situation, chants]) => (
             <div key={situation} className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 border-b pb-2 flex items-center gap-2">
                 {getTeamInfo(selectedTeam).logo ? (
                   <img 
                     src={getTeamInfo(selectedTeam).logo}
@@ -561,7 +575,7 @@ const getSortedChants = () => {
               </h3>
               
               {chants.map(chant => (
-                <div key={chant.id} className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                <div key={chant.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
                   {/* 제목 */}
                   <div className="p-4 pb-2">
                     <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
@@ -634,7 +648,7 @@ const getSortedChants = () => {
     return (
       <div className="space-y-6">
         {/* 선수 상세 정보 카드 */}
-        <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
           <div className="mb-4">
             {/* 타순 정보 (라인업 모드에서만) */}
             {playSource === 'lineup' && getBattingOrder(currentChant.order, getDisplayPosition()) && (
@@ -644,7 +658,7 @@ const getSortedChants = () => {
             )}
             
             {/* 선수명 */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">{currentChant.playerName}</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">{currentChant.playerName}</h2>
             
             {/* 기본 정보 그리드 */}
             <div className="grid grid-cols-2 gap-4 mb-4">
@@ -668,7 +682,7 @@ const getSortedChants = () => {
                 {getDisplayPosition() && (
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide">포지션</p>
-                    <p className="text-lg font-semibold text-gray-800">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                       {getPositionKorean(getDisplayPosition())}
                     </p>
                   </div>
@@ -679,7 +693,7 @@ const getSortedChants = () => {
                 {currentChant.number && (
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide">등번호</p>
-                    <p className="text-lg font-semibold text-gray-800">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                       {currentChant.number}번
                     </p>
                   </div>
@@ -688,7 +702,7 @@ const getSortedChants = () => {
                 {currentChant.throwBat && (
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide">투타</p>
-                    <p className="text-lg font-semibold text-gray-800">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                       {currentChant.throwBat}
                     </p>
                   </div>
@@ -697,11 +711,11 @@ const getSortedChants = () => {
             </div>
             
             {/* 추가 정보 */}
-            <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100">
+            <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
               {currentChant.birth && (
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">생년월일</span>
-                  <span className="text-sm font-medium text-gray-800">
+                  <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
                     {currentChant.birth.split('T')[0]}
                   </span>
                 </div>
@@ -710,7 +724,7 @@ const getSortedChants = () => {
               {currentChant.body && (
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">체격</span>
-                  <span className="text-sm font-medium text-gray-800">
+                  <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
                     {currentChant.body}
                   </span>
                 </div>
@@ -997,9 +1011,9 @@ const getSortedChants = () => {
   };
 
  return (
-   <div className="max-w-md mx-auto bg-white min-h-screen">
+  <div className="max-w-md mx-auto bg-white min-h-screen dark:bg-gray-900 dark:text-gray-100">
      {/* 헤더 */}
-     <div className="bg-white text-gray-900 p-4 border-b border-gray-100">
+    <div className="bg-white text-gray-900 p-4 border-b border-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
         <div 
@@ -1064,16 +1078,26 @@ const getSortedChants = () => {
         >
           <RefreshCw className="w-5 h-5 text-gray-600" />
         </button>
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="bg-gray-100 dark:bg-gray-700 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+        >
+          {isDarkMode ? (
+            <Sun className="w-5 h-5 text-yellow-400" />
+          ) : (
+            <Moon className="w-5 h-5 text-gray-600" />
+          )}
+        </button>
         <Settings className="w-5 h-5 text-gray-600" />
       </div>
        </div>
 
        {/* 날짜/팀 선택 */}
         <div className="mt-4 flex items-center gap-3">
-          <select 
+          <select
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
-            className="bg-gray-50 text-gray-900 text-sm rounded-lg px-4 py-2 border border-gray-200 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
+            className="bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-gray-100 text-sm rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
           >
             {getDateOptions().map(({ value, label }) => (
               <option key={value} value={value} className="text-gray-900">
@@ -1082,10 +1106,10 @@ const getSortedChants = () => {
             ))}
           </select>
           
-          <select 
+          <select
             value={selectedTeam}
             onChange={(e) => setSelectedTeam(e.target.value)}
-            className="bg-gray-50 text-gray-900 text-sm rounded-lg px-4 py-2 border border-gray-200 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
+            className="bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-gray-100 text-sm rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
           >
             <option value="KIA" className="text-gray-900">KIA 타이거즈</option>
             <option value="두산" className="text-gray-900">두산 베어스</option>
@@ -1102,7 +1126,7 @@ const getSortedChants = () => {
      </div>
 
      {/* 탭 네비게이션 */}
-      <div className="flex bg-gray-50 border-b">
+      <div className="flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
         <button 
           onClick={() => {
             setActiveTab('lineup');
@@ -1153,7 +1177,7 @@ const getSortedChants = () => {
           <div className="space-y-4">
             <button 
               onClick={() => setShowPlayer(false)}
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+            className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
             >
               <SkipBack className="w-5 h-5" />
               라인업으로 돌아가기
