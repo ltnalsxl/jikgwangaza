@@ -521,6 +521,33 @@ const getSortedChants = () => {
     }
   };
 
+  const handleShareLineup = async () => {
+    const lineupText = currentLineup
+      .map((p, idx) => `${idx + 1}. ${p.playerName} (${p.position})`)
+      .join('\n');
+    const text = `${selectedTeam} 오늘의 라인업\n${lineupText}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: `${selectedTeam} 라인업`, text });
+        return;
+      } catch (err) {
+        console.error('Share failed', err);
+      }
+    }
+
+    if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('라인업이 클립보드에 복사되었습니다.');
+      } catch (err) {
+        alert('라인업 복사에 실패했습니다.');
+      }
+    } else {
+      alert('공유 기능을 지원하지 않는 브라우저입니다.');
+    }
+  };
+
 
 
   const TeamChantsTab = () => {
@@ -1251,6 +1278,7 @@ const getSortedChants = () => {
                 toggleLike={toggleLike}
                 gameLineups={gameLineups}
                 setSelectedDate={setSelectedDate}
+                handleShareLineup={handleShareLineup}
               />
             )}
             {activeTab === 'teamChants' && <TeamChantsTab />}
