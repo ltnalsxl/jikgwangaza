@@ -22,11 +22,12 @@ import {
   AlertCircle,
   Trophy
 } from 'lucide-react';
-import PlayerCard from './components/PlayerCard';
 import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
 import TeamChantVideo from './components/TeamChantVideo';
+import LineupTab from './components/LineupTab';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
+import useKboData from './hooks/useKboData';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -63,7 +64,6 @@ const JikgwanGaja = () => {
   const [likedSongs, setLikedSongs] = useState(new Set());
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
-  const [teamChants, setTeamChants] = useState([]);
   
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -92,154 +92,22 @@ const JikgwanGaja = () => {
   };
   
 
-  // 데이터 상태
-  const [playerSongs, setPlayerSongs] = useState([]);
-  const [gameLineups, setGameLineups] = useState([]);
+  const {
+    playerSongs,
+    gameLineups,
+    teamChants,
+    loading,
+    error,
+    fetchJsonData,
+  } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchJsonData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  
   useEffect(() => {
     if (gameLineups.length > 0 && playerSongs.length > 0) {
       updateCurrentLineup();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate, selectedTeam, gameLineups, playerSongs]);
-
-// 팀명 정규화 함수 추가
-const normalizeTeamName = (teamName) => {
-  const teamMap = {
-    // playerSongs에서 올 수 있는 형태들
-    'HH': '한화',
-    '한화': '한화',
-    'Hanwha': '한화',
-    'hanwha': '한화',
-    
-    'KIA': 'KIA',
-    'kia': 'KIA',
-    
-    '두산': '두산',
-    'Doosan': '두산',
-    'doosan': '두산',
-    
-    'LG': 'LG',
-    'lg': 'LG',
-    
-    '삼성': '삼성',
-    'Samsung': '삼성',
-    'samsung': '삼성',
-    
-    '롯데': '롯데',
-    'Lotte': '롯데',
-    'lotte': '롯데',
-    
-    'SSG': 'SSG',
-    'ssg': 'SSG',
-    
-    '키움': '키움',
-    'Kiwoom': '키움',
-    'kiwoom': '키움',
-    
-    'NC': 'NC',
-    'nc': 'NC',
-    
-    'KT': 'KT',
-    'kt': 'KT'
-  };
-  
-  return teamMap[teamName] || teamName;
-};
-
-const fetchJsonData = async () => {
-  setLoading(true);
-  setError(null);
-
-  try {
-    const base = process.env.PUBLIC_URL || '';
-    const [songsData, lineupsData, teamChantsData, kboPlayersData] = await Promise.all([
-      fetch(`${base}/data/playerSongs.json`).then(res => res.json()),
-      fetch(`${base}/data/gameLineups.json`).then(res => res.json()),
-      fetch(`${base}/data/teamChants.json`).then(res => res.json()),
-      fetch(`${base}/data/kboPlayers.json`).then(res => res.json())
-    ]);
-
-    const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
-
-    const parsedSongs = Array.isArray(songsData)
-      ? songsData.map(song => {
-          const playerTeam = normalizeTeamName(song.team);
-          const kboPlayer = parsedKboPlayers.find(p =>
-            normalizeTeamName(p.teamName) === playerTeam && p.playerName === song.playerName
-          );
-
-          return {
-            id: `${playerTeam}_${song.playerName}`,
-            playerName: song.playerName,
-            team: playerTeam,
-            chantTitle: song.chantTitle || `${song.playerName} 응원가`,
-            youtubeId: song.youtubeId || '',
-            type: song.type || '응원가',
-            createdAt: song.createdAt || '',
-            position: kboPlayer?.position || '',
-            number: kboPlayer?.number || '',
-            throwBat: kboPlayer?.throwBat || '',
-            birth: kboPlayer?.birth || '',
-            body: kboPlayer?.body || '',
-            teamCode: kboPlayer?.teamCode || '',
-            originalTeam: song.team,
-            likes: Math.floor(Math.random() * 2000) + 500,
-            views: Math.floor(Math.random() * 30000) + 5000,
-            rating: (Math.random() * 1 + 4).toFixed(1),
-            comments: Math.floor(Math.random() * 200) + 20,
-            tags: ['신나는', '쉬운', '인기'],
-            addedDate: new Date().toISOString().split('T')[0]
-          };
-        })
-      : [];
-
-    const parsedLineups = Array.isArray(lineupsData)
-      ? lineupsData.map(game => ({
-          id: game.id,
-          date: game.date,
-          team: game.team,
-          home: game.home,
-          away: game.away,
-          location: game.location,
-          lineup: Array.isArray(game.lineup) ? game.lineup.sort((a, b) => a.order - b.order) : []
-        }))
-      : [];
-
-    const parsedTeamChants = Array.isArray(teamChantsData)
-      ? teamChantsData.map((chant, idx) => ({
-          id: chant.id || `${chant.team}_${idx}`,
-          team: chant.team,
-          situation: chant.situation,
-          chantTitle: chant.chantTitle,
-          youtubeId: chant.youtubeId,
-          createdAt: chant.createdAt,
-          lyrics: chant.lyrics,
-          likes: Math.floor(Math.random() * 3000) + 1000,
-          views: Math.floor(Math.random() * 50000) + 10000,
-          rating: (Math.random() * 1 + 4).toFixed(1),
-          comments: Math.floor(Math.random() * 200) + 50
-        }))
-      : [];
-
-    setPlayerSongs(parsedSongs);
-    setGameLineups(parsedLineups);
-    setTeamChants(parsedTeamChants);
-  } catch (err) {
-    console.error('JSON 데이터 로드 오류:', err);
-    setError(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
 
   const updateCurrentLineup = () => {
     debugLog('=== updateCurrentLineup 시작 ===');
@@ -713,120 +581,6 @@ const getSortedChants = () => {
     );
   };
   
-  const LineupTab = () => {
-    debugLog('=== LineupTab 렌더링 ===');
-    debugLog('currentLineup:', currentLineup);
-    
-    const currentGame = getCurrentGame();
-    debugLog('LineupTab의 currentGame:', currentGame);
-    
-    return (
-      <div className="space-y-3">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-800">오늘의 라인업</h2>
-          <button
-            onClick={fetchJsonData}
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <RefreshCw className="w-4 h-4" />
-            새로고침
-          </button>
-        </div>
-
-        {error && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-            <div className="flex items-center gap-2 text-yellow-800">
-              <AlertCircle className="w-5 h-5" />
-              <span className="text-sm">데이터 로드 오류: {error}</span>
-            </div>
-          </div>
-        )} 
-        
-        {loading ? (
-          <div className="text-center py-8">
-            <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
-            <p className="text-gray-600">데이터를 불러오는 중...</p>
-          </div>
-        ) : currentGame ? (
-          <>
-            <div className="bg-blue-50 rounded-lg p-4 mb-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold text-blue-800">
-                    {currentGame.home} vs {currentGame.away}
-                  </h3>
-                  <p className="text-sm text-blue-600">
-                    {currentGame.location} • {formatDateKorean(currentGame.date)}
-                  </p>
-                  <p className="text-sm text-blue-600">
-                    {currentLineup.length}개 응원가 • 총 재생시간 약 {Math.ceil(currentLineup.length * 2)}분
-                  </p>
-                </div>
-                <button 
-                onClick={handlePlayAll}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                  전체 재생
-                </button>
-              </div>
-            </div>
-            
-            {currentLineup.length > 0 ? (
-              currentLineup.map((player, index) => (
-                <PlayerCard
-                  key={player.id || index}
-                  player={player}
-                  index={index}
-                  isActive={currentPlayer === index}
-                  playerSongs={playerSongs}
-                  selectedTeam={selectedTeam}
-                  setCurrentPlayer={setCurrentPlayer}
-                  setCurrentLineupIndex={setCurrentLineupIndex}
-                  setPlaySource={setPlaySource}
-                  setShowPlayer={setShowPlayer}
-                  toggleLike={toggleLike}
-                  likedSongs={likedSongs}
-                />
-              ))
-            ) : (
-              <div className="text-center py-8 text-gray-500">
-                <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p>이 경기의 라인업 정보가 없습니다</p>
-              </div>
-            )}
-          </>
-          ) : (
-            <div className="text-center py-8 text-gray-500">
-              <Circle className="w-12 h-12 mx-auto mb-4 opacity-50" />
-              <p>라인업 발표 전입니다</p>
-              <p className="text-sm mt-2">경기 시작 전에 라인업이 발표됩니다</p>
-              
-              <button 
-                onClick={() => {
-                  // 가장 최근 경기 찾기
-                  const recentGame = gameLineups
-                    .filter(game => {
-                      const idParts = game.id.split('_');
-                      return idParts[idParts.length - 1] === selectedTeam;
-                    })
-                    .sort((a, b) => {
-                      const dateA = a.id.split('_')[0];
-                      const dateB = b.id.split('_')[0];
-                      return dateB.localeCompare(dateA);
-                    })[0];
-                  
-                  if (recentGame) {
-                    setSelectedDate(recentGame.id.split('_')[0]);
-                  }
-                }}
-                className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                가장 최근 라인업 보러가기
-              </button>
-            </div>
-        )}
-      </div>
-    );
-  };
 
   const PlayerTab = () => {
     const currentChant = { ...playerSongs[currentPlayer] } || {};
@@ -1357,7 +1111,28 @@ const getSortedChants = () => {
           </div>
         ) : (
           <>
-            {activeTab === 'lineup' && <LineupTab />}
+            {activeTab === 'lineup' && (
+              <LineupTab
+                currentLineup={currentLineup}
+                currentPlayer={currentPlayer}
+                playerSongs={playerSongs}
+                selectedTeam={selectedTeam}
+                likedSongs={likedSongs}
+                fetchJsonData={fetchJsonData}
+                loading={loading}
+                error={error}
+                getCurrentGame={getCurrentGame}
+                formatDateKorean={formatDateKorean}
+                handlePlayAll={handlePlayAll}
+                setCurrentPlayer={setCurrentPlayer}
+                setCurrentLineupIndex={setCurrentLineupIndex}
+                setPlaySource={setPlaySource}
+                setShowPlayer={setShowPlayer}
+                toggleLike={toggleLike}
+                gameLineups={gameLineups}
+                setSelectedDate={setSelectedDate}
+              />
+            )}
             {activeTab === 'teamChants' && <TeamChantsTab />}
             {activeTab === 'explore' && <ExploreTab />}
           </>
