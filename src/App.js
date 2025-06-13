@@ -972,16 +972,27 @@ const getSortedChants = () => {
     const dd = String(today.getDate()).padStart(2, '0');
     const todayStr = `${yyyy}-${mm}-${dd}`;
 
+    debugLog('getDateOptions - selectedTeam:', selectedTeam);
+    debugLog('getDateOptions - gameLineups.length:', gameLineups.length);
+
     // 라인업 데이터에서 날짜 추출
     const gameDates = gameLineups
       .filter(game => {
         const idParts = game.id.split('_');
-        return idParts.length === 2 && idParts[1] === selectedTeam;
+        const isValidGame = idParts.length === 2 && idParts[1] === selectedTeam;
+        if (!isValidGame) {
+          debugLog('getDateOptions - Filtering out game:', game.id, 'for team:', selectedTeam);
+        }
+        return isValidGame;
       })
       .map(game => game.id.split('_')[0]);
 
+    debugLog('getDateOptions - extracted gameDates:', gameDates);
+
     // 중복 제거 및 정렬
     const uniqueDates = [...new Set([...gameDates, todayStr])].sort();
+
+    debugLog('getDateOptions - uniqueDates:', uniqueDates);
 
     return uniqueDates.map(date => {
       const dateObj = new Date(date);
