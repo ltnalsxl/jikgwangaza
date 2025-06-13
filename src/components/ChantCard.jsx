@@ -9,7 +9,8 @@ const ChantCard = ({
   setPlaySource,
   setShowPlayer,
   toggleLike,
-  likedSongs
+  likedSongs,
+  handleShare
 }) => (
   <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200">
     <div className="flex items-start justify-between mb-4">
@@ -78,7 +79,10 @@ const ChantCard = ({
         <Play className="w-4 h-4" />
         재생
       </button>
-      <button className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all">
+      <button
+        onClick={() => handleShare(chant)}
+        className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
+      >
         <Share2 className="w-4 h-4 text-gray-600" />
       </button>
       <button className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all">
