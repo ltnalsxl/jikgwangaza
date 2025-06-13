@@ -1,0 +1,193 @@
+{
+  "date": "2025-05-23",
+  "game_code": "20250523HTSS02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "KIA",
+      "score": "7",
+      "is_home": false
+    },
+    {
+      "name": "삼성",
+      "score": "6",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250523HTSS02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "KIA",
+      "team_code": "HT",
+      "starting_pitcher": {
+        "player_id": "54640",
+        "name": "네일",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "64646",
+          "name": "박찬호",
+          "batting_order": 1,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52667",
+          "name": "윤도현",
+          "batting_order": 2,
+          "position": "2루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52605",
+          "name": "김도영",
+          "batting_order": 3,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "72443",
+          "name": "최형우",
+          "batting_order": 4,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69636",
+          "name": "오선우",
+          "batting_order": 5,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "67610",
+          "name": "김석환",
+          "batting_order": 6,
+          "position": "좌익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "63260",
+          "name": "이우성",
+          "batting_order": 7,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "78122",
+          "name": "김태군",
+          "batting_order": 8,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "67609",
+          "name": "박정우",
+          "batting_order": 9,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        }
+      ]
+    },
+    "team_2": {
+      "team_name": "삼성",
+      "team_code": "SS",
+      "starting_pitcher": {
+        "player_id": "50441",
+        "name": "황동재",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "50458",
+          "name": "김지찬",
+          "batting_order": 1,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "67449",
+          "name": "김성윤",
+          "batting_order": 2,
+          "position": "우익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62404",
+          "name": "구자욱",
+          "batting_order": 3,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54400",
+          "name": "디아즈",
+          "batting_order": 4,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52430",
+          "name": "김영웅",
+          "batting_order": 5,
+          "position": "3루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "61404",
+          "name": "김헌곤",
+          "batting_order": 6,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62234",
+          "name": "류지혁",
+          "batting_order": 7,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "65132",
+          "name": "김재성",
+          "batting_order": 8,
+          "position": "포수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52415",
+          "name": "이재현",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-06-13T22:33:59.491831"
+}

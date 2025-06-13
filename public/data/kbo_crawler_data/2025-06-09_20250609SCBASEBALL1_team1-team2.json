@@ -1,0 +1,12 @@
+{
+  "date": "2025-06-09",
+  "game_code": "20250609SCBASEBALL1",
+  "game_time": "경기 시간\n19:30",
+  "game_status": "종료",
+  "teams": [],
+  "lineup_url": "https://m.sports.naver.com/game/20250609SCBASEBALL1/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".Lineup_comp_lineup__361i1\"}\n  (Session info: chrome=137.0.7151.104); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nStacktrace:\n0   chromedriver                        0x000000010113a668 cxxbridge1$str$ptr + 2723108\n1   chromedriver                        0x00000001011328dc cxxbridge1$str$ptr + 2690968\n2   chromedriver                        0x0000000100c86714 cxxbridge1$string$len + 90428\n3   chromedriver                        0x0000000100ccd7c0 cxxbridge1$string$len + 381416\n4   chromedriver                        0x0000000100d0ede8 cxxbridge1$string$len + 649232\n5   chromedriver                        0x0000000100cc19c8 cxxbridge1$string$len + 332784\n6   chromedriver                        0x00000001010fe28c cxxbridge1$str$ptr + 2476360\n7   chromedriver                        0x0000000101101520 cxxbridge1$str$ptr + 2489308\n8   chromedriver                        0x00000001010dfa78 cxxbridge1$str$ptr + 2351412\n9   chromedriver                        0x0000000101101da8 cxxbridge1$str$ptr + 2491492\n10  chromedriver                        0x00000001010d0d6c cxxbridge1$str$ptr + 2290728\n11  chromedriver                        0x0000000101121d74 cxxbridge1$str$ptr + 2622512\n12  chromedriver                        0x0000000101121f00 cxxbridge1$str$ptr + 2622908\n13  chromedriver                        0x0000000101132528 cxxbridge1$str$ptr + 2690020\n14  libsystem_pthread.dylib             0x0000000194446c0c _pthread_start + 136\n15  libsystem_pthread.dylib             0x0000000194441b80 thread_start + 8\n",
+  "crawl_time": "2025-06-13T22:43:32.988136"
+}
