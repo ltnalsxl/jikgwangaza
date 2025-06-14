@@ -815,9 +815,6 @@ const getSortedChants = () => {
               <TeamChantsTab
                 teamChants={teamChants}
                 selectedTeam={selectedTeam}
-                showOnlyLiked={showOnlyLiked}
-                exploreTeamFilter={exploreTeamFilter}
-                filteredChants={filteredChants}
                 setSelectedDate={setSelectedDate}
                 fetchJsonData={fetchJsonData}
                 loading={loading}

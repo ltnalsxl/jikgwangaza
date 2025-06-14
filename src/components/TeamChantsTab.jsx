@@ -7,9 +7,6 @@ import { getTeamInfo } from '../utils/team';
 const TeamChantsTab = ({
   teamChants,
   selectedTeam,
-  showOnlyLiked,
-  exploreTeamFilter,
-  filteredChants,
   setSelectedDate,
   fetchJsonData,
   loading,
@@ -38,15 +35,11 @@ const TeamChantsTab = ({
     <div className="space-y-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-gray-900">
-          {showOnlyLiked
-            ? '❤️ 좋아한 응원가'
-            : exploreTeamFilter === '전체'
-            ? '전체 응원가'
-            : `${exploreTeamFilter} 응원가`}
+          {selectedTeam} 팀 응원가
         </h2>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-            {filteredChants.length}개
+            {currentTeamChants.length}개
           </span>
           <button
             onClick={() => {
