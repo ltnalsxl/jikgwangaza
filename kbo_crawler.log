@@ -460,6 +460,7 @@
 
 2025-06-15 16:27:54,760 - ERROR - 페이지 로딩 실패 (시도 3/3): Message: 
 
+<<<<<<< HEAD
 2025-06-15 21:39:05,097 - INFO - ====== WebDriver manager ======
 2025-06-15 21:39:05,484 - INFO - Get LATEST chromedriver version for google-chrome
 2025-06-15 21:39:05,733 - INFO - Get LATEST chromedriver version for google-chrome
@@ -481,3 +482,28 @@
 2025-06-15 21:55:06,495 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
 2025-06-15 21:55:11,500 - INFO - 페이지 로딩 시도 2/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
 2025-06-15 21:55:11,500 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
+=======
+2025-06-15 12:28:56,014 - INFO - ====== WebDriver manager ======
+2025-06-15 12:28:56,150 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 12:28:56,209 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 12:28:56,251 - INFO - There is no [linux64] chromedriver "137.0.7151.70" for browser google-chrome "137.0.7151" in cache
+2025-06-15 12:28:56,251 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 12:28:56,370 - INFO - WebDriver version 137.0.7151.70 selected
+2025-06-15 12:28:56,373 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/linux64/chromedriver-linux64.zip
+2025-06-15 12:28:56,373 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/linux64/chromedriver-linux64.zip
+2025-06-15 12:28:56,421 - INFO - Driver downloading response is 200
+2025-06-15 12:28:56,553 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 12:28:56,711 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/137.0.7151.70]
+2025-06-15 12:28:57,083 - INFO - 페이지 로딩 시도 1/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 12:29:25,089 - WARNING - 경기 목록을 찾을 수 없음 (시도 1/3)
+2025-06-15 12:29:30,089 - INFO - 페이지 로딩 시도 2/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 12:29:55,990 - WARNING - 경기 목록을 찾을 수 없음 (시도 2/3)
+2025-06-15 12:30:00,990 - INFO - 페이지 로딩 시도 3/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 12:30:26,763 - WARNING - 경기 목록을 찾을 수 없음 (시도 3/3)
+>>>>>>> 81c4466158f4581b924f719af33c4c1b97e96e53
+2025-06-15 21:56:39,839 - INFO - 페이지 로딩 시도 1/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:56:39,839 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
+2025-06-15 21:56:44,844 - INFO - 페이지 로딩 시도 2/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:56:44,845 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
+2025-06-15 21:56:49,850 - INFO - 페이지 로딩 시도 3/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:56:49,850 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
