@@ -78,17 +78,7 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          
-          # 변경사항 확인
-          git status
-          
-          # 변경된 파일들 추가
           git add public/data/kbo_crawler_data kbo_crawler.log
-          
-          # 변경사항이 있는 경우에만 커밋
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Daily lineup update and crawler log"
-            git pull --rebase origin main
-            git push origin main 
+          git commit -m "Daily lineup update and crawler log" || echo "No changes to commit"
+          git pull origin main
+          git push origin main 
