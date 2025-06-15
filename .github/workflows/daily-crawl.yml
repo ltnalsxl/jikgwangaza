@@ -74,4 +74,17 @@ jobs:
         run: |
           git config user.name 'GitHub Actions'
           git config user.email 'actions@github.com'
-          git diff --quiet || (git add public/data/kbo_crawler_data && git commit -m 'Daily lineup update' && git push) 
+          
+          # 변경사항 확인
+          git status
+          
+          # 변경된 파일들 추가
+          git add public/data/kbo_crawler_data kbo_crawler.log
+          
+          # 변경사항이 있는 경우에만 커밋
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Daily lineup update and crawler log"
+            git push
+          fi 
