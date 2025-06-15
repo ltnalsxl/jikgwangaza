@@ -95,9 +95,9 @@ class NaverKBOAllLineupCrawler:
                 
                 # 경기 목록이 로드될 때까지 대기
                 try:
-                    # ul.ScheduleAllType_match_list__3n5L_ 안의 경기 목록만 가져오기
+                    # 빈 li 요소를 제외하고 실제 경기 목록만 가져오기
                     game_items = self.wait.until(
-                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "ul.ScheduleAllType_match_list__3n5L_ > li.MatchBox_match_item__3_D0Q"))
+                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "ul.ScheduleAllType_match_list__3n5L_ > li.MatchBox_match_item__3_D0Q:not(.ScheduleAllType_match_item_empty__10TSo)"))
                     )
                     logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
                         
