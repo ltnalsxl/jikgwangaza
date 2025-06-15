@@ -40,6 +40,14 @@ class NaverKBOAllLineupCrawler:
         print(f"📁 설정된 저장 경로: {save_dir}")
         print(f"📁 절대 경로: {os.path.abspath(save_dir)}")
         
+        # 드라이버 초기화
+        try:
+            self.setup_driver()
+        except Exception as e:
+            print(f"❌ 드라이버 초기화 실패: {e}")
+            self.driver = None
+            self.wait = None
+
     def setup_driver(self, headless=True):
         options = webdriver.ChromeOptions()
         if headless:
@@ -68,6 +76,9 @@ class NaverKBOAllLineupCrawler:
         self.driver.implicitly_wait(10)
         
     def get_daily_games(self, date):
+        if self.driver is None:
+            print("❌ 드라이버가 초기화되지 않아 크롤링을 중단합니다.")
+            return []
         max_retries = 3
         retry_delay = 5
         
@@ -553,8 +564,14 @@ class NaverKBOAllLineupCrawler:
     
     def close(self):
         """드라이버 종료"""
-        if hasattr(self, 'driver'):
-            self.driver.quit()
+        if self.driver:
+            try:
+                self.driver.quit()
+            except Exception as e:
+                logger.error(f"드라이버 종료 중 오류 발생: {str(e)}")
+            finally:
+                self.driver = None
+                self.wait = None
 
     def save_game_to_json(self, game_data):
         """경기별로 JSON 파일로 저장"""
