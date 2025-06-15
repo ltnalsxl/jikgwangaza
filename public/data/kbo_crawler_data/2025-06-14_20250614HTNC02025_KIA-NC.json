@@ -1,29 +1,29 @@
 {
-  "date": "2025-06-13",
-  "game_code": "20250613HTNC02025",
-  "game_time": "경기 시간\n18:30",
+  "date": "2025-06-14",
+  "game_code": "20250614HTNC02025",
+  "game_time": "경기 시간\n17:00",
   "game_status": "종료",
   "teams": [
     {
       "name": "KIA",
-      "score": "1",
+      "score": "9",
       "is_home": false
     },
     {
       "name": "NC",
-      "score": "4",
+      "score": "8",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20250613HTNC02025/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/20250614HTNC02025/lineup",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
       "starting_pitcher": {
-        "player_id": "55633",
-        "name": "올러",
-        "throwing_hand": "우투",
+        "player_id": "77637",
+        "name": "양현종",
+        "throwing_hand": "좌투",
         "position": "투수",
         "role": "선발투수"
       },
@@ -37,11 +37,11 @@
           "role": "선발타자"
         },
         {
-          "player_id": "66606",
-          "name": "최원준",
+          "player_id": "64646",
+          "name": "박찬호",
           "batting_order": 2,
-          "position": "우익수",
-          "batting_hand": "좌타",
+          "position": "유격수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
@@ -69,11 +69,11 @@
           "role": "선발타자"
         },
         {
-          "player_id": "64646",
-          "name": "박찬호",
+          "player_id": "66606",
+          "name": "최원준",
           "batting_order": 6,
-          "position": "유격수",
-          "batting_hand": "우타",
+          "position": "우익수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
@@ -106,8 +106,8 @@
       "team_name": "NC",
       "team_code": "NC",
       "starting_pitcher": {
-        "player_id": "68902",
-        "name": "신민혁",
+        "player_id": "53919",
+        "name": "신영우",
         "throwing_hand": "우투",
         "position": "투수",
         "role": "선발투수"
@@ -170,18 +170,18 @@
           "role": "선발타자"
         },
         {
-          "player_id": "68912",
-          "name": "김형준",
+          "player_id": "51344",
+          "name": "김휘집",
           "batting_order": 8,
-          "position": "포수",
+          "position": "3루수",
           "batting_hand": "우타",
           "role": "선발타자"
         },
         {
-          "player_id": "51344",
-          "name": "김휘집",
+          "player_id": "51903",
+          "name": "김정호",
           "batting_order": 9,
-          "position": "3루수",
+          "position": "포수",
           "batting_hand": "우타",
           "role": "선발타자"
         }
@@ -189,5 +189,5 @@
     }
   },
   "lineup_status": "confirmed",
-  "crawl_time": "2025-06-15T12:03:46.195768"
+  "crawl_time": "2025-06-15T12:03:58.390584"
 }
