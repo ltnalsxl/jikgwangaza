@@ -1,0 +1,33 @@
+name: Daily KBO crawl
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 매일 15:00 KST
+    - cron: '30 6 * * *'  # 매일 15:30 KST
+    - cron: '0 7 * * *'   # 매일 16:00 KST
+    - cron: '30 7 * * *'  # 매일 16:30 KST
+    - cron: '0 8 * * *'   # 매일 17:00 KST
+    - cron: '30 8 * * *'  # 매일 17:30 KST
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: pip install requests beautifulsoup4 pandas selenium webdriver-manager
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Run crawler
+        run: python public/kbo_crawler.py --mode incremental --days 1 --save_dir public/data/kbo_crawler_data
+      - name: Rebuild lineup index
+        run: npm run build-lineup-index
+      - name: Commit and push
+        run: |
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
+          git diff --quiet || (git add public/data/kbo_crawler_data && git commit -m 'Daily lineup update' && git push) 
