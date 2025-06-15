@@ -81,4 +81,5 @@ jobs:
           git add public/data/kbo_crawler_data kbo_crawler.log
           git commit -m "Daily lineup update and crawler log" || echo "No changes to commit"
           git pull origin main
-          git push origin main 
+          git push origin main
+          fi
