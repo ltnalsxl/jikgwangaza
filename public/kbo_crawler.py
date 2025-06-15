@@ -97,7 +97,12 @@ class NaverKBOAllLineupCrawler:
                 try:
                     # 빈 li 요소를 제외하고 실제 경기 목록만 가져오기
                     game_items = self.wait.until(
-                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "ul.ScheduleAllType_match_list__3n5L_ > li.MatchBox_match_item__3_D0Q:not(.ScheduleAllType_match_item_empty__10TSo)"))
+                        EC.presence_of_all_elements_located(
+                            (
+                                By.CSS_SELECTOR,
+                                "ul[class^='ScheduleAllType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleAllType_match_item_empty'])",
+                            )
+                        )
                     )
                     logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
                         
@@ -112,45 +117,44 @@ class NaverKBOAllLineupCrawler:
                 for game_item in game_items:
                     try:
                         # 경기 링크에서 경기 코드 추출
-                        game_link = self.wait.until(
-                            EC.presence_of_element_located((By.CSS_SELECTOR, "a.MatchBox_link_match_end__3HGjy"))
-                        )
+                        game_link = game_item.find_element(By.CSS_SELECTOR, "a[class^='MatchBox_link_match']")
                         href = game_link.get_attribute('href')
                         
                         if '/game/' in href:
                             game_code = href.split('/game/')[1]
                             
                             # 경기 시간
-                            time_elem = self.wait.until(
-                                EC.presence_of_element_located((By.CSS_SELECTOR, "div.MatchBox_time__nIEfd"))
-                            )
+                            time_elem = game_item.find_element(By.CSS_SELECTOR, "div[class^='MatchBox_time']")
                             game_time = time_elem.text.strip()
                             
                             # 경기 상태
-                            status_elem = self.wait.until(
-                                EC.presence_of_element_located((By.CSS_SELECTOR, "em.MatchBox_status__2pbzi"))
-                            )
+                            status_elem = game_item.find_element(By.CSS_SELECTOR, "em[class^='MatchBox_status']")
                             game_status = status_elem.text.strip()
                             
                             # 팀 정보 추출
-                            team_items = self.wait.until(
-                                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.MatchBoxHeadToHeadArea_team_item__25jg6"))
-                            )
+                            team_items = game_item.find_elements(By.CSS_SELECTOR, "div[class^='MatchBoxHeadToHeadArea_team_item']")
                             teams = []
                             
                             for team_item in team_items:
-                                team_name = self.wait.until(
-                                    EC.presence_of_element_located((By.CSS_SELECTOR, "strong.MatchBoxHeadToHeadArea_team__40JQL"))
+                                team_name = team_item.find_element(
+                                    By.CSS_SELECTOR,
+                                    "strong[class^='MatchBoxHeadToHeadArea_team']",
                                 ).text.strip()
-                                
+
                                 try:
-                                    score = self.wait.until(
-                                        EC.presence_of_element_located((By.CSS_SELECTOR, "strong.MatchBoxHeadToHeadArea_score__e2D7k"))
+                                    score = team_item.find_element(
+                                        By.CSS_SELECTOR,
+                                        "strong[class^='MatchBoxHeadToHeadArea_score']",
                                     ).text.strip()
-                                except TimeoutException:
+                                except NoSuchElementException:
                                     score = "-"  # 점수가 없는 경우
-                                    
-                                is_home = bool(team_item.find_elements(By.CSS_SELECTOR, "div.MatchBoxHeadToHeadArea_home_mark__i18Sf"))
+
+                                is_home = bool(
+                                    team_item.find_elements(
+                                        By.CSS_SELECTOR,
+                                        "div[class^='MatchBoxHeadToHeadArea_home_mark']",
+                                    )
+                                )
                                 
                                 teams.append({
                                     'name': team_name,
