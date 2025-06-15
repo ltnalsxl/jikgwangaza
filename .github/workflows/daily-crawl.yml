@@ -22,13 +22,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # 전체 히스토리 가져오기
           
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'  # pip 캐시 활성화
           
       - name: Install Python dependencies
         run: |
@@ -39,10 +37,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'  # npm 캐시 활성화
           
       - name: Install dependencies
-        run: npm ci  # npm install 대신 npm ci 사용
+        run: npm install
         
       - name: Install Chrome
         run: |
@@ -93,6 +90,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Daily lineup update and crawler log"
-            git pull --rebase origin main  # 리베이스로 최신 변경사항 가져오기
-            git push origin main
-          fi 
+            git pull --rebase origin main
+            git push origin main 
