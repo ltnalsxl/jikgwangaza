@@ -10,8 +10,21 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import os
 import argparse
+import logging
+
+# 로깅 설정
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('kbo_crawler.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 class NaverKBOAllLineupCrawler:
     def __init__(self, headless=True, save_directory=None):
@@ -19,6 +32,7 @@ class NaverKBOAllLineupCrawler:
         self.base_url = "https://m.sports.naver.com"
         self.setup_driver(headless)
         self.all_data = []  # 전체 데이터 저장용
+        self.wait = WebDriverWait(self.driver, 20)  # 최대 20초 대기
         
         # 저장 디렉토리 설정
         if save_directory:
@@ -36,92 +50,130 @@ class NaverKBOAllLineupCrawler:
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
+        chrome_options.add_argument('--window-size=1920,1080')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument('--disable-infobars')
         
         self.driver = webdriver.Chrome(options=chrome_options)
-        
-    def get_daily_games(self, date):
-        """일정 페이지에서 해당 날짜의 경기 목록 가져오기"""
-        schedule_url = f"{self.base_url}/kbaseball/schedule/index?date={date}"
-        
-        try:
-            self.driver.get(schedule_url)
-            time.sleep(3)
-            
-            games_data = []
-            
-            # KBO 경기 리스트 찾기
-            try:
-                kbo_section = self.driver.find_element(By.CSS_SELECTOR, ".ScheduleAllType_match_list_group__1nFDy")
-                game_items = kbo_section.find_elements(By.CSS_SELECTOR, ".MatchBox_match_item__3_D0Q")
-                
-                if not game_items:
-                    return []  # 경기가 없음
-                
-            except:
-                return []  # KBO 섹션 자체가 없음 (경기 없는 날)
-            
-            for game_item in game_items:
-                try:
-                    # 경기 링크에서 경기 코드 추출
-                    game_link = game_item.find_element(By.CSS_SELECTOR, ".MatchBox_link_match_end__3HGjy")
-                    href = game_link.get_attribute('href')
-                    
-                    if '/game/' in href:
-                        game_code = href.split('/game/')[1]
-                        
-                        # 경기 시간
-                        time_elem = game_item.find_element(By.CSS_SELECTOR, ".MatchBox_time__nIEfd")
-                        game_time = time_elem.text.strip()
-                        
-                        # 경기 상태
-                        status_elem = game_item.find_element(By.CSS_SELECTOR, ".MatchBox_status__2pbzi")
-                        game_status = status_elem.text.strip()
-                        
-                        # 팀 정보 추출
-                        team_items = game_item.find_elements(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team_item__25jg6")
-                        teams = []
-                        
-                        for team_item in team_items:
-                            team_name = team_item.find_element(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team__40JQL").text.strip()
-                            score = team_item.find_element(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_score__e2D7k").text.strip()
-                            is_home = bool(team_item.find_elements(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_home_mark__i18Sf"))
-                            
-                            teams.append({
-                                'name': team_name,
-                                'score': score,
-                                'is_home': is_home
-                            })
-                        
-                        games_data.append({
-                            'date': date,
-                            'game_code': game_code,
-                            'game_time': game_time,
-                            'game_status': game_status,
-                            'teams': teams,
-                            'lineup_url': f"{self.base_url}/game/{game_code}/lineup"
-                        })
-                        
-                except Exception as e:
-                    print(f"      ❌ 개별 경기 정보 추출 실패: {e}")
-                    continue
-            
-            return games_data
-            
-        except Exception as e:
-            print(f"    ❌ {date} 일정 페이지 크롤링 실패: {e}")
-            return []
+        self.driver.implicitly_wait(10)  # 암시적 대기 10초
 
-    def extract_starting_lineup(self, game_data):
-        """선발 라인업 페이지에서 선발 라인업만 추출"""
+    def get_daily_games(self, date):
+        """특정 날짜의 경기 정보 수집"""
+        url = f"{self.base_url}/kbo/schedule/index?date={date}"
+        max_retries = 3
+        retry_delay = 5
+
+        for attempt in range(max_retries):
+            try:
+                self.driver.get(url)
+                time.sleep(5)  # 페이지 로딩 대기
+                
+                # 페이지 소스에서 JSON 데이터 추출
+                page_source = self.driver.page_source
+                if "런타임 오류" in page_source or "Web.Config" in page_source:
+                    logger.warning(f"페이지 오류 발생 (시도 {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        time.sleep(retry_delay)
+                        continue
+                    return []
+
+                # 경기 목록이 로드될 때까지 대기
+                game_items = self.wait.until(
+                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBox_match_item__3YxGf"))
+                )
+                
+                games_data = []
+                for game_item in game_items:
+                    try:
+                        # 경기 링크에서 경기 코드 추출
+                        game_link = self.wait.until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_link_match_end__3HGjy"))
+                        )
+                        href = game_link.get_attribute('href')
+                        
+                        if '/game/' in href:
+                            game_code = href.split('/game/')[1]
+                            
+                            # 경기 시간
+                            time_elem = self.wait.until(
+                                EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_time__nIEfd"))
+                            )
+                            game_time = time_elem.text.strip()
+                            
+                            # 경기 상태
+                            status_elem = self.wait.until(
+                                EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_status__2pbzi"))
+                            )
+                            game_status = status_elem.text.strip()
+                            
+                            # 팀 정보 추출
+                            team_items = self.wait.until(
+                                EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team_item__25jg6"))
+                            )
+                            teams = []
+                            
+                            for team_item in team_items:
+                                team_name = self.wait.until(
+                                    EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team__40JQL"))
+                                ).text.strip()
+                                
+                                try:
+                                    score = self.wait.until(
+                                        EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_score__e2D7k"))
+                                    ).text.strip()
+                                except TimeoutException:
+                                    score = "-"  # 점수가 없는 경우
+                                    
+                                is_home = bool(team_item.find_elements(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_home_mark__i18Sf"))
+                                
+                                teams.append({
+                                    'name': team_name,
+                                    'score': score,
+                                    'is_home': is_home
+                                })
+                                
+                            # 라인업 URL 생성
+                            lineup_url = f"{self.base_url}/game/{game_code}/lineup"
+                            
+                            # 경기 데이터 저장
+                            game_data = {
+                                'date': date,
+                                'game_code': game_code,
+                                'game_time': game_time,
+                                'game_status': game_status,
+                                'teams': teams,
+                                'lineup_url': lineup_url
+                            }
+                            
+                            games_data.append(game_data)
+                            
+                    except Exception as e:
+                        logger.error(f"개별 경기 정보 추출 실패: {str(e)}")
+                        continue
+                
+                return games_data
+                
+            except Exception as e:
+                logger.error(f"페이지 로딩 실패 (시도 {attempt + 1}/{max_retries}): {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+                    continue
+                return []
+
+    def get_lineup_info(self, game_data):
+        """경기별 라인업 정보 수집"""
         try:
             lineup_url = game_data['lineup_url']
             
             self.driver.get(lineup_url)
-            time.sleep(3)
+            time.sleep(5)  # 페이지 로딩 대기
             
             # 라인업 확정 여부 확인
             try:
-                empty_text = self.driver.find_element(By.CLASS_NAME, "Empty_empty_text__1329Q")
+                empty_text = self.wait.until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "Empty_empty_text__1329Q"))
+                )
                 if "출전 선수 명단이 확정되면" in empty_text.text:
                     return {
                         **game_data,
@@ -129,14 +181,16 @@ class NaverKBOAllLineupCrawler:
                         'lineup_status': 'not_confirmed',
                         'crawl_time': datetime.now().isoformat()
                     }
-            except:
+            except TimeoutException:
                 pass
             
             # 선발 라인업 정보 추출
             starting_lineups = {}
             
             try:
-                lineup_container = self.driver.find_element(By.CLASS_NAME, "Lineup_comp_lineup__361i1")
+                lineup_container = self.wait.until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "Lineup_comp_lineup__361i1"))
+                )
                 lineup_areas = lineup_container.find_elements(By.CLASS_NAME, "Lineup_lineup_area__1yURq")
                 
                 for i, area in enumerate(lineup_areas):
@@ -305,7 +359,7 @@ class NaverKBOAllLineupCrawler:
                     team_names = f"{game_data['teams'][0]['name']} vs {game_data['teams'][1]['name']}"
                     print(f"      📋 [{i}/{len(games_data)}] {team_names} ({game_data['game_code']})")
                     
-                    lineup_data = self.extract_starting_lineup(game_data)
+                    lineup_data = self.get_lineup_info(game_data)
                     day_lineups.append(lineup_data)
                     
                     if lineup_data.get('lineup_status') == 'confirmed':
@@ -514,7 +568,7 @@ class NaverKBOAllLineupCrawler:
                 print(f"❌ {date} 경기 없음")
                 continue
             for game in games:
-                lineup = self.extract_starting_lineup(game)
+                lineup = self.get_lineup_info(game)
                 self.save_game_to_json(lineup)
                 time.sleep(2)
             time.sleep(3)
