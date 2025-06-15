@@ -46,26 +46,36 @@ class NaverKBOAllLineupCrawler:
         """Chrome 드라이버 설정"""
         chrome_options = Options()
         if headless:
-            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--headless=new')  # 새로운 headless 모드 사용
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
-        chrome_options.add_argument('--window-size=1920,1080')
+        chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1')
+        chrome_options.add_argument('--window-size=390,844')  # iPhone 12 Pro 크기
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-extensions')
         chrome_options.add_argument('--disable-infobars')
+        chrome_options.add_argument('--disable-notifications')
+        chrome_options.add_argument('--disable-popup-blocking')
+        chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
+        chrome_options.add_experimental_option('useAutomationExtension', False)
         
         self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver.execute_cdp_cmd('Network.setUserAgentOverride', {
+            "userAgent": 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1'
+        })
+        self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         self.driver.implicitly_wait(10)  # 암시적 대기 10초
 
     def get_daily_games(self, date):
         """특정 날짜의 경기 정보 수집"""
-        url = f"{self.base_url}/kbo/schedule/index?date={date}"
+        url = f"{self.base_url}/kbaseball/schedule/index?date={date}"
         max_retries = 3
         retry_delay = 5
 
         for attempt in range(max_retries):
             try:
+                logger.info(f"페이지 로딩 시도 {attempt + 1}/{max_retries}: {url}")
                 self.driver.get(url)
                 time.sleep(5)  # 페이지 로딩 대기
                 
@@ -78,11 +88,22 @@ class NaverKBOAllLineupCrawler:
                         continue
                     return []
 
-                # 경기 목록이 로드될 때까지 대기
-                game_items = self.wait.until(
-                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBox_match_item__3YxGf"))
-                )
+                # JavaScript 실행 대기
+                self.driver.execute_script("return document.readyState") == "complete"
                 
+                # 경기 목록이 로드될 때까지 대기
+                try:
+                    game_items = self.wait.until(
+                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBox_match_item__3YxGf"))
+                    )
+                    logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
+                except TimeoutException:
+                    logger.warning(f"경기 목록을 찾을 수 없음 (시도 {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        time.sleep(retry_delay)
+                        continue
+                    return []
+
                 games_data = []
                 for game_item in game_items:
                     try:
