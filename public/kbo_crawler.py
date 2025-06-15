@@ -29,79 +29,67 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class NaverKBOAllLineupCrawler:
-    def __init__(self, headless=True, save_directory=None):
-        """네이버 스포츠 KBO 전체 선발 라인업 크롤러"""
+    def __init__(self, save_dir='public/data/kbo_crawler_data'):
         self.base_url = "https://m.sports.naver.com"
-        self.setup_driver(headless)
-        self.all_data = []  # 전체 데이터 저장용
-        self.wait = WebDriverWait(self.driver, 20)  # 최대 20초 대기
+        self.save_dir = save_dir
+        self.driver = None
+        self.wait = None
         
-        # 저장 디렉토리 설정
-        if save_directory:
-            self.save_directory = save_directory
-            # 디렉토리가 없으면 생성
-            os.makedirs(self.save_directory, exist_ok=True)
-        else:
-            self.save_directory = os.getcwd()  # 현재 작업 디렉토리 사용
+        # 저장 디렉토리 생성
+        os.makedirs(save_dir, exist_ok=True)
+        print(f"📁 설정된 저장 경로: {save_dir}")
+        print(f"📁 절대 경로: {os.path.abspath(save_dir)}")
         
     def setup_driver(self, headless=True):
-        """Chrome 드라이버 설정"""
-        chrome_options = Options()
+        options = webdriver.ChromeOptions()
         if headless:
-            chrome_options.add_argument('--headless=new')  # 새로운 headless 모드 사용
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1')
-        chrome_options.add_argument('--window-size=390,844')  # iPhone 12 Pro 크기
-        chrome_options.add_argument('--disable-gpu')
-        chrome_options.add_argument('--disable-extensions')
-        chrome_options.add_argument('--disable-infobars')
-        chrome_options.add_argument('--disable-notifications')
-        chrome_options.add_argument('--disable-popup-blocking')
-        chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
-        chrome_options.add_experimental_option('useAutomationExtension', False)
+            options.add_argument('--headless=new')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--window-size=390,844')  # iPhone 12 Pro 크기
+        options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1')
         
-        # webdriver-manager를 사용하여 ChromeDriver 자동 설치
+        # 자동화 감지 방지
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        
         service = Service(ChromeDriverManager().install())
-        self.driver = webdriver.Chrome(service=service, options=chrome_options)
-        
-        self.driver.execute_cdp_cmd('Network.setUserAgentOverride', {
-            "userAgent": 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1'
+        self.driver = webdriver.Chrome(service=service, options=options)
+        self.driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+            'source': '''
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                })
+            '''
         })
-        self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-        self.driver.implicitly_wait(10)  # 암시적 대기 10초
-
+        
+        self.wait = WebDriverWait(self.driver, 30)  # 대기 시간 30초로 증가
+        self.driver.implicitly_wait(10)
+        
     def get_daily_games(self, date):
-        """특정 날짜의 경기 정보 수집"""
-        url = f"{self.base_url}/kbaseball/schedule/index?date={date}"
         max_retries = 3
         retry_delay = 5
-
+        
         for attempt in range(max_retries):
             try:
+                url = f"{self.base_url}/kbaseball/schedule/index?date={date}"
                 logger.info(f"페이지 로딩 시도 {attempt + 1}/{max_retries}: {url}")
-                self.driver.get(url)
-                time.sleep(5)  # 페이지 로딩 대기
                 
-                # 페이지 소스에서 JSON 데이터 추출
-                page_source = self.driver.page_source
-                if "런타임 오류" in page_source or "Web.Config" in page_source:
-                    logger.warning(f"페이지 오류 발생 (시도 {attempt + 1}/{max_retries})")
-                    if attempt < max_retries - 1:
-                        time.sleep(retry_delay)
-                        continue
-                    return []
-
-                # JavaScript 실행 대기
-                self.driver.execute_script("return document.readyState") == "complete"
+                self.driver.get(url)
+                
+                # JavaScript 실행 완료 대기
+                self.wait.until(lambda driver: driver.execute_script('return document.readyState') == 'complete')
+                time.sleep(5)  # 추가 대기 시간
                 
                 # 경기 목록이 로드될 때까지 대기
                 try:
+                    # 새로운 CSS 셀렉터 사용
                     game_items = self.wait.until(
-                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBox_match_item__3YxGf"))
+                        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "li.MatchBox_match_item__3_D0Q"))
                     )
                     logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
+                        
                 except TimeoutException:
                     logger.warning(f"경기 목록을 찾을 수 없음 (시도 {attempt + 1}/{max_retries})")
                     if attempt < max_retries - 1:
@@ -114,7 +102,7 @@ class NaverKBOAllLineupCrawler:
                     try:
                         # 경기 링크에서 경기 코드 추출
                         game_link = self.wait.until(
-                            EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_link_match_end__3HGjy"))
+                            EC.presence_of_element_located((By.CSS_SELECTOR, "a.MatchBox_link_match_end__3HGjy"))
                         )
                         href = game_link.get_attribute('href')
                         
@@ -123,35 +111,35 @@ class NaverKBOAllLineupCrawler:
                             
                             # 경기 시간
                             time_elem = self.wait.until(
-                                EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_time__nIEfd"))
+                                EC.presence_of_element_located((By.CSS_SELECTOR, "div.MatchBox_time__nIEfd"))
                             )
                             game_time = time_elem.text.strip()
                             
                             # 경기 상태
                             status_elem = self.wait.until(
-                                EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBox_status__2pbzi"))
+                                EC.presence_of_element_located((By.CSS_SELECTOR, "em.MatchBox_status__2pbzi"))
                             )
                             game_status = status_elem.text.strip()
                             
                             # 팀 정보 추출
                             team_items = self.wait.until(
-                                EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team_item__25jg6"))
+                                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.MatchBoxHeadToHeadArea_team_item__25jg6"))
                             )
                             teams = []
                             
                             for team_item in team_items:
                                 team_name = self.wait.until(
-                                    EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_team__40JQL"))
+                                    EC.presence_of_element_located((By.CSS_SELECTOR, "strong.MatchBoxHeadToHeadArea_team__40JQL"))
                                 ).text.strip()
                                 
                                 try:
                                     score = self.wait.until(
-                                        EC.presence_of_element_located((By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_score__e2D7k"))
+                                        EC.presence_of_element_located((By.CSS_SELECTOR, "strong.MatchBoxHeadToHeadArea_score__e2D7k"))
                                     ).text.strip()
                                 except TimeoutException:
                                     score = "-"  # 점수가 없는 경우
                                     
-                                is_home = bool(team_item.find_elements(By.CSS_SELECTOR, ".MatchBoxHeadToHeadArea_home_mark__i18Sf"))
+                                is_home = bool(team_item.find_elements(By.CSS_SELECTOR, "div.MatchBoxHeadToHeadArea_home_mark__i18Sf"))
                                 
                                 teams.append({
                                     'name': team_name,
@@ -175,17 +163,19 @@ class NaverKBOAllLineupCrawler:
                             games_data.append(game_data)
                             
                     except Exception as e:
-                        logger.error(f"개별 경기 정보 추출 실패: {str(e)}")
+                        logger.error(f"경기 정보 추출 중 오류 발생: {str(e)}")
                         continue
-                
+                        
                 return games_data
                 
             except Exception as e:
-                logger.error(f"페이지 로딩 실패 (시도 {attempt + 1}/{max_retries}): {str(e)}")
+                logger.error(f"페이지 로딩 중 오류 발생: {str(e)}")
                 if attempt < max_retries - 1:
                     time.sleep(retry_delay)
                     continue
                 return []
+                
+        return []
 
     def get_lineup_info(self, game_data):
         """경기별 라인업 정보 수집"""
@@ -433,7 +423,7 @@ class NaverKBOAllLineupCrawler:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         
         # JSON 저장
-        json_filename = os.path.join(self.save_directory, f'kbo_all_starting_lineups_{timestamp}.json')
+        json_filename = os.path.join(self.save_dir, f'kbo_all_starting_lineups_{timestamp}.json')
         save_data = {
             'crawl_info': {
                 'crawl_time': datetime.now().isoformat(),
@@ -514,7 +504,7 @@ class NaverKBOAllLineupCrawler:
         
         if all_players:
             players_df = pd.DataFrame(all_players)
-            csv_filename = os.path.join(self.save_directory, f'kbo_all_starting_lineups_{timestamp}.csv')
+            csv_filename = os.path.join(self.save_dir, f'kbo_all_starting_lineups_{timestamp}.csv')
             players_df.to_csv(csv_filename, index=False, encoding='utf-8-sig')
             print(f"📊 전체 데이터 CSV 저장: {csv_filename} ({len(all_players)}개 행)")
             return csv_filename
@@ -579,7 +569,7 @@ class NaverKBOAllLineupCrawler:
             team2 = 'team2'
         filename = f"{date}_{game_code}_{team1}-{team2}.json"
         filename = filename.replace(' ', '').replace(':', '').replace('/', '-')
-        save_path = os.path.join(self.save_directory, filename)
+        save_path = os.path.join(self.save_dir, filename)
         with open(save_path, 'w', encoding='utf-8') as f:
             json.dump(game_data, f, ensure_ascii=False, indent=2)
         print(f"💾 경기 저장: {save_path}")
@@ -614,7 +604,7 @@ if __name__ == "__main__":
     print(f"📁 설정된 저장 경로: {save_dir}")
     print(f"📁 절대 경로: {os.path.abspath(save_dir)}")
 
-    crawler = NaverKBOAllLineupCrawler(headless=True, save_directory=save_dir)
+    crawler = NaverKBOAllLineupCrawler(save_dir=save_dir)
     try:
         if args.mode == 'full':
             # 전체 시즌 날짜 리스트 생성
