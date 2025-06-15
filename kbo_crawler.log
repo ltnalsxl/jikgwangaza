@@ -460,3 +460,24 @@
 
 2025-06-15 16:27:54,760 - ERROR - 페이지 로딩 실패 (시도 3/3): Message: 
 
+2025-06-15 21:39:05,097 - INFO - ====== WebDriver manager ======
+2025-06-15 21:39:05,484 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 21:39:05,733 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 21:39:05,775 - INFO - There is no [mac64] chromedriver "137.0.7151.70" for browser google-chrome "137.0.7151" in cache
+2025-06-15 21:39:05,783 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 21:39:05,944 - INFO - WebDriver version 137.0.7151.70 selected
+2025-06-15 21:39:05,946 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-15 21:39:05,946 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-15 21:39:06,196 - INFO - Driver downloading response is 200
+2025-06-15 21:39:06,406 - INFO - Get LATEST chromedriver version for google-chrome
+2025-06-15 21:39:06,543 - INFO - Driver has been saved in cache [/Users/ltnalsxl/.wdm/drivers/chromedriver/mac64/137.0.7151.70]
+2025-06-15 21:39:08,343 - INFO - 페이지 로딩 시도 1/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:39:34,823 - WARNING - 경기 목록을 찾을 수 없음 (시도 1/3)
+2025-06-15 21:39:39,829 - INFO - 페이지 로딩 시도 2/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:40:05,854 - WARNING - 경기 목록을 찾을 수 없음 (시도 2/3)
+2025-06-15 21:40:10,856 - INFO - 페이지 로딩 시도 3/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:40:36,497 - WARNING - 경기 목록을 찾을 수 없음 (시도 3/3)
+2025-06-15 21:55:06,495 - INFO - 페이지 로딩 시도 1/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:55:06,495 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
+2025-06-15 21:55:11,500 - INFO - 페이지 로딩 시도 2/3: https://m.sports.naver.com/kbaseball/schedule/index?date=2025-06-15
+2025-06-15 21:55:11,500 - ERROR - 페이지 로딩 중 오류 발생: 'NoneType' object has no attribute 'get'
