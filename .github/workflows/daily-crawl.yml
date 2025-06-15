@@ -82,4 +82,3 @@ jobs:
           git commit -m "Daily lineup update" || echo "No changes to commit"
           git pull origin main
           git push origin main
-          fi
