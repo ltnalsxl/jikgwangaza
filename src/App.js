@@ -80,6 +80,25 @@ const JikgwanGaja = () => {
   const searchRef = useRef('');
   const playerRef = useRef(null);
 
+  // URL 해시와 선택된 탭을 동기화한다
+  useEffect(() => {
+    const setTabFromHash = () => {
+      const tab = window.location.hash.replace('#', '');
+      if (tab && ['lineup', 'teamChants', 'explore'].includes(tab)) {
+        setActiveTab(tab);
+        setShowPlayer(false);
+      }
+    };
+
+    setTabFromHash();
+    window.addEventListener('hashchange', setTabFromHash);
+    return () => window.removeEventListener('hashchange', setTabFromHash);
+  }, []);
+
+  useEffect(() => {
+    window.history.replaceState(null, '', `#${activeTab}`);
+  }, [activeTab]);
+
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
