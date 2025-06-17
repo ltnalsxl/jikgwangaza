@@ -229,7 +229,7 @@ const useKboData = () => {
             return [
               {
                 id: `${dateStr}_${team1Name}`,
-                date: `${dateStr}T15:00:00.000Z`, // 기본 시간 설정
+                date: dateStr,
                 team: team1Name,
                 home: homeTeam,
                 away: awayTeam,
@@ -238,7 +238,7 @@ const useKboData = () => {
               },
               {
                 id: `${dateStr}_${team2Name}`,
-                date: `${dateStr}T15:00:00.000Z`, // 기본 시간 설정
+                date: dateStr,
                 team: team2Name,
                 home: homeTeam,
                 away: awayTeam,
