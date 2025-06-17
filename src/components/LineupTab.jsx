@@ -35,14 +35,13 @@ const LineupTab = ({
             className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <Share2 className="w-4 h-4" />
-            오늘의 라인업 공유하기
+            공유하기
           </button>
           <button
             onClick={fetchJsonData}
             className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
-            새로고침
           </button>
         </div>
       </div>
