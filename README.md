@@ -4,13 +4,11 @@ JikgwanGaja is a React application for browsing KBO lineups, player walk-up song
 
 ## Updating JSON data
 
-Edit the JSON files directly inside `public/data/` or generate new lineup files using the crawler described below. After adding lineup files inside `public/data/kbo_crawler_data`, run:
+Edit the JSON files directly inside `public/data/` or generate new lineup files using the crawler described below. The crawler automatically rebuilds `public/data/kbo_crawler_data/index.json` when it finishes, but you can run the indexing script manually:
 
 ```bash
 npm run build-lineup-index
 ```
-
-to refresh `public/data/kbo_crawler_data/index.json`.
 
 ## Crawling lineups
 
@@ -28,7 +26,7 @@ For an **incremental** update of the last N days (3 by default):
 python public/kbo_crawler.py --mode incremental --days 3 --save_dir public/data/kbo_crawler_data
 ```
 
-After crawling, run `npm run build-lineup-index` to update the game index.
+The crawler saves each game's lineup JSON files and then rebuilds the index automatically.
 
 ## Basic npm commands
 

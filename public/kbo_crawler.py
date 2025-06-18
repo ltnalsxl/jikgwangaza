@@ -16,6 +16,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import os
 import argparse
 import logging
+import subprocess
 
 # 로깅 설정
 logging.basicConfig(
@@ -642,6 +643,16 @@ if __name__ == "__main__":
         print(f"\n🚀 크롤링 날짜: {date_list}")
         crawler.crawl_and_save_by_dates(date_list)
         print("\n🎉 모든 경기별 파일 저장 완료!")
+
+        # Save a rebuilt index of all lineup JSON files
+        index_script = os.path.join(os.path.dirname(__file__), '..', 'scripts', 'generateLineupIndex.js')
+        try:
+            subprocess.run(['node', index_script], check=True)
+            print("🔃 라인업 인덱스 갱신 완료")
+        except FileNotFoundError:
+            print("❌ Node.js를 찾을 수 없어 인덱스 갱신을 건너뜁니다.")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ 라인업 인덱스 갱신 실패: {e}")
     except Exception as e:
         print(f"❌ 오류 발생: {e}")
     finally:
