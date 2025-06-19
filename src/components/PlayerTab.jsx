@@ -16,11 +16,23 @@ const PlayerTab = ({
   handleShare,
 }) => {
   const playerRef = useRef(null);
-  const currentChant = { ...playerSongs[currentPlayer] } || {};
+  let currentChant = {};
+  let hasPlayerData = true;
+
   if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
     const todayLineupPlayer = currentLineup[currentLineupIndex];
+
+    const matchedSong = playerSongs.find(
+      (song) =>
+        song.playerName === todayLineupPlayer.playerName && song.team === selectedTeam
+    );
+
+    hasPlayerData = !!matchedSong;
+    currentChant = { ...(matchedSong || {}), playerName: todayLineupPlayer.playerName };
     currentChant.order = todayLineupPlayer.order;
     currentChant.position = todayLineupPlayer.position;
+  } else {
+    currentChant = { ...playerSongs[currentPlayer] } || {};
   }
   const getDisplayTeam = () => {
     return playSource === 'lineup'
@@ -54,6 +66,11 @@ const PlayerTab = ({
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">
             {currentChant.playerName}
           </h2>
+          {!hasPlayerData && (
+            <p className="mt-2 text-center text-sm text-gray-500">
+              선수 정보가 없습니다. 곧 업데이트됩니다.
+            </p>
+          )}
           {/* 기본 정보 그리드 */}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="space-y-3">
