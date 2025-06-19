@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import YouTube from 'react-youtube';
-import { Music, SkipBack, SkipForward, Pause, Play, Share2, Plus } from 'lucide-react';
+import { Music, SkipBack, SkipForward, Pause, Play, Share2, Plus, Mail } from 'lucide-react';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from '../utils/team';
 const PlayerTab = ({
   playerSongs,
@@ -49,6 +49,13 @@ const PlayerTab = ({
       controls: 1,
       rel: 0,
     },
+  };
+  const handleInfoRequest = () => {
+    const subject = encodeURIComponent('선수 정보 요청');
+    const body = encodeURIComponent(
+      `${currentChant.playerName} (${getDisplayTeam()}) 정보 요청`
+    );
+    window.location.href = `mailto:ltnalsxl1011@gmail.com?subject=${subject}&body=${body}`;
   };
   return (
     <div className="space-y-6">
@@ -198,6 +205,13 @@ const PlayerTab = ({
         >
           <Share2 className="w-4 h-4" />
           공유
+        </button>
+        <button
+          onClick={handleInfoRequest}
+          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+        >
+          <Mail className="w-4 h-4" />
+          정보 요청
         </button>
         <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
           <Plus className="w-4 h-4" />
