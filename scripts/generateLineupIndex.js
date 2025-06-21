@@ -7,7 +7,13 @@ const indexPath = path.join(dataDir, 'index.json');
 function generateIndex() {
   const files = fs
     .readdirSync(dataDir)
-    .filter((file) => file.endsWith('.json') && file !== 'index.json');
+    .filter(
+      (file) =>
+        file.endsWith('.json') &&
+        file !== 'index.json' &&
+        !file.includes('team1-team2') &&
+        !file.startsWith('kbo_all_starting_lineups_')
+    );
 
   files.sort();
 
