@@ -26,7 +26,15 @@ For an **incremental** update of the last N days (3 by default):
 python public/kbo_crawler.py --mode incremental --days 3 --save_dir public/data/kbo_crawler_data
 ```
 
+
 The crawler saves each game's lineup JSON files and then rebuilds the index automatically.
+
+## Automated daily crawl
+
+The GitHub Actions workflow at `.github/workflows/daily-crawl.yml` runs every
+day to fetch new lineups. The workflow rebuilds
+`public/data/kbo_crawler_data/index.json` and commits the updated files back to
+the repository automatically.
 
 ## Basic npm commands
 
