@@ -6,8 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 TEAM_CODES = {
     "HH": "한화",
@@ -32,12 +33,24 @@ def _parse_date(text: str) -> str:
 
 
 def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
-    select = Select(driver.find_element(By.ID, "cphContents_cphContents_cphContents_ddlTeam"))
+    wait = WebDriverWait(driver, 10)
+    # Wait for the team dropdown to be present before interacting
+    wait.until(
+        EC.presence_of_element_located(
+            (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
+        )
+    )
+    select = Select(
+        driver.find_element(By.ID, "cphContents_cphContents_cphContents_ddlTeam")
+    )
     select.select_by_value(code)
-    time.sleep(2)
+    # Wait for the table to load after selecting the team
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
     players = []
 
     while True:
+        # Ensure the table is present before parsing
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
         soup = BeautifulSoup(driver.page_source, "html.parser")
         table = soup.find("table", class_="tEx")
         if not table:
@@ -68,11 +81,19 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
             }
             players.append(player)
         try:
-            next_btn = driver.find_element(By.ID, "cphContents_cphContents_cphContents_ucPager_btnNext")
+            next_btn = wait.until(
+                EC.element_to_be_clickable(
+                    (
+                        By.ID,
+                        "cphContents_cphContents_cphContents_ucPager_btnNext",
+                    )
+                )
+            )
             if "disabled" in next_btn.get_attribute("class"):
                 break
             next_btn.click()
-            time.sleep(1.5)
+            # Wait for the next page's table to load
+            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
         except Exception:
             break
 
@@ -93,7 +114,11 @@ def crawl_players() -> list:
     )
     # Start from the player search page which lists all players by team
     driver.get("https://www.koreabaseball.com/Player/Search.aspx")
-    time.sleep(2)
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
+        )
+    )
 
     all_players = []
     for code in TEAM_CODES:
