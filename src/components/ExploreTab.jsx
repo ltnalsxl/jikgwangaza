@@ -2,8 +2,6 @@ import React from 'react';
 import {
   Search,
   Filter,
-  Heart,
-  Circle,
   RefreshCw,
   AlertCircle,
 } from 'lucide-react';
@@ -15,12 +13,7 @@ const ExploreTab = ({
   handleCompositionEnd,
   exploreTeamFilter,
   setExploreTeamFilter,
-  sortBy,
-  setSortBy,
   playerSongs,
-  likedSongs,
-  showOnlyLiked,
-  setShowOnlyLiked,
   filteredChants,
   error,
   setSelectedDate,
@@ -28,7 +21,6 @@ const ExploreTab = ({
   setCurrentPlayer,
   setPlaySource,
   setShowPlayer,
-  toggleLike,
   handleShare,
   setSearchQuery,
   isComposing,
@@ -69,43 +61,13 @@ const ExploreTab = ({
           <option value="KT">KT 위즈</option>
         </select>
       </div>
-      <div className="flex items-center gap-3 overflow-x-auto pb-3">
-        {[
-          { key: 'popular', label: '인기순', icon: Heart, color: 'from-red-500 to-pink-500' },
-          { key: 'name', label: '가나다순', icon: Circle, color: 'from-blue-500 to-indigo-500' },
-        ].map(({ key, label, icon: Icon, color }) => (
-          <button
-            key={key}
-            onClick={() => setSortBy(key)}
-            className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all font-medium ${
-              sortBy === key
-                ? `bg-gradient-to-r ${color} text-white shadow-lg shadow-gray-300 scale-105`
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-sm'
-            }`}
-          >
-            <Icon className="w-4 h-4" />
-            {label}
-          </button>
-        ))}
-      </div>
     </div>
     {/* 통계 카드 */}
-    <div className="grid grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-2 gap-4 mb-6">
       <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl p-4 text-white shadow-lg">
         <h3 className="text-xl font-bold">{playerSongs.length}</h3>
         <p className="text-sm text-blue-100 mt-1">총 응원가</p>
       </div>
-      <button
-        onClick={() => setShowOnlyLiked(!showOnlyLiked)}
-        className={`bg-gradient-to-br rounded-2xl p-4 text-white transition-all transform duration-200 shadow-lg ${
-          showOnlyLiked
-            ? 'from-pink-500 via-pink-600 to-rose-600 scale-105 shadow-xl ring-2 ring-pink-200'
-            : 'from-purple-500 via-purple-600 to-purple-700 hover:scale-102 hover:shadow-xl'
-        }`}
-      >
-        <h3 className="text-xl font-bold">{likedSongs.size}</h3>
-        <p className="text-sm text-purple-100 mt-1">{showOnlyLiked ? '💖 선택됨' : '좋아한 곡'}</p>
-      </button>
       <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-2xl p-4 text-white shadow-lg">
         <h3 className="text-xl font-bold">{filteredChants.length}</h3>
         <p className="text-sm text-emerald-100 mt-1">검색 결과</p>
@@ -115,9 +77,7 @@ const ExploreTab = ({
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold">
-          {showOnlyLiked
-            ? '❤️ 좋아한 응원가'
-            : exploreTeamFilter === '전체'
+          {exploreTeamFilter === '전체'
             ? '전체 응원가'
             : `${exploreTeamFilter} 응원가`}
         </h2>
@@ -154,27 +114,18 @@ const ExploreTab = ({
           setCurrentPlayer={setCurrentPlayer}
           setPlaySource={setPlaySource}
           setShowPlayer={setShowPlayer}
-          toggleLike={toggleLike}
-          likedSongs={likedSongs}
           handleShare={handleShare}
         />
       ))}
-      {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체' || showOnlyLiked) && !isComposing && (
+      {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
         <div className="text-center py-8 text-gray-500">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>
-            {showOnlyLiked
-              ? '좋아한 응원가가 없습니다'
-              : searchQuery
+            {searchQuery
               ? `"${searchQuery}"에 대한 검색 결과가 없습니다`
               : `${exploreTeamFilter} 팀의 응원가가 없습니다`}
           </p>
           <div className="flex gap-2 justify-center mt-2">
-            {showOnlyLiked && (
-              <button onClick={() => setShowOnlyLiked(false)} className="text-[#0ea5e9] text-sm">
-                전체 응원가 보기
-              </button>
-            )}
             {searchQuery && (
               <button onClick={() => setSearchQuery('')} className="text-[#0ea5e9] text-sm">
                 검색어 지우기
