@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import YouTube from 'react-youtube';
-import { Music, SkipBack, SkipForward, Pause, Play, Share2, Plus, Mail } from 'lucide-react';
+import { Music, SkipBack, SkipForward, Share2, Plus, Mail } from 'lucide-react';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from '../utils/team';
 import LyricsSection from './LyricsSection';
 const PlayerTab = ({
@@ -12,8 +12,6 @@ const PlayerTab = ({
   selectedTeam,
   playPrev,
   playNext,
-  togglePlay,
-  isPlaying,
   handleShare,
 }) => {
   const playerRef = useRef(null);
@@ -183,7 +181,7 @@ const PlayerTab = ({
         defaultExpanded
       />
       {/* 컨트롤 버튼 */}
-      <div className="flex items-center justify-center gap-6">
+      <div className="flex items-center justify-center gap-12">
         <button
           onClick={playPrev}
           disabled={
@@ -193,12 +191,6 @@ const PlayerTab = ({
           className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
         >
           <SkipBack className="w-6 h-6" />
-        </button>
-        <button
-          onClick={togglePlay}
-          className="p-4 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors shadow-lg"
-        >
-          {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8" />}
         </button>
         <button
           onClick={playNext}
