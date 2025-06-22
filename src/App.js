@@ -822,6 +822,7 @@ const getSortedChants = () => {
                 currentPlayer={currentPlayer}
                 playerSongs={playerSongs}
                 selectedTeam={selectedTeam}
+                selectedDate={selectedDate}
                 likedSongs={likedSongs}
                 fetchJsonData={fetchJsonData}
                 loading={loading}
