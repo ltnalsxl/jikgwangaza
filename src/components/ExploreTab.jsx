@@ -104,14 +104,14 @@ const ExploreTab = ({
       </div>
     </div>
     {/* 통계 카드 */}
-    <div className="grid grid-cols-3 gap-4 mb-6">
-      <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl p-4 text-white shadow-lg">
-        <h3 className="text-xl font-bold">{playerSongs.length}</h3>
-        <p className="text-sm text-blue-100 mt-1">총 응원가</p>
+    <div className="grid grid-cols-2 gap-3 mb-4">
+      <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-xl p-3 text-white shadow">
+        <h3 className="text-lg font-bold">{playerSongs.length}</h3>
+        <p className="text-xs text-blue-100 mt-1">총 응원가</p>
       </div>
-      <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-2xl p-4 text-white shadow-lg">
-        <h3 className="text-xl font-bold">{filteredChants.length}</h3>
-        <p className="text-sm text-emerald-100 mt-1">검색 결과</p>
+      <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-xl p-3 text-white shadow">
+        <h3 className="text-lg font-bold">{filteredChants.length}</h3>
+        <p className="text-xs text-emerald-100 mt-1">검색 결과</p>
       </div>
     </div>
     {/* 응원가 목록 */}
