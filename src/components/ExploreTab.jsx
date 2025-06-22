@@ -171,21 +171,15 @@ const ExploreTab = ({
         const songs = playerSongs.filter(song => song.playerName === player.playerName && (song.team === player.teamName || song.team === player.teamCode));
         const mainSong = songs.find(song => song.type === '응원가') || songs[0];
         return (
-          <div key={player.playerName + player.teamName} className="relative">
-            <ChantCard
-              chant={mainSong || { playerName: player.playerName, team: player.teamName, position: player.position }}
-              playerSongs={playerSongs}
-              setCurrentPlayer={setCurrentPlayer}
-              setPlaySource={setPlaySource}
-              setShowPlayer={setShowPlayer}
-              handleShare={handleShare}
-            />
-            {!mainSong && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 rounded-2xl">
-                <span className="text-gray-500 text-sm font-medium">곧 업데이트됩니다</span>
-              </div>
-            )}
-          </div>
+          <ChantCard
+            key={player.playerName + player.teamName}
+            chant={mainSong || { playerName: player.playerName, team: player.teamName, position: player.position }}
+            playerSongs={playerSongs}
+            setCurrentPlayer={setCurrentPlayer}
+            setPlaySource={setPlaySource}
+            setShowPlayer={setShowPlayer}
+            handleShare={handleShare}
+          />
         );
       })}
       {filteredPlayers.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
