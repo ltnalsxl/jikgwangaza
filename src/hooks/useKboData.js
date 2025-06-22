@@ -186,6 +186,12 @@ const useKboData = () => {
         .filter(result => result.status === 'fulfilled' && result.value?.data)
         .flatMap(result => {
           const { file, data: game } = result.value;
+
+          // Skip games that were canceled (e.g., due to rain)
+          if (game?.game_status && game.game_status.includes('취소')) {
+            console.warn('경기 취소됨, 라인업 제외:', file);
+            return [];
+          }
           
           if (!game || !game.starting_lineups) {
             console.warn('라인업 정보 없음:', file);
