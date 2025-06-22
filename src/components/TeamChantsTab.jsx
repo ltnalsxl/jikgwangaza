@@ -89,8 +89,10 @@ const TeamChantsTab = ({
                 <div className="p-4 pb-2">
                   <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
                 </div>
-                <div className="w-full rounded-xl overflow-hidden aspect-[16/9] bg-black">
-                  <TeamChantVideo youtubeId={chant.youtubeId} chantTitle={chant.chantTitle} opts={opts} />
+                <div className="relative w-full" style={{ paddingBottom: '56.25%', height: 0 }}>
+                  <div className="absolute top-0 left-0 w-full h-full z-0">
+                    <TeamChantVideo youtubeId={chant.youtubeId} chantTitle={chant.chantTitle} opts={opts} />
+                  </div>
                 </div>
                 <LyricsSection chant={chant} hasVideo={chant.youtubeId && chant.youtubeId !== ''} />
               </div>

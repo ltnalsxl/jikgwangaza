@@ -32,7 +32,6 @@ const PlayerTab = ({
     currentChant.position = todayLineupPlayer.position;
   } else {
     currentChant = { ...playerSongs[currentPlayer] } || {};
-    hasPlayerData = !!playerSongs[currentPlayer];
   }
   const getDisplayTeam = () => {
     return playSource === 'lineup'
@@ -74,8 +73,16 @@ const PlayerTab = ({
             {currentChant.playerName}
           </h2>
           {!hasPlayerData && (
-            <div className="flex flex-col items-center justify-center py-16">
-              <p className="text-lg text-gray-500 font-semibold mb-2">곧 업데이트됩니다</p>
+            <div className="mt-2 text-center space-y-1">
+              <p className="text-sm text-gray-500">
+                선수 정보가 없습니다. 곧 업데이트됩니다.
+              </p>
+              <button
+                onClick={handleInfoRequest}
+                className="text-sm text-blue-500 underline"
+              >
+                정보 요청하기
+              </button>
             </div>
           )}
           {/* 기본 정보 그리드 */}
@@ -146,22 +153,27 @@ const PlayerTab = ({
         </div>
       </div>
       {/* YouTube 플레이어 */}
-      <div className="w-full rounded-xl overflow-hidden aspect-[16/9] bg-black flex items-center justify-center">
-        {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
-          <YouTube
-            key={`player-${currentChant.youtubeId}`}
-            videoId={currentChant.youtubeId}
-            opts={opts}
-            onReady={(event) => {
-              playerRef.current = event.target;
-            }}
-          />
-        ) : (
-          <div className="flex flex-col items-center justify-center w-full h-full text-center text-white">
-            <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-            <p className="text-lg mb-2">곧 업데이트됩니다</p>
-          </div>
-        )}
+      <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%', height: 0 }}>
+        <div className="absolute top-0 left-0 w-full h-full">
+          {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
+            <YouTube
+              key={`player-${currentChant.youtubeId}`}
+              videoId={currentChant.youtubeId}
+              opts={opts}
+              onReady={(event) => {
+                playerRef.current = event.target;
+              }}
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
+              <div>
+                <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
+                <p className="text-sm opacity-70">응원가를 준비중입니다</p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       <LyricsSection
         chant={currentChant}
@@ -199,6 +211,17 @@ const PlayerTab = ({
         >
           <Share2 className="w-4 h-4" />
           공유
+        </button>
+        <button
+          onClick={handleInfoRequest}
+          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+        >
+          <Mail className="w-4 h-4" />
+          정보 요청
+        </button>
+        <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+          <Plus className="w-4 h-4" />
+          플레이리스트
         </button>
       </div>
     </div>

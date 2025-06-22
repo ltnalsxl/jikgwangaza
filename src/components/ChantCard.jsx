@@ -12,21 +12,9 @@ const ChantCard = ({
   setCurrentPlayerName
 }) => {
   const openPlayer = () => {
-    let playerIndex = playerSongs.findIndex(c => c.id === chant.id);
-    // 곡이 없는 선수라면 playerName+team으로 인덱스 찾기
-    if (playerIndex === -1 && chant.playerName && chant.team) {
-      playerIndex = playerSongs.findIndex(
-        c => c.playerName === chant.playerName && (c.team === chant.team || c.team === chant.teamCode)
-      );
-    }
+    const playerIndex = playerSongs.findIndex(c => c.id === chant.id);
     if (playerIndex !== -1) {
       setCurrentPlayer(playerIndex);
-      setPlaySource('explore');
-      setCurrentPlayerName(chant.playerName);
-      setShowPlayer(true);
-    } else {
-      // 곡이 아예 없는 선수라면, setCurrentPlayer(0) 등으로 fallback
-      setCurrentPlayer(0);
       setPlaySource('explore');
       setCurrentPlayerName(chant.playerName);
       setShowPlayer(true);

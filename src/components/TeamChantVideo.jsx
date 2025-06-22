@@ -3,21 +3,10 @@ import YouTube from 'react-youtube';
 import { Music } from 'lucide-react';
 
 const TeamChantVideo = React.memo(({ youtubeId, chantTitle, opts }) => {
-  const defaultOpts = {
-    width: '100%',
-    height: '100%',
-    playerVars: {
-      autoplay: 0,
-      mute: 0,
-      controls: 1,
-      rel: 0,
-    },
-  };
-  const mergedOpts = { ...defaultOpts, ...opts };
   if (youtubeId && youtubeId !== '') {
     return (
       <div key={`container-${youtubeId}`}>
-        <YouTube key={youtubeId} videoId={youtubeId} opts={mergedOpts} />
+        <YouTube key={youtubeId} videoId={youtubeId} opts={opts} />
       </div>
     );
   }

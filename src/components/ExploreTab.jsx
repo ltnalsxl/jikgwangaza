@@ -28,7 +28,6 @@ const ExploreTab = ({
   setSearchQuery,
   isComposing,
   setCurrentPlayerName,
-  kboPlayers,
 }) => {
   const teamOptions = [
     'KIA',
@@ -42,23 +41,6 @@ const ExploreTab = ({
     'NC',
     'KT',
   ];
-
-  // 선수 기준으로 필터링
-  const filteredPlayers = kboPlayers.filter((player) => {
-    // 팀 필터
-    if (exploreTeamFilter !== '전체' && player.teamName !== exploreTeamFilter && player.teamCode !== exploreTeamFilter) return false;
-    // 검색어 필터
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      return (
-        player.playerName.toLowerCase().includes(q) ||
-        player.teamName.toLowerCase().includes(q) ||
-        (player.position && player.position.toLowerCase().includes(q))
-      );
-    }
-    return true;
-  });
-
   return (
     <div className="space-y-4">
     {/* 검색 및 필터 */}
@@ -129,7 +111,7 @@ const ExploreTab = ({
         <p className="text-xs text-blue-100 mt-1">총 응원가</p>
       </div>
       <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-xl p-3 text-white shadow">
-        <h3 className="text-lg font-bold">{filteredPlayers.length}</h3>
+        <h3 className="text-lg font-bold">{filteredChants.length}</h3>
         <p className="text-xs text-emerald-100 mt-1">검색 결과</p>
       </div>
     </div>
@@ -142,7 +124,7 @@ const ExploreTab = ({
             : `${exploreTeamFilter} 응원가`}
         </h2>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">{filteredPlayers.length}명</span>
+          <span className="text-sm text-gray-500">{filteredChants.length}개</span>
           <button
             onClick={() => {
               const today = new Date();
@@ -166,29 +148,25 @@ const ExploreTab = ({
           </div>
         </div>
       )}
-      {/* 선수별 카드 렌더링: 대표 곡(응원가 > 등장곡)만 표시, 없으면 안내 */}
-      {filteredPlayers.map((player) => {
-        const songs = playerSongs.filter(song => song.playerName === player.playerName && (song.team === player.teamName || song.team === player.teamCode));
-        const mainSong = songs.find(song => song.type === '응원가') || songs[0];
-        return (
-          <ChantCard
-            key={player.playerName + player.teamName}
-            chant={mainSong || { playerName: player.playerName, team: player.teamName, position: player.position }}
-            playerSongs={playerSongs}
-            setCurrentPlayer={setCurrentPlayer}
-            setPlaySource={setPlaySource}
-            setShowPlayer={setShowPlayer}
-            handleShare={handleShare}
-          />
-        );
-      })}
-      {filteredPlayers.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
+      {filteredChants.map((chant) => (
+        <ChantCard
+          key={chant.id}
+          chant={chant}
+          playerSongs={playerSongs}
+          setCurrentPlayer={setCurrentPlayer}
+          setPlaySource={setPlaySource}
+          setShowPlayer={setShowPlayer}
+          handleShare={handleShare}
+          setCurrentPlayerName={setCurrentPlayerName}
+        />
+      ))}
+      {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
         <div className="text-center py-8 text-gray-500">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>
             {searchQuery
               ? `"${searchQuery}"에 대한 검색 결과가 없습니다`
-              : `${exploreTeamFilter} 팀의 선수가 없습니다`}
+              : `${exploreTeamFilter} 팀의 응원가가 없습니다`}
           </p>
           <div className="flex gap-2 justify-center mt-2">
             {searchQuery && (
