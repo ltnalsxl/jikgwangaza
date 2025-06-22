@@ -1,5 +1,6 @@
 import json
 import time
+import re
 from datetime import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -48,8 +49,31 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
     players = []
 
+    # Determine event target prefix for pagination buttons
+    first_btn = driver.find_element(
+        By.ID, "cphContents_cphContents_cphContents_ucPager_btnNo1"
+    )
+    href = first_btn.get_attribute("href")
+    prefix_match = re.search(r"__doPostBack\('([^']*btnNo)1','", href)
+    prefix = (
+        prefix_match.group(1)
+        if prefix_match
+        else "ctl00$ctl00$ctl00$cphContents$cphContents$cphContents$ucPager$btnNo"
+    )
+
+    # Find the last page number using the "last" button if available
+    last_page = 1
+    last_elems = driver.find_elements(
+        By.ID, "cphContents_cphContents_cphContents_ucPager_btnLast"
+    )
+    if last_elems:
+        last_href = last_elems[0].get_attribute("href")
+        m = re.search(r"btnNo(\d+)", last_href)
+        if m:
+            last_page = int(m.group(1))
+
     page_num = 1
-    while True:
+    while page_num <= last_page:
         # Ensure the table is present before parsing
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
         soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -81,24 +105,21 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
                 "school": school,
             }
             players.append(player)
-        try:
-            next_btn = wait.until(
-                EC.element_to_be_clickable(
-                    (
-                        By.ID,
-                        "cphContents_cphContents_cphContents_ucPager_btnNext",
-                    )
-                )
-            )
-            if "disabled" in next_btn.get_attribute("class"):
-                break
-            next_btn.click()
-            page_num += 1
-            print(f"{TEAM_CODES.get(code, code)}: {len(players)}명 (페이지 {page_num} 이동)")
-            # Wait for the next page's table to load
-            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
-        except Exception:
+        if page_num >= last_page:
             break
+
+        page_num += 1
+        event_target = f"{prefix}{page_num}"
+        driver.execute_script("__doPostBack(arguments[0], '')", event_target)
+
+        print(
+            f"{TEAM_CODES.get(code, code)}: {len(players)}명 (페이지 {page_num} 이동)"
+        )
+
+        time.sleep(1)
+        wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx"))
+        )
 
     print(f"{TEAM_CODES.get(code, code)} 최종: {len(players)}명 크롤링 완료")
     return players
