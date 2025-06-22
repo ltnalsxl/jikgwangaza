@@ -4,6 +4,8 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 
@@ -86,7 +88,9 @@ def crawl_players() -> list:
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     )
 
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()), options=options
+    )
     driver.get("https://www.koreabaseball.com/Record/Player/Basic/PlayerBasic.aspx")
     time.sleep(2)
 
