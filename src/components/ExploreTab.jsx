@@ -29,7 +29,6 @@ const ExploreTab = ({
   isComposing,
 }) => {
   const teamOptions = [
-    '전체',
     'KIA',
     '두산',
     'LG',
@@ -59,9 +58,19 @@ const ExploreTab = ({
       </div>
       {/* 팀 필터 */}
       <div className="space-y-2 pb-3 mb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <Filter className="w-5 h-5 text-gray-500 flex-shrink-0" />
           <span className="text-sm text-gray-700">팀 선택</span>
+          <button
+            onClick={() => setExploreTeamFilter('전체')}
+            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium ${
+              exploreTeamFilter === '전체'
+                ? 'ring-2 ring-blue-500 border-transparent'
+                : 'border-gray-200'
+            }`}
+          >
+            전체
+          </button>
         </div>
         <div className="grid grid-cols-5 gap-3">
           {teamOptions.map((team) => (
@@ -74,18 +83,12 @@ const ExploreTab = ({
                   : 'border-gray-200'
               }`}
             >
-              {team === '전체' ? (
-                <span className="text-xs font-medium">전체</span>
-              ) : (
-                <>
-                  <img
-                    src={getTeamInfo(team).logo}
-                    alt={team}
-                    className="w-8 h-8 object-contain mb-1"
-                  />
-                  <span className="text-xs">{team}</span>
-                </>
-              )}
+              <img
+                src={getTeamInfo(team).logo}
+                alt={team}
+                className="w-8 h-8 object-contain mb-1"
+              />
+              <span className="text-xs">{team}</span>
             </button>
           ))}
         </div>
