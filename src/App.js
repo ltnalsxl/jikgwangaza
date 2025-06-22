@@ -56,9 +56,11 @@ const JikgwanGaja = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState('lineup');
   const [showPlayer, setShowPlayer] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    localStorage.getItem('theme') === 'dark'
-  );
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const [selectedDate, setSelectedDate] = useState(() => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -121,6 +123,17 @@ const JikgwanGaja = () => {
     }
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e) => {
+      if (!localStorage.getItem('theme')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
   
   const handleChange = (e) => {
     const newValue = e.target.value;
