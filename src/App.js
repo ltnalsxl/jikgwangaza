@@ -667,7 +667,7 @@ const getSortedChants = () => {
         <div>
           <h1 className="text-xl font-bold text-gray-900">직관가자</h1>
           <p className="text-sm text-gray-500">
-            {selectedTeam} 팬 • {formatDateKorean(selectedDate)}
+            {getTeamInfo(selectedTeam).fullName} • {formatDateKorean(selectedDate)}
           </p>
         </div>
       </div>
