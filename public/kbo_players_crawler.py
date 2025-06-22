@@ -100,10 +100,6 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
             if not table:
                 print(f"[ERROR] {TEAM_CODES.get(code, code)}: 테이블 없음 (페이지 {page_num})")
                 break
-            # 디버깅용: 처음 2페이지까지만 HTML 저장
-            if page_num <= 2:
-                with open(f"debug_{code}_{page_num}.html", "w", encoding="utf-8") as f:
-                    f.write(driver.page_source)
             # 실제 페이지 번호 추출 (페이지네이션에서 bold 처리된 번호)
             current_page = None
             for strong in soup.select(".pagenation strong"):  # 실제 클래스명은 사이트 구조에 맞게 조정 필요
