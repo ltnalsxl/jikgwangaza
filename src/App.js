@@ -419,17 +419,11 @@ const JikgwanGaja = () => {
     setLikedSongs(newLiked);
   };
 
-// getSortedChants 함수 수정
+// getSortedChants 함수 수정 - 가나다순 정렬만 지원
 const getSortedChants = () => {
-  let sorted = [...playerSongs];
-  switch(sortBy) {
-    case 'popular':
-      return sorted.sort((a, b) => b.likes - a.likes); // 좋아요 순
-    case 'name':
-      return sorted.sort((a, b) => a.playerName.localeCompare(b.playerName, 'ko')); // 가나다순
-    default:
-      return sorted;
-  }
+  return [...playerSongs].sort((a, b) =>
+    a.playerName.localeCompare(b.playerName, 'ko')
+  );
 };
 
   const filteredChants = getSortedChants().filter(chant => {
@@ -862,7 +856,6 @@ const getSortedChants = () => {
                 handleCompositionEnd={handleCompositionEnd}
                 exploreTeamFilter={exploreTeamFilter}
                 setExploreTeamFilter={setExploreTeamFilter}
-                sortBy={sortBy}
                 setSortBy={setSortBy}
                 playerSongs={playerSongs}
                 likedSongs={likedSongs}
