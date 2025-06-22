@@ -1,8 +1,6 @@
 import YouTube from 'react-youtube';
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  Play,
-  Pause,
   SkipForward,
   SkipBack,
   Users,
@@ -53,7 +51,6 @@ const JikgwanGaja = () => {
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState('lineup');
   const [showPlayer, setShowPlayer] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() =>
@@ -502,9 +499,6 @@ const getSortedChants = () => {
     }
   };
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-  };
 
   const handlePlayAll = () => {
     if (currentLineup.length === 0) return;
@@ -516,7 +510,6 @@ const getSortedChants = () => {
     
     if (firstPlayerIndex !== -1) {
       setCurrentPlayer(firstPlayerIndex);
-      setIsPlaying(true);
       setShowPlayer(true);
     }
   }
@@ -809,8 +802,6 @@ const getSortedChants = () => {
               selectedTeam={selectedTeam}
               playPrev={playPrev}
               playNext={playNext}
-              togglePlay={togglePlay}
-              isPlaying={isPlaying}
               handleShare={handleShare}
             />
           </div>
