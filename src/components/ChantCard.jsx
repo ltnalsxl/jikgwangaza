@@ -53,11 +53,6 @@ const ChantCard = ({
               </span>
             </>
           )}
-          <span className="text-gray-300 dark:text-gray-600">•</span>
-          <div className="flex items-center gap-1">
-            <Heart className="w-3 h-3 text-red-400" />
-            <span className="text-xs text-gray-500 dark:text-gray-400">{chant.likes.toLocaleString()}</span>
-          </div>
         </div>
       </div>
       <button
