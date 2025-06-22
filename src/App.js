@@ -80,8 +80,14 @@ const JikgwanGaja = () => {
   const searchRef = useRef('');
   const playerRef = useRef(null);
 
-  // URL 해시와 선택된 탭을 동기화한다
+  // URL과 상태를 동기화한다
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const teamParam = params.get('team');
+    const dateParam = params.get('date');
+    if (teamParam) setSelectedTeam(teamParam);
+    if (dateParam) setSelectedDate(dateParam);
+
     const setTabFromHash = () => {
       const tab = window.location.hash.replace('#', '');
       if (tab && ['lineup', 'teamChants', 'explore'].includes(tab)) {
@@ -96,8 +102,16 @@ const JikgwanGaja = () => {
   }, []);
 
   useEffect(() => {
-    window.history.replaceState(null, '', `#${activeTab}`);
-  }, [activeTab]);
+    const params = new URLSearchParams(window.location.search);
+    params.set('team', selectedTeam);
+    params.set('date', selectedDate);
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      '',
+      `${window.location.pathname}?${query}#${activeTab}`
+    );
+  }, [selectedTeam, selectedDate, activeTab]);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -548,10 +562,11 @@ const getSortedChants = () => {
       .map((p, idx) => `${idx + 1}. ${p.playerName} (${p.position})`)
       .join('\n');
     const text = `${selectedTeam} 오늘의 라인업\n${lineupText}`;
+    const lineupUrl = `${window.location.origin}${window.location.pathname}?team=${selectedTeam}&date=${selectedDate}#lineup`;
 
     if (navigator.share) {
       try {
-        await navigator.share({ title: `${selectedTeam} 라인업`, text });
+        await navigator.share({ title: `${selectedTeam} 라인업`, text, url: lineupUrl });
         return;
       } catch (err) {
         console.error('Share failed', err);
@@ -560,10 +575,10 @@ const getSortedChants = () => {
 
     if (navigator.clipboard) {
       try {
-        await navigator.clipboard.writeText(text);
-        alert('라인업이 클립보드에 복사되었습니다.');
+        await navigator.clipboard.writeText(lineupUrl);
+        alert('라인업 링크가 클립보드에 복사되었습니다.');
       } catch (err) {
-        alert('라인업 복사에 실패했습니다.');
+        alert('라인업 링크 복사에 실패했습니다.');
       }
     } else {
       alert('공유 기능을 지원하지 않는 브라우저입니다.');
