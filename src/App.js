@@ -68,6 +68,11 @@ const JikgwanGaja = () => {
   const [selectedTeam, setSelectedTeam] = useState('KIA');
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
+
+  // Ensure explore tab reflects the globally selected team
+  useEffect(() => {
+    setExploreTeamFilter(selectedTeam);
+  }, [selectedTeam]);
   
 
   const [searchQuery, setSearchQuery] = useState('');
