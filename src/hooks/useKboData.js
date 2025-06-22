@@ -93,6 +93,7 @@ const useKboData = () => {
   const [playerSongs, setPlayerSongs] = useState([]);
   const [gameLineups, setGameLineups] = useState([]);
   const [teamChants, setTeamChants] = useState([]);
+  const [kboPlayers, setKboPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -118,41 +119,42 @@ const useKboData = () => {
       });
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
+      setKboPlayers(parsedKboPlayers);
 
-      // 선수 응원가 데이터 처리
-      const parsedSongs = Array.isArray(songsData)
-        ? songsData.map((song) => {
-            const playerTeam = normalizeTeamName(song.team);
-            const kboPlayer = parsedKboPlayers.find(
-              (p) =>
-                normalizeTeamName(p.teamName) === playerTeam &&
-                p.playerName === song.playerName
-            );
+      // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
+      const parsedSongs = parsedKboPlayers.map((player) => {
+        const teamName = normalizeTeamName(player.teamName);
+        const matchedSong = Array.isArray(songsData)
+          ? songsData.find(
+              (song) =>
+                normalizeTeamName(song.team) === teamName &&
+                song.playerName === player.playerName
+            )
+          : null;
 
-            return {
-              id: `${playerTeam}_${song.playerName}`,
-              playerName: song.playerName,
-              team: playerTeam,
-              chantTitle: song.chantTitle || `${song.playerName} 응원가`,
-              youtubeId: song.youtubeId || '',
-              type: song.type || '응원가',
-              lyrics: song.lyrics || '',
-              position: normalizePosition(kboPlayer?.position || ''),
-              number: kboPlayer?.number || '',
-              throwBat: kboPlayer?.throwBat || '',
-              birth: kboPlayer?.birth || '',
-              body: kboPlayer?.body || '',
-              teamCode: kboPlayer?.teamCode || '',
-              originalTeam: song.team,
-              likes: Math.floor(Math.random() * 2000) + 500,
-              views: Math.floor(Math.random() * 30000) + 5000,
-              rating: (Math.random() * 1 + 4).toFixed(1),
-              comments: Math.floor(Math.random() * 200) + 20,
-              tags: ['신나는', '쉬운', '인기'],
-              addedDate: new Date().toISOString().split('T')[0],
-            };
-          })
-        : [];
+        return {
+          id: `${teamName}_${player.playerName}`,
+          playerName: player.playerName,
+          team: teamName,
+          chantTitle: matchedSong?.chantTitle || `${player.playerName} 응원가`,
+          youtubeId: matchedSong?.youtubeId || '',
+          type: matchedSong?.type || '응원가',
+          lyrics: matchedSong?.lyrics || '',
+          position: normalizePosition(player.position || ''),
+          number: player.number || '',
+          throwBat: player.throwBat || '',
+          birth: player.birth || '',
+          body: player.body || '',
+          teamCode: player.teamCode || '',
+          originalTeam: player.teamName,
+          likes: Math.floor(Math.random() * 2000) + 500,
+          views: Math.floor(Math.random() * 30000) + 5000,
+          rating: (Math.random() * 1 + 4).toFixed(1),
+          comments: Math.floor(Math.random() * 200) + 20,
+          tags: ['신나는', '쉬운', '인기'],
+          addedDate: new Date().toISOString().split('T')[0],
+        };
+      });
 
       // 라인업 파일들 병렬 로드
       const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
@@ -306,6 +308,7 @@ const useKboData = () => {
     playerSongs,
     gameLineups,
     teamChants,
+    kboPlayers,
     loading,
     error,
     fetchJsonData,

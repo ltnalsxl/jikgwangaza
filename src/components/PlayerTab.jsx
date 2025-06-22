@@ -56,6 +56,14 @@ const PlayerTab = ({
     );
     window.location.href = `mailto:ltnalsxl1011@gmail.com?subject=${subject}&body=${body}`;
   };
+
+  const handleSongRequest = () => {
+    const subject = encodeURIComponent('응원가 요청');
+    const body = encodeURIComponent(
+      `${currentChant.playerName} (${getDisplayTeam()}) 응원가 요청`
+    );
+    window.location.href = `mailto:ltnalsxl1011@gmail.com?subject=${subject}&body=${body}`;
+  };
   return (
     <div className="space-y-6">
       {/* 선수 상세 정보 카드 */}
@@ -169,7 +177,10 @@ const PlayerTab = ({
               <div>
                 <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
                 <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
-                <p className="text-sm opacity-70">응원가를 준비중입니다</p>
+                <p className="text-sm opacity-70">응원가가 곧 업데이트됩니다.</p>
+                <button onClick={handleSongRequest} className="mt-2 text-sm underline">
+                  요청하기
+                </button>
               </div>
             </div>
           )}

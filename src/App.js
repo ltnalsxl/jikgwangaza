@@ -160,6 +160,7 @@ const JikgwanGaja = () => {
     playerSongs,
     gameLineups,
     teamChants,
+    kboPlayers,
     loading,
     error,
     fetchJsonData,
