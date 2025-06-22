@@ -1,4 +1,4 @@
-name: Daily KBO crawl
+name: Daily KBO lineup crawl
 
 on:
   schedule:
@@ -71,10 +71,6 @@ jobs:
             fi
           done
 
-      - name: Run player crawler
-        run: |
-          export DISPLAY=:99
-          python public/kbo_players_crawler.py
 
       - name: Rebuild lineup index
         run: npm run build-lineup-index
@@ -83,7 +79,7 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add public/data/kbo_crawler_data public/data/kboPlayers.json
+          git add public/data/kbo_crawler_data
           git commit -m "Daily data update" || echo "No changes to commit"
           git pull --rebase origin main
           git push origin main

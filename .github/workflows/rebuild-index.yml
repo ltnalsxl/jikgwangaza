@@ -3,7 +3,7 @@ name: Manual lineup index rebuild
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Daily KBO crawl"]
+    workflows: ["Daily KBO lineup crawl"]
     types:
       - completed
 
