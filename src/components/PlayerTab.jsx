@@ -41,7 +41,7 @@ const PlayerTab = ({
   const getDisplayPosition = () => currentChant.position;
   const opts = {
     width: '100%',
-    height: '235',
+    height: '100%',
     playerVars: {
       autoplay: 1,
       mute: 0,
