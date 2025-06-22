@@ -3,59 +3,70 @@ export const getTeamInfo = team => {
     KIA: {
       color: '#EA0029',
       text: 'KIA',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png',
+      fullName: 'KIA 타이거즈'
     },
     두산: {
       color: '#131230',
       text: '두산',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png',
+      fullName: '두산 베어스'
     },
     LG: {
       color: '#C30452',
       text: 'LG',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LG.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LG.png',
+      fullName: 'LG 트윈스'
     },
     삼성: {
       color: '#074CA1',
       text: '삼성',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png',
+      fullName: '삼성 라이온즈'
     },
     롯데: {
       color: '#041E42',
       text: '롯데',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png',
+      fullName: '롯데 자이언츠'
     },
     SSG: {
       color: '#CE0E2D',
       text: 'SSG',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png',
+      fullName: 'SSG 랜더스'
     },
     키움: {
       color: '#570514',
       text: '키움',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png',
+      fullName: '키움 히어로즈'
     },
     한화: {
       color: '#FF6600',
       text: '한화',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png',
+      fullName: '한화 이글스'
     },
     NC: {
       color: '#315288',
       text: 'NC',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_NC.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_NC.png',
+      fullName: 'NC 다이노스'
     },
     KT: {
       color: '#000000',
       text: 'KT',
-      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_KT.png'
+      logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_KT.png',
+      fullName: 'KT 위즈'
     }
   };
   return (
     teamData[team] || {
       color: '#0ea5e9',
       text: '⚾',
-      logo: null
+      logo: null,
+      fullName: team
     }
   );
 };
