@@ -34,11 +34,11 @@ const TeamChantsTab = ({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
           {selectedTeam} 팀 응원가
         </h2>
         <div className="flex items-center gap-3">
-          <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+          <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full dark:bg-gray-800 dark:text-gray-400">
             {currentTeamChants.length}개
           </span>
           <button
@@ -50,7 +50,7 @@ const TeamChantsTab = ({
               setSelectedDate(`${yyyy}-${mm}-${dd}`);
               fetchJsonData();
             }}
-            className="p-2 text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded-full"
+            className="p-2 text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded-full dark:text-blue-400 dark:hover:text-blue-300 dark:hover:bg-blue-900"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -60,13 +60,13 @@ const TeamChantsTab = ({
       {loading ? (
         <div className="text-center py-8">
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
-          <p className="text-gray-600">팀 응원가를 불러오는 중...</p>
+          <p className="text-gray-600 dark:text-gray-400">팀 응원가를 불러오는 중...</p>
         </div>
       ) : currentTeamChants.length === 0 ? (
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
           <Trophy className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>{selectedTeam} 팀의 응원가가 없습니다</p>
-          <p className="text-sm mt-2">곧 추가될 예정입니다!</p>
+          <p className="text-sm mt-2 dark:text-gray-400">곧 추가될 예정입니다!</p>
         </div>
       ) : (
         Object.entries(chantsBySituation).map(([situation, chants]) => (

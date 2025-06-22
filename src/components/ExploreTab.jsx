@@ -45,7 +45,7 @@ const ExploreTab = ({
           onChange={handleChange}
           onCompositionStart={handleCompositionStart}
           onCompositionEnd={handleCompositionEnd}
-          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50"
+          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600"
         />
       </div>
       {/* 팀 필터 추가 */}
@@ -54,7 +54,7 @@ const ExploreTab = ({
         <select
           value={exploreTeamFilter}
           onChange={(e) => setExploreTeamFilter(e.target.value)}
-          className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent shadow-sm"
+          className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent shadow-sm dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600"
         >
           <option value="전체">전체 팀</option>
           <option value="KIA">KIA 타이거즈</option>
@@ -114,7 +114,7 @@ const ExploreTab = ({
     {/* 응원가 목록 */}
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold">
+        <h2 className="text-lg font-bold dark:text-gray-100">
           {showOnlyLiked
             ? '❤️ 좋아한 응원가'
             : exploreTeamFilter === '전체'
@@ -122,7 +122,7 @@ const ExploreTab = ({
             : `${exploreTeamFilter} 응원가`}
         </h2>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">{filteredChants.length}개</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{filteredChants.length}개</span>
           <button
             onClick={() => {
               const today = new Date();
@@ -139,8 +139,8 @@ const ExploreTab = ({
         </div>
       </div>
       {error && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-          <div className="flex items-center gap-2 text-yellow-800 text-sm">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 dark:bg-yellow-900 dark:border-yellow-700">
+          <div className="flex items-center gap-2 text-yellow-800 text-sm dark:text-yellow-100">
             <AlertCircle className="w-4 h-4" />
             <span>데이터 로드 오류: 임시 데이터 표시 중</span>
           </div>
@@ -160,7 +160,7 @@ const ExploreTab = ({
         />
       ))}
       {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체' || showOnlyLiked) && !isComposing && (
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>
             {showOnlyLiked

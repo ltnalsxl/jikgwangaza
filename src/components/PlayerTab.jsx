@@ -74,15 +74,23 @@ const PlayerTab = ({
             {currentChant.playerName}
           </h2>
           {!hasPlayerData && (
-            <p className="mt-2 text-center text-sm text-gray-500">
-              선수 정보가 없습니다. 곧 업데이트됩니다.
-            </p>
+            <div className="mt-2 text-center space-y-1">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                선수 정보가 없습니다. 곧 업데이트됩니다.
+              </p>
+              <button
+                onClick={handleInfoRequest}
+                className="text-sm text-blue-500 underline dark:text-blue-400"
+              >
+                정보 요청하기
+              </button>
+            </div>
           )}
           {/* 기본 정보 그리드 */}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="space-y-3">
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">소속팀</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">소속팀</p>
                 <div className="flex items-center gap-2">
                   {getTeamInfo(getDisplayTeam()).logo && (
                     <img
@@ -98,7 +106,7 @@ const PlayerTab = ({
               </div>
               {getDisplayPosition() && (
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">포지션</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">포지션</p>
                   <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                     {getPositionKorean(getDisplayPosition())}
                   </p>
@@ -108,7 +116,7 @@ const PlayerTab = ({
             <div className="space-y-3">
               {currentChant.number && (
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">등번호</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">등번호</p>
                   <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                     {currentChant.number}번
                   </p>
@@ -116,7 +124,7 @@ const PlayerTab = ({
               )}
               {currentChant.throwBat && (
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">투타</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">투타</p>
                   <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                     {currentChant.throwBat}
                   </p>
@@ -128,7 +136,7 @@ const PlayerTab = ({
           <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
             {currentChant.birth && (
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500">생년월일</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">생년월일</span>
                 <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
                   {currentChant.birth.split('T')[0]}
                 </span>
@@ -136,7 +144,7 @@ const PlayerTab = ({
             )}
             {currentChant.body && (
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500">체격</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">체격</span>
                 <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
                   {currentChant.body}
                 </span>
@@ -176,7 +184,7 @@ const PlayerTab = ({
             (playSource === 'explore' && currentPlayer === 0) ||
             (playSource === 'lineup' && currentLineupIndex === 0)
           }
-          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:hover:bg-gray-600"
         >
           <SkipBack className="w-6 h-6" />
         </button>
@@ -192,7 +200,7 @@ const PlayerTab = ({
             (playSource === 'explore' && currentPlayer === playerSongs.length - 1) ||
             (playSource === 'lineup' && currentLineupIndex === currentLineup.length - 1)
           }
-          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:hover:bg-gray-600"
         >
           <SkipForward className="w-6 h-6" />
         </button>
@@ -201,19 +209,19 @@ const PlayerTab = ({
       <div className="flex items-center gap-3">
         <button
           onClick={() => handleShare(currentChant)}
-          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
         >
           <Share2 className="w-4 h-4" />
           공유
         </button>
         <button
           onClick={handleInfoRequest}
-          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
         >
           <Mail className="w-4 h-4" />
           정보 요청
         </button>
-        <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+        <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600">
           <Plus className="w-4 h-4" />
           플레이리스트
         </button>
