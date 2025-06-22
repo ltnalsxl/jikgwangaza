@@ -22,7 +22,7 @@ const TeamChantsTab = ({
 
   const opts = {
     width: '100%',
-    height: '200',
+    height: '100%',
     playerVars: {
       autoplay: 0,
       mute: 0,
