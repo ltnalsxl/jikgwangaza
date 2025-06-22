@@ -32,6 +32,7 @@ const PlayerTab = ({
     currentChant.position = todayLineupPlayer.position;
   } else {
     currentChant = { ...playerSongs[currentPlayer] } || {};
+    hasPlayerData = !!playerSongs[currentPlayer];
   }
   const getDisplayTeam = () => {
     return playSource === 'lineup'
@@ -73,16 +74,8 @@ const PlayerTab = ({
             {currentChant.playerName}
           </h2>
           {!hasPlayerData && (
-            <div className="mt-2 text-center space-y-1">
-              <p className="text-sm text-gray-500">
-                선수 정보가 없습니다. 곧 업데이트됩니다.
-              </p>
-              <button
-                onClick={handleInfoRequest}
-                className="text-sm text-blue-500 underline"
-              >
-                정보 요청하기
-              </button>
+            <div className="flex flex-col items-center justify-center py-16">
+              <p className="text-lg text-gray-500 font-semibold mb-2">곧 업데이트됩니다</p>
             </div>
           )}
           {/* 기본 정보 그리드 */}
