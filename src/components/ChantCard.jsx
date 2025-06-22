@@ -8,13 +8,15 @@ const ChantCard = ({
   setCurrentPlayer,
   setPlaySource,
   setShowPlayer,
-  handleShare
+  handleShare,
+  setCurrentPlayerName
 }) => {
   const openPlayer = () => {
     const playerIndex = playerSongs.findIndex(c => c.id === chant.id);
     if (playerIndex !== -1) {
       setCurrentPlayer(playerIndex);
       setPlaySource('explore');
+      setCurrentPlayerName(chant.playerName);
       setShowPlayer(true);
     }
   };
