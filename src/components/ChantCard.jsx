@@ -95,13 +95,13 @@ const ChantCard = ({
         }}
         className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
       >
-        <Share2 className="w-4 h-4 text-gray-600" />
+        <Share2 className="w-4 h-4 text-gray-600 dark:text-gray-400" />
       </button>
       <button
         onClick={(e) => e.stopPropagation()}
         className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
       >
-        <Plus className="w-4 h-4 text-gray-600" />
+        <Plus className="w-4 h-4 text-gray-600 dark:text-gray-400" />
       </button>
     </div>
   </div>

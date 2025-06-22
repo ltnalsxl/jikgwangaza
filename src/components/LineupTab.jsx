@@ -28,18 +28,18 @@ const LineupTab = ({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800">오늘의 라인업</h2>
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">오늘의 라인업</h2>
         <div className="flex items-center gap-2">
           <button
             onClick={handleShareLineup}
-            className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+            className="flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
           >
             <Share2 className="w-4 h-4" />
             공유하기
           </button>
           <button
             onClick={fetchJsonData}
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -47,8 +47,8 @@ const LineupTab = ({
       </div>
 
       {error && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-          <div className="flex items-center gap-2 text-yellow-800">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4 dark:bg-yellow-900 dark:border-yellow-700">
+          <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-100">
             <AlertCircle className="w-5 h-5" />
             <span className="text-sm">데이터 로드 오류: {error}</span>
           </div>
@@ -58,20 +58,20 @@ const LineupTab = ({
       {loading ? (
         <div className="text-center py-8">
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
-          <p className="text-gray-600">데이터를 불러오는 중...</p>
+          <p className="text-gray-600 dark:text-gray-400">데이터를 불러오는 중...</p>
         </div>
       ) : currentGame ? (
         <>
-          <div className="bg-blue-50 rounded-lg p-4 mb-4">
+          <div className="bg-blue-50 rounded-lg p-4 mb-4 dark:bg-gray-800">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-semibold text-blue-800">
+                <h3 className="font-semibold text-blue-800 dark:text-blue-100">
                   {currentGame.home} vs {currentGame.away}
                 </h3>
-                <p className="text-sm text-blue-600">
+                <p className="text-sm text-blue-600 dark:text-blue-200">
                   {currentGame.location} • {formatDateKorean(currentGame.date)}
                 </p>
-                <p className="text-sm text-blue-600">
+                <p className="text-sm text-blue-600 dark:text-blue-200">
                   {currentLineup.length}개 응원가 • 총 재생시간 약 {Math.ceil(currentLineup.length * 2)}분
                 </p>
               </div>
@@ -102,17 +102,17 @@ const LineupTab = ({
               />
             ))
           ) : (
-            <div className="text-center py-8 text-gray-500">
+            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
               <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
               <p>이 경기의 라인업 정보가 없습니다</p>
             </div>
           )}
         </>
       ) : (
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
           <Circle className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>라인업 발표 전입니다</p>
-          <p className="text-sm mt-2">경기 시작 전에 라인업이 발표됩니다</p>
+          <p className="text-sm mt-2 dark:text-gray-400">경기 시작 전에 라인업이 발표됩니다</p>
 
           <button
             onClick={() => {
