@@ -8,7 +8,6 @@ const LineupTab = ({
   playerSongs,
   selectedTeam,
   selectedDate,
-  likedSongs,
   fetchJsonData,
   loading,
   error,
@@ -19,7 +18,6 @@ const LineupTab = ({
   setCurrentLineupIndex,
   setPlaySource,
   setShowPlayer,
-  toggleLike,
   gameLineups,
   setSelectedDate,
   handleShareLineup,
@@ -95,8 +93,6 @@ const LineupTab = ({
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
-                toggleLike={toggleLike}
-                likedSongs={likedSongs}
               />
             ))
           ) : (

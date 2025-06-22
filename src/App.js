@@ -10,7 +10,6 @@ import {
   Circle,
   Music,
   Search,
-  Heart,
   Star,
   TrendingUp,
   Filter,
@@ -48,8 +47,6 @@ const debugLog = (...args) => {
 
 const JikgwanGaja = () => {
   
-  const [showOnlyLiked, setShowOnlyLiked] = useState(false);
-
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -68,8 +65,6 @@ const JikgwanGaja = () => {
   });
 
   const [selectedTeam, setSelectedTeam] = useState('KIA');
-  const [sortBy, setSortBy] = useState('name');
-  const [likedSongs, setLikedSongs] = useState(new Set());
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
   
@@ -402,22 +397,6 @@ const JikgwanGaja = () => {
     return `${month}월 ${day}일(${dayName})`;
   };
 
-  const toggleLike = (songId) => {
-    debugLog('toggleLike 호출됨:', songId);
-    debugLog('현재 likedSongs:', likedSongs);
-    
-    const newLiked = new Set(likedSongs);
-    if (newLiked.has(songId)) {
-      newLiked.delete(songId);
-      debugLog('좋아요 제거:', songId);
-    } else {
-      newLiked.add(songId);
-      debugLog('좋아요 추가:', songId);
-    }
-    
-    debugLog('새로운 likedSongs:', newLiked);
-    setLikedSongs(newLiked);
-  };
 
 // getSortedChants 함수 수정 - 가나다순 정렬만 지원
 const getSortedChants = () => {
@@ -427,11 +406,6 @@ const getSortedChants = () => {
 };
 
   const filteredChants = getSortedChants().filter(chant => {
-    // 좋아한 곡만 보기 필터
-    if (showOnlyLiked && !likedSongs.has(chant.id)) {
-      return false;
-    }
-  
     // 팀 필터링
     if (exploreTeamFilter !== '전체' && chant.team !== exploreTeamFilter) {
       return false;
@@ -668,23 +642,6 @@ const getSortedChants = () => {
       <div className="flex items-center gap-3">
         <button
           onClick={() => {
-            setActiveTab('explore');
-            setShowPlayer(false);
-            setShowOnlyLiked(!showOnlyLiked);
-          }}
-          className={`relative rounded-full p-2 transition-all ${
-            showOnlyLiked ? 'bg-pink-100' : 'bg-gray-100 hover:bg-gray-200'
-          }`}
-        >
-          <Heart className={`w-5 h-5 ${showOnlyLiked ? 'text-pink-600' : 'text-gray-600'}`} />
-          {likedSongs.size > 0 && (
-            <span className="absolute -top-1 -right-1 bg-[#ff4757] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
-              {likedSongs.size}
-            </span>
-          )}
-        </button>
-        <button
-          onClick={() => {
             const today = new Date();
             const yyyy = today.getFullYear();
             const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -823,7 +780,6 @@ const getSortedChants = () => {
                 playerSongs={playerSongs}
                 selectedTeam={selectedTeam}
                 selectedDate={selectedDate}
-                likedSongs={likedSongs}
                 fetchJsonData={fetchJsonData}
                 loading={loading}
                 error={error}
@@ -834,7 +790,6 @@ const getSortedChants = () => {
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
-                toggleLike={toggleLike}
                 gameLineups={gameLineups}
                 setSelectedDate={setSelectedDate}
                 handleShareLineup={handleShareLineup}
@@ -857,11 +812,7 @@ const getSortedChants = () => {
                 handleCompositionEnd={handleCompositionEnd}
                 exploreTeamFilter={exploreTeamFilter}
                 setExploreTeamFilter={setExploreTeamFilter}
-                setSortBy={setSortBy}
                 playerSongs={playerSongs}
-                likedSongs={likedSongs}
-                showOnlyLiked={showOnlyLiked}
-                setShowOnlyLiked={setShowOnlyLiked}
                 filteredChants={filteredChants}
                 error={error}
                 setSelectedDate={setSelectedDate}
@@ -869,7 +820,6 @@ const getSortedChants = () => {
                 setCurrentPlayer={setCurrentPlayer}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
-                toggleLike={toggleLike}
                 handleShare={handleShare}
                 setSearchQuery={setSearchQuery}
                 isComposing={isComposing}
