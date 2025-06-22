@@ -50,6 +50,8 @@ const JikgwanGaja = () => {
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [activeTab, setActiveTab] = useState('lineup');
   const [showPlayer, setShowPlayer] = useState(false);
+  const [currentPlayerName, setCurrentPlayerName] = useState('');
+  const [pendingPlayerName, setPendingPlayerName] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const stored = localStorage.getItem('theme');
     if (stored) return stored === 'dark';
@@ -79,8 +81,10 @@ const JikgwanGaja = () => {
     const params = new URLSearchParams(window.location.search);
     const teamParam = params.get('team');
     const dateParam = params.get('date');
+    const playerParam = params.get('player');
     if (teamParam) setSelectedTeam(teamParam);
     if (dateParam) setSelectedDate(dateParam);
+    if (playerParam) setPendingPlayerName(playerParam);
 
     const setTabFromHash = () => {
       const tab = window.location.hash.replace('#', '');
@@ -99,13 +103,18 @@ const JikgwanGaja = () => {
     const params = new URLSearchParams(window.location.search);
     params.set('team', selectedTeam);
     params.set('date', selectedDate);
+    if (showPlayer && currentPlayerName) {
+      params.set('player', currentPlayerName);
+    } else {
+      params.delete('player');
+    }
     const query = params.toString();
     window.history.replaceState(
       null,
       '',
       `${window.location.pathname}?${query}#${activeTab}`
     );
-  }, [selectedTeam, selectedDate, activeTab]);
+  }, [selectedTeam, selectedDate, activeTab, showPlayer, currentPlayerName]);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -156,6 +165,22 @@ const JikgwanGaja = () => {
     fetchJsonData,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
+
+  useEffect(() => {
+    if (pendingPlayerName && playerSongs.length > 0) {
+      const idx = playerSongs.findIndex(
+        (song) =>
+          song.playerName === pendingPlayerName && song.team === selectedTeam
+      );
+      if (idx !== -1) {
+        setCurrentPlayer(idx);
+        setCurrentPlayerName(pendingPlayerName);
+        setPlaySource('explore');
+        setShowPlayer(true);
+      }
+      setPendingPlayerName('');
+    }
+  }, [pendingPlayerName, playerSongs, selectedTeam]);
 
   useEffect(() => {
     if (gameLineups.length > 0 && playerSongs.length > 0) {
@@ -794,6 +819,7 @@ const getSortedChants = () => {
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
+                setCurrentPlayerName={setCurrentPlayerName}
                 gameLineups={gameLineups}
                 setSelectedDate={setSelectedDate}
                 handleShareLineup={handleShareLineup}
@@ -827,6 +853,7 @@ const getSortedChants = () => {
                 handleShare={handleShare}
                 setSearchQuery={setSearchQuery}
                 isComposing={isComposing}
+                setCurrentPlayerName={setCurrentPlayerName}
               />
             )}
           </>

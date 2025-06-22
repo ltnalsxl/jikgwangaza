@@ -27,6 +27,7 @@ const ExploreTab = ({
   handleShare,
   setSearchQuery,
   isComposing,
+  setCurrentPlayerName,
 }) => {
   const teamOptions = [
     'KIA',
@@ -156,6 +157,7 @@ const ExploreTab = ({
           setPlaySource={setPlaySource}
           setShowPlayer={setShowPlayer}
           handleShare={handleShare}
+          setCurrentPlayerName={setCurrentPlayerName}
         />
       ))}
       {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (

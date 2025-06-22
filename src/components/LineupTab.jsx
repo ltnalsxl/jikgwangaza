@@ -18,6 +18,7 @@ const LineupTab = ({
   setCurrentLineupIndex,
   setPlaySource,
   setShowPlayer,
+  setCurrentPlayerName,
   gameLineups,
   setSelectedDate,
   handleShareLineup,
@@ -93,6 +94,7 @@ const LineupTab = ({
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}
                 setShowPlayer={setShowPlayer}
+                setCurrentPlayerName={setCurrentPlayerName}
               />
             ))
           ) : (

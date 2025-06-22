@@ -10,7 +10,8 @@ const PlayerCard = ({
   setCurrentPlayer,
   setCurrentLineupIndex,
   setPlaySource,
-  setShowPlayer
+  setShowPlayer,
+  setCurrentPlayerName
 }) => {
   const openPlayer = () => {
     const globalIndex = playerSongs.findIndex(
@@ -26,6 +27,7 @@ const PlayerCard = ({
 
     setCurrentLineupIndex(index);
     setPlaySource('lineup');
+    setCurrentPlayerName(player.playerName);
     setShowPlayer(true);
   };
 
