@@ -639,8 +639,8 @@ const getSortedChants = () => {
         </div>
                           
         <div>
-          <h1 className="text-xl font-bold text-gray-900">직관가자</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">직관가자</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-300">
             {getTeamInfo(selectedTeam).fullName} • {formatDateKorean(selectedDate)}
           </p>
         </div>
@@ -756,12 +756,12 @@ const getSortedChants = () => {
       <div className="p-4">
         {showPlayer ? (
           <div className="space-y-4">
-            <button 
+            <button
               onClick={() => setShowPlayer(false)}
-            className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
+              className="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
             >
               <SkipBack className="w-5 h-5" />
-              라인업으로 돌아가기
+              <span className="sr-only">라인업으로 돌아가기</span>
             </button>
             <PlayerTab
               playerSongs={playerSongs}

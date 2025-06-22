@@ -27,7 +27,7 @@ const LineupTab = ({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800">오늘의 라인업</h2>
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">오늘의 라인업</h2>
         <div className="flex items-center gap-2">
           <button
             onClick={handleShareLineup}

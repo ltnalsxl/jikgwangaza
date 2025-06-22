@@ -63,7 +63,7 @@ const ExploreTab = ({
           <span className="text-sm text-gray-700">팀 선택</span>
           <button
             onClick={() => setExploreTeamFilter('전체')}
-            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium ${
+            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 ${
               exploreTeamFilter === '전체'
                 ? 'ring-2 ring-blue-500 border-transparent'
                 : 'border-gray-200'
@@ -88,7 +88,7 @@ const ExploreTab = ({
                 alt={team}
                 className="w-8 h-8 object-contain mb-1"
               />
-              <span className="text-xs">{team}</span>
+              <span className="text-xs text-gray-900">{team}</span>
             </button>
           ))}
         </div>
