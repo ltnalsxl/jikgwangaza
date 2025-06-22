@@ -137,9 +137,9 @@ def crawl_players() -> list:
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()), options=options
     )
-    # Start from the player search page which lists all players by team
     driver.get("https://www.koreabaseball.com/Player/Search.aspx")
-    WebDriverWait(driver, 10).until(
+    wait = WebDriverWait(driver, 10)
+    wait.until(
         EC.presence_of_element_located(
             (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
         )
