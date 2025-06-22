@@ -153,27 +153,25 @@ const PlayerTab = ({
         </div>
       </div>
       {/* YouTube 플레이어 */}
-      <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%', height: 0 }}>
-        <div className="absolute top-0 left-0 w-full h-full">
-          {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
-            <YouTube
-              key={`player-${currentChant.youtubeId}`}
-              videoId={currentChant.youtubeId}
-              opts={opts}
-              onReady={(event) => {
-                playerRef.current = event.target;
-              }}
-            />
-          ) : (
-            <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
-              <div>
-                <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
-                <p className="text-sm opacity-70">응원가를 준비중입니다</p>
-              </div>
+      <div className="w-full rounded-xl overflow-hidden aspect-[16/9] bg-black">
+        {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
+          <YouTube
+            key={`player-${currentChant.youtubeId}`}
+            videoId={currentChant.youtubeId}
+            opts={opts}
+            onReady={(event) => {
+              playerRef.current = event.target;
+            }}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
+            <div>
+              <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
+              <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
+              <p className="text-sm opacity-70">응원가를 준비중입니다</p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <LyricsSection
         chant={currentChant}
