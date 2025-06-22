@@ -146,7 +146,7 @@ const PlayerTab = ({
         </div>
       </div>
       {/* YouTube 플레이어 */}
-      <div className="w-full rounded-xl overflow-hidden aspect-[16/9] bg-black">
+      <div className="w-full rounded-xl overflow-hidden aspect-[16/9] bg-black flex items-center justify-center">
         {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
           <YouTube
             key={`player-${currentChant.youtubeId}`}
@@ -157,12 +157,9 @@ const PlayerTab = ({
             }}
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
-            <div>
-              <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-              <p className="text-lg mb-2">{currentChant.chantTitle || '응원가 정보 없음'}</p>
-              <p className="text-sm opacity-70">응원가를 준비중입니다</p>
-            </div>
+          <div className="flex flex-col items-center justify-center w-full h-full text-center text-white">
+            <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
+            <p className="text-lg mb-2">곧 업데이트됩니다</p>
           </div>
         )}
       </div>
