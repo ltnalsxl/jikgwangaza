@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Search,
   Filter,
-  Heart,
   Circle,
   RefreshCw,
   AlertCircle,
@@ -15,7 +14,6 @@ const ExploreTab = ({
   handleCompositionEnd,
   exploreTeamFilter,
   setExploreTeamFilter,
-  sortBy,
   setSortBy,
   playerSongs,
   likedSongs,
@@ -70,23 +68,13 @@ const ExploreTab = ({
         </select>
       </div>
       <div className="flex items-center gap-3 overflow-x-auto pb-3">
-        {[
-          { key: 'popular', label: '인기순', icon: Heart, color: 'from-red-500 to-pink-500' },
-          { key: 'name', label: '가나다순', icon: Circle, color: 'from-blue-500 to-indigo-500' },
-        ].map(({ key, label, icon: Icon, color }) => (
-          <button
-            key={key}
-            onClick={() => setSortBy(key)}
-            className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all font-medium ${
-              sortBy === key
-                ? `bg-gradient-to-r ${color} text-white shadow-lg shadow-gray-300 scale-105`
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-sm'
-            }`}
-          >
-            <Icon className="w-4 h-4" />
-            {label}
-          </button>
-        ))}
+        <button
+          onClick={() => setSortBy('name')}
+          className="flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all font-medium bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-sm"
+        >
+          <Circle className="w-4 h-4" />
+          가나다순
+        </button>
       </div>
     </div>
     {/* 통계 카드 */}
