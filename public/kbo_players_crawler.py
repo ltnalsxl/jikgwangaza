@@ -1,10 +1,11 @@
 import json
-import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 
 TEAM_CODES = {
@@ -30,12 +31,26 @@ def _parse_date(text: str) -> str:
 
 
 def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
-    select = Select(driver.find_element(By.ID, "cphContents_cphContents_cphContents_ddlTeam"))
+    wait = WebDriverWait(driver, 10)
+    dropdown = wait.until(
+        EC.presence_of_element_located(
+            (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
+        )
+    )
+    select = Select(dropdown)
     select.select_by_value(code)
-    time.sleep(2)
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
+
     players = []
 
     while True:
+        try:
+            wait.until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx"))
+            )
+        except TimeoutException:
+            break
+
         soup = BeautifulSoup(driver.page_source, "html.parser")
         table = soup.find("table", class_="tEx")
         if not table:
@@ -66,12 +81,18 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
             }
             players.append(player)
         try:
-            next_btn = driver.find_element(By.ID, "cphContents_cphContents_cphContents_ucPager_btnNext")
+            next_btn = wait.until(
+                EC.element_to_be_clickable(
+                    (
+                        By.ID,
+                        "cphContents_cphContents_cphContents_ucPager_btnNext",
+                    )
+                )
+            )
             if "disabled" in next_btn.get_attribute("class"):
                 break
             next_btn.click()
-            time.sleep(1.5)
-        except Exception:
+        except TimeoutException:
             break
 
     return players
@@ -88,7 +109,11 @@ def crawl_players() -> list:
 
     driver = webdriver.Chrome(options=options)
     driver.get("https://www.koreabaseball.com/Record/Player/Basic/PlayerBasic.aspx")
-    time.sleep(2)
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
+        )
+    )
 
     all_players = []
     for code in TEAM_CODES:
