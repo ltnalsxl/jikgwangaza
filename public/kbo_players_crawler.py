@@ -48,6 +48,7 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
     players = []
 
+    page_num = 1
     while True:
         # Ensure the table is present before parsing
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
@@ -92,11 +93,14 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
             if "disabled" in next_btn.get_attribute("class"):
                 break
             next_btn.click()
+            page_num += 1
+            print(f"{TEAM_CODES.get(code, code)}: {len(players)}명 (페이지 {page_num} 이동)")
             # Wait for the next page's table to load
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
         except Exception:
             break
 
+    print(f"{TEAM_CODES.get(code, code)} 최종: {len(players)}명 크롤링 완료")
     return players
 
 
@@ -121,10 +125,17 @@ def crawl_players() -> list:
     )
 
     all_players = []
+    team_counts = {}
     for code in TEAM_CODES:
-        all_players.extend(_scrape_team(driver, code))
+        team_players = _scrape_team(driver, code)
+        all_players.extend(team_players)
+        team_counts[TEAM_CODES.get(code, code)] = len(team_players)
 
     driver.quit()
+    print("\n===== 팀별 선수 수 요약 =====")
+    for team, count in team_counts.items():
+        print(f"{team}: {count}명")
+    print(f"전체 합계: {len(all_players)}명")
     return all_players
 
 
