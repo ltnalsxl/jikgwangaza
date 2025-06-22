@@ -71,9 +71,6 @@ const LineupTab = ({
                 <p className="text-sm text-blue-600">
                   {currentGame.location} • {formatDateKorean(currentGame.date)}
                 </p>
-                <p className="text-sm text-blue-600">
-                  {currentLineup.length}개 응원가 • 총 재생시간 약 {Math.ceil(currentLineup.length * 2)}분
-                </p>
               </div>
               <button
                 onClick={handlePlayAll}
