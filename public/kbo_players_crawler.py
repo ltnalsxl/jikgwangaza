@@ -148,11 +148,6 @@ def crawl_players() -> list:
     all_players = []
     team_counts = {}
     for code in TEAM_CODES:
-        # 드롭다운을 매번 새로 찾음
-        wait.until(EC.presence_of_element_located((By.ID, "cphContents_cphContents_cphContents_ddlTeam")))
-        select = Select(driver.find_element(By.ID, "cphContents_cphContents_cphContents_ddlTeam"))
-        select.select_by_value(code)
-        # 이후 크롤링 진행
         team_players = _scrape_team(driver, code)
         all_players.extend(team_players)
         team_counts[TEAM_CODES.get(code, code)] = len(team_players)
