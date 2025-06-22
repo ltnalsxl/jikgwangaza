@@ -5,7 +5,7 @@ import { Music } from 'lucide-react';
 const TeamChantVideo = React.memo(({ youtubeId, chantTitle, opts }) => {
   const defaultOpts = {
     width: '100%',
-    height: '240',
+    height: '100%',
     playerVars: {
       autoplay: 0,
       mute: 0,
