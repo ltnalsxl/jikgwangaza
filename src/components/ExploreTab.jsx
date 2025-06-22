@@ -7,6 +7,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import ChantCard from './ChantCard';
+import { getTeamInfo } from '../utils/team';
 const ExploreTab = ({
   searchQuery,
   handleChange,
@@ -26,8 +27,22 @@ const ExploreTab = ({
   handleShare,
   setSearchQuery,
   isComposing,
-}) => (
-  <div className="space-y-4">
+}) => {
+  const teamOptions = [
+    '전체',
+    'KIA',
+    '두산',
+    'LG',
+    '삼성',
+    '롯데',
+    'SSG',
+    '키움',
+    '한화',
+    'NC',
+    'KT',
+  ];
+  return (
+    <div className="space-y-4">
     {/* 검색 및 필터 */}
     <div className="space-y-3">
       <div className="relative">
@@ -42,26 +57,38 @@ const ExploreTab = ({
           className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50"
         />
       </div>
-      {/* 팀 필터 추가 */}
-      <div className="flex items-center gap-3 overflow-x-auto pb-3 mb-4">
-        <Filter className="w-5 h-5 text-gray-500 flex-shrink-0" />
-        <select
-          value={exploreTeamFilter}
-          onChange={(e) => setExploreTeamFilter(e.target.value)}
-          className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent shadow-sm"
-        >
-          <option value="전체">전체 팀</option>
-          <option value="KIA">KIA 타이거즈</option>
-          <option value="두산">두산 베어스</option>
-          <option value="LG">LG 트윈스</option>
-          <option value="삼성">삼성 라이온즈</option>
-          <option value="롯데">롯데 자이언츠</option>
-          <option value="SSG">SSG 랜더스</option>
-          <option value="키움">키움 히어로즈</option>
-          <option value="한화">한화 이글스</option>
-          <option value="NC">NC 다이노스</option>
-          <option value="KT">KT 위즈</option>
-        </select>
+      {/* 팀 필터 */}
+      <div className="space-y-2 pb-3 mb-4">
+        <div className="flex items-center gap-2">
+          <Filter className="w-5 h-5 text-gray-500 flex-shrink-0" />
+          <span className="text-sm text-gray-700">팀 선택</span>
+        </div>
+        <div className="grid grid-cols-5 gap-3">
+          {teamOptions.map((team) => (
+            <button
+              key={team}
+              onClick={() => setExploreTeamFilter(team)}
+              className={`bg-white border flex flex-col items-center p-2 rounded-lg ${
+                exploreTeamFilter === team
+                  ? 'ring-2 ring-blue-500 border-transparent'
+                  : 'border-gray-200'
+              }`}
+            >
+              {team === '전체' ? (
+                <span className="text-xs font-medium">전체</span>
+              ) : (
+                <>
+                  <img
+                    src={getTeamInfo(team).logo}
+                    alt={team}
+                    className="w-8 h-8 object-contain mb-1"
+                  />
+                  <span className="text-xs">{team}</span>
+                </>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
       <div className="flex items-center gap-3 overflow-x-auto pb-3">
         <button
@@ -152,5 +179,6 @@ const ExploreTab = ({
       )}
     </div>
   </div>
-);
+  );
+};
 export default ExploreTab;
