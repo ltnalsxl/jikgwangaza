@@ -32,7 +32,9 @@ The crawler saves each game's lineup JSON files and then rebuilds the index auto
 ## Crawling player info
 
 `public/kbo_players_crawler.py` scrapes basic player details from the KBO web site.
-It requires Selenium with Chrome and writes the results to `public/data/kboPlayers.json`.
+It starts at [https://www.koreabaseball.com/Player/Search.aspx](https://www.koreabaseball.com/Player/Search.aspx)
+and iterates through each team. The script requires Selenium with Chrome and writes
+the results to `public/data/kboPlayers.json`.
 The crawler records each player's school instead of the `updatedAt` timestamp found in
 older data files.
 

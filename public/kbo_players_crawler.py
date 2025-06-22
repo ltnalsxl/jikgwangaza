@@ -91,7 +91,8 @@ def crawl_players() -> list:
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()), options=options
     )
-    driver.get("https://www.koreabaseball.com/Record/Player/Basic/PlayerBasic.aspx")
+    # Start from the player search page which lists all players by team
+    driver.get("https://www.koreabaseball.com/Player/Search.aspx")
     time.sleep(2)
 
     all_players = []
