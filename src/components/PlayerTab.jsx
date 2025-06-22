@@ -74,9 +74,17 @@ const PlayerTab = ({
             {currentChant.playerName}
           </h2>
           {!hasPlayerData && (
-            <p className="mt-2 text-center text-sm text-gray-500">
-              선수 정보가 없습니다. 곧 업데이트됩니다.
-            </p>
+            <div className="mt-2 text-center space-y-1">
+              <p className="text-sm text-gray-500">
+                선수 정보가 없습니다. 곧 업데이트됩니다.
+              </p>
+              <button
+                onClick={handleInfoRequest}
+                className="text-sm text-blue-500 underline"
+              >
+                정보 요청하기
+              </button>
+            </div>
           )}
           {/* 기본 정보 그리드 */}
           <div className="grid grid-cols-2 gap-4 mb-4">
