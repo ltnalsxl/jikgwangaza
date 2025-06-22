@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Share2, Plus, Heart } from 'lucide-react';
+import { Play, Share2, Plus } from 'lucide-react';
 import { getTeamInfo, getPositionKorean } from '../utils/team';
 
 const ChantCard = ({
@@ -8,8 +8,6 @@ const ChantCard = ({
   setCurrentPlayer,
   setPlaySource,
   setShowPlayer,
-  toggleLike,
-  likedSongs,
   handleShare
 }) => {
   const openPlayer = () => {
@@ -55,21 +53,7 @@ const ChantCard = ({
           )}
         </div>
       </div>
-      <button
-        onClick={e => {
-          e.stopPropagation();
-          toggleLike(chant.id);
-        }}
-        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-      >
-        <Heart
-          className={`w-5 h-5 transition-all ${
-            likedSongs.has(chant.id)
-              ? 'text-red-500 fill-red-500 scale-110'
-              : 'text-gray-300 hover:text-red-400'
-          }`}
-        />
-      </button>
+
     </div>
 
     <div className="flex items-center gap-2">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Heart } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 const PlayerCard = ({
   player,
@@ -10,9 +10,7 @@ const PlayerCard = ({
   setCurrentPlayer,
   setCurrentLineupIndex,
   setPlaySource,
-  setShowPlayer,
-  toggleLike,
-  likedSongs
+  setShowPlayer
 }) => {
   const openPlayer = () => {
     const globalIndex = playerSongs.findIndex(
@@ -61,18 +59,6 @@ const PlayerCard = ({
           className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
         >
           <Play className="w-4 h-4" />
-        </button>
-        <button
-          onClick={e => {
-            e.stopPropagation();
-            toggleLike(player.id);
-          }}
-        >
-          <Heart
-            className={`w-5 h-5 transition-colors ${
-              likedSongs.has(player.id) ? 'text-red-500 fill-red-500' : 'text-gray-300'
-            }`}
-          />
         </button>
       </div>
     </div>
