@@ -7,6 +7,7 @@ const LineupTab = ({
   currentPlayer,
   playerSongs,
   selectedTeam,
+  selectedDate,
   likedSongs,
   fetchJsonData,
   loading,
@@ -108,8 +109,44 @@ const LineupTab = ({
       ) : (
         <div className="text-center py-8 text-gray-500">
           <Circle className="w-12 h-12 mx-auto mb-4 opacity-50" />
-          <p>라인업 발표 전입니다</p>
-          <p className="text-sm mt-2">경기 시작 전에 라인업이 발표됩니다</p>
+          {(() => {
+            const selected = new Date(selectedDate);
+            const today = new Date();
+            const isToday =
+              selected.toDateString() === today.toDateString();
+            const isPast = selected < new Date(today.toDateString());
+            const isMonday = selected.getDay() === 1;
+            if (isMonday) {
+              return (
+                <>
+                  <p>월요일은 야구없는날!</p>
+                  <p className="text-sm mt-2">최근 라인업 보러가실래요?</p>
+                </>
+              );
+            }
+            if (isPast) {
+              return (
+                <>
+                  <p>이날은 경기가 없었습니다</p>
+                  <p className="text-sm mt-2">최근 라인업을 확인해 보세요</p>
+                </>
+              );
+            }
+            if (isToday) {
+              return (
+                <>
+                  <p>오늘 라인업이 아직 올라오지 않았습니다</p>
+                  <p className="text-sm mt-2">잠시 후 다시 확인해주세요</p>
+                </>
+              );
+            }
+            return (
+              <>
+                <p>라인업 발표 전입니다</p>
+                <p className="text-sm mt-2">경기 시작 전에 라인업이 발표됩니다</p>
+              </>
+            );
+          })()}
 
           <button
             onClick={() => {
@@ -131,7 +168,7 @@ const LineupTab = ({
             }}
             className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
           >
-            가장 최근 라인업 보러가기
+            최근 라인업 보러가기
           </button>
         </div>
       )}
