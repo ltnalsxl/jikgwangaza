@@ -29,12 +29,26 @@ python public/kbo_crawler.py --mode incremental --days 3 --save_dir public/data/
 
 The crawler saves each game's lineup JSON files and then rebuilds the index automatically.
 
+## Crawling player info
+
+`public/kbo_players_crawler.py` scrapes basic player details from the KBO web site.
+It requires Selenium with Chrome and writes the results to `public/data/kboPlayers.json`.
+The crawler records each player's school instead of the `updatedAt` timestamp found in
+older data files.
+
+Run the crawler:
+
+```bash
+python public/kbo_players_crawler.py
+```
+
 ## Automated daily crawl
 
 The GitHub Actions workflow at `.github/workflows/daily-crawl.yml` runs every
-day to fetch new lineups. The workflow rebuilds
-`public/data/kbo_crawler_data/index.json` and commits the updated files back to
-the repository automatically.
+day to fetch new lineups **and** the full player list. The workflow rebuilds
+`public/data/kbo_crawler_data/index.json` and updates
+`public/data/kboPlayers.json`, committing any changes back to the repository
+automatically.
 
 ## Basic npm commands
 
