@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import YouTube from 'react-youtube';
 import { Music, SkipBack, SkipForward, Pause, Play, Share2, Plus, Mail } from 'lucide-react';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from '../utils/team';
+import LyricsSection from './LyricsSection';
 const PlayerTab = ({
   playerSongs,
   currentPlayer,
@@ -168,6 +169,7 @@ const PlayerTab = ({
           )}
         </div>
       </div>
+      <LyricsSection chant={currentChant} hasVideo={false} />
       {/* 컨트롤 버튼 */}
       <div className="flex items-center justify-center gap-6">
         <button
