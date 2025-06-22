@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Music } from 'lucide-react';
 
-const LyricsSection = ({ chant, hasVideo }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const LyricsSection = ({ chant, hasVideo, defaultExpanded = false }) => {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   if (!chant.lyrics) return null;
 
