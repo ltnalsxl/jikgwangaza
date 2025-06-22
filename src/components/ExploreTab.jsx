@@ -148,19 +148,28 @@ const ExploreTab = ({
           </div>
         </div>
       )}
-      {filteredChants.map((chant) => (
-        <ChantCard
-          key={chant.id}
-          chant={chant}
-          playerSongs={playerSongs}
-          setCurrentPlayer={setCurrentPlayer}
-          setPlaySource={setPlaySource}
-          setShowPlayer={setShowPlayer}
-          handleShare={handleShare}
-          setCurrentPlayerName={setCurrentPlayerName}
-        />
-      ))}
-      {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
+      {/* 모든 선수 카드 렌더링: 응원가가 없는 선수는 안내 메시지 */}
+      {playerSongs.map((chant) => {
+        const hasChant = filteredChants.some((c) => c.id === chant.id);
+        return (
+          <div key={chant.id} className="relative">
+            <ChantCard
+              chant={chant}
+              playerSongs={playerSongs}
+              setCurrentPlayer={setCurrentPlayer}
+              setPlaySource={setPlaySource}
+              setShowPlayer={setShowPlayer}
+              handleShare={handleShare}
+            />
+            {!hasChant && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 rounded-2xl">
+                <span className="text-gray-500 text-sm font-medium">곧 업데이트됩니다</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {playerSongs.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
         <div className="text-center py-8 text-gray-500">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>
