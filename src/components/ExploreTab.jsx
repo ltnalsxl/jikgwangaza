@@ -16,6 +16,8 @@ const ExploreTab = ({
   exploreTeamFilter,
   setExploreTeamFilter,
   setSortBy,
+  hasSongOnly,
+  setHasSongOnly,
   playerSongs,
   kboPlayers,
   rawSongs,
@@ -108,6 +110,18 @@ const ExploreTab = ({
           <Circle className="w-4 h-4" />
           가나다순
         </button>
+        <div className="flex items-center gap-2">
+          <input
+            id="songOnly"
+            type="checkbox"
+            checked={hasSongOnly}
+            onChange={(e) => setHasSongOnly(e.target.checked)}
+            className="w-4 h-4 text-blue-600 border-gray-300 rounded"
+          />
+          <label htmlFor="songOnly" className="text-sm text-gray-700 whitespace-nowrap">
+            응원가 있는 선수만
+          </label>
+        </div>
       </div>
     </div>
     {/* 통계 카드 */}
