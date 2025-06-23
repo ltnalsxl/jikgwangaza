@@ -122,7 +122,7 @@ const useKboData = () => {
       setKboPlayers(parsedKboPlayers);
 
       // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
-      const parsedSongs = parsedKboPlayers.map((player) => {
+      const parsedSongsRaw = parsedKboPlayers.map((player) => {
         const teamName = normalizeTeamName(player.teamName);
         const matchedSong = Array.isArray(songsData)
           ? songsData.find(
@@ -155,6 +155,15 @@ const useKboData = () => {
           addedDate: new Date().toISOString().split('T')[0],
         };
       });
+
+      // 중복 제거 (팀+선수 기준)
+      const uniqueSongMap = new Map();
+      parsedSongsRaw.forEach((song) => {
+        if (!uniqueSongMap.has(song.id)) {
+          uniqueSongMap.set(song.id, song);
+        }
+      });
+      const parsedSongs = Array.from(uniqueSongMap.values());
 
       // 라인업 파일들 병렬 로드
       const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
