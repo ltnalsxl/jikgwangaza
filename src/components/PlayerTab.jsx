@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import YouTube from 'react-youtube';
 import { Music, SkipBack, SkipForward, Share2, Plus, Mail } from 'lucide-react';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from '../utils/team';
+import { logRequest } from '../utils/logging';
 import LyricsSection from './LyricsSection';
 const PlayerTab = ({
   playerSongs,
@@ -50,19 +51,13 @@ const PlayerTab = ({
     },
   };
   const handleInfoRequest = () => {
-    const subject = encodeURIComponent('선수 정보 요청');
-    const body = encodeURIComponent(
-      `${currentChant.playerName} (${getDisplayTeam()}) 정보 요청`
-    );
-    window.location.href = `mailto:ltnalsxl1011@gmail.com?subject=${subject}&body=${body}`;
+    logRequest(currentChant.playerName, 'info');
+    alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
   };
 
   const handleSongRequest = () => {
-    const subject = encodeURIComponent('응원가 요청');
-    const body = encodeURIComponent(
-      `${currentChant.playerName} (${getDisplayTeam()}) 응원가 요청`
-    );
-    window.location.href = `mailto:ltnalsxl1011@gmail.com?subject=${subject}&body=${body}`;
+    logRequest(currentChant.playerName, 'song');
+    alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
   };
   return (
     <div className="space-y-6">
