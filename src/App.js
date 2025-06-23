@@ -46,6 +46,7 @@ const debugLog = (...args) => {
 const JikgwanGaja = () => {
   
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
+  const [hasSongOnly, setHasSongOnly] = useState(false);
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [activeTab, setActiveTab] = useState('lineup');
@@ -452,7 +453,11 @@ const getSortedChants = () => {
     if (exploreTeamFilter !== '전체' && chant.team !== exploreTeamFilter) {
       return false;
     }
-  
+
+    if (hasSongOnly && !chant.youtubeId) {
+      return false;
+    }
+
     // 검색어 필터링 (한국어 개선)
     if (!immediateSearch) return true;
     
@@ -849,6 +854,8 @@ const getSortedChants = () => {
                 handleCompositionEnd={handleCompositionEnd}
                 exploreTeamFilter={exploreTeamFilter}
                 setExploreTeamFilter={setExploreTeamFilter}
+                hasSongOnly={hasSongOnly}
+                setHasSongOnly={setHasSongOnly}
                 playerSongs={playerSongs}
                 kboPlayers={kboPlayers}
                 rawSongs={rawSongs}
