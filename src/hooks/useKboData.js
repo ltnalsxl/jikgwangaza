@@ -94,6 +94,7 @@ const useKboData = () => {
   const [gameLineups, setGameLineups] = useState([]);
   const [teamChants, setTeamChants] = useState([]);
   const [kboPlayers, setKboPlayers] = useState([]);
+  const [rawSongs, setRawSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -120,6 +121,7 @@ const useKboData = () => {
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
       setKboPlayers(parsedKboPlayers);
+      setRawSongs(Array.isArray(songsData) ? songsData : []);
 
       // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
       const parsedSongsRaw = parsedKboPlayers.map((player) => {
@@ -318,6 +320,7 @@ const useKboData = () => {
     gameLineups,
     teamChants,
     kboPlayers,
+    rawSongs,
     loading,
     error,
     fetchJsonData,

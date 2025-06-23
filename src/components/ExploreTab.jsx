@@ -17,6 +17,8 @@ const ExploreTab = ({
   setExploreTeamFilter,
   setSortBy,
   playerSongs,
+  kboPlayers,
+  rawSongs,
   filteredChants,
   error,
   setSelectedDate,
@@ -41,6 +43,10 @@ const ExploreTab = ({
     'NC',
     'KT',
   ];
+  const totalPlayers = Array.isArray(kboPlayers) ? kboPlayers.length : 0;
+  const totalChants = Array.isArray(rawSongs)
+    ? rawSongs.filter((song) => song.type === '응원가').length
+    : 0;
   return (
     <div className="space-y-4">
     {/* 검색 및 필터 */}
@@ -105,9 +111,13 @@ const ExploreTab = ({
       </div>
     </div>
     {/* 통계 카드 */}
-    <div className="grid grid-cols-2 gap-3 mb-4">
+    <div className="grid grid-cols-3 gap-3 mb-4">
+      <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 rounded-xl p-3 text-white shadow">
+        <h3 className="text-lg font-bold">{totalPlayers}</h3>
+        <p className="text-xs text-indigo-100 mt-1">총 선수</p>
+      </div>
       <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-xl p-3 text-white shadow">
-        <h3 className="text-lg font-bold">{playerSongs.length}</h3>
+        <h3 className="text-lg font-bold">{totalChants}</h3>
         <p className="text-xs text-blue-100 mt-1">총 응원가</p>
       </div>
       <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-xl p-3 text-white shadow">
