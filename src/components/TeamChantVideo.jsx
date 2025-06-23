@@ -5,9 +5,12 @@ import { Music } from 'lucide-react';
 const TeamChantVideo = React.memo(({ youtubeId, chantTitle, opts }) => {
   if (youtubeId && youtubeId !== '') {
     return (
-      <div key={`container-${youtubeId}`}>
-        <YouTube key={youtubeId} videoId={youtubeId} opts={opts} />
-      </div>
+      <YouTube
+        className="w-full h-full"
+        key={youtubeId}
+        videoId={youtubeId}
+        opts={opts}
+      />
     );
   }
 
