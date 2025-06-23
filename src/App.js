@@ -166,6 +166,7 @@ const JikgwanGaja = () => {
     gameLineups,
     teamChants,
     kboPlayers,
+    rawSongs,
     loading,
     error,
     fetchJsonData,
@@ -849,6 +850,8 @@ const getSortedChants = () => {
                 exploreTeamFilter={exploreTeamFilter}
                 setExploreTeamFilter={setExploreTeamFilter}
                 playerSongs={playerSongs}
+                kboPlayers={kboPlayers}
+                rawSongs={rawSongs}
                 filteredChants={filteredChants}
                 error={error}
                 setSelectedDate={setSelectedDate}
