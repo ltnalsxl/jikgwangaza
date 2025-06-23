@@ -93,51 +93,27 @@ const PlayerTab = ({
               </button>
             </div>
           )}
-          {/* 기본 정보 그리드 */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="space-y-3">
-              <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">소속팀</p>
-                <div className="flex items-center gap-2">
-                  {getTeamInfo(getDisplayTeam()).logo && (
-                    <img
-                      src={getTeamInfo(getDisplayTeam()).logo}
-                      alt={getDisplayTeam()}
-                      className="w-5 h-5 object-contain"
-                    />
-                  )}
-                  <p className="text-lg font-semibold" style={{ color: getTeamInfo(getDisplayTeam()).color }}>
-                    {getDisplayTeam()}
-                  </p>
-                </div>
-              </div>
-              {getDisplayPosition() && (
-                <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">포지션</p>
-                  <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                    {getPositionKorean(getDisplayPosition())}
-                  </p>
-                </div>
+          {/* 기본 정보 한줄 */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 text-sm text-gray-800 dark:text-gray-100">
+            <div className="flex items-center gap-2">
+              {getTeamInfo(getDisplayTeam()).logo && (
+                <img
+                  src={getTeamInfo(getDisplayTeam()).logo}
+                  alt={getDisplayTeam()}
+                  className="w-5 h-5 object-contain"
+                />
               )}
+              <span className="font-semibold" style={{ color: getTeamInfo(getDisplayTeam()).color }}>
+                {getDisplayTeam()}
+              </span>
             </div>
-            <div className="space-y-3">
-              {currentChant.number && (
-                <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">등번호</p>
-                  <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                    {currentChant.number}번
-                  </p>
-                </div>
-              )}
-              {currentChant.throwBat && (
-                <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">투타</p>
-                  <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                    {currentChant.throwBat}
-                  </p>
-                </div>
-              )}
-            </div>
+            {currentChant.number && (
+              <span className="font-semibold">{currentChant.number}번</span>
+            )}
+            {getDisplayPosition() && (
+              <span>{getPositionKorean(getDisplayPosition())}</span>
+            )}
+            {currentChant.throwBat && <span>{currentChant.throwBat}</span>}
           </div>
           {/* 추가 정보 */}
           <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
