@@ -189,27 +189,7 @@ const PlayerTab = ({
           <SkipForward className="w-6 h-6" />
         </button>
       </div>
-      {/* 액션 버튼 */}
-      <div className="flex items-center gap-3">
-        <button
-          onClick={() => handleShare(currentChant)}
-          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-        >
-          <Share2 className="w-4 h-4" />
-          공유
-        </button>
-        <button
-          onClick={handleInfoRequest}
-          className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-        >
-          <Mail className="w-4 h-4" />
-          정보 요청
-        </button>
-        <button className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-          <Plus className="w-4 h-4" />
-          플레이리스트
-        </button>
-      </div>
+      {/* 액션 버튼 (공유/정보 요청/플레이리스트) 제거 */}
     </div>
   );
 };
