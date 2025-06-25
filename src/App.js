@@ -328,15 +328,22 @@ const JikgwanGaja = () => {
       return lineup;
     };
   
-    // 오늘 경기가 있으면 사용
+    // 오늘 경기가 취소되었는지 확인
+    if (todayGame && todayGame.canceled) {
+      debugLog('오늘 경기 취소됨:', todayGame);
+      setCurrentLineup([]);
+      return;
+    }
+
+    // 오늘 경기가 있고 라인업이 존재하면 사용
     if (todayGame && Array.isArray(todayGame.lineup) && todayGame.lineup.length > 0) {
       const lineup = buildLineup(todayGame);
       debugLog('오늘 경기 라인업 설정:', lineup);
       setCurrentLineup(lineup);
       return;
     }
-  
-    debugLog('오늘 경기 없음, 이전 경기 찾기 시작');
+
+    debugLog('오늘 경기 없음 또는 라인업 없음, 이전 경기 찾기 시작');
   
     // 이전 경기 찾기
     const previousGames = gameLineups
