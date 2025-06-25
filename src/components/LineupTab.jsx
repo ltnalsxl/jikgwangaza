@@ -70,6 +70,7 @@ const LineupTab = ({
                 </h3>
                 <p className="text-sm text-blue-600">
                   {currentGame.location} • {formatDateKorean(currentGame.date)}
+                  {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
                 </p>
               </div>
               <button
@@ -81,7 +82,12 @@ const LineupTab = ({
             </div>
           </div>
 
-          {currentLineup.length > 0 ? (
+          {currentGame.canceled ? (
+            <div className="text-center py-8 text-gray-500">
+              <AlertCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />
+              <p>이 경기는 취소되었습니다</p>
+            </div>
+          ) : currentLineup.length > 0 ? (
             currentLineup.map((player, index) => (
               <PlayerCard
                 key={player.id || index}
@@ -100,7 +106,7 @@ const LineupTab = ({
           ) : (
             <div className="text-center py-8 text-gray-500">
               <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-              <p>이 경기의 라인업 정보가 없습니다</p>
+              <p>라인업 정보가 없습니다</p>
             </div>
           )}
         </>
