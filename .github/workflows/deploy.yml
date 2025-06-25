@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ["Manual lineup index rebuild"]
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
