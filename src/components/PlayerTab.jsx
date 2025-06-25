@@ -35,9 +35,11 @@ const PlayerTab = ({
     currentChant = { ...playerSongs[currentPlayer] } || {};
   }
   const getDisplayTeam = () => {
-    return playSource === 'lineup'
-      ? selectedTeam
-      : currentChant.teamCode || currentChant.team || '알 수 없음';
+    const baseTeam =
+      playSource === 'lineup'
+        ? selectedTeam
+        : currentChant.team || currentChant.teamCode || '알 수 없음';
+    return getTeamInfo(baseTeam).text;
   };
   const getDisplayPosition = () => currentChant.position;
   const opts = {
@@ -60,9 +62,9 @@ const PlayerTab = ({
     alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
   };
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* 선수 상세 정보 카드 */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="bg-white dark:bg-gray-800 rounded-xl px-4 py-3 border border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="mb-4">
           {/* 타순 정보 (라인업 모드에서만) */}
           {playSource === 'lineup' &&
@@ -89,7 +91,7 @@ const PlayerTab = ({
             </div>
           )}
           {/* 기본 정보 한줄 */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 text-sm text-gray-800 dark:text-gray-100">
+          <div className="flex flex-wrap items-center gap-2 mb-4 text-sm text-gray-800 dark:text-gray-100">
             <div className="flex items-center gap-2">
               {getTeamInfo(getDisplayTeam()).logo && (
                 <img
@@ -101,34 +103,41 @@ const PlayerTab = ({
               <span className="font-semibold" style={{ color: getTeamInfo(getDisplayTeam()).color }}>
                 {getDisplayTeam()}
               </span>
+              {currentChant.number && (
+                <span className="font-semibold">{currentChant.number}번</span>
+              )}
             </div>
-            {currentChant.number && (
-              <span className="font-semibold">{currentChant.number}번</span>
-            )}
             {getDisplayPosition() && (
-              <span>{getPositionKorean(getDisplayPosition())}</span>
+              <>
+                <span className="text-gray-300">|</span>
+                <span>{getPositionKorean(getDisplayPosition())}</span>
+              </>
             )}
-            {currentChant.throwBat && <span>{currentChant.throwBat}</span>}
+            {currentChant.throwBat && (
+              <>
+                <span className="text-gray-300">|</span>
+                <span>{currentChant.throwBat}</span>
+              </>
+            )}
           </div>
           {/* 추가 정보 */}
-          <div className="grid grid-cols-1 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-            {currentChant.birth && (
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500">생년월일</span>
-                <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
-                  {currentChant.birth.split('T')[0]}
+          {(currentChant.birth || currentChant.body) && (
+            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-gray-100 dark:border-gray-700 text-sm">
+              {currentChant.birth && (
+                <span className="font-medium text-gray-800 dark:text-gray-100">
+                  생년월일: {currentChant.birth.split('T')[0]}
                 </span>
-              </div>
-            )}
-            {currentChant.body && (
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500">체격</span>
-                <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
-                  {currentChant.body}
+              )}
+              {currentChant.birth && currentChant.body && (
+                <span className="text-gray-400">|</span>
+              )}
+              {currentChant.body && (
+                <span className="font-medium text-gray-800 dark:text-gray-100">
+                  체격: {currentChant.body}
                 </span>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
       {/* YouTube 플레이어 */}
