@@ -11,6 +11,8 @@ on:
     - cron: '10 8 * * 1-5'  # 17:10 KST (평일)
     - cron: '30 8 * * *'  # 17:30 KST
     - cron: '40 6 * * 0,6'  # 15:40 KST (주말)
+    - cron: '0 9 * * *'   # 18:00 KST
+    - cron: '30 9 * * *'  # 18:30 KST
   workflow_dispatch:
 
 jobs:
