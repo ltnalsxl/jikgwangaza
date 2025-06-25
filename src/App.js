@@ -609,7 +609,7 @@ const getSortedChants = () => {
 
 
 
-  // 날짜 옵션 생성 함수
+  // 날짜 옵션 생성 함수 - 경기가 없는 날도 포함
   const getDateOptions = () => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -620,36 +620,49 @@ const getSortedChants = () => {
     debugLog('getDateOptions - selectedTeam:', selectedTeam);
     debugLog('getDateOptions - gameLineups.length:', gameLineups.length);
 
-    // 라인업 데이터에서 날짜 추출
-    const gameDates = gameLineups
-      .filter(game => {
-        const idParts = game.id.split('_');
-        const isValidGame = idParts.length === 2 && idParts[1] === selectedTeam;
-        if (!isValidGame) {
-          debugLog('getDateOptions - Filtering out game:', game.id, 'for team:', selectedTeam);
-        }
-        return isValidGame;
-      })
-      .map(game => game.id.split('_')[0]);
+    // 해당 팀 경기 날짜 세트
+    const gameDates = new Set(
+      gameLineups
+        .filter(game => {
+          const idParts = game.id.split('_');
+          const isValidGame = idParts.length === 2 && idParts[1] === selectedTeam;
+          if (!isValidGame) {
+            debugLog('getDateOptions - Filtering out game:', game.id, 'for team:', selectedTeam);
+          }
+          return isValidGame;
+        })
+        .map(game => game.id.split('_')[0])
+    );
 
-    debugLog('getDateOptions - extracted gameDates:', gameDates);
+    debugLog('getDateOptions - extracted gameDates:', Array.from(gameDates));
 
-    // 중복 제거 및 정렬
-    const uniqueDates = [...new Set([...gameDates, todayStr])].sort();
+    const allGameDates = Array.from(
+      new Set(gameLineups.map(game => game.id.split('_')[0]))
+    ).sort();
 
-    debugLog('getDateOptions - uniqueDates:', uniqueDates);
+    if (allGameDates.length === 0) {
+      return [{ value: todayStr, label: `${today.getMonth() + 1}월 ${today.getDate()}일 (${['일','월','화','수','목','금','토'][today.getDay()]})` }];
+    }
 
-    return uniqueDates.map(date => {
-      const dateObj = new Date(date);
-      const month = dateObj.getMonth() + 1;
-      const day = dateObj.getDate();
-      const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
-      const dayName = dayNames[dateObj.getDay()];
-      return {
-        value: date,
-        label: `${month}월 ${day}일 (${dayName})`
-      };
-    });
+    const startDate = new Date(allGameDates[0]);
+    const lastDateStr = allGameDates[allGameDates.length - 1];
+    const endDate = new Date(lastDateStr < todayStr ? todayStr : lastDateStr);
+
+    const options = [];
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+      const year = d.getFullYear();
+      const month = d.getMonth() + 1;
+      const day = d.getDate();
+      const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const dayName = ['일','월','화','수','목','금','토'][d.getDay()];
+      const hasGame = gameDates.has(dateStr);
+      options.push({
+        value: dateStr,
+        label: `${hasGame ? '⚾ ' : ''}${month}월 ${day}일 (${dayName})`
+      });
+    }
+
+    return options;
   };
 
  return (
