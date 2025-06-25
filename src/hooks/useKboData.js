@@ -200,13 +200,14 @@ const useKboData = () => {
         .flatMap(result => {
           const { file, data: game } = result.value;
 
-          // Skip games that were canceled (e.g., due to rain)
-          if (game?.game_status && game.game_status.includes('취소')) {
-            console.warn('경기 취소됨, 라인업 제외:', file);
+          if (!game) {
+            console.warn('게임 데이터 없음:', file);
             return [];
           }
-          
-          if (!game || !game.starting_lineups) {
+
+          const isCanceled = !!(game.game_status && game.game_status.includes('취소'));
+
+          if (!isCanceled && !game.starting_lineups) {
             console.warn('라인업 정보 없음:', file);
             return [];
           }
@@ -237,13 +238,16 @@ const useKboData = () => {
                 .sort((a, b) => a.order - b.order);
             };
 
-            const team1Name = normalizeTeamName(game.starting_lineups.team_1?.team_name || '');
-            const team2Name = normalizeTeamName(game.starting_lineups.team_2?.team_name || '');
+            const team1Name = normalizeTeamName(game.starting_lineups?.team_1?.team_name || '');
+            const team2Name = normalizeTeamName(game.starting_lineups?.team_2?.team_name || '');
 
             if (!team1Name || !team2Name) {
               console.warn('팀명 정보 부족:', file, { team1Name, team2Name });
               return [];
             }
+
+            const lineup1 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_1, team1Name);
+            const lineup2 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_2, team2Name);
 
             return [
               {
@@ -253,7 +257,9 @@ const useKboData = () => {
                 home: homeTeam,
                 away: awayTeam,
                 location: location,
-                lineup: buildLineup(game.starting_lineups.team_1, team1Name),
+                lineup: lineup1,
+                canceled: isCanceled,
+                gameStatus: game.game_status,
               },
               {
                 id: `${dateStr}_${team2Name}`,
@@ -262,7 +268,9 @@ const useKboData = () => {
                 home: homeTeam,
                 away: awayTeam,
                 location: location,
-                lineup: buildLineup(game.starting_lineups.team_2, team2Name),
+                lineup: lineup2,
+                canceled: isCanceled,
+                gameStatus: game.game_status,
               },
             ];
           } catch (error) {
