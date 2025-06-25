@@ -53,6 +53,10 @@ Two GitHub Actions workflows keep the data updated:
 
 Both workflows commit any changes back to the repository automatically.
 
+Any push to the `main` branch – including updates from these workflows –
+automatically triggers `.github/workflows/deploy.yml` to build the app and
+deploy it to Firebase.
+
 ## Basic npm commands
 
 ```bash
