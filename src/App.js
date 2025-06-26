@@ -183,7 +183,9 @@ const JikgwanGaja = () => {
         gameLineups
           .filter((game) => {
             const parts = game.id.split('_');
-            return parts.length === 2 && parts[1] === selectedTeam;
+            return (
+              parts.length >= 2 && parts[parts.length - 1] === selectedTeam
+            );
           })
           .map((game) => game.id.split('_')[0])
       ),
@@ -289,7 +291,7 @@ const JikgwanGaja = () => {
         debugLog('잘못된 게임 ID 형식:', game.id);
         return false;
       }
-  
+
       const gameDateStr = idParts[0];
       const gameTeam = idParts[idParts.length - 1];
       const gameDateISO = normalizeDate(gameDateStr);
@@ -444,7 +446,7 @@ const JikgwanGaja = () => {
   
       // 새로운 ID 구조 "YYYY-MM-DD_팀명" 처리
       const idParts = game.id.split('_');
-      if (idParts.length !== 2) return false;
+      if (idParts.length < 2) return false;
   
       const gameDateStr = idParts[0]; // YYYY-MM-DD
       const gameTeam = idParts[1];    // 팀명

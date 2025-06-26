@@ -115,6 +115,7 @@ const useKboData = () => {
     setError(null);
     try {
       const base = process.env.PUBLIC_URL || '';
+<<<<<<< ggid1v-codex/라인업-표시-안되는-문제-해결
 
       const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
@@ -122,6 +123,19 @@ const useKboData = () => {
         fetchSafeJson(`${base}/data/teamChants.json`, []),
         fetchSafeJson(`${base}/data/kboPlayers.json`, []),
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
+=======
+      
+      // 병렬로 데이터 로드 (라인업 인덱스가 실패하면 null 반환)
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
+        fetch(`${base}/data/playerSongs.json`).then((res) => res.json()),
+        fetch(`${base}/data/kbo_crawler_data/index.json`).then((res) => res.json()).catch((err) => {
+          console.warn('index.json 로드 실패', err);
+          return null;
+        }),
+        fetch(`${base}/data/teamChants.json`).then((res) => res.json()),
+        fetch(`${base}/data/kboPlayers.json`).then((res) => res.json()),
+        fetch(`${base}/data/gameLineups.json`).then((res) => res.json()).catch(() => []),
+>>>>>>> main
       ]);
 
       console.log('로드된 데이터:', {
@@ -217,8 +231,12 @@ const useKboData = () => {
           }
 
           try {
-            const homeTeam = normalizeTeamName(game.teams?.find((t) => t.is_home)?.name || '');
-            const awayTeam = normalizeTeamName(game.teams?.find((t) => !t.is_home)?.name || '');
+            const homeTeam = normalizeTeamName(
+              game.teams?.find((t) => t.is_home)?.name || ''
+            );
+            const awayTeam = normalizeTeamName(
+              game.teams?.find((t) => !t.is_home)?.name || ''
+            );
             const dateStr = normalizeDate(game.date);
             const location = game.location || '미정';
             const gameTime = game.game_time
@@ -253,12 +271,17 @@ const useKboData = () => {
               return [];
             }
 
-            const lineup1 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_1, team1Name);
-            const lineup2 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_2, team2Name);
+            const lineup1 = isCanceled
+              ? []
+              : buildLineup(game.starting_lineups?.team_1, team1Name);
+            const lineup2 = isCanceled
+              ? []
+              : buildLineup(game.starting_lineups?.team_2, team2Name);
 
             return [
               {
-                id: `${dateStr}_${team1Name}`,
+                id: `${dateStr}_${game.game_code}_${team1Name}`,
+                gameCode: game.game_code,
                 date: dateStr,
                 team: team1Name,
                 home: homeTeam,
@@ -270,7 +293,8 @@ const useKboData = () => {
                 gameStatus: game.game_status,
               },
               {
-                id: `${dateStr}_${team2Name}`,
+                id: `${dateStr}_${game.game_code}_${team2Name}`,
+                gameCode: game.game_code,
                 date: dateStr,
                 team: team2Name,
                 home: homeTeam,
