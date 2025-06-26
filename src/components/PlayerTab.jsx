@@ -61,6 +61,15 @@ const PlayerTab = ({
     logRequest(currentChant.playerName, 'song');
     alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
   };
+
+  const prevPlayerName =
+    playSource === 'lineup'
+      ? currentLineup[currentLineupIndex - 1]?.playerName
+      : playerSongs[currentPlayer - 1]?.playerName;
+  const nextPlayerName =
+    playSource === 'lineup'
+      ? currentLineup[currentLineupIndex + 1]?.playerName
+      : playerSongs[currentPlayer + 1]?.playerName;
   return (
     <div className="space-y-4">
       {/* 선수 상세 정보 카드 */}
@@ -171,25 +180,32 @@ const PlayerTab = ({
         defaultExpanded
       />
       {/* 컨트롤 버튼 */}
-      <div className="flex items-center justify-center gap-12">
+      <div className="flex items-center justify-between gap-4 py-4">
         <button
           onClick={playPrev}
           disabled={
             (playSource === 'explore' && currentPlayer === 0) ||
             (playSource === 'lineup' && currentLineupIndex === 0)
           }
-          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+          className="flex items-center gap-2 p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
         >
           <SkipBack className="w-6 h-6" />
+          {prevPlayerName && (
+            <span className="text-sm text-gray-700">{prevPlayerName}</span>
+          )}
         </button>
         <button
           onClick={playNext}
           disabled={
             (playSource === 'explore' && currentPlayer === playerSongs.length - 1) ||
-            (playSource === 'lineup' && currentLineupIndex === currentLineup.length - 1)
+            (playSource === 'lineup' &&
+              currentLineupIndex === currentLineup.length - 1)
           }
-          className="p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+          className="flex items-center gap-2 p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
         >
+          {nextPlayerName && (
+            <span className="text-sm text-gray-700">{nextPlayerName}</span>
+          )}
           <SkipForward className="w-6 h-6" />
         </button>
       </div>
