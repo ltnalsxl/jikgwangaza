@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { normalizeDate } from '../utils/dates';
 
 const normalizeTeamName = (teamName) => {
   const teamMap = {
@@ -36,31 +37,6 @@ const normalizeTeamName = (teamName) => {
     kt: 'KT',
   };
   return teamMap[teamName] || teamName;
-};
-
-// 날짜 정규화 함수
-const normalizeDate = (dateStr) => {
-  if (!dateStr) return null;
-  
-  try {
-    // YYYY-MM-DD 형식이면 그대로 반환
-    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
-      return dateStr;
-    }
-    
-    // Date 객체로 변환 후 YYYY-MM-DD 형식으로 반환
-    const date = new Date(dateStr);
-    if (!isNaN(date.getTime())) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
-  } catch (e) {
-    console.warn('날짜 정규화 실패:', dateStr, e);
-  }
-  
-  return null;
 };
 
 // 위치 정규화 함수
