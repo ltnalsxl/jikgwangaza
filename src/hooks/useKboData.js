@@ -214,8 +214,12 @@ const useKboData = () => {
           }
 
           try {
-            const homeTeam = normalizeTeamName(game.teams?.find((t) => t.is_home)?.name || '');
-            const awayTeam = normalizeTeamName(game.teams?.find((t) => !t.is_home)?.name || '');
+            const homeTeam = normalizeTeamName(
+              game.teams?.find((t) => t.is_home)?.name || ''
+            );
+            const awayTeam = normalizeTeamName(
+              game.teams?.find((t) => !t.is_home)?.name || ''
+            );
             const dateStr = normalizeDate(game.date);
             const location = game.location || '미정';
             const gameTime = game.game_time
@@ -250,12 +254,17 @@ const useKboData = () => {
               return [];
             }
 
-            const lineup1 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_1, team1Name);
-            const lineup2 = isCanceled ? [] : buildLineup(game.starting_lineups?.team_2, team2Name);
+            const lineup1 = isCanceled
+              ? []
+              : buildLineup(game.starting_lineups?.team_1, team1Name);
+            const lineup2 = isCanceled
+              ? []
+              : buildLineup(game.starting_lineups?.team_2, team2Name);
 
             return [
               {
-                id: `${dateStr}_${team1Name}`,
+                id: `${dateStr}_${game.game_code}_${team1Name}`,
+                gameCode: game.game_code,
                 date: dateStr,
                 team: team1Name,
                 home: homeTeam,
@@ -267,7 +276,8 @@ const useKboData = () => {
                 gameStatus: game.game_status,
               },
               {
-                id: `${dateStr}_${team2Name}`,
+                id: `${dateStr}_${game.game_code}_${team2Name}`,
+                gameCode: game.game_code,
                 date: dateStr,
                 team: team2Name,
                 home: homeTeam,
