@@ -18,7 +18,7 @@ const ALL_TEAMS = [
 const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
   const schedules = gameLineups
     .filter((game) => game.team === selectedTeam)
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   const opponentStats = useMemo(() => {
     const stats = {};
