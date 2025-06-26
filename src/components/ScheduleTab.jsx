@@ -15,7 +15,13 @@ const ALL_TEAMS = [
   'KT',
 ];
 
-const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
+const ScheduleTab = ({
+  selectedTeam,
+  gameLineups,
+  formatDateKorean,
+  setSelectedDate,
+  setActiveTab,
+}) => {
   const schedules = gameLineups
     .filter((game) => game.team === selectedTeam)
     .sort((a, b) => b.date.localeCompare(a.date));
@@ -75,7 +81,8 @@ const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
         return (
           <div
             key={game.id}
-            className={`flex items-center justify-between rounded-lg p-3 shadow ${
+            onClick={() => { if (setSelectedDate) setSelectedDate(game.date); if (setActiveTab) setActiveTab("lineup"); }}
+            className={`cursor-pointer flex items-center justify-between rounded-lg p-3 shadow ${
               isCanceled
                 ? 'bg-gray-100 dark:bg-gray-800 text-gray-500 line-through'
                 : 'bg-white dark:bg-gray-700'
@@ -90,6 +97,7 @@ const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
                 />
               )}
               <span className="font-medium">{game.away}</span>
+              <span className="text-xs text-gray-500">(원정)</span>
               <span className="mx-1 text-gray-500">vs</span>
               {getTeamInfo(game.home).logo && (
                 <img
@@ -99,6 +107,7 @@ const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
                 />
               )}
               <span className="font-medium">{game.home}</span>
+              <span className="text-xs text-gray-500">(홈)</span>
             </div>
             <div className="text-sm text-right text-gray-600 dark:text-gray-300">
               <div>{game.gameTime || '미정'}</div>
