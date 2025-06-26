@@ -666,9 +666,9 @@ const getSortedChants = () => {
   };
 
  return (
-  <div className="max-w-md mx-auto bg-white min-h-screen dark:bg-gray-900 dark:text-gray-100">
+  <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen dark:text-gray-100">
      {/* 헤더 */}
-    <div className="bg-white text-gray-900 p-4 border-b border-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+    <div className="bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
         <div 
@@ -712,18 +712,18 @@ const getSortedChants = () => {
             setSelectedDate(`${yyyy}-${mm}-${dd}`);
             fetchJsonData();
           }}
-          className="bg-gray-100 rounded-full p-2 hover:bg-gray-200 transition-colors"
+          className="p-2 rounded-full hover:bg-gray-100"
         >
-          <RefreshCw className="w-5 h-5 text-gray-600" />
+          <RefreshCw className="w-4 h-4 text-gray-600" />
         </button>
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="bg-gray-100 dark:bg-gray-700 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           {isDarkMode ? (
-            <Sun className="w-5 h-5 text-yellow-400" />
+            <Sun className="w-4 h-4 text-yellow-400" />
           ) : (
-            <Moon className="w-5 h-5 text-gray-600" />
+            <Moon className="w-4 h-4 text-gray-600" />
           )}
         </button>
         <Settings className="w-5 h-5 text-gray-600" />
@@ -765,46 +765,46 @@ const getSortedChants = () => {
 
      {/* 탭 네비게이션 */}
       <div className="flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
-        <button 
+        <button
           onClick={() => {
             setActiveTab('lineup');
             setShowPlayer(false);
           }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors ${
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'lineup' && !showPlayer
-              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white' 
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
               : 'text-gray-600'
           }`}
         >
-          <Users className="w-4 h-4 mx-auto mb-1" />
+          <Users className="w-6 h-6" />
           <span className="text-xs">라인업</span>
         </button>
-        <button 
+        <button
           onClick={() => {
             setActiveTab('teamChants');
             setShowPlayer(false);
           }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors ${
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'teamChants' && !showPlayer
-              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white' 
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
               : 'text-gray-600'
           }`}
         >
-          <Trophy className="w-4 h-4 mx-auto mb-1" />
+          <Trophy className="w-6 h-6" />
           <span className="text-xs">팀응원가</span>
         </button>
-        <button 
+        <button
           onClick={() => {
             setActiveTab('explore');
             setShowPlayer(false);
           }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors ${
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'explore' && !showPlayer
-              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white' 
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
               : 'text-gray-600'
           }`}
         >
-          <Search className="w-4 h-4 mx-auto mb-1" />
+          <Search className="w-6 h-6" />
           <span className="text-xs">탐색</span>
         </button>
       </div>
