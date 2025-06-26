@@ -105,12 +105,16 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
       
-      // 병렬로 데이터 로드
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData] = await Promise.all([
+      // 병렬로 데이터 로드 (라인업 인덱스가 실패하면 null 반환)
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
         fetch(`${base}/data/playerSongs.json`).then((res) => res.json()),
-        fetch(`${base}/data/kbo_crawler_data/index.json`).then((res) => res.json()),
+        fetch(`${base}/data/kbo_crawler_data/index.json`).then((res) => res.json()).catch((err) => {
+          console.warn('index.json 로드 실패', err);
+          return null;
+        }),
         fetch(`${base}/data/teamChants.json`).then((res) => res.json()),
         fetch(`${base}/data/kboPlayers.json`).then((res) => res.json()),
+        fetch(`${base}/data/gameLineups.json`).then((res) => res.json()).catch(() => []),
       ]);
 
       console.log('로드된 데이터:', {
@@ -291,6 +295,15 @@ const useKboData = () => {
         dates: [...new Set(parsedLineups.map(g => normalizeDate(g.date)))].sort()
       });
 
+      let finalLineups = parsedLineups;
+      if (finalLineups.length === 0 && Array.isArray(fallbackLineups) && fallbackLineups.length > 0) {
+        console.warn('라인업 파일 로드 실패, gameLineups.json 사용');
+        finalLineups = fallbackLineups.map(game => ({
+          ...game,
+          date: normalizeDate(game.date),
+        }));
+      }
+
       // 팀 응원가 데이터 처리
       const parsedTeamChants = Array.isArray(teamChantsData)
         ? teamChantsData.map((chant, idx) => ({
@@ -308,12 +321,12 @@ const useKboData = () => {
         : [];
 
       setPlayerSongs(parsedSongs);
-      setGameLineups(parsedLineups);
+      setGameLineups(finalLineups);
       setTeamChants(parsedTeamChants);
-      
+
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
-        gameLineups: parsedLineups.length,
+        gameLineups: finalLineups.length,
         teamChants: parsedTeamChants.length
       });
 
