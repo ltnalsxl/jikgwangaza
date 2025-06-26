@@ -99,11 +99,31 @@ const useKboData = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchSafeJson = async (url, defaultValue = null) => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      console.warn(`JSON 로드 실패: ${url}`, err);
+      return defaultValue;
+    }
+  };
+
   const fetchJsonData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const base = process.env.PUBLIC_URL || '';
+<<<<<<< ggid1v-codex/라인업-표시-안되는-문제-해결
+
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
+        fetchSafeJson(`${base}/data/playerSongs.json`, []),
+        fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
+        fetchSafeJson(`${base}/data/teamChants.json`, []),
+        fetchSafeJson(`${base}/data/kboPlayers.json`, []),
+        fetchSafeJson(`${base}/data/gameLineups.json`, []),
+=======
       
       // 병렬로 데이터 로드 (라인업 인덱스가 실패하면 null 반환)
       const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
@@ -115,6 +135,7 @@ const useKboData = () => {
         fetch(`${base}/data/teamChants.json`).then((res) => res.json()),
         fetch(`${base}/data/kboPlayers.json`).then((res) => res.json()),
         fetch(`${base}/data/gameLineups.json`).then((res) => res.json()).catch(() => []),
+>>>>>>> main
       ]);
 
       console.log('로드된 데이터:', {
@@ -176,19 +197,11 @@ const useKboData = () => {
       const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
         ? await Promise.allSettled(
             lineupIndex.map(async (file) => {
-              try {
-                const response = await fetch(
-                  `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`
-                );
-                if (!response.ok) {
-                  throw new Error(`HTTP ${response.status}`);
-                }
-                const data = await response.json();
-                return { file, data };
-              } catch (error) {
-                console.warn(`파일 로드 실패: ${file}`, error);
-                return null;
-              }
+              const data = await fetchSafeJson(
+                `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`,
+                null
+              );
+              return data ? { file, data } : null;
             })
           )
         : [];
