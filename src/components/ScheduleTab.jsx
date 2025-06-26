@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Calendar } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
 
@@ -22,38 +22,62 @@ const ScheduleTab = ({
   setSelectedDate,
   setActiveTab,
 }) => {
+  const [locationFilter, setLocationFilter] = useState('전체');
+
   const schedules = gameLineups
     .filter((game) => game.team === selectedTeam)
     .sort((a, b) => b.date.localeCompare(a.date));
 
+  const filteredSchedules = schedules.filter((game) => {
+    if (locationFilter === '홈') return game.home === selectedTeam;
+    if (locationFilter === '원정') return game.away === selectedTeam;
+    return true;
+  });
+
   const opponentStats = useMemo(() => {
+    const perTeamTotal = locationFilter === '전체' ? 16 : 8;
     const stats = {};
     ALL_TEAMS.forEach((team) => {
       if (team !== selectedTeam) {
-        stats[team] = { played: 0, remaining: 16 };
+        stats[team] = { played: 0, remaining: perTeamTotal };
       }
     });
 
-    schedules.forEach((game) => {
+    filteredSchedules.forEach((game) => {
       const opponent = game.home === selectedTeam ? game.away : game.home;
       if (!stats[opponent]) return;
       const isFinished =
-        game.gameStatus && game.gameStatus.includes('종료');
+        !game.canceled && game.gameStatus && game.gameStatus.includes('종료');
       if (isFinished) {
         stats[opponent].played += 1;
         stats[opponent].remaining = Math.max(
-          16 - stats[opponent].played,
+          perTeamTotal - stats[opponent].played,
           0
         );
       }
     });
 
     return stats;
-  }, [schedules, selectedTeam]);
+  }, [filteredSchedules, selectedTeam, locationFilter]);
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
+        {['전체', '홈', '원정'].map((opt) => (
+          <button
+            key={opt}
+            onClick={() => setLocationFilter(opt)}
+            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 ${
+              locationFilter === opt
+                ? 'ring-2 ring-blue-500 border-transparent'
+                : 'border-gray-200'
+            }`}
+          >
+            {opt}
+          </button>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
         {Object.entries(opponentStats).map(([team, info]) => (
           <div
             key={team}
@@ -75,7 +99,7 @@ const ScheduleTab = ({
           </div>
         ))}
       </div>
-      {schedules.map((game) => {
+      {filteredSchedules.map((game) => {
         const isCanceled =
           game.canceled || (game.gameStatus && game.gameStatus.includes('취소'));
         return (
