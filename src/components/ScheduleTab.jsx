@@ -69,39 +69,47 @@ const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
           </div>
         ))}
       </div>
-      {schedules.map((game) => (
-        <div
-          key={game.id}
-          className="flex items-center justify-between bg-white dark:bg-gray-700 rounded-lg p-3 shadow"
-        >
-          <div className="flex items-center gap-2">
-            {getTeamInfo(game.away).logo && (
-              <img
-                src={getTeamInfo(game.away).logo}
-                alt={game.away}
-                className="w-5 h-5 object-contain"
-              />
-            )}
-            <span className="font-medium">{game.away}</span>
-            <span className="mx-1 text-gray-500">vs</span>
-            {getTeamInfo(game.home).logo && (
-              <img
-                src={getTeamInfo(game.home).logo}
-                alt={game.home}
-                className="w-5 h-5 object-contain"
-              />
-            )}
-            <span className="font-medium">{game.home}</span>
-          </div>
-          <div className="text-sm text-right text-gray-600 dark:text-gray-300">
-            <div>{game.gameTime || '미정'}</div>
-            <div>
-              {formatDateKorean(game.date)}
-              {game.gameStatus ? ` • ${game.gameStatus}` : ''}
+      {schedules.map((game) => {
+        const isCanceled =
+          game.canceled || (game.gameStatus && game.gameStatus.includes('취소'));
+        return (
+          <div
+            key={game.id}
+            className={`flex items-center justify-between rounded-lg p-3 shadow ${
+              isCanceled
+                ? 'bg-gray-100 dark:bg-gray-800 text-gray-500 line-through'
+                : 'bg-white dark:bg-gray-700'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              {getTeamInfo(game.away).logo && (
+                <img
+                  src={getTeamInfo(game.away).logo}
+                  alt={game.away}
+                  className="w-5 h-5 object-contain"
+                />
+              )}
+              <span className="font-medium">{game.away}</span>
+              <span className="mx-1 text-gray-500">vs</span>
+              {getTeamInfo(game.home).logo && (
+                <img
+                  src={getTeamInfo(game.home).logo}
+                  alt={game.home}
+                  className="w-5 h-5 object-contain"
+                />
+              )}
+              <span className="font-medium">{game.home}</span>
+            </div>
+            <div className="text-sm text-right text-gray-600 dark:text-gray-300">
+              <div>{game.gameTime || '미정'}</div>
+              <div>
+                {formatDateKorean(game.date)}
+                {game.gameStatus ? ` • ${game.gameStatus}` : ''}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
