@@ -73,12 +73,14 @@ const LineupTab = ({
                   {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
                 </p>
               </div>
-              <button
-                onClick={handlePlayAll}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                전체 재생
-              </button>
+              <div className="sticky bottom-0 z-10 w-full md:w-auto md:static md:p-0 p-2 bg-white md:bg-transparent">
+                <button
+                  onClick={handlePlayAll}
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  전체 재생
+                </button>
+              </div>
             </div>
           </div>
 
