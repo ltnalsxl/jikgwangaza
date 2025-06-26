@@ -547,20 +547,6 @@ const getSortedChants = () => {
   };
 
 
-  const handlePlayAll = () => {
-    if (currentLineup.length === 0) return;
-  
-    // ✅ 라인업 첫 번째 선수의 전역 인덱스 찾기
-    const firstPlayerIndex = playerSongs.findIndex(song => 
-      song.playerName === currentLineup[0].playerName && song.team === selectedTeam
-    );
-    
-    if (firstPlayerIndex !== -1) {
-      setCurrentPlayer(firstPlayerIndex);
-      setShowPlayer(true);
-    }
-  }
-
   const handleShare = async (song) => {
     const url = song?.youtubeId
       ? `https://www.youtube.com/watch?v=${song.youtubeId}`
@@ -799,7 +785,6 @@ const getSortedChants = () => {
                 error={error}
                 getCurrentGame={getCurrentGame}
                 formatDateKorean={formatDateKorean}
-                handlePlayAll={handlePlayAll}
                 setCurrentPlayer={setCurrentPlayer}
                 setCurrentLineupIndex={setCurrentLineupIndex}
                 setPlaySource={setPlaySource}

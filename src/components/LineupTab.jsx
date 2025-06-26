@@ -13,7 +13,6 @@ const LineupTab = ({
   error,
   getCurrentGame,
   formatDateKorean,
-  handlePlayAll,
   setCurrentPlayer,
   setCurrentLineupIndex,
   setPlaySource,
@@ -73,12 +72,6 @@ const LineupTab = ({
                   {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
                 </p>
               </div>
-              <button
-                onClick={handlePlayAll}
-                className="mt-2 md:mt-0 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                전체 재생
-              </button>
             </div>
           </div>
 
