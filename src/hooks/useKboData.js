@@ -8,6 +8,7 @@ const normalizeTeamName = (teamName) => {
     hanwha: '한화',
     KIA: 'KIA',
     kia: 'KIA',
+    기아: 'KIA',
     두산: '두산',
     Doosan: '두산',
     doosan: '두산',
