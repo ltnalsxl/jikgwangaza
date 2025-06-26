@@ -138,7 +138,10 @@ const LineupTab = ({
                   const recentGame = gameLineups
                     .filter((game) => {
                       const idParts = game.id.split('_');
-                      return idParts.length === 2 && idParts[1] === selectedTeam;
+                      return (
+                        idParts.length >= 2 &&
+                        idParts[idParts.length - 1] === selectedTeam
+                      );
                     })
                     .sort((a, b) => {
                       const dateA = a.id.split('_')[0];
@@ -205,7 +208,10 @@ const LineupTab = ({
               const recentGame = gameLineups
                 .filter((game) => {
                   const idParts = game.id.split('_');
-                  return idParts.length === 2 && idParts[1] === selectedTeam;
+                  return (
+                    idParts.length >= 2 &&
+                    idParts[idParts.length - 1] === selectedTeam
+                  );
                 })
                 .sort((a, b) => {
                   const dateA = a.id.split('_')[0];
