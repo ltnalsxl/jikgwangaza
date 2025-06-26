@@ -71,3 +71,7 @@ Running these commands requires **Node.js 20 or later**.
 ## Sharing lineups
 
 Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the current team's lineup.
+
+## UI/UX Requirements
+
+Detailed design guidelines can be found in [docs/UI_UX_requirements.md](docs/UI_UX_requirements.md).
