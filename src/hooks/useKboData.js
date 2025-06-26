@@ -99,18 +99,29 @@ const useKboData = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchSafeJson = async (url, defaultValue = null) => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      console.warn(`JSON 로드 실패: ${url}`, err);
+      return defaultValue;
+    }
+  };
+
   const fetchJsonData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const base = process.env.PUBLIC_URL || '';
-      
-      // 병렬로 데이터 로드
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData] = await Promise.all([
-        fetch(`${base}/data/playerSongs.json`).then((res) => res.json()),
-        fetch(`${base}/data/kbo_crawler_data/index.json`).then((res) => res.json()),
-        fetch(`${base}/data/teamChants.json`).then((res) => res.json()),
-        fetch(`${base}/data/kboPlayers.json`).then((res) => res.json()),
+
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
+        fetchSafeJson(`${base}/data/playerSongs.json`, []),
+        fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
+        fetchSafeJson(`${base}/data/teamChants.json`, []),
+        fetchSafeJson(`${base}/data/kboPlayers.json`, []),
+        fetchSafeJson(`${base}/data/gameLineups.json`, []),
       ]);
 
       console.log('로드된 데이터:', {
@@ -172,19 +183,11 @@ const useKboData = () => {
       const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
         ? await Promise.allSettled(
             lineupIndex.map(async (file) => {
-              try {
-                const response = await fetch(
-                  `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`
-                );
-                if (!response.ok) {
-                  throw new Error(`HTTP ${response.status}`);
-                }
-                const data = await response.json();
-                return { file, data };
-              } catch (error) {
-                console.warn(`파일 로드 실패: ${file}`, error);
-                return null;
-              }
+              const data = await fetchSafeJson(
+                `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`,
+                null
+              );
+              return data ? { file, data } : null;
             })
           )
         : [];
@@ -291,6 +294,15 @@ const useKboData = () => {
         dates: [...new Set(parsedLineups.map(g => normalizeDate(g.date)))].sort()
       });
 
+      let finalLineups = parsedLineups;
+      if (finalLineups.length === 0 && Array.isArray(fallbackLineups) && fallbackLineups.length > 0) {
+        console.warn('라인업 파일 로드 실패, gameLineups.json 사용');
+        finalLineups = fallbackLineups.map(game => ({
+          ...game,
+          date: normalizeDate(game.date),
+        }));
+      }
+
       // 팀 응원가 데이터 처리
       const parsedTeamChants = Array.isArray(teamChantsData)
         ? teamChantsData.map((chant, idx) => ({
@@ -308,12 +320,12 @@ const useKboData = () => {
         : [];
 
       setPlayerSongs(parsedSongs);
-      setGameLineups(parsedLineups);
+      setGameLineups(finalLineups);
       setTeamChants(parsedTeamChants);
-      
+
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
-        gameLineups: parsedLineups.length,
+        gameLineups: finalLineups.length,
         teamChants: parsedTeamChants.length
       });
 
