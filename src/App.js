@@ -1,5 +1,5 @@
 import YouTube from 'react-youtube';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   SkipForward,
   SkipBack,
@@ -29,6 +29,8 @@ import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 import PlayerTab from './components/PlayerTab';
 import ExploreTab from './components/ExploreTab';
 import TeamChantsTab from './components/TeamChantsTab';
+import CalendarDropdown from './components/CalendarDropdown';
+import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
 
 // simple helper to avoid logs in production
@@ -173,6 +175,18 @@ const JikgwanGaja = () => {
     fetchJsonData,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
+  const gameDatesForTeam = useMemo(
+    () =>
+      new Set(
+        gameLineups
+          .filter((game) => {
+            const parts = game.id.split('_');
+            return parts.length === 2 && parts[1] === selectedTeam;
+          })
+          .map((game) => game.id.split('_')[0])
+      ),
+    [gameLineups, selectedTeam]
+  );
 
   useEffect(() => {
     if (pendingPlayerName && playerSongs.length > 0) {
@@ -609,61 +623,6 @@ const getSortedChants = () => {
 
 
 
-  // 날짜 옵션 생성 함수 - 경기가 없는 날도 포함
-  const getDateOptions = () => {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${yyyy}-${mm}-${dd}`;
-
-    debugLog('getDateOptions - selectedTeam:', selectedTeam);
-    debugLog('getDateOptions - gameLineups.length:', gameLineups.length);
-
-    // 해당 팀 경기 날짜 세트
-    const gameDates = new Set(
-      gameLineups
-        .filter(game => {
-          const idParts = game.id.split('_');
-          const isValidGame = idParts.length === 2 && idParts[1] === selectedTeam;
-          if (!isValidGame) {
-            debugLog('getDateOptions - Filtering out game:', game.id, 'for team:', selectedTeam);
-          }
-          return isValidGame;
-        })
-        .map(game => game.id.split('_')[0])
-    );
-
-    debugLog('getDateOptions - extracted gameDates:', Array.from(gameDates));
-
-    const allGameDates = Array.from(
-      new Set(gameLineups.map(game => game.id.split('_')[0]))
-    ).sort();
-
-    if (allGameDates.length === 0) {
-      return [{ value: todayStr, label: `${today.getMonth() + 1}월 ${today.getDate()}일 (${['일','월','화','수','목','금','토'][today.getDay()]})` }];
-    }
-
-    const startDate = new Date(allGameDates[0]);
-    const lastDateStr = allGameDates[allGameDates.length - 1];
-    const endDate = new Date(lastDateStr < todayStr ? todayStr : lastDateStr);
-
-    const options = [];
-    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-      const year = d.getFullYear();
-      const month = d.getMonth() + 1;
-      const day = d.getDate();
-      const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const dayName = ['일','월','화','수','목','금','토'][d.getDay()];
-      const hasGame = gameDates.has(dateStr);
-      options.push({
-        value: dateStr,
-        label: `${hasGame ? '⚾ ' : ''}${month}월 ${day}일 (${dayName})`
-      });
-    }
-
-    return options;
-  };
 
  return (
   <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen dark:text-gray-100">
@@ -732,34 +691,12 @@ const getSortedChants = () => {
 
        {/* 날짜/팀 선택 */}
         <div className="mt-4 flex items-center gap-3">
-          <select
+          <CalendarDropdown
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            className="bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-gray-100 text-sm rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
-          >
-            {getDateOptions().map(({ value, label }) => (
-              <option key={value} value={value} className="text-gray-900">
-                {label}
-              </option>
-            ))}
-          </select>
-          
-          <select
-            value={selectedTeam}
-            onChange={(e) => setSelectedTeam(e.target.value)}
-            className="bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-gray-100 text-sm rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent"
-          >
-            <option value="KIA" className="text-gray-900">KIA 타이거즈</option>
-            <option value="두산" className="text-gray-900">두산 베어스</option>
-            <option value="LG" className="text-gray-900">LG 트윈스</option>
-            <option value="삼성" className="text-gray-900">삼성 라이온즈</option>
-            <option value="롯데" className="text-gray-900">롯데 자이언츠</option>
-            <option value="SSG" className="text-gray-900">SSG 랜더스</option>
-            <option value="키움" className="text-gray-900">키움 히어로즈</option>
-            <option value="한화" className="text-gray-900">한화 이글스</option>
-            <option value="NC" className="text-gray-900">NC 다이노스</option>
-            <option value="KT" className="text-gray-900">KT 위즈</option>
-          </select>
+            onChange={setSelectedDate}
+            gameDates={gameDatesForTeam}
+          />
+          <TeamDropdown value={selectedTeam} onChange={setSelectedTeam} />
         </div>
      </div>
 
