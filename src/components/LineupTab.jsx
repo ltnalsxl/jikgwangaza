@@ -62,25 +62,23 @@ const LineupTab = ({
         </div>
       ) : currentGame ? (
         <>
-          <div className="bg-blue-50 rounded-lg p-4 mb-4">
-            <div className="flex items-center justify-between">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
-                <h3 className="font-semibold text-blue-800">
+                <h3 className="font-semibold text-gray-800 dark:text-gray-100">
                   {currentGame.home} vs {currentGame.away}
                 </h3>
-                <p className="text-sm text-blue-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   {currentGame.location} • {formatDateKorean(currentGame.date)}
                   {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
                 </p>
               </div>
-              <div className="sticky bottom-0 z-10 w-full md:w-auto md:static md:p-0 p-2 bg-white md:bg-transparent">
-                <button
-                  onClick={handlePlayAll}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                >
-                  전체 재생
-                </button>
-              </div>
+              <button
+                onClick={handlePlayAll}
+                className="mt-2 md:mt-0 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                전체 재생
+              </button>
             </div>
           </div>
 
