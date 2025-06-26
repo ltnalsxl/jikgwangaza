@@ -15,7 +15,13 @@ const ALL_TEAMS = [
   'KT',
 ];
 
-const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
+const ScheduleTab = ({
+  selectedTeam,
+  gameLineups,
+  formatDateKorean,
+  setSelectedDate,
+  setActiveTab,
+}) => {
   const schedules = gameLineups
     .filter((game) => game.team === selectedTeam)
     .sort((a, b) => b.date.localeCompare(a.date));
@@ -72,7 +78,16 @@ const ScheduleTab = ({ selectedTeam, gameLineups, formatDateKorean }) => {
       {schedules.map((game) => (
         <div
           key={game.id}
-          className="flex items-center justify-between bg-white dark:bg-gray-700 rounded-lg p-3 shadow"
+          onClick={() => {
+            if (setSelectedDate) {
+              const date = new Date(game.date).toISOString().split('T')[0];
+              setSelectedDate(date);
+            }
+            if (setActiveTab) {
+              setActiveTab('lineup');
+            }
+          }}
+          className="flex items-center justify-between bg-white dark:bg-gray-700 rounded-lg p-3 shadow cursor-pointer"
         >
           <div className="flex items-center gap-2">
             {getTeamInfo(game.away).logo && (

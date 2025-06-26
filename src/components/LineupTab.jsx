@@ -1,6 +1,7 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
+import { getTeamInfo } from '../utils/team';
 
 const LineupTab = ({
   currentLineup,
@@ -64,9 +65,29 @@ const LineupTab = ({
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
-                <h3 className="font-semibold text-gray-800 dark:text-gray-100">
-                  {currentGame.home} vs {currentGame.away}
-                </h3>
+                <div className="flex items-center gap-2">
+                  {getTeamInfo(currentGame.away).logo && (
+                    <img
+                      src={getTeamInfo(currentGame.away).logo}
+                      alt={currentGame.away}
+                      className="w-5 h-5 object-contain"
+                    />
+                  )}
+                  <span className="font-semibold text-gray-800 dark:text-gray-100">
+                    {currentGame.away}
+                  </span>
+                  <span className="mx-1 text-gray-500">vs</span>
+                  {getTeamInfo(currentGame.home).logo && (
+                    <img
+                      src={getTeamInfo(currentGame.home).logo}
+                      alt={currentGame.home}
+                      className="w-5 h-5 object-contain"
+                    />
+                  )}
+                  <span className="font-semibold text-gray-800 dark:text-gray-100">
+                    {currentGame.home}
+                  </span>
+                </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   {currentGame.location} • {formatDateKorean(currentGame.date)}
                   {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}

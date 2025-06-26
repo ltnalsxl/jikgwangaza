@@ -835,6 +835,8 @@ const getSortedChants = () => {
                 selectedTeam={selectedTeam}
                 gameLineups={gameLineups}
                 formatDateKorean={formatDateKorean}
+                setSelectedDate={setSelectedDate}
+                setActiveTab={setActiveTab}
               />
             )}
           </>
