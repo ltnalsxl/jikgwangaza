@@ -71,6 +71,7 @@ const JikgwanGaja = () => {
   });
 
   const [selectedTeam, setSelectedTeam] = useState('KIA');
+  const [selectedGameCode, setSelectedGameCode] = useState(null);
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
 
@@ -78,6 +79,10 @@ const JikgwanGaja = () => {
   useEffect(() => {
     setExploreTeamFilter(selectedTeam);
   }, [selectedTeam]);
+
+  useEffect(() => {
+    setSelectedGameCode(null);
+  }, [selectedDate, selectedTeam]);
   
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -91,9 +96,11 @@ const JikgwanGaja = () => {
     const params = new URLSearchParams(window.location.search);
     const teamParam = params.get('team');
     const dateParam = params.get('date');
+    const gameParam = params.get('game');
     const playerParam = params.get('player');
     if (teamParam) setSelectedTeam(teamParam);
     if (dateParam) setSelectedDate(dateParam);
+    if (gameParam) setSelectedGameCode(gameParam);
     if (playerParam) setPendingPlayerName(playerParam);
 
     const setTabFromHash = () => {
@@ -113,6 +120,11 @@ const JikgwanGaja = () => {
     const params = new URLSearchParams(window.location.search);
     params.set('team', selectedTeam);
     params.set('date', selectedDate);
+    if (selectedGameCode) {
+      params.set('game', selectedGameCode);
+    } else {
+      params.delete('game');
+    }
     if (showPlayer && currentPlayerName) {
       params.set('player', currentPlayerName);
     } else {
@@ -124,7 +136,7 @@ const JikgwanGaja = () => {
       '',
       `${window.location.pathname}?${query}#${activeTab}`
     );
-  }, [selectedTeam, selectedDate, activeTab, showPlayer, currentPlayerName]);
+  }, [selectedTeam, selectedDate, selectedGameCode, activeTab, showPlayer, currentPlayerName]);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -183,9 +195,7 @@ const JikgwanGaja = () => {
         gameLineups
           .filter((game) => {
             const parts = game.id.split('_');
-            return (
-              parts.length >= 2 && parts[parts.length - 1] === selectedTeam
-            );
+            return parts.length >= 3 && parts[2] === selectedTeam;
           })
           .map((game) => game.id.split('_')[0])
       ),
@@ -213,7 +223,7 @@ const JikgwanGaja = () => {
       updateCurrentLineup();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDate, selectedTeam, gameLineups, playerSongs]);
+  }, [selectedDate, selectedTeam, selectedGameCode, gameLineups, playerSongs]);
 
   const updateCurrentLineup = () => {
     debugLog('=== updateCurrentLineup 시작 ===');
@@ -279,30 +289,23 @@ const JikgwanGaja = () => {
       return;
     }
   
-    // 오늘 경기 찾기
-    const todayGame = gameLineups.find(game => {
-      if (!game || !game.id) {
-        debugLog('게임 ID 없음:', game);
-        return false;
-      }
-  
-      const idParts = game.id.split('_');
-      if (idParts.length < 2) {
-        debugLog('잘못된 게임 ID 형식:', game.id);
-        return false;
-      }
+    const parseTime = (t) => {
+      const m = t && t.match(/(\d{1,2}):(\d{2})/);
+      return m ? parseInt(m[1], 10) * 60 + parseInt(m[2], 10) : Infinity;
+    };
 
-      const gameDateStr = idParts[0];
-      const gameTeam = idParts[idParts.length - 1];
-      const gameDateISO = normalizeDate(gameDateStr);
-  
-      debugLog(`게임 체크: ${game.id} -> 날짜: ${gameDateISO}, 팀: ${gameTeam}`);
-      debugLog(`매칭 체크: 날짜(${gameDateISO === selectedDateISO}), 팀(${gameTeam === selectedTeam})`);
-  
-      return gameDateISO === selectedDateISO && gameTeam === selectedTeam;
-    });
-  
-    debugLog('찾은 오늘 경기:', todayGame);
+    const todayGames = getTodayGames();
+
+    let todayGame = null;
+    if (todayGames.length > 0) {
+      todayGame = todayGames.find((g) => g.gameCode === selectedGameCode) || todayGames[0];
+      if (!selectedGameCode || selectedGameCode !== todayGame.gameCode) {
+        setSelectedGameCode(todayGame.gameCode);
+      }
+    }
+
+    debugLog('찾은 오늘 경기들:', todayGames);
+    debugLog('선택된 오늘 경기:', todayGame);
   
     // 라인업 구성 함수
     const buildLineup = (sourceGame) => {
@@ -365,24 +368,28 @@ const JikgwanGaja = () => {
   
     // 이전 경기 찾기
     const previousGames = gameLineups
-      .filter(game => {
+      .filter((game) => {
         if (!game || !game.id) return false;
-        
-        const idParts = game.id.split('_');
-        if (idParts.length < 2) return false;
-        
-        const gameDateStr = idParts[0];
-        const gameTeam = idParts[idParts.length - 1];
+
+        const parts = game.id.split('_');
+        if (parts.length < 3) return false;
+
+        const gameDateStr = parts[0];
+        const gameTeam = parts[2];
         const gameDateISO = normalizeDate(gameDateStr);
-        
-        const isValidGame = gameDateISO && gameDateISO < selectedDateISO && gameTeam === selectedTeam;
+
+        const isValidGame =
+          gameDateISO && gameDateISO < selectedDateISO && gameTeam === selectedTeam;
         debugLog(`이전 경기 체크: ${game.id} -> 유효: ${isValidGame}`);
-        
+
         return isValidGame;
       })
       .sort((a, b) => {
         const dateA = normalizeDate(a.id.split('_')[0]);
         const dateB = normalizeDate(b.id.split('_')[0]);
+        if (dateA === dateB) {
+          return parseTime(b.gameTime) - parseTime(a.gameTime);
+        }
         return dateB.localeCompare(dateA); // 최신순
       });
   
@@ -399,6 +406,45 @@ const JikgwanGaja = () => {
     }
   
     debugLog('=== updateCurrentLineup 종료 ===');
+  };
+
+  const getTodayGames = () => {
+    const normalizeDate = (dateStr) => {
+      if (!dateStr) return null;
+      let clean = dateStr.toString().trim();
+      if (/^\d{4}-\d{2}-\d{2}$/.test(clean)) return clean;
+      try {
+        const d = new Date(clean);
+        if (!isNaN(d.getTime())) {
+          const y = d.getFullYear();
+          const m = String(d.getMonth() + 1).padStart(2, '0');
+          const dd = String(d.getDate()).padStart(2, '0');
+          return `${y}-${m}-${dd}`;
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    };
+
+    const parseTime = (t) => {
+      const m = t && t.match(/(\d{1,2}):(\d{2})/);
+      return m ? parseInt(m[1], 10) * 60 + parseInt(m[2], 10) : Infinity;
+    };
+
+    const selectedDateISO = normalizeDate(selectedDate);
+
+    return gameLineups
+      .filter((game) => {
+        if (!game || !game.id) return false;
+        const parts = game.id.split('_');
+        if (parts.length < 3) return false;
+        const gameDateStr = parts[0];
+        const team = parts[2];
+        const gameDateISO = normalizeDate(gameDateStr);
+        return gameDateISO === selectedDateISO && team === selectedTeam;
+      })
+      .sort((a, b) => parseTime(a.gameTime) - parseTime(b.gameTime));
   };
   
   const getCurrentGame = () => {
@@ -439,20 +485,12 @@ const JikgwanGaja = () => {
       return null;
     };
   
-    const selectedDateISO = normalizeDate(selectedDate);
-  
-    return gameLineups.find(game => {
-      if (!game || !game.id) return false;
-  
-      // 새로운 ID 구조 "YYYY-MM-DD_팀명" 처리
-      const idParts = game.id.split('_');
-      if (idParts.length < 2) return false;
-  
-      const gameDateStr = idParts[0]; // YYYY-MM-DD
-      const gameTeam = idParts[1];    // 팀명
-  
-      return gameDateStr === selectedDateISO && gameTeam === selectedTeam;
-    });
+    const todayGames = getTodayGames();
+    return (
+      todayGames.find((g) => g.gameCode === selectedGameCode) ||
+      todayGames[0] ||
+      null
+    );
   };
   
 
@@ -584,7 +622,8 @@ const getSortedChants = () => {
       .map((p, idx) => `${idx + 1}. ${p.playerName} (${p.position})`)
       .join('\n');
     const text = `${selectedTeam} 오늘의 라인업\n${lineupText}`;
-    const lineupUrl = `${window.location.origin}${window.location.pathname}?team=${selectedTeam}&date=${selectedDate}#lineup`;
+    const gameParam = selectedGameCode ? `&game=${selectedGameCode}` : '';
+    const lineupUrl = `${window.location.origin}${window.location.pathname}?team=${selectedTeam}&date=${selectedDate}${gameParam}#lineup`;
 
     if (navigator.share) {
       try {
@@ -782,6 +821,9 @@ const getSortedChants = () => {
                 playerSongs={playerSongs}
                 selectedTeam={selectedTeam}
                 selectedDate={selectedDate}
+                selectedGameCode={selectedGameCode}
+                setSelectedGameCode={setSelectedGameCode}
+                availableGames={getTodayGames()}
                 fetchJsonData={fetchJsonData}
                 loading={loading}
                 error={error}

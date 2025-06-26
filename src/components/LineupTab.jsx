@@ -9,6 +9,9 @@ const LineupTab = ({
   playerSongs,
   selectedTeam,
   selectedDate,
+  selectedGameCode,
+  setSelectedGameCode,
+  availableGames,
   fetchJsonData,
   loading,
   error,
@@ -45,6 +48,22 @@ const LineupTab = ({
           </button>
         </div>
       </div>
+
+      {availableGames && availableGames.length > 1 && (
+        <div className="mb-2">
+          <select
+            value={selectedGameCode || availableGames[0].gameCode}
+            onChange={(e) => setSelectedGameCode(e.target.value)}
+            className="border rounded px-2 py-1 text-sm"
+          >
+            {availableGames.map((g) => (
+              <option key={g.gameCode} value={g.gameCode}>
+                {g.gameTime || g.gameCode}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       {error && (
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
@@ -138,10 +157,7 @@ const LineupTab = ({
                   const recentGame = gameLineups
                     .filter((game) => {
                       const idParts = game.id.split('_');
-                      return (
-                        idParts.length >= 2 &&
-                        idParts[idParts.length - 1] === selectedTeam
-                      );
+                      return idParts.length >= 3 && idParts[2] === selectedTeam;
                     })
                     .sort((a, b) => {
                       const dateA = a.id.split('_')[0];
@@ -208,10 +224,7 @@ const LineupTab = ({
               const recentGame = gameLineups
                 .filter((game) => {
                   const idParts = game.id.split('_');
-                  return (
-                    idParts.length >= 2 &&
-                    idParts[idParts.length - 1] === selectedTeam
-                  );
+                  return idParts.length >= 3 && idParts[2] === selectedTeam;
                 })
                 .sort((a, b) => {
                   const dateA = a.id.split('_')[0];
