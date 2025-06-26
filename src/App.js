@@ -511,8 +511,8 @@ const getSortedChants = () => {
         
         if (globalIndex !== -1) {
           setCurrentPlayer(globalIndex);
-          setCurrentLineupIndex(nextLineupIndex);
         }
+        setCurrentLineupIndex(nextLineupIndex);
       }
     } else {
       // 탐색 모드: 전체 라이브러리 순서로
@@ -535,8 +535,8 @@ const getSortedChants = () => {
         
         if (globalIndex !== -1) {
           setCurrentPlayer(globalIndex);
-          setCurrentLineupIndex(prevLineupIndex);
         }
+        setCurrentLineupIndex(prevLineupIndex);
       }
     } else {
       // 탐색 모드: 전체 라이브러리 순서로
