@@ -217,6 +217,9 @@ const useKboData = () => {
             const awayTeam = normalizeTeamName(game.teams?.find((t) => !t.is_home)?.name || '');
             const dateStr = normalizeDate(game.date);
             const location = game.location || '미정';
+            const gameTime = game.game_time
+              ? game.game_time.replace('경기 시간', '').trim()
+              : '미정';
 
             if (!dateStr) {
               console.warn('유효하지 않은 날짜:', game.date, file);
@@ -257,6 +260,7 @@ const useKboData = () => {
                 home: homeTeam,
                 away: awayTeam,
                 location: location,
+                gameTime: gameTime,
                 lineup: lineup1,
                 canceled: isCanceled,
                 gameStatus: game.game_status,
@@ -268,6 +272,7 @@ const useKboData = () => {
                 home: homeTeam,
                 away: awayTeam,
                 location: location,
+                gameTime: gameTime,
                 lineup: lineup2,
                 canceled: isCanceled,
                 gameStatus: game.game_status,
