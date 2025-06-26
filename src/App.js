@@ -29,6 +29,7 @@ import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 import PlayerTab from './components/PlayerTab';
 import ExploreTab from './components/ExploreTab';
 import TeamChantsTab from './components/TeamChantsTab';
+import Toast from './components/Toast';
 import useKboData from './hooks/useKboData';
 
 // simple helper to avoid logs in production
@@ -53,6 +54,7 @@ const JikgwanGaja = () => {
   const [showPlayer, setShowPlayer] = useState(false);
   const [currentPlayerName, setCurrentPlayerName] = useState('');
   const [pendingPlayerName, setPendingPlayerName] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const stored = localStorage.getItem('theme');
     if (stored) return stored === 'dark';
@@ -69,6 +71,11 @@ const JikgwanGaja = () => {
   const [selectedTeam, setSelectedTeam] = useState('KIA');
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
+
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(''), 2000);
+  };
 
   // Ensure explore tab reflects the globally selected team
   useEffect(() => {
@@ -545,16 +552,36 @@ const getSortedChants = () => {
     }
   }
 
-  const handleShare = async (song) => {
+  const openShareWindow = (service, url, text) => {
+    let shareUrl = '';
+    if (service === 'kakao') {
+      shareUrl = `https://story.kakao.com/share?url=${encodeURIComponent(url)}`;
+    } else if (service === 'twitter') {
+      shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    } else if (service === 'telegram') {
+      shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+    }
+    if (shareUrl) {
+      window.open(shareUrl, '_blank');
+    }
+  };
+
+  const handleShare = async (song, service) => {
     const url = song?.youtubeId
       ? `https://www.youtube.com/watch?v=${song.youtubeId}`
       : window.location.href;
+    const text = `${song?.playerName} 응원가`;
+
+    if (service) {
+      openShareWindow(service, url, text);
+      return;
+    }
 
     if (navigator.share) {
       try {
         await navigator.share({
           title: song?.chantTitle,
-          text: `${song?.playerName} 응원가`,
+          text,
           url
         });
         return;
@@ -566,7 +593,7 @@ const getSortedChants = () => {
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(url);
-        alert('링크가 클립보드에 복사되었습니다.');
+        showToast('복사되었습니다');
       } catch (err) {
         alert('링크 복사에 실패했습니다.');
       }
@@ -575,12 +602,17 @@ const getSortedChants = () => {
     }
   };
 
-  const handleShareLineup = async () => {
+  const handleShareLineup = async (service) => {
     const lineupText = currentLineup
       .map((p, idx) => `${idx + 1}. ${p.playerName} (${p.position})`)
       .join('\n');
     const text = `${selectedTeam} 오늘의 라인업\n${lineupText}`;
     const lineupUrl = `${window.location.origin}${window.location.pathname}?team=${selectedTeam}&date=${selectedDate}#lineup`;
+
+    if (service) {
+      openShareWindow(service, lineupUrl, text);
+      return;
+    }
 
     if (navigator.share) {
       try {
@@ -594,7 +626,7 @@ const getSortedChants = () => {
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(lineupUrl);
-        alert('라인업 링크가 클립보드에 복사되었습니다.');
+        showToast('복사되었습니다');
       } catch (err) {
         alert('라인업 링크 복사에 실패했습니다.');
       }
@@ -895,6 +927,7 @@ const getSortedChants = () => {
           </>
         )}
       </div>
+      <Toast message={toastMessage} />
    </div>
  );
 };

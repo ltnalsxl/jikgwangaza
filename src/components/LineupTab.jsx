@@ -1,6 +1,6 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
-import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
+import { RefreshCw, AlertCircle, Music, Circle, MessageCircle, Twitter, Send } from 'lucide-react';
 
 const LineupTab = ({
   currentLineup,
@@ -31,11 +31,22 @@ const LineupTab = ({
         <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">오늘의 라인업</h2>
         <div className="flex items-center gap-2">
           <button
-            onClick={handleShareLineup}
-            className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+            onClick={() => handleShareLineup('kakao')}
+            className="p-2 text-blue-600 hover:text-blue-800 transition-colors"
           >
-            <Share2 className="w-4 h-4" />
-            공유하기
+            <MessageCircle className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => handleShareLineup('twitter')}
+            className="p-2 text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            <Twitter className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => handleShareLineup('telegram')}
+            className="p-2 text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            <Send className="w-4 h-4" />
           </button>
           <button
             onClick={fetchJsonData}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Share2, Plus } from 'lucide-react';
+import { Play, Plus, MessageCircle, Twitter, Send } from 'lucide-react';
 import { getTeamInfo, getPositionKorean } from '../utils/team';
 
 const ChantCard = ({
@@ -72,11 +72,29 @@ const ChantCard = ({
       <button
         onClick={(e) => {
           e.stopPropagation();
-          handleShare(chant);
+          handleShare(chant, 'kakao');
         }}
         className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
       >
-        <Share2 className="w-4 h-4 text-gray-600" />
+        <MessageCircle className="w-4 h-4 text-gray-600" />
+      </button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleShare(chant, 'twitter');
+        }}
+        className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
+      >
+        <Twitter className="w-4 h-4 text-gray-600" />
+      </button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleShare(chant, 'telegram');
+        }}
+        className="p-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all"
+      >
+        <Send className="w-4 h-4 text-gray-600" />
       </button>
       <button
         onClick={(e) => e.stopPropagation()}
