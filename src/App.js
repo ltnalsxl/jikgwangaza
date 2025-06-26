@@ -19,7 +19,8 @@ import {
   AlertCircle,
   Trophy,
   Sun,
-  Moon
+  Moon,
+  Calendar
 } from 'lucide-react';
 import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
@@ -29,6 +30,7 @@ import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 import PlayerTab from './components/PlayerTab';
 import ExploreTab from './components/ExploreTab';
 import TeamChantsTab from './components/TeamChantsTab';
+import ScheduleTab from './components/ScheduleTab';
 import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
@@ -96,7 +98,7 @@ const JikgwanGaja = () => {
 
     const setTabFromHash = () => {
       const tab = window.location.hash.replace('#', '');
-      if (tab && ['lineup', 'teamChants', 'explore'].includes(tab)) {
+      if (tab && ['lineup', 'teamChants', 'explore', 'schedule'].includes(tab)) {
         setActiveTab(tab);
         setShowPlayer(false);
       }
@@ -744,6 +746,20 @@ const getSortedChants = () => {
           <Search className="w-6 h-6" />
           <span className="text-xs">탐색</span>
         </button>
+        <button
+          onClick={() => {
+            setActiveTab('schedule');
+            setShowPlayer(false);
+          }}
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
+            activeTab === 'schedule' && !showPlayer
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
+              : 'text-gray-600'
+          }`}
+        >
+          <Calendar className="w-6 h-6" />
+          <span className="text-xs">일정</span>
+        </button>
       </div>
 
      {/* 메인 콘텐츠 */}
@@ -827,6 +843,13 @@ const getSortedChants = () => {
                 setSearchQuery={setSearchQuery}
                 isComposing={isComposing}
                 setCurrentPlayerName={setCurrentPlayerName}
+              />
+            )}
+            {activeTab === 'schedule' && (
+              <ScheduleTab
+                selectedTeam={selectedTeam}
+                gameLineups={gameLineups}
+                formatDateKorean={formatDateKorean}
               />
             )}
           </>
