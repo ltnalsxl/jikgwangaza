@@ -149,6 +149,36 @@ const PlayerTab = ({
           )}
         </div>
       </div>
+      {/* 컨트롤 버튼 */}
+      <div className="flex items-center justify-between gap-2 py-2">
+        <button
+          onClick={playPrev}
+          disabled={
+            (playSource === 'explore' && currentPlayer === 0) ||
+            (playSource === 'lineup' && currentLineupIndex === 0)
+          }
+          className="flex items-center gap-1 p-2 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+        >
+          <SkipBack className="w-5 h-5" />
+          {prevPlayerName && (
+            <span className="text-xs text-gray-700">{prevPlayerName}</span>
+          )}
+        </button>
+        <button
+          onClick={playNext}
+          disabled={
+            (playSource === 'explore' && currentPlayer === playerSongs.length - 1) ||
+            (playSource === 'lineup' &&
+              currentLineupIndex === currentLineup.length - 1)
+          }
+          className="flex items-center gap-1 p-2 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+        >
+          {nextPlayerName && (
+            <span className="text-xs text-gray-700">{nextPlayerName}</span>
+          )}
+          <SkipForward className="w-5 h-5" />
+        </button>
+      </div>
       {/* YouTube 플레이어 */}
       <div className="w-full rounded-xl overflow-hidden aspect-video">
         {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
@@ -179,36 +209,6 @@ const PlayerTab = ({
         hasVideo={!!currentChant.youtubeId && currentChant.youtubeId !== 'example'}
         defaultExpanded
       />
-      {/* 컨트롤 버튼 */}
-      <div className="flex items-center justify-between gap-4 py-4">
-        <button
-          onClick={playPrev}
-          disabled={
-            (playSource === 'explore' && currentPlayer === 0) ||
-            (playSource === 'lineup' && currentLineupIndex === 0)
-          }
-          className="flex items-center gap-2 p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
-        >
-          <SkipBack className="w-6 h-6" />
-          {prevPlayerName && (
-            <span className="text-sm text-gray-700">{prevPlayerName}</span>
-          )}
-        </button>
-        <button
-          onClick={playNext}
-          disabled={
-            (playSource === 'explore' && currentPlayer === playerSongs.length - 1) ||
-            (playSource === 'lineup' &&
-              currentLineupIndex === currentLineup.length - 1)
-          }
-          className="flex items-center gap-2 p-3 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
-        >
-          {nextPlayerName && (
-            <span className="text-sm text-gray-700">{nextPlayerName}</span>
-          )}
-          <SkipForward className="w-6 h-6" />
-        </button>
-      </div>
       {/* 액션 버튼 (공유/정보 요청/플레이리스트) 제거 */}
     </div>
   );
