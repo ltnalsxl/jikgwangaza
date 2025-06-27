@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-lineup-index": "node scripts/generateLineupIndex.js"
+    "build-lineup-index": "node scripts/generateLineupIndex.js",
+    "update-song-mapping": "node scripts/updatePlayerSongTeams.js"
   },
   "eslintConfig": {
     "extends": [
