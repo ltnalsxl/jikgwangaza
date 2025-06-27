@@ -192,6 +192,47 @@ const useKboData = () => {
       });
       const parsedSongs = Array.from(uniqueSongMap.values());
 
+      // 이미 등록된 선수 이름 집합 생성
+      const existingPlayerNames = new Set(
+        parsedSongs.map((song) => song.playerName)
+      );
+
+      // 로스터에 없는 선수 응원가 추가
+      if (Array.isArray(songsData)) {
+        songsData.forEach((song) => {
+          if (!existingPlayerNames.has(song.playerName)) {
+            const teamName = normalizeTeamName(song.team || '');
+            console.warn(
+              `로스터 미등록 선수 응원가 추가: ${song.playerName} (${teamName})`
+            );
+            parsedSongs.push({
+              id: `${teamName}_${song.playerName}`,
+              playerId: '',
+              playerName: song.playerName,
+              team: teamName,
+              chantTitle: song.chantTitle || `${song.playerName} 응원가`,
+              youtubeId: song.youtubeId || '',
+              type: song.type || '응원가',
+              lyrics: song.lyrics || '',
+              position: '',
+              number: '',
+              throwBat: '',
+              birth: '',
+              body: '',
+              teamCode: '',
+              originalTeam: song.team || '',
+              likes: Math.floor(Math.random() * 2000) + 500,
+              views: Math.floor(Math.random() * 30000) + 5000,
+              rating: (Math.random() * 1 + 4).toFixed(1),
+              comments: Math.floor(Math.random() * 200) + 20,
+              tags: ['신나는', '쉬운', '인기'],
+              addedDate: new Date().toISOString().split('T')[0],
+            });
+            existingPlayerNames.add(song.playerName);
+          }
+        });
+      }
+
       // 라인업 파일들 병렬 로드
       const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
         ? await Promise.allSettled(
