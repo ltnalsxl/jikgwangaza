@@ -76,12 +76,15 @@ jobs:
 
       - name: Rebuild lineup index
         run: npm run build-lineup-index
+
+      - name: Sync player songs
+        run: npm run update-song-mapping
         
       - name: Commit and push
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add public/data/kbo_crawler_data
+          git add public/data/kbo_crawler_data public/data/playerSongs.json
           git commit -m "Daily data update" || echo "No changes to commit"
           git pull --rebase origin main
           git push origin main
