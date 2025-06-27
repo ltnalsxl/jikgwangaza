@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getTeamInfo } from '../utils/team';
 
 const normalizeTeamName = (teamName) => {
   const teamMap = {
@@ -236,7 +237,8 @@ const useKboData = () => {
               game.teams?.find((t) => !t.is_home)?.name || ''
             );
             const dateStr = normalizeDate(game.date);
-            const location = game.location || '미정';
+            const location =
+              game.location || getTeamInfo(homeTeam).stadium || '미정';
             const gameTime = game.game_time
               ? game.game_time.replace('경기 시간', '').trim()
               : '미정';
