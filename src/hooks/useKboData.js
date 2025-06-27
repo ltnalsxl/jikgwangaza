@@ -148,6 +148,7 @@ const useKboData = () => {
 
         return {
           id: `${teamName}_${player.playerName}`,
+          playerId: player.playerId || '',
           playerName: player.playerName,
           team: teamName,
           chantTitle: matchedSong?.chantTitle || `${player.playerName} 응원가`,
