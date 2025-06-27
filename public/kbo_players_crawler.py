@@ -117,6 +117,14 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
                     throwbat = ""
                 else:
                     number, name, team, position, throwbat, birth, body, school = cols[:8]
+
+                player_id = ""
+                link = row.find("a", href=True)
+                if link and "playerId=" in link["href"]:
+                    m = re.search(r"playerId=(\d+)", link["href"])
+                    if m:
+                        player_id = m.group(1)
+
                 player = {
                     "teamCode": code,
                     "teamName": TEAM_CODES.get(code, ""),
@@ -127,6 +135,7 @@ def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
                     "birth": _parse_date(birth),
                     "body": body,
                     "school": school,
+                    "playerId": player_id,
                 }
                 players.append(player)
             print(f"{TEAM_CODES.get(code, code)}: {len(players)}명 (페이지 {page_num} 이동, 실제 페이지: {current_page})")
