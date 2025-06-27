@@ -22,10 +22,20 @@ const PlayerTab = ({
   if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
     const todayLineupPlayer = currentLineup[currentLineupIndex];
 
-    const matchedSong = playerSongs.find(
+    let matchedSong = playerSongs.find(
       (song) =>
         song.playerName === todayLineupPlayer.playerName && song.team === selectedTeam
     );
+    if (!matchedSong) {
+      matchedSong = playerSongs.find(
+        (song) => song.playerName === todayLineupPlayer.playerName
+      );
+      if (matchedSong) {
+        console.warn(
+          `팀 매칭 실패, 선수이름 기반 응원가 사용: ${todayLineupPlayer.playerName} (${selectedTeam})`
+        );
+      }
+    }
 
     hasPlayerData = !!matchedSong;
     currentChant = { ...(matchedSong || {}), playerName: todayLineupPlayer.playerName };

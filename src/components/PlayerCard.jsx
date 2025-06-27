@@ -14,10 +14,21 @@ const PlayerCard = ({
   setCurrentPlayerName,
 }) => {
   const openPlayer = () => {
-    const globalIndex = playerSongs.findIndex(
+    let globalIndex = playerSongs.findIndex(
       (song) =>
         song.playerName === player.playerName && song.team === selectedTeam,
     );
+
+    if (globalIndex === -1) {
+      globalIndex = playerSongs.findIndex(
+        (song) => song.playerName === player.playerName,
+      );
+      if (globalIndex !== -1) {
+        console.warn(
+          `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${selectedTeam})`
+        );
+      }
+    }
 
     if (globalIndex !== -1) {
       setCurrentPlayer(globalIndex);
