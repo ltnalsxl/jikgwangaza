@@ -71,7 +71,7 @@ const CalendarDropdown = ({ value, onChange, gameDates }) => {
         <ChevronDown className="w-4 h-4 ml-2" />
       </button>
         {open && (
-        <div className="absolute z-10 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-4 w-72">
+        <div className="absolute z-[9999] mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-4 w-72">
           <div className="flex items-center justify-between mb-2">
             <button onClick={prevMonth} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
               <ChevronLeft className="w-4 h-4" />
