@@ -77,13 +77,13 @@ const ScheduleTab = ({
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
         {Object.entries(opponentStats).map(([team, info]) => (
           <div
             key={team}
-            className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-md p-2 text-sm"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-50 dark:bg-gray-800 rounded-md p-2 text-sm"
           >
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 mb-1 sm:mb-0">
               {getTeamInfo(team).logo && (
                 <img
                   src={getTeamInfo(team).logo}
@@ -91,9 +91,9 @@ const ScheduleTab = ({
                   className="w-4 h-4 object-contain"
                 />
               )}
-              <span className="font-medium">{team}</span>
+              <span className="font-medium text-xs sm:text-sm">{team}</span>
             </div>
-            <span>
+            <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
               {info.played}경기 • {info.remaining}남음
             </span>
           </div>
