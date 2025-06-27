@@ -28,7 +28,7 @@ const TeamDropdown = ({ value, onChange }) => {
         <ChevronDown className="w-4 h-4 ml-2" />
       </button>
       {open && (
-        <div className="absolute z-50 mt-2 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl py-1 text-sm">
+        <div className="absolute z-[9999] mt-2 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl py-1 text-sm">
           {teams.map(team => (
             <button
               key={team}
