@@ -138,13 +138,24 @@ const useKboData = () => {
       // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
       const parsedSongsRaw = parsedKboPlayers.map((player) => {
         const teamName = normalizeTeamName(player.teamName);
-        const matchedSong = Array.isArray(songsData)
-          ? songsData.find(
-              (song) =>
-                normalizeTeamName(song.team) === teamName &&
-                song.playerName === player.playerName
-            )
-          : null;
+        let matchedSong = null;
+        if (Array.isArray(songsData)) {
+          matchedSong = songsData.find(
+            (song) =>
+              normalizeTeamName(song.team) === teamName &&
+              song.playerName === player.playerName
+          );
+          if (!matchedSong) {
+            matchedSong = songsData.find(
+              (song) => song.playerName === player.playerName
+            );
+            if (matchedSong) {
+              console.warn(
+                `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${teamName})`
+              );
+            }
+          }
+        }
 
         return {
           id: `${teamName}_${player.playerName}`,
