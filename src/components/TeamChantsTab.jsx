@@ -11,7 +11,9 @@ const TeamChantsTab = ({
   fetchJsonData,
   loading,
 }) => {
-  const currentTeamChants = teamChants.filter((chant) => chant.team === selectedTeam);
+  const currentTeamChants = teamChants.filter(
+    (chant) => chant.team === selectedTeam
+  );
 
   const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
     const situation = chant.situation || '기본 응원가';
@@ -29,6 +31,11 @@ const TeamChantsTab = ({
       controls: 1,
       rel: 0,
     },
+  };
+
+  const scrollToChant = (id) => {
+    const el = document.getElementById(`chant-${id}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -56,6 +63,20 @@ const TeamChantsTab = ({
           </button>
         </div>
       </div>
+
+      {currentTeamChants.length > 0 && (
+        <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
+          {currentTeamChants.map((chant) => (
+            <button
+              key={chant.id}
+              onClick={() => scrollToChant(chant.id)}
+              className="text-xs px-3 py-1 bg-white border border-gray-200 rounded-lg whitespace-nowrap hover:bg-gray-50"
+            >
+              {chant.chantTitle}
+            </button>
+          ))}
+        </div>
+      )}
 
       {loading ? (
         <div className="text-center py-8">
@@ -85,7 +106,11 @@ const TeamChantsTab = ({
             </h3>
 
             {chants.map((chant) => (
-              <div key={chant.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div
+                key={chant.id}
+                id={`chant-${chant.id}`}
+                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
                 <div className="p-4 pb-2">
                   <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
                 </div>
