@@ -134,7 +134,10 @@ const ScheduleTab = ({
               <span className="text-xs text-gray-500">(홈)</span>
             </div>
             <div className="text-sm text-right text-gray-600 dark:text-gray-300">
-              <div>{game.gameTime || '미정'}</div>
+              <div>
+                {game.gameTime || '미정'} •{' '}
+                {game.location || getTeamInfo(game.home).stadium}
+              </div>
               <div>
                 {formatDateKorean(game.date)}
                 {game.gameStatus ? ` • ${game.gameStatus}` : ''}

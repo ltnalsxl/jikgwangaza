@@ -106,7 +106,9 @@ const LineupTab = ({
                   <span className="text-xs text-gray-500">(홈)</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  {currentGame.location} • {formatDateKorean(currentGame.date)}
+                  {currentGame.location ||
+                    getTeamInfo(currentGame.home).stadium}{' '}
+                  • {formatDateKorean(currentGame.date)}
                   {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
                 </p>
               </div>

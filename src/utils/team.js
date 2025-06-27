@@ -4,103 +4,120 @@ export const getTeamInfo = team => {
       color: '#EA0029',
       text: 'KIA',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png',
-      fullName: 'KIA 타이거즈'
+      fullName: 'KIA 타이거즈',
+      stadium: '광주'
     },
     HT: {
       color: '#EA0029',
       text: 'KIA',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png',
-      fullName: 'KIA 타이거즈'
+      fullName: 'KIA 타이거즈',
+      stadium: '광주'
     },
     두산: {
       color: '#131230',
       text: '두산',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png',
-      fullName: '두산 베어스'
+      fullName: '두산 베어스',
+      stadium: '잠실'
     },
     OB: {
       color: '#131230',
       text: '두산',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png',
-      fullName: '두산 베어스'
+      fullName: '두산 베어스',
+      stadium: '잠실'
     },
     LG: {
       color: '#C30452',
       text: 'LG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LG.png',
-      fullName: 'LG 트윈스'
+      fullName: 'LG 트윈스',
+      stadium: '잠실'
     },
     삼성: {
       color: '#074CA1',
       text: '삼성',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png',
-      fullName: '삼성 라이온즈'
+      fullName: '삼성 라이온즈',
+      stadium: '대구'
     },
     SS: {
       color: '#074CA1',
       text: '삼성',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png',
-      fullName: '삼성 라이온즈'
+      fullName: '삼성 라이온즈',
+      stadium: '대구'
     },
     롯데: {
       color: '#041E42',
       text: '롯데',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png',
-      fullName: '롯데 자이언츠'
+      fullName: '롯데 자이언츠',
+      stadium: '사직'
     },
     LT: {
       color: '#041E42',
       text: '롯데',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png',
-      fullName: '롯데 자이언츠'
+      fullName: '롯데 자이언츠',
+      stadium: '사직'
     },
     SSG: {
       color: '#CE0E2D',
       text: 'SSG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png',
-      fullName: 'SSG 랜더스'
+      fullName: 'SSG 랜더스',
+      stadium: '문학'
     },
     SK: {
       color: '#CE0E2D',
       text: 'SSG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png',
-      fullName: 'SSG 랜더스'
+      fullName: 'SSG 랜더스',
+      stadium: '문학'
     },
     키움: {
       color: '#570514',
       text: '키움',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png',
-      fullName: '키움 히어로즈'
+      fullName: '키움 히어로즈',
+      stadium: '고척'
     },
     WO: {
       color: '#570514',
       text: '키움',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png',
-      fullName: '키움 히어로즈'
+      fullName: '키움 히어로즈',
+      stadium: '고척'
     },
     한화: {
       color: '#FF6600',
       text: '한화',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png',
-      fullName: '한화 이글스'
+      fullName: '한화 이글스',
+      stadium: '대전'
     },
     HH: {
       color: '#FF6600',
       text: '한화',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png',
-      fullName: '한화 이글스'
+      fullName: '한화 이글스',
+      stadium: '대전'
     },
     NC: {
       color: '#315288',
       text: 'NC',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_NC.png',
-      fullName: 'NC 다이노스'
+      fullName: 'NC 다이노스',
+      stadium: '창원'
     },
     KT: {
       color: '#000000',
       text: 'KT',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_KT.png',
-      fullName: 'KT 위즈'
+      fullName: 'KT 위즈',
+      stadium: '수원'
     }
   };
   return (
