@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Trophy } from 'lucide-react';
+import { RefreshCw, Trophy, ChevronUp } from 'lucide-react';
 import LyricsSection from './LyricsSection';
 import TeamChantVideo from './TeamChantVideo';
 import { getTeamInfo } from '../utils/team';
@@ -11,7 +11,9 @@ const TeamChantsTab = ({
   fetchJsonData,
   loading,
 }) => {
-  const currentTeamChants = teamChants.filter((chant) => chant.team === selectedTeam);
+  const currentTeamChants = teamChants.filter(
+    (chant) => chant.team === selectedTeam
+  );
 
   const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
     const situation = chant.situation || '기본 응원가';
@@ -29,6 +31,25 @@ const TeamChantsTab = ({
       controls: 1,
       rel: 0,
     },
+  };
+
+  const scrollToChant = (id) => {
+    const el = document.getElementById(`chant-${id}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const [showTopButton, setShowTopButton] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowTopButton(window.pageYOffset > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -56,6 +77,20 @@ const TeamChantsTab = ({
           </button>
         </div>
       </div>
+
+      {currentTeamChants.length > 0 && (
+        <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
+          {currentTeamChants.map((chant) => (
+            <button
+              key={chant.id}
+              onClick={() => scrollToChant(chant.id)}
+              className="text-xs px-3 py-1 bg-white border border-gray-200 rounded-lg whitespace-nowrap hover:bg-gray-50"
+            >
+              {chant.chantTitle}
+            </button>
+          ))}
+        </div>
+      )}
 
       {loading ? (
         <div className="text-center py-8">
@@ -85,7 +120,11 @@ const TeamChantsTab = ({
             </h3>
 
             {chants.map((chant) => (
-              <div key={chant.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div
+                key={chant.id}
+                id={`chant-${chant.id}`}
+                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
                 <div className="p-4 pb-2">
                   <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
                 </div>
@@ -101,6 +140,14 @@ const TeamChantsTab = ({
             ))}
           </div>
         ))
+      )}
+      {showTopButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 z-50"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
       )}
     </div>
   );
