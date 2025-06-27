@@ -434,7 +434,7 @@ const JikgwanGaja = () => {
 
     const selectedDateISO = normalizeDate(selectedDate);
 
-    return gameLineups
+    const filtered = gameLineups
       .filter((game) => {
         if (!game || !game.id) return false;
         const parts = game.id.split('_');
@@ -445,6 +445,23 @@ const JikgwanGaja = () => {
         return gameDateISO === selectedDateISO && team === selectedTeam;
       })
       .sort((a, b) => parseTime(a.gameTime) - parseTime(b.gameTime));
+
+    const groups = {};
+    filtered.forEach((g) => {
+      const key = `${g.date}_${g.home}_${g.away}`;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(g);
+    });
+
+    return filtered.map((g) => {
+      const key = `${g.date}_${g.home}_${g.away}`;
+      const group = groups[key];
+      if (group.length > 1) {
+        const index = group.indexOf(g);
+        return { ...g, dhOrder: index + 1 };
+      }
+      return g;
+    });
   };
   
   const getCurrentGame = () => {
