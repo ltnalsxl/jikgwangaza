@@ -8,6 +8,7 @@ Edit the JSON files directly inside `public/data/` or generate new lineup files 
 
 ```bash
 npm run build-lineup-index
+npm run update-song-mapping
 ```
 
 ## Crawling lineups
@@ -48,7 +49,7 @@ python public/kbo_players_crawler.py
 
 Two GitHub Actions workflows keep the data updated:
 
-- `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day and rebuilds `public/data/kbo_crawler_data/index.json`.
+ - `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day, rebuilds `public/data/kbo_crawler_data/index.json` and syncs `public/data/playerSongs.json` with the latest player info.
 - `.github/workflows/player-crawl.yml` updates `public/data/kboPlayers.json` daily at 00:00 UTC.
 
 Both workflows commit any changes back to the repository automatically.
