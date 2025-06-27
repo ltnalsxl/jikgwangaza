@@ -58,7 +58,7 @@ const LineupTab = ({
           >
             {availableGames.map((g) => (
               <option key={g.gameCode} value={g.gameCode}>
-                {g.gameTime || g.gameCode}
+                {g.gameTime} {g.dhOrder ? `(DH${g.dhOrder})` : ''}
               </option>
             ))}
           </select>
