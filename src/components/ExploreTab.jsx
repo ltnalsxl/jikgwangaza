@@ -101,16 +101,7 @@ const ExploreTab = ({
             </button>
           ))}
         </div>
-      </div>
-      <div className="flex items-center gap-3 overflow-x-auto pb-3">
-        <button
-          onClick={() => setSortBy('name')}
-          className="flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all font-medium bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-sm"
-        >
-          <Circle className="w-4 h-4" />
-          가나다순
-        </button>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 pt-2">
           <input
             id="songOnly"
             type="checkbox"
