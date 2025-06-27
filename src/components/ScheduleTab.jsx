@@ -35,17 +35,17 @@ const ScheduleTab = ({
   });
 
   const opponentStats = useMemo(() => {
+    const totalPerOpponent = locationFilter === '전체' ? 16 : 8;
     const stats = {};
     ALL_TEAMS.forEach((team) => {
       if (team !== selectedTeam) {
-        stats[team] = { played: 0, total: 0, remaining: 0 };
+        stats[team] = { played: 0, total: totalPerOpponent, remaining: totalPerOpponent };
       }
     });
 
     filteredSchedules.forEach((game) => {
       const opponent = game.home === selectedTeam ? game.away : game.home;
       if (!stats[opponent]) return;
-      stats[opponent].total += 1;
       const isFinished =
         !game.canceled && game.gameStatus && game.gameStatus.includes('종료');
       if (isFinished) {
