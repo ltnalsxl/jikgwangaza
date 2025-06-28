@@ -34,6 +34,7 @@ import ScheduleTab from './components/ScheduleTab';
 import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
+import Footer from './components/Footer';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -676,7 +677,7 @@ const getSortedChants = () => {
 
 
  return (
-  <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen dark:text-gray-100">
+  <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
      {/* 헤더 */}
     <div className="bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible">
       <div className="flex items-center justify-between">
@@ -910,6 +911,7 @@ const getSortedChants = () => {
           </>
         )}
       </div>
+      <Footer />
    </div>
  );
 };
