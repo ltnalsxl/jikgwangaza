@@ -45,12 +45,7 @@ const PlayerCard = ({
   return (
     <div
       onClick={openPlayer}
-      className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-        isActive
-          ? "border-[#005BAC] bg-blue-50 dark:bg-gray-800 shadow-lg scale-105"
-          : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
-      }`}
-      style={isActive ? { boxShadow: '0 0 0 3px #1976d233, 0 2px 8px #0001' } : {}}
+      className={"p-4 rounded-xl border-2 transition-all cursor-pointer border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"}
     >
       <div className="flex items-center justify-between">
         <div className="flex-1">
