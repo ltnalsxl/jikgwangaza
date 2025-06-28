@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Search,
   Filter,
@@ -18,6 +18,8 @@ const ExploreTab = ({
   setSortBy,
   hasSongOnly,
   setHasSongOnly,
+  hasBatterOnly,
+  setHasBatterOnly,
   playerSongs,
   kboPlayers,
   rawSongs,
@@ -33,7 +35,6 @@ const ExploreTab = ({
   isComposing,
   setCurrentPlayerName,
 }) => {
-  const [hasBatterOnly, setHasBatterOnly] = useState(false);
   const teamOptions = [
     'KIA',
     '두산',

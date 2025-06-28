@@ -51,6 +51,7 @@ const JikgwanGaja = () => {
   
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
   const [hasSongOnly, setHasSongOnly] = useState(false);
+  const [hasBatterOnly, setHasBatterOnly] = useState(false);
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [activeTab, setActiveTab] = useState('lineup');
@@ -534,6 +535,10 @@ const getSortedChants = () => {
       return false;
     }
 
+    if (hasBatterOnly && getPositionKorean(chant.position) === '투수') {
+      return false;
+    }
+
     if (hasSongOnly && !chant.youtubeId) {
       return false;
     }
@@ -875,6 +880,8 @@ const getSortedChants = () => {
                 setExploreTeamFilter={setExploreTeamFilter}
                 hasSongOnly={hasSongOnly}
                 setHasSongOnly={setHasSongOnly}
+                hasBatterOnly={hasBatterOnly}
+                setHasBatterOnly={setHasBatterOnly}
                 playerSongs={playerSongs}
                 kboPlayers={kboPlayers}
                 rawSongs={rawSongs}
