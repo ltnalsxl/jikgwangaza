@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   Filter,
@@ -33,6 +33,7 @@ const ExploreTab = ({
   isComposing,
   setCurrentPlayerName,
 }) => {
+  const [hasBatterOnly, setHasBatterOnly] = useState(false);
   const teamOptions = [
     'KIA',
     '두산',
@@ -111,6 +112,16 @@ const ExploreTab = ({
           />
           <label htmlFor="songOnly" className="text-sm text-gray-700 whitespace-nowrap">
             응원가 있는 선수만
+          </label>
+          <input
+            id="batterOnly"
+            type="checkbox"
+            checked={hasBatterOnly}
+            onChange={(e) => setHasBatterOnly(e.target.checked)}
+            className="w-4 h-4 text-blue-600 border-gray-300 rounded ml-4"
+          />
+          <label htmlFor="batterOnly" className="text-sm text-gray-700 whitespace-nowrap">
+            타자만
           </label>
         </div>
       </div>
