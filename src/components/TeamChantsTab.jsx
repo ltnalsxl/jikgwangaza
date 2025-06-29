@@ -86,7 +86,7 @@ const TeamChantsTab = ({
               <button
                 key={chant.id}
                 onClick={() => scrollToChant(chant.id)}
-                className={`text-xs px-3 py-1 border rounded-lg whitespace-nowrap ${isMain ? 'text-white' : 'text-gray-900'}`}
+                className={`text-xs px-3 py-1 border rounded-lg whitespace-nowrap ${isMain ? 'text-black' : 'text-gray-900'}`}
                 style={
                   isMain
                     ? {
