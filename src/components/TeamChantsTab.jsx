@@ -12,9 +12,25 @@ const TeamChantsTab = ({
   fetchJsonData,
   loading,
 }) => {
-  const currentTeamChants = teamChants.filter(
-    (chant) => chant.team === selectedTeam
-  );
+  const situationOrder = [
+    '라인업송 (1회 공격 시작 전)',
+    '대표 응원가',
+  ];
+
+  const currentTeamChants = teamChants
+    .filter((chant) => chant.team === selectedTeam)
+    .sort((a, b) => {
+      const orderA = situationOrder.indexOf(a.situation);
+      const orderB = situationOrder.indexOf(b.situation);
+      if (orderA !== orderB) {
+        return (orderA === -1 ? Number.MAX_SAFE_INTEGER : orderA) -
+          (orderB === -1 ? Number.MAX_SAFE_INTEGER : orderB);
+      }
+
+      const idxA = parseInt(String(a.id).split('_')[1] || '0', 10);
+      const idxB = parseInt(String(b.id).split('_')[1] || '0', 10);
+      return idxA - idxB;
+    });
 
   const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
     const situation = chant.situation || '기본 응원가';
