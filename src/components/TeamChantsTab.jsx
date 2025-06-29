@@ -15,12 +15,40 @@ const TeamChantsTab = ({
     (chant) => chant.team === selectedTeam
   );
 
-  const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
+  const getOrder = (chant) => {
+    const situation = chant.situation || '';
+    const title = chant.chantTitle || '';
+    if (situation.includes('라인업송') || title.includes('라인업송')) return 1;
+    if (situation.includes('대표') || title.includes('대표')) return 2;
+    return 3;
+  };
+
+  const sortedTeamChants = [...currentTeamChants].sort((a, b) => {
+    const diff = getOrder(a) - getOrder(b);
+    if (diff !== 0) return diff;
+    return a.chantTitle.localeCompare(b.chantTitle);
+  });
+
+  const chantsBySituation = sortedTeamChants.reduce((acc, chant) => {
     const situation = chant.situation || '기본 응원가';
     if (!acc[situation]) acc[situation] = [];
     acc[situation].push(chant);
     return acc;
   }, {});
+
+  const getSituationOrder = (s) => {
+    if (s.includes('라인업송')) return 1;
+    if (s.includes('대표')) return 2;
+    return 3;
+  };
+
+  const sortedSituationEntries = Object.entries(chantsBySituation).sort(
+    ([a], [b]) => {
+      const diff = getSituationOrder(a) - getSituationOrder(b);
+      if (diff !== 0) return diff;
+      return a.localeCompare(b);
+    }
+  );
 
   const opts = {
     width: '100%',
@@ -46,7 +74,7 @@ const TeamChantsTab = ({
         </h2>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-            {currentTeamChants.length}개
+            {sortedTeamChants.length}개
           </span>
           <button
             onClick={() => {
@@ -64,9 +92,9 @@ const TeamChantsTab = ({
         </div>
       </div>
 
-      {currentTeamChants.length > 0 && (
+      {sortedTeamChants.length > 0 && (
         <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
-          {currentTeamChants.map((chant) => (
+          {sortedTeamChants.map((chant) => (
             <button
               key={chant.id}
               onClick={() => scrollToChant(chant.id)}
@@ -83,14 +111,14 @@ const TeamChantsTab = ({
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
           <p className="text-gray-600">팀 응원가를 불러오는 중...</p>
         </div>
-      ) : currentTeamChants.length === 0 ? (
+      ) : sortedTeamChants.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
           <Trophy className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>{selectedTeam} 팀의 응원가가 없습니다</p>
           <p className="text-sm mt-2">곧 추가될 예정입니다!</p>
         </div>
       ) : (
-        Object.entries(chantsBySituation).map(([situation, chants]) => (
+        sortedSituationEntries.map(([situation, chants]) => (
           <div key={situation} className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 border-b pb-2 flex items-center gap-2">
               {getTeamInfo(selectedTeam).logo ? (
