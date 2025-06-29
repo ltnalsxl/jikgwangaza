@@ -79,7 +79,7 @@ const TeamChantsTab = ({
                     ? {
                         backgroundColor: hexToRgba(
                           getTeamInfo(selectedTeam).color,
-                          0.7
+                          0.3
                         ),
                         borderColor: getTeamInfo(selectedTeam).color,
                       }
