@@ -16,7 +16,20 @@ const TeamChantsTab = ({
     (chant) => chant.team === selectedTeam
   );
 
-  const chantsBySituation = currentTeamChants.reduce((acc, chant) => {
+  const situationPriority = ['1회', '대표 응원가'];
+
+  const sortedTeamChants = currentTeamChants.slice().sort((a, b) => {
+    const idxA = situationPriority.indexOf(a.situation);
+    const idxB = situationPriority.indexOf(b.situation);
+    if (idxA === -1 && idxB === -1) {
+      return (a.situation || '').localeCompare(b.situation || '');
+    }
+    if (idxA === -1) return 1;
+    if (idxB === -1) return -1;
+    return idxA - idxB;
+  });
+
+  const chantsBySituation = sortedTeamChants.reduce((acc, chant) => {
     const situation = chant.situation || '기본 응원가';
     if (!acc[situation]) acc[situation] = [];
     acc[situation].push(chant);
@@ -67,7 +80,7 @@ const TeamChantsTab = ({
 
       {currentTeamChants.length > 0 && (
         <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
-          {currentTeamChants.map((chant) => {
+          {sortedTeamChants.map((chant) => {
             const isMain = chant.situation === '대표 응원가';
             return (
               <button
