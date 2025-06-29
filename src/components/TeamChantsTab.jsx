@@ -3,6 +3,7 @@ import { RefreshCw, Trophy } from 'lucide-react';
 import LyricsSection from './LyricsSection';
 import TeamChantVideo from './TeamChantVideo';
 import { getTeamInfo } from '../utils/team';
+import { hexToRgba } from '../utils/color';
 
 const TeamChantsTab = ({
   teamChants,
@@ -66,15 +67,29 @@ const TeamChantsTab = ({
 
       {currentTeamChants.length > 0 && (
         <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
-          {currentTeamChants.map((chant) => (
-            <button
-              key={chant.id}
-              onClick={() => scrollToChant(chant.id)}
-              className="text-xs px-3 py-1 bg-white border border-gray-200 rounded-lg whitespace-nowrap hover:bg-gray-50"
-            >
-              {chant.chantTitle}
-            </button>
-          ))}
+          {currentTeamChants.map((chant) => {
+            const isMain = chant.situation === '대표 응원가';
+            return (
+              <button
+                key={chant.id}
+                onClick={() => scrollToChant(chant.id)}
+                className={`text-xs px-3 py-1 border rounded-lg whitespace-nowrap ${isMain ? 'text-white' : 'text-gray-900'}`}
+                style={
+                  isMain
+                    ? {
+                        backgroundColor: hexToRgba(
+                          getTeamInfo(selectedTeam).color,
+                          0.7
+                        ),
+                        borderColor: getTeamInfo(selectedTeam).color,
+                      }
+                    : {}
+                }
+              >
+                {chant.chantTitle}
+              </button>
+            );
+          })}
         </div>
       )}
 
