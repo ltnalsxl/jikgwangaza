@@ -34,31 +34,6 @@ const ScheduleTab = ({
     return true;
   });
 
-  const opponentStats = useMemo(() => {
-    const totalPerOpponent = locationFilter === '전체' ? 16 : 8;
-    const stats = {};
-    ALL_TEAMS.forEach((team) => {
-      if (team !== selectedTeam) {
-        stats[team] = { played: 0, total: totalPerOpponent, remaining: totalPerOpponent };
-      }
-    });
-
-    filteredSchedules.forEach((game) => {
-      const opponent = game.home === selectedTeam ? game.away : game.home;
-      if (!stats[opponent]) return;
-      const isFinished =
-        !game.canceled && game.gameStatus && game.gameStatus.includes('종료');
-      if (isFinished) {
-        stats[opponent].played += 1;
-      }
-    });
-
-    Object.values(stats).forEach((info) => {
-      info.remaining = Math.max(info.total - info.played, 0);
-    });
-
-    return stats;
-  }, [filteredSchedules, selectedTeam, locationFilter]);
 
   return (
     <div className="space-y-4">
@@ -75,28 +50,6 @@ const ScheduleTab = ({
           >
             {opt}
           </button>
-        ))}
-      </div>
-      <div className="grid grid-cols-3 gap-2">
-        {Object.entries(opponentStats).map(([team, info]) => (
-          <div
-            key={team}
-            className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-50 dark:bg-gray-800 rounded-md p-2 text-sm"
-          >
-            <div className="flex items-center gap-1 mb-1 sm:mb-0">
-              {getTeamInfo(team).logo && (
-                <img
-                  src={getTeamInfo(team).logo}
-                  alt={team}
-                  className="w-4 h-4 object-contain"
-                />
-              )}
-              <span className="font-medium text-xs sm:text-sm">{team}</span>
-            </div>
-            <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-              {info.played}경기 • {info.remaining}남음
-            </span>
-          </div>
         ))}
       </div>
       {filteredSchedules.map((game) => {
