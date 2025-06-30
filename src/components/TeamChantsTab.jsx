@@ -4,6 +4,7 @@ import LyricsSection from './LyricsSection';
 import TeamChantVideo from './TeamChantVideo';
 import { getTeamInfo } from '../utils/team';
 import { hexToRgba } from '../utils/color';
+import ScrollToTopButton from './ScrollToTopButton';
 
 const TeamChantsTab = ({
   teamChants,
@@ -53,7 +54,7 @@ const TeamChantsTab = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 relative">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-gray-900">
           {selectedTeam} 팀 응원가
@@ -155,6 +156,7 @@ const TeamChantsTab = ({
           </div>
         ))
       )}
+      <ScrollToTopButton />
     </div>
   );
 };
