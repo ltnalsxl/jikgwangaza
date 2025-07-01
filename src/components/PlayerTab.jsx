@@ -22,6 +22,8 @@ const PlayerTab = ({
   if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
     const todayLineupPlayer = currentLineup[currentLineupIndex];
 
+    // Grab the first song record for the lineup player. The dataset may contain
+    // multiple songs for the same player; only the first one is used here.
     let matchedSong = playerSongs.find(
       (song) =>
         song.playerName === todayLineupPlayer.playerName && song.team === selectedTeam

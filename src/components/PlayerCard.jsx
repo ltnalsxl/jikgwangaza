@@ -14,6 +14,9 @@ const PlayerCard = ({
   setCurrentPlayerName,
 }) => {
   const openPlayer = () => {
+    // Use the first matching song for this player.
+    // Multiple song records can exist, but only the first is used when
+    // opening the player view.
     let globalIndex = playerSongs.findIndex(
       (song) =>
         song.playerName === player.playerName && song.team === selectedTeam,

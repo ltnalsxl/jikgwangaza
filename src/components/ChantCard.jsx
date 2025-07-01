@@ -12,6 +12,8 @@ const ChantCard = ({
   setCurrentPlayerName
 }) => {
   const openPlayer = () => {
+    // Each song record has a unique id. If multiple songs exist for a player
+    // they are stored separately. Here we simply use the first match.
     const playerIndex = playerSongs.findIndex(c => c.id === chant.id);
     if (playerIndex !== -1) {
       setCurrentPlayer(playerIndex);
