@@ -7,6 +7,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import ChantCard from './ChantCard';
+import PlayerSongsCard from './PlayerSongsCard';
 import { getTeamInfo } from '../utils/team';
 const ExploreTab = ({
   searchQuery,
@@ -175,18 +176,31 @@ const ExploreTab = ({
           </div>
         </div>
       )}
-      {filteredChants.map((chant) => (
-        <ChantCard
-          key={chant.id}
-          chant={chant}
-          playerSongs={playerSongs}
-          setCurrentPlayer={setCurrentPlayer}
-          setPlaySource={setPlaySource}
-          setShowPlayer={setShowPlayer}
-          handleShare={handleShare}
-          setCurrentPlayerName={setCurrentPlayerName}
-        />
-      ))}
+      {/* 그룹화된 선수 응원가 카드 */}
+      {(() => {
+        const groups = [];
+        const map = {};
+        filteredChants.forEach((chant) => {
+          if (map[chant.playerName]) {
+            map[chant.playerName].push(chant);
+          } else {
+            map[chant.playerName] = [chant];
+            groups.push(map[chant.playerName]);
+          }
+        });
+        return groups.map((chants) => (
+          <PlayerSongsCard
+            key={chants[0].id}
+            chants={chants}
+            playerSongs={playerSongs}
+            setCurrentPlayer={setCurrentPlayer}
+            setPlaySource={setPlaySource}
+            setShowPlayer={setShowPlayer}
+            handleShare={handleShare}
+            setCurrentPlayerName={setCurrentPlayerName}
+          />
+        ));
+      })()}
       {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
         <div className="text-center py-8 text-gray-500">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
