@@ -543,11 +543,17 @@ const getSortedChants = () => {
       return false;
     }
 
-    if (hasBatterOnly && getPositionKorean(chant.position) === '투수') {
+    const posKor = getPositionKorean(chant.position);
+
+    if (hasBatterOnly && posKor === '투수') {
       return false;
     }
 
     if (hasSongOnly && !chant.youtubeId) {
+      return false;
+    }
+
+    if (['코치', '감독', '투수'].includes(posKor) && !chant.youtubeId) {
       return false;
     }
 
