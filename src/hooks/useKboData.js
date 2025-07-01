@@ -137,20 +137,21 @@ const useKboData = () => {
       setRawSongs(Array.isArray(songsData) ? songsData : []);
 
       // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
-      const parsedSongsRaw = parsedKboPlayers.map((player) => {
+      const parsedSongsRaw = [];
+      parsedKboPlayers.forEach((player) => {
         const teamName = normalizeTeamName(player.teamName);
-        let matchedSong = null;
+        let matchedSongs = [];
         if (Array.isArray(songsData)) {
-          matchedSong = songsData.find(
+          matchedSongs = songsData.filter(
             (song) =>
               normalizeTeamName(song.team) === teamName &&
               song.playerName === player.playerName
           );
-          if (!matchedSong) {
-            matchedSong = songsData.find(
+          if (matchedSongs.length === 0) {
+            matchedSongs = songsData.filter(
               (song) => song.playerName === player.playerName
             );
-            if (matchedSong) {
+            if (matchedSongs.length > 0) {
               console.warn(
                 `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${teamName})`
               );
@@ -158,39 +159,42 @@ const useKboData = () => {
           }
         }
 
-        return {
-          id: `${teamName}_${player.playerName}`,
-          playerId: player.playerId || '',
-          playerName: player.playerName,
-          team: teamName,
-          chantTitle: matchedSong?.chantTitle || `${player.playerName} 응원가`,
-          youtubeId: matchedSong?.youtubeId || '',
-          type: matchedSong?.type || '응원가',
-          lyrics: matchedSong?.lyrics || '',
-          position: normalizePosition(player.position || ''),
-          number: player.number || '',
-          throwBat: player.throwBat || '',
-          birth: player.birth || '',
-          body: player.body || '',
-          teamCode: player.teamCode || '',
-          originalTeam: player.teamName,
-          likes: Math.floor(Math.random() * 2000) + 500,
-          views: Math.floor(Math.random() * 30000) + 5000,
-          rating: (Math.random() * 1 + 4).toFixed(1),
-          comments: Math.floor(Math.random() * 200) + 20,
-          tags: ['신나는', '쉬운', '인기'],
-          addedDate: new Date().toISOString().split('T')[0],
-        };
+        if (matchedSongs.length === 0) {
+          matchedSongs = [{}];
+        }
+
+        matchedSongs.forEach((song, idx) => {
+          const type = song.type || '응원가';
+          const id = song.type
+            ? `${teamName}_${player.playerName}_${song.type}`
+            : `${teamName}_${player.playerName}_${idx}`;
+          parsedSongsRaw.push({
+            id,
+            playerId: player.playerId || '',
+            playerName: player.playerName,
+            team: teamName,
+            chantTitle: song.chantTitle || `${player.playerName} 응원가`,
+            youtubeId: song.youtubeId || '',
+            type: type,
+            lyrics: song.lyrics || '',
+            position: normalizePosition(player.position || ''),
+            number: player.number || '',
+            throwBat: player.throwBat || '',
+            birth: player.birth || '',
+            body: player.body || '',
+            teamCode: player.teamCode || '',
+            originalTeam: player.teamName,
+            likes: Math.floor(Math.random() * 2000) + 500,
+            views: Math.floor(Math.random() * 30000) + 5000,
+            rating: (Math.random() * 1 + 4).toFixed(1),
+            comments: Math.floor(Math.random() * 200) + 20,
+            tags: ['신나는', '쉬운', '인기'],
+            addedDate: new Date().toISOString().split('T')[0],
+          });
+        });
       });
 
-      // 중복 제거 (팀+선수 기준)
-      const uniqueSongMap = new Map();
-      parsedSongsRaw.forEach((song) => {
-        if (!uniqueSongMap.has(song.id)) {
-          uniqueSongMap.set(song.id, song);
-        }
-      });
-      const parsedSongs = Array.from(uniqueSongMap.values());
+      const parsedSongs = parsedSongsRaw;
 
       // 이미 등록된 선수 이름 집합 생성
       const existingPlayerNames = new Set(
@@ -199,14 +203,14 @@ const useKboData = () => {
 
       // 로스터에 없는 선수 응원가 추가
       if (Array.isArray(songsData)) {
-        songsData.forEach((song) => {
+        songsData.forEach((song, index) => {
           if (!existingPlayerNames.has(song.playerName)) {
             const teamName = normalizeTeamName(song.team || '');
             console.warn(
               `로스터 미등록 선수 응원가 추가: ${song.playerName} (${teamName})`
             );
             parsedSongs.push({
-              id: `${teamName}_${song.playerName}`,
+              id: `${teamName}_${song.playerName}_${song.type || index}`,
               playerId: '',
               playerName: song.playerName,
               team: teamName,
