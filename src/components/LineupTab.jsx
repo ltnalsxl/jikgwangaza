@@ -109,7 +109,22 @@ const LineupTab = ({
                   {currentGame.location ||
                     getTeamInfo(currentGame.home).stadium}{' '}
                   • {formatDateKorean(currentGame.date)}
-                  {currentGame.gameStatus && ` • ${currentGame.gameStatus}`}
+                  {(() => {
+                    const isCanceled =
+                      currentGame.canceled ||
+                      (currentGame.gameStatus && currentGame.gameStatus.includes('취소'));
+                    const gameDate = new Date(currentGame.date);
+                    const nextDay = new Date(gameDate);
+                    nextDay.setDate(gameDate.getDate() + 1);
+                    nextDay.setHours(0, 0, 0, 0);
+                    const isPast = new Date() >= nextDay;
+
+                    let status = currentGame.gameStatus || '';
+                    if (!isCanceled && isPast) {
+                      status = '종료';
+                    }
+                    return status ? ` • ${status}` : '';
+                  })()}
                 </p>
               </div>
             </div>

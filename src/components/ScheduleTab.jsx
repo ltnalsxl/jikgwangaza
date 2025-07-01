@@ -52,15 +52,28 @@ const ScheduleTab = ({
           </button>
         ))}
       </div>
-      {filteredSchedules.map((game) => {
-        const isCanceled =
-          game.canceled || (game.gameStatus && game.gameStatus.includes('취소'));
-        return (
-          <div
-            key={game.id}
-            onClick={() => { if (setSelectedDate) setSelectedDate(game.date); if (setActiveTab) setActiveTab("lineup"); }}
-            className={`cursor-pointer flex items-center justify-between rounded-lg p-3 shadow ${
-              isCanceled
+        {filteredSchedules.map((game) => {
+          const isCanceled =
+            game.canceled || (game.gameStatus && game.gameStatus.includes('취소'));
+
+          // Determine if the game date has passed (00:00 of the next day)
+          const gameDate = new Date(game.date);
+          const nextDay = new Date(gameDate);
+          nextDay.setDate(gameDate.getDate() + 1);
+          nextDay.setHours(0, 0, 0, 0);
+          const isPast = new Date() >= nextDay;
+
+          let displayStatus = game.gameStatus || '';
+          if (!isCanceled && isPast) {
+            displayStatus = '종료';
+          }
+
+          return (
+            <div
+              key={game.id}
+              onClick={() => { if (setSelectedDate) setSelectedDate(game.date); if (setActiveTab) setActiveTab("lineup"); }}
+              className={`cursor-pointer flex items-center justify-between rounded-lg p-3 shadow ${
+                isCanceled
                 ? 'bg-gray-100 dark:bg-gray-800 text-gray-500 line-through'
                 : 'bg-white dark:bg-gray-700'
             }`}
@@ -87,18 +100,18 @@ const ScheduleTab = ({
               <span className="text-xs text-gray-500">(홈)</span>
             </div>
             <div className="text-sm text-right text-gray-600 dark:text-gray-300">
-              <div>
-                {game.gameTime || '미정'} •{' '}
-                {game.location || getTeamInfo(game.home).stadium}
-              </div>
-              <div>
-                {formatDateKorean(game.date)}
-                {game.gameStatus ? ` • ${game.gameStatus}` : ''}
+                <div>
+                  {game.gameTime || '미정'} •{' '}
+                  {game.location || getTeamInfo(game.home).stadium}
+                </div>
+                <div>
+                  {formatDateKorean(game.date)}
+                  {displayStatus ? ` • ${displayStatus}` : ''}
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
