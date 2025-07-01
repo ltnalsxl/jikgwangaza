@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import { Music, SkipBack, SkipForward, Share2, Plus, Mail } from 'lucide-react';
 import { getTeamInfo, getPositionKorean, getBattingOrder } from '../utils/team';
@@ -16,35 +16,53 @@ const PlayerTab = ({
   handleShare,
 }) => {
   const playerRef = useRef(null);
+  const [songIndex, setSongIndex] = useState(0);
   let currentChant = {};
   let hasPlayerData = true;
+
+  useEffect(() => {
+    setSongIndex(0);
+  }, [currentPlayer, currentLineupIndex, playSource]);
+
+  let songsForPlayer = [];
 
   if (playSource === 'lineup' && currentLineup[currentLineupIndex]) {
     const todayLineupPlayer = currentLineup[currentLineupIndex];
 
-    // Grab the first song record for the lineup player. The dataset may contain
-    // multiple songs for the same player; only the first one is used here.
-    let matchedSong = playerSongs.find(
+    songsForPlayer = playerSongs.filter(
       (song) =>
         song.playerName === todayLineupPlayer.playerName && song.team === selectedTeam
     );
-    if (!matchedSong) {
-      matchedSong = playerSongs.find(
+    if (songsForPlayer.length === 0) {
+      songsForPlayer = playerSongs.filter(
         (song) => song.playerName === todayLineupPlayer.playerName
       );
-      if (matchedSong) {
+      if (songsForPlayer.length > 0) {
         console.warn(
           `팀 매칭 실패, 선수이름 기반 응원가 사용: ${todayLineupPlayer.playerName} (${selectedTeam})`
         );
       }
     }
 
-    hasPlayerData = !!matchedSong;
-    currentChant = { ...(matchedSong || {}), playerName: todayLineupPlayer.playerName };
+    hasPlayerData = songsForPlayer.length > 0;
+    const baseSong = songsForPlayer[songIndex] || songsForPlayer[0] || {};
+    currentChant = { ...baseSong, playerName: todayLineupPlayer.playerName };
     currentChant.order = todayLineupPlayer.order;
     currentChant.position = todayLineupPlayer.position;
   } else {
-    currentChant = { ...playerSongs[currentPlayer] } || {};
+    const baseSong = playerSongs[currentPlayer] || {};
+    songsForPlayer = playerSongs.filter(
+      (song) =>
+        song.playerName === baseSong.playerName && song.team === baseSong.team
+    );
+    if (songsForPlayer.length === 0) {
+      songsForPlayer = playerSongs.filter(
+        (song) => song.playerName === baseSong.playerName
+      );
+    }
+    hasPlayerData = songsForPlayer.length > 0;
+    const songToUse = songsForPlayer[songIndex] || baseSong;
+    currentChant = { ...songToUse };
   }
   const getDisplayTeam = () => {
     const baseTeam =
@@ -161,6 +179,23 @@ const PlayerTab = ({
           )}
         </div>
       </div>
+      {songsForPlayer.length > 1 && (
+        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          {songsForPlayer.map((song, idx) => (
+            <button
+              key={song.id}
+              onClick={() => setSongIndex(idx)}
+              className={`px-3 py-1 rounded-full text-sm whitespace-nowrap ${
+                songIndex === idx
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
+              }`}
+            >
+              {song.chantTitle}
+            </button>
+          ))}
+        </div>
+      )}
       {/* 컨트롤 버튼 */}
       <div className="flex items-center justify-between gap-2 py-2">
         <button
