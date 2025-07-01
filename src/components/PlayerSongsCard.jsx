@@ -76,14 +76,14 @@ const PlayerSongsCard = ({
         </div>
       </div>
       <button
-        className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-3 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+        className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-2 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         onClick={(e) => {
           e.stopPropagation();
           openPlayer();
         }}
       >
-        <Play className="w-4 h-4" />
-        {first.chantTitle}
+        <Play className="w-4 h-4 text-blue-600" />
+        <span className="font-medium text-gray-900 dark:text-gray-100">응원가 재생</span>
       </button>
     </div>
   );
