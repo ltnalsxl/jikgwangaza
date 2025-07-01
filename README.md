@@ -68,6 +68,15 @@ npm run build # build for production
 
 Running these commands requires **Node.js 20 or later**.
 
+## Handling multiple songs per player
+
+Some players have more than one walk‑up song. When the app opens a player
+profile (for example by clicking a player card), it simply uses the **first**
+matching song in `playerSongs`. This means that duplicates are supported but the
+UI always plays the first entry it finds. No uniqueness is assumed in the code
+path – additional songs can be added as separate records in
+`public/data/playerSongs.json`.
+
 ## Sharing lineups
 
 Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the current team's lineup.

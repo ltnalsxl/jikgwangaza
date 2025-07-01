@@ -206,6 +206,8 @@ const JikgwanGaja = () => {
 
   useEffect(() => {
     if (pendingPlayerName && playerSongs.length > 0) {
+      // Find the first matching song for the requested player.
+      // Multiple entries may exist; we simply use the first one here.
       const idx = playerSongs.findIndex(
         (song) =>
           song.playerName === pendingPlayerName && song.team === selectedTeam
@@ -327,7 +329,8 @@ const JikgwanGaja = () => {
         // 만약 lineupPlayer에 선발투수 정보가 있을 때 null 체크
         const pitcherName = lineupPlayer.starting_pitcher?.name || "-";
   
-        const song = playerSongs.find(song => 
+        // Only the first matching song is used for lineup display.
+        const song = playerSongs.find(song =>
           song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
         );
   
@@ -523,13 +526,17 @@ const JikgwanGaja = () => {
   };
 
 
-// getSortedChants 함수 수정 - 가나다순 정렬만 지원
+// getSortedChants: return a name-sorted list of all song records.
+// Multiple songs for a single player are kept as-is and sorted
+// alongside one another.
 const getSortedChants = () => {
   return [...playerSongs].sort((a, b) =>
     a.playerName.localeCompare(b.playerName, 'ko')
   );
 };
 
+  // Apply filters to the sorted list. Each record is processed independently
+  // so multiple songs for the same player will all appear if they match.
   const filteredChants = getSortedChants().filter(chant => {
     // 팀 필터링
     if (exploreTeamFilter !== '전체' && chant.team !== exploreTeamFilter) {
@@ -568,7 +575,8 @@ const getSortedChants = () => {
         const nextLineupIndex = currentLineupIndex + 1;
         const nextPlayer = currentLineup[nextLineupIndex];
         
-        const globalIndex = playerSongs.findIndex(song => 
+        // Determine the first matching song entry for the next lineup player.
+        const globalIndex = playerSongs.findIndex(song =>
           song.playerName === nextPlayer.playerName && song.team === selectedTeam
         );
         
@@ -592,7 +600,8 @@ const getSortedChants = () => {
         const prevLineupIndex = currentLineupIndex - 1;
         const prevPlayer = currentLineup[prevLineupIndex];
         
-        const globalIndex = playerSongs.findIndex(song => 
+        // Determine the first matching song entry for the previous lineup player.
+        const globalIndex = playerSongs.findIndex(song =>
           song.playerName === prevPlayer.playerName && song.team === selectedTeam
         );
         
