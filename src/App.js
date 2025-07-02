@@ -553,7 +553,7 @@ const getSortedChants = () => {
       return false;
     }
 
-    if (['코치', '감독', '투수'].includes(posKor) && !chant.youtubeId) {
+    if (['코치', '감독'].includes(posKor) && !chant.youtubeId) {
       return false;
     }
 
