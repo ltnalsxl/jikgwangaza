@@ -18,8 +18,6 @@ import {
   RefreshCw,
   AlertCircle,
   Trophy,
-  Sun,
-  Moon,
   Calendar
 } from 'lucide-react';
 import ChantCard from './components/ChantCard';
@@ -741,16 +739,6 @@ const getSortedChants = () => {
           className="p-2 rounded-full hover:bg-gray-100"
         >
           <RefreshCw className="w-4 h-4 text-gray-600" />
-        </button>
-        <button
-          onClick={() => setIsDarkMode(!isDarkMode)}
-          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
-          {isDarkMode ? (
-            <Sun className="w-4 h-4 text-yellow-400" />
-          ) : (
-            <Moon className="w-4 h-4 text-gray-600" />
-          )}
         </button>
         <Settings className="w-5 h-5 text-gray-600" />
       </div>
