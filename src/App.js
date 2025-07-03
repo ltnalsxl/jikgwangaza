@@ -4,7 +4,6 @@ import {
   SkipForward,
   SkipBack,
   Users,
-  Settings,
   Circle,
   Music,
   Search,
@@ -752,7 +751,6 @@ const getSortedChants = () => {
             <Moon className="w-4 h-4 text-gray-600" />
           )}
         </button>
-        <Settings className="w-5 h-5 text-gray-600" />
       </div>
        </div>
 
