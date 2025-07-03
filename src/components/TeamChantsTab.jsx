@@ -16,27 +16,11 @@ const TeamChantsTab = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState('');
-  const [history, setHistory] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('chantSearchHistory')) || [];
-    } catch {
-      return [];
-    }
-  });
 
   useEffect(() => {
     const id = setTimeout(() => setDebouncedTerm(searchTerm), 300);
     return () => clearTimeout(id);
   }, [searchTerm]);
-
-  useEffect(() => {
-    if (!debouncedTerm) return;
-    setHistory((prev) => {
-      const arr = [debouncedTerm, ...prev.filter((h) => h !== debouncedTerm)].slice(0, 5);
-      localStorage.setItem('chantSearchHistory', JSON.stringify(arr));
-      return arr;
-    });
-  }, [debouncedTerm]);
   const baseTeamChants = teamChants.filter((chant) => chant.team === selectedTeam);
 
   const filteredChants = useMemo(
@@ -75,7 +59,6 @@ const TeamChantsTab = ({
     },
   };
 
-  const popularKeywords = ['박건우', '홈런', '승리', '파이팅'];
 
   const getSnippet = (lyrics, term) => {
     if (!lyrics) return '';
@@ -139,29 +122,6 @@ const TeamChantsTab = ({
           className="w-full pl-9 pr-9 py-2 border border-gray-200 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500"
         />
       </div>
-
-      {(history.length > 0 || popularKeywords.length > 0) && (
-        <div className="flex gap-2 flex-wrap mb-4">
-          {popularKeywords.map((word) => (
-            <button
-              key={word}
-              onClick={() => setSearchTerm(word)}
-              className="text-xs bg-gray-100 px-2 py-1 rounded"
-            >
-              {word}
-            </button>
-          ))}
-          {history.map((word) => (
-            <button
-              key={word}
-              onClick={() => setSearchTerm(word)}
-              className="text-xs bg-gray-200 px-2 py-1 rounded"
-            >
-              {word}
-            </button>
-          ))}
-        </div>
-      )}
 
       {filteredChants.length > 0 && (
         <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
