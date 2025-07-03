@@ -1,10 +1,11 @@
-import React from 'react';
-import { RefreshCw, Trophy } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { RefreshCw, Trophy, Search, X } from 'lucide-react';
 import LyricsSection from './LyricsSection';
 import TeamChantVideo from './TeamChantVideo';
 import { getTeamInfo } from '../utils/team';
 import { hexToRgba } from '../utils/color';
 import ScrollToTopButton from './ScrollToTopButton';
+import { searchChants, highlight } from '../utils/search';
 
 const TeamChantsTab = ({
   teamChants,
@@ -13,13 +14,39 @@ const TeamChantsTab = ({
   fetchJsonData,
   loading,
 }) => {
-  const currentTeamChants = teamChants.filter(
-    (chant) => chant.team === selectedTeam
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedTerm, setDebouncedTerm] = useState('');
+  const [history, setHistory] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('chantSearchHistory')) || [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    const id = setTimeout(() => setDebouncedTerm(searchTerm), 300);
+    return () => clearTimeout(id);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (!debouncedTerm) return;
+    setHistory((prev) => {
+      const arr = [debouncedTerm, ...prev.filter((h) => h !== debouncedTerm)].slice(0, 5);
+      localStorage.setItem('chantSearchHistory', JSON.stringify(arr));
+      return arr;
+    });
+  }, [debouncedTerm]);
+  const baseTeamChants = teamChants.filter((chant) => chant.team === selectedTeam);
+
+  const filteredChants = useMemo(
+    () => (debouncedTerm ? searchChants(baseTeamChants, debouncedTerm) : baseTeamChants),
+    [baseTeamChants, debouncedTerm]
   );
 
   const situationPriority = ['1회', '대표 응원가'];
 
-  const sortedTeamChants = currentTeamChants.slice().sort((a, b) => {
+  const sortedTeamChants = filteredChants.slice().sort((a, b) => {
     const idxA = situationPriority.indexOf(a.situation);
     const idxB = situationPriority.indexOf(b.situation);
     if (idxA === -1 && idxB === -1) {
@@ -48,6 +75,19 @@ const TeamChantsTab = ({
     },
   };
 
+  const popularKeywords = ['박건우', '홈런', '승리', '파이팅'];
+
+  const getSnippet = (lyrics, term) => {
+    if (!lyrics) return '';
+    const lower = lyrics.toLowerCase();
+    const q = term.toLowerCase();
+    const idx = lower.indexOf(q);
+    if (idx === -1) return lyrics.split('\n')[0].slice(0, 50);
+    const start = Math.max(0, idx - 20);
+    const end = idx + term.length + 20;
+    return lyrics.slice(start, end).replace(/\n/g, ' ');
+  };
+
   const scrollToChant = (id) => {
     const el = document.getElementById(`chant-${id}`);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -61,7 +101,7 @@ const TeamChantsTab = ({
         </h2>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-            {currentTeamChants.length}개
+            {filteredChants.length}개
           </span>
           <button
             onClick={() => {
@@ -79,7 +119,51 @@ const TeamChantsTab = ({
         </div>
       </div>
 
-      {currentTeamChants.length > 0 && (
+      <div className="mb-4 relative">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+        {searchTerm && (
+          <button
+            onClick={() => setSearchTerm('')}
+            aria-label="검색어 삭제"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="응원가 제목이나 가사로 검색하세요"
+          aria-label="응원가 검색"
+          className="w-full pl-9 pr-9 py-2 border border-gray-200 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {(history.length > 0 || popularKeywords.length > 0) && (
+        <div className="flex gap-2 flex-wrap mb-4">
+          {popularKeywords.map((word) => (
+            <button
+              key={word}
+              onClick={() => setSearchTerm(word)}
+              className="text-xs bg-gray-100 px-2 py-1 rounded"
+            >
+              {word}
+            </button>
+          ))}
+          {history.map((word) => (
+            <button
+              key={word}
+              onClick={() => setSearchTerm(word)}
+              className="text-xs bg-gray-200 px-2 py-1 rounded"
+            >
+              {word}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {filteredChants.length > 0 && (
         <div className="flex gap-2 flex-wrap overflow-x-auto pb-2">
           {sortedTeamChants.map((chant) => {
             const isMain = chant.situation === '대표 응원가';
@@ -112,11 +196,16 @@ const TeamChantsTab = ({
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
           <p className="text-gray-600">팀 응원가를 불러오는 중...</p>
         </div>
-      ) : currentTeamChants.length === 0 ? (
+      ) : baseTeamChants.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
           <Trophy className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>{selectedTeam} 팀의 응원가가 없습니다</p>
           <p className="text-sm mt-2">곧 추가될 예정입니다!</p>
+        </div>
+      ) : filteredChants.length === 0 ? (
+        <div className="text-center py-8 text-gray-500">
+          <Trophy className="w-12 h-12 mx-auto mb-4 opacity-50" />
+          <p>검색 결과가 없습니다</p>
         </div>
       ) : (
         Object.entries(chantsBySituation).map(([situation, chants]) => (
@@ -141,7 +230,16 @@ const TeamChantsTab = ({
                 className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <div className="p-4 pb-2">
-                  <h4 className="font-bold text-lg">{chant.chantTitle}</h4>
+                  <h4
+                    className="font-bold text-lg"
+                    dangerouslySetInnerHTML={{ __html: highlight(chant.chantTitle, debouncedTerm) }}
+                  />
+                  {debouncedTerm && (
+                    <p
+                      className="text-sm text-gray-600 mt-1"
+                      dangerouslySetInnerHTML={{ __html: highlight(getSnippet(chant.lyrics || '', debouncedTerm), debouncedTerm) }}
+                    />
+                  )}
                 </div>
                 <div className="w-full aspect-video">
                   <TeamChantVideo
