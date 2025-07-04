@@ -115,7 +115,7 @@ const JikgwanGaja = () => {
       const tab = window.location.hash.replace('#', '');
       if (
         tab &&
-        ['lineup', 'teamChants', 'schedule', 'explore', 'ranking'].includes(tab)
+        ['lineup', 'teamChants', 'explore', 'ranking', 'schedule'].includes(tab)
       ) {
         setActiveTab(tab);
         setShowPlayer(false);
@@ -821,20 +821,6 @@ const getSortedChants = () => {
         </button>
         <button
           onClick={() => {
-            setActiveTab('schedule');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'schedule' && !showPlayer
-              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
-              : 'text-gray-600'
-          }`}
-        >
-          <Calendar className="w-6 h-6" />
-          <span className="text-xs">일정</span>
-        </button>
-        <button
-          onClick={() => {
             setActiveTab('explore');
             setShowPlayer(false);
           }}
@@ -846,6 +832,34 @@ const getSortedChants = () => {
         >
           <Search className="w-6 h-6" />
           <span className="text-xs">탐색</span>
+        </button>
+        <button
+          onClick={() => {
+            setActiveTab('ranking');
+            setShowPlayer(false);
+          }}
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
+            activeTab === 'ranking' && !showPlayer
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
+              : 'text-gray-600'
+          }`}
+        >
+          <Trophy className="w-6 h-6" />
+          <span className="text-xs">순위</span>
+        </button>
+        <button
+          onClick={() => {
+            setActiveTab('schedule');
+            setShowPlayer(false);
+          }}
+          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
+            activeTab === 'schedule' && !showPlayer
+              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
+              : 'text-gray-600'
+          }`}
+        >
+          <Calendar className="w-6 h-6" />
+          <span className="text-xs">일정</span>
         </button>
       </div>
 
@@ -909,15 +923,6 @@ const getSortedChants = () => {
                 loading={loading}
               />
             )}
-            {activeTab === 'schedule' && (
-              <ScheduleTab
-                selectedTeam={selectedTeam}
-                gameLineups={gameLineups}
-                formatDateKorean={formatDateKorean}
-                setSelectedDate={setSelectedDate}
-                setActiveTab={setActiveTab}
-              />
-            )}
             {activeTab === 'explore' && (
               <ExploreTab
                 searchQuery={searchQuery}
@@ -944,6 +949,16 @@ const getSortedChants = () => {
                 setSearchQuery={setSearchQuery}
                 isComposing={isComposing}
                 setCurrentPlayerName={setCurrentPlayerName}
+              />
+            )}
+            {activeTab === 'ranking' && <RankingTab teamRanks={teamRanks} />}
+            {activeTab === 'schedule' && (
+              <ScheduleTab
+                selectedTeam={selectedTeam}
+                gameLineups={gameLineups}
+                formatDateKorean={formatDateKorean}
+                setSelectedDate={setSelectedDate}
+                setActiveTab={setActiveTab}
               />
             )}
           </>
