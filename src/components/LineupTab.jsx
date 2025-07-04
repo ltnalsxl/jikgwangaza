@@ -219,7 +219,10 @@ const LineupTab = ({
                       )[0];
 
                     if (recentGame) {
-                      setSelectedDate(recentGame.date);
+                      const dateOnly = new Date(recentGame.date)
+                        .toISOString()
+                        .split('T')[0];
+                      setSelectedDate(dateOnly);
                     }
                   }}
                   className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
@@ -279,7 +282,10 @@ const LineupTab = ({
                 .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
 
               if (recentGame) {
-                setSelectedDate(recentGame.date);
+                const dateOnly = new Date(recentGame.date)
+                  .toISOString()
+                  .split('T')[0];
+                setSelectedDate(dateOnly);
               }
             }}
             className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
