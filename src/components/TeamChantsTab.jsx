@@ -16,6 +16,7 @@ const TeamChantsTab = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState('');
+  const [activeChantId, setActiveChantId] = useState(null);
 
   useEffect(() => {
     const id = setTimeout(() => setDebouncedTerm(searchTerm), 300);
@@ -48,6 +49,10 @@ const TeamChantsTab = ({
     return acc;
   }, {});
 
+  const activeChant = activeChantId
+    ? teamChants.find((c) => c.id === activeChantId)
+    : null;
+
   const opts = {
     width: '100%',
     height: '100%',
@@ -71,10 +76,7 @@ const TeamChantsTab = ({
     return lyrics.slice(start, end).replace(/\n/g, ' ');
   };
 
-  const scrollToChant = (id) => {
-    const el = document.getElementById(`chant-${id}`);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+
 
   return (
     <div className="space-y-6 relative">
@@ -130,7 +132,7 @@ const TeamChantsTab = ({
             return (
               <button
                 key={chant.id}
-                onClick={() => scrollToChant(chant.id)}
+                onClick={() => setActiveChantId(chant.id)}
                 className={`text-xs px-3 py-1 border rounded-lg whitespace-nowrap ${isMain ? 'text-black' : 'text-gray-900'}`}
                 style={
                   isMain
@@ -155,6 +157,40 @@ const TeamChantsTab = ({
         <div className="text-center py-8">
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
           <p className="text-gray-600">팀 응원가를 불러오는 중...</p>
+        </div>
+      ) : activeChant ? (
+        <div className="space-y-4">
+          <button
+            onClick={() => setActiveChantId(null)}
+            className="text-blue-600 hover:text-blue-800 transition-colors mb-4"
+          >
+            목록으로
+          </button>
+          <div
+            id={`chant-${activeChant.id}`}
+            className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm"
+          >
+            <div className="p-4 pb-2">
+              <h4
+                className="font-bold text-lg"
+                dangerouslySetInnerHTML={{ __html: highlight(activeChant.chantTitle, debouncedTerm) }}
+              />
+              {debouncedTerm && (
+                <p
+                  className="text-sm text-gray-600 mt-1"
+                  dangerouslySetInnerHTML={{ __html: highlight(getSnippet(activeChant.lyrics || '', debouncedTerm), debouncedTerm) }}
+                />
+              )}
+            </div>
+            <div className="w-full aspect-video">
+              <TeamChantVideo
+                youtubeId={activeChant.youtubeId}
+                chantTitle={activeChant.chantTitle}
+                opts={opts}
+              />
+            </div>
+            <LyricsSection chant={activeChant} hasVideo={activeChant.youtubeId && activeChant.youtubeId !== ''} />
+          </div>
         </div>
       ) : baseTeamChants.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
