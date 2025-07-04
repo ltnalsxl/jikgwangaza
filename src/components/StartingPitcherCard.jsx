@@ -25,7 +25,7 @@ const StartingPitcherCard = ({
   return (
     <div
       onClick={openPlayer}
-      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900 hover:border-blue-300 dark:hover:border-blue-600 mb-4 max-w-xs"
+      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900 hover:border-blue-300 dark:hover:border-blue-600 mb-4 w-full"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
