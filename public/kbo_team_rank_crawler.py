@@ -11,16 +11,23 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Mapping of Korean column headers to English keys
+# The Naver Sports mobile site occasionally changes class names but the
+# displayed header text tends to remain stable.  We therefore map the text
+# itself to a consistent English key and handle the team name separately.
 HEADER_MAP = {
     "순위": "rank",
-    "팀": "team",
-    "경기": "games",
-    "승": "wins",
-    "패": "losses",
-    "무": "draws",
     "승률": "win_rate",
     "게임차": "gb",
+    "승": "wins",
+    "무": "draws",
+    "패": "losses",
+    "경기": "games",
     "연속": "streak",
+    "타율": "batting_avg",
+    "평균자책": "era",
+    "최근 5경기": "last_5",
+    "다음 경기": "next_game",
+    "팀": "team",  # legacy header on some older pages
 }
 
 
@@ -60,27 +67,45 @@ def fetch_team_ranks(
     try:
         driver.get(url)
         wait.until(lambda d: d.execute_script("return document.readyState") == "complete")
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.Table_table__q50TY")))
+        wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "li[class^='TableBody_item']"))
+        )
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
-        table_div = soup.find("div", class_="Table_table__q50TY")
-        if not table_div:
-            return []
-        table = table_div.find("table") or table_div
 
-        headers = [th.get_text(strip=True) for th in table.select("thead th")]
-        keys = [HEADER_MAP.get(h, h) for h in headers]
+        # Header cells
+        header_cells = soup.select("div[class^='TableHead_scroller'] ul li")
+        header_texts = [c.get_text(strip=True) for c in header_cells]
+        other_keys = [HEADER_MAP.get(h, h) for h in header_texts[1:]]
+
         ranks = []
-
-        for tr in table.select("tbody tr"):
-            cells = [td.get_text(strip=True) for td in tr.find_all(["th", "td"])]
+        for item in soup.select("li[class^='TableBody_item']"):
+            cells = item.select("div[class^='TableBody_cell']")
             if not cells:
                 continue
+
             row = {}
-            for i, cell in enumerate(cells):
-                key = keys[i] if i < len(keys) else f"col{i+1}"
-                row[key] = cell
+
+            # First cell contains rank and team name
+            rank_elem = item.select_one("em[class^='TeamInfo_ranking']")
+            if rank_elem:
+                row["rank"] = rank_elem.get_text(strip=True).replace("위", "")
+            team_elem = item.select_one("div[class^='TeamInfo_team_name']")
+            if team_elem:
+                row["team"] = team_elem.get_text(strip=True)
+
+            # Remaining cells follow the header order
+            for idx, cell in enumerate(cells[1:]):
+                key = other_keys[idx] if idx < len(other_keys) else f"col{idx+1}"
+                text_soup = BeautifulSoup(str(cell), "html.parser")
+                for span in text_soup.select("span.blind"):
+                    span.decompose()
+                for btn in text_soup.select("button"):
+                    btn.decompose()
+                row[key] = text_soup.get_text(strip=True)
+
             ranks.append(row)
+
         return ranks
     finally:
         driver.quit()
