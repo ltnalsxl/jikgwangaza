@@ -847,20 +847,6 @@ const getSortedChants = () => {
           <Search className="w-6 h-6" />
           <span className="text-xs">탐색</span>
         </button>
-        <button
-          onClick={() => {
-            setActiveTab('ranking');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'ranking' && !showPlayer
-              ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
-              : 'text-gray-600'
-          }`}
-        >
-          <Trophy className="w-6 h-6" />
-          <span className="text-xs">순위</span>
-        </button>
       </div>
 
      {/* 메인 콘텐츠 */}
@@ -959,9 +945,6 @@ const getSortedChants = () => {
                 isComposing={isComposing}
                 setCurrentPlayerName={setCurrentPlayerName}
               />
-            )}
-            {activeTab === 'ranking' && (
-              <RankingTab teamRanks={teamRanks} />
             )}
           </>
         )}
