@@ -1,0 +1,47 @@
+{
+  "date": "2025-07-04",
+  "game_code": "20250704KTOB02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "KT",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "두산",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250704KTOB02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "KT",
+      "team_code": "KT",
+      "starting_pitcher": {
+        "player_id": "50859",
+        "name": "오원석",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "두산",
+      "team_code": "OB",
+      "starting_pitcher": {
+        "player_id": "55239",
+        "name": "잭로그",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-07-04T06:20:52.655166"
+}
