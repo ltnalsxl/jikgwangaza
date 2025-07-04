@@ -14,6 +14,8 @@ const PlayerSongsCard = ({
   if (!chants || chants.length === 0) return null;
   const first = chants[0];
 
+  const isPitcher = getPositionKorean(first.position) === '투수';
+
   const openPlayer = () => {
     const idx = playerSongs.findIndex(
       (c) => c.playerName === first.playerName && c.team === first.team
@@ -75,16 +77,22 @@ const PlayerSongsCard = ({
           </button>
         </div>
       </div>
-      <button
-        className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-2 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-        onClick={(e) => {
-          e.stopPropagation();
-          openPlayer();
-        }}
-      >
-        <Play className="w-4 h-4 text-blue-600" />
-        <span className="font-medium text-gray-900 dark:text-gray-100">응원가 재생</span>
-      </button>
+      {isPitcher ? (
+        <div className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-2 px-3 rounded-xl text-center text-sm text-gray-500">
+          투수는 개인 응원가가 없습니다
+        </div>
+      ) : (
+        <button
+          className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-2 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          onClick={(e) => {
+            e.stopPropagation();
+            openPlayer();
+          }}
+        >
+          <Play className="w-4 h-4 text-blue-600" />
+          <span className="font-medium text-gray-900 dark:text-gray-100">응원가 재생</span>
+        </button>
+      )}
     </div>
   );
 };

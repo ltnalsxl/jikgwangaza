@@ -1,5 +1,4 @@
 import React from 'react';
-import { Play } from 'lucide-react';
 
 const StartingPitcherCard = ({
   pitcher,
@@ -39,16 +38,6 @@ const StartingPitcherCard = ({
             </p>
           )}
         </div>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            openPlayer();
-          }}
-          className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
-          aria-label={`${pitcher.playerName} 응원가 재생`}
-        >
-          <Play className="w-4 h-4" />
-        </button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Play } from "lucide-react";
+import { getPositionKorean } from "../utils/team";
 
 const PlayerCard = ({
   player,
@@ -33,6 +34,8 @@ const PlayerCard = ({
     setShowPlayer(true);
   };
 
+  const isPitcher = getPositionKorean(player.position) === '투수';
+
   return (
     <div
       onClick={openPlayer}
@@ -55,16 +58,18 @@ const PlayerCard = ({
           </div>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              openPlayer();
-            }}
-            className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
-            aria-label={`${player.playerName} 응원가 재생`}
-          >
-            <Play className="w-4 h-4" />
-          </button>
+          {!isPitcher && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                openPlayer();
+              }}
+              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+              aria-label={`${player.playerName} 응원가 재생`}
+            >
+              <Play className="w-4 h-4" />
+            </button>
+          )}
         </div>
       </div>
     </div>
