@@ -145,6 +145,14 @@ const LineupTab = ({
             </div>
           </div>
 
+          {currentGame.startingPitcher && (
+            <div className="mb-4 text-sm font-medium text-gray-700 dark:text-gray-300">
+              오늘 선발투수: {currentGame.startingPitcher.playerName}
+              {currentGame.startingPitcher.throwingHand &&
+                ` (${currentGame.startingPitcher.throwingHand})`}
+            </div>
+          )}
+
           {currentGame.canceled ? (
             <div className="text-center py-8 text-gray-500">
               <AlertCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />

@@ -286,19 +286,33 @@ const useKboData = () => {
               return [];
             }
 
-            const buildLineup = (lineupObj, teamName) => {
-              if (!Array.isArray(lineupObj?.starting_batters)) {
-                console.warn('타자 라인업 없음:', teamName, file);
-                return [];
+            const buildLineupData = (lineupObj, teamName) => {
+              if (!lineupObj) return { pitcher: null, batters: [] };
+
+              let pitcher = null;
+              if (lineupObj.starting_pitcher) {
+                const sp = lineupObj.starting_pitcher;
+                pitcher = {
+                  playerName: sp.name,
+                  throwingHand: sp.throwing_hand,
+                  position: normalizePosition(sp.position || '투수'),
+                };
               }
 
-              return lineupObj.starting_batters
-                .map((batter) => ({
-                  order: batter.batting_order,
-                  playerName: batter.name,
-                  position: normalizePosition(batter.position),
-                }))
-                .sort((a, b) => a.order - b.order);
+              let batters = [];
+              if (Array.isArray(lineupObj.starting_batters)) {
+                batters = lineupObj.starting_batters
+                  .map((batter) => ({
+                    order: batter.batting_order,
+                    playerName: batter.name,
+                    position: normalizePosition(batter.position),
+                  }))
+                  .sort((a, b) => a.order - b.order);
+              } else {
+                console.warn('타자 라인업 없음:', teamName, file);
+              }
+
+              return { pitcher, batters };
             };
 
             const team1Name = normalizeTeamName(game.starting_lineups?.team_1?.team_name || '');
@@ -309,12 +323,12 @@ const useKboData = () => {
               return [];
             }
 
-            const lineup1 = isCanceled
-              ? []
-              : buildLineup(game.starting_lineups?.team_1, team1Name);
-            const lineup2 = isCanceled
-              ? []
-              : buildLineup(game.starting_lineups?.team_2, team2Name);
+            const lineupData1 = isCanceled
+              ? { pitcher: null, batters: [] }
+              : buildLineupData(game.starting_lineups?.team_1, team1Name);
+            const lineupData2 = isCanceled
+              ? { pitcher: null, batters: [] }
+              : buildLineupData(game.starting_lineups?.team_2, team2Name);
 
             return [
               {
@@ -326,7 +340,8 @@ const useKboData = () => {
                 away: awayTeam,
                 location: location,
                 gameTime: gameTime,
-                lineup: lineup1,
+                lineup: lineupData1.batters,
+                startingPitcher: lineupData1.pitcher,
                 canceled: isCanceled,
                 gameStatus: game.game_status,
               },
@@ -339,7 +354,8 @@ const useKboData = () => {
                 away: awayTeam,
                 location: location,
                 gameTime: gameTime,
-                lineup: lineup2,
+                lineup: lineupData2.batters,
+                startingPitcher: lineupData2.pitcher,
                 canceled: isCanceled,
                 gameStatus: game.game_status,
               },
@@ -364,6 +380,18 @@ const useKboData = () => {
           date: normalizeDate(game.date),
         }));
       }
+
+      finalLineups = finalLineups.map(game => {
+        let { lineup, startingPitcher } = game;
+        if (!startingPitcher && Array.isArray(lineup) && lineup.length === 10) {
+          const possiblePitcher = lineup[lineup.length - 1];
+          if (possiblePitcher.position === '투수') {
+            startingPitcher = { playerName: possiblePitcher.playerName };
+            lineup = lineup.slice(0, 9);
+          }
+        }
+        return { ...game, lineup, startingPitcher };
+      });
 
       // 팀 응원가 데이터 처리
       const parsedTeamChants = Array.isArray(teamChantsData)
