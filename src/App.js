@@ -27,7 +27,8 @@ import { getTeamInfo, getPositionKorean, getBattingOrder } from './utils/team';
 import PlayerTab from './components/PlayerTab';
 import ExploreTab from './components/ExploreTab';
 import TeamChantsTab from './components/TeamChantsTab';
-import ScheduleTab from './components/ScheduleTab';
+import ScheduleTab from './components/ScheduleTab'; // for modal
+import RankingTab from './components/RankingTab';
 import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
@@ -74,6 +75,7 @@ const JikgwanGaja = () => {
   const [selectedGameCode, setSelectedGameCode] = useState(null);
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
+  const [showScheduleModal, setShowScheduleModal] = useState(false);
 
   // Keep explore tab independent of the globally selected team
   // Default to showing all teams so users can search freely
@@ -106,7 +108,7 @@ const JikgwanGaja = () => {
 
     const setTabFromHash = () => {
       const tab = window.location.hash.replace('#', '');
-      if (tab && ['lineup', 'teamChants', 'explore', 'schedule'].includes(tab)) {
+      if (tab && ['lineup', 'teamChants', 'explore', 'ranking'].includes(tab)) {
         setActiveTab(tab);
         setShowPlayer(false);
       }
@@ -188,6 +190,7 @@ const JikgwanGaja = () => {
     loading,
     error,
     fetchJsonData,
+    teamRanks,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
   const gameDatesForTeam = useMemo(
@@ -750,6 +753,7 @@ const getSortedChants = () => {
             value={selectedDate}
             onChange={setSelectedDate}
             gameDates={gameDatesForTeam}
+            onOpenSchedule={() => setShowScheduleModal(true)}
           />
           <TeamDropdown value={selectedTeam} onChange={setSelectedTeam} />
         </div>
@@ -801,17 +805,17 @@ const getSortedChants = () => {
         </button>
         <button
           onClick={() => {
-            setActiveTab('schedule');
+            setActiveTab('ranking');
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'schedule' && !showPlayer
+            activeTab === 'ranking' && !showPlayer
               ? 'text-blue-600 border-b-2 border-[#005BAC] bg-white'
               : 'text-gray-600'
           }`}
         >
-          <Calendar className="w-6 h-6" />
-          <span className="text-xs">일정</span>
+          <Trophy className="w-6 h-6" />
+          <span className="text-xs">순위</span>
         </button>
       </div>
 
@@ -863,6 +867,7 @@ const getSortedChants = () => {
                 gameLineups={gameLineups}
                 setSelectedDate={setSelectedDate}
                 handleShareLineup={handleShareLineup}
+                teamRanks={teamRanks}
               />
             )}
             {activeTab === 'teamChants' && (
@@ -902,20 +907,35 @@ const getSortedChants = () => {
                 setCurrentPlayerName={setCurrentPlayerName}
               />
             )}
-            {activeTab === 'schedule' && (
-              <ScheduleTab
-                selectedTeam={selectedTeam}
-                gameLineups={gameLineups}
-                formatDateKorean={formatDateKorean}
-                setSelectedDate={setSelectedDate}
-                setActiveTab={setActiveTab}
-              />
+            {activeTab === 'ranking' && (
+              <RankingTab teamRanks={teamRanks} />
             )}
           </>
         )}
       </div>
       <Footer />
       <AddToHomePopup />
+      {showScheduleModal && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 m-4 p-4 rounded-xl flex-1 overflow-y-auto">
+            <div className="flex justify-end mb-2">
+              <button
+                onClick={() => setShowScheduleModal(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                닫기
+              </button>
+            </div>
+            <ScheduleTab
+              selectedTeam={selectedTeam}
+              gameLineups={gameLineups}
+              formatDateKorean={formatDateKorean}
+              setSelectedDate={setSelectedDate}
+              setActiveTab={setActiveTab}
+            />
+          </div>
+        </div>
+      )}
    </div>
  );
 };

@@ -3,7 +3,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
 
-const CalendarDropdown = ({ value, onChange, gameDates }) => {
+const CalendarDropdown = ({ value, onChange, gameDates, onOpenSchedule }) => {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(() => new Date(value));
   const ref = useRef(null);
@@ -114,6 +114,15 @@ const CalendarDropdown = ({ value, onChange, gameDates }) => {
               );
             })}
           </div>
+          <button
+            onClick={() => {
+              if (typeof onOpenSchedule === 'function') onOpenSchedule();
+              setOpen(false);
+            }}
+            className="mt-2 w-full text-sm text-blue-600 hover:text-blue-800"
+          >
+            전체 일정 보기
+          </button>
         </div>
       )}
     </div>
