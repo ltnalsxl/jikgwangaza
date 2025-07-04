@@ -208,7 +208,8 @@ const JikgwanGaja = () => {
         gameLineups
           .filter((game) => {
             const parts = game.id.split('_');
-            return parts.length >= 3 && parts[2] === selectedTeam;
+            const team = parts[parts.length - 1];
+            return parts.length >= 2 && team === selectedTeam;
           })
           .map((game) => game.id.split('_')[0])
       ),
@@ -397,10 +398,10 @@ const JikgwanGaja = () => {
         if (!game || !game.id) return false;
 
         const parts = game.id.split('_');
-        if (parts.length < 3) return false;
+        if (parts.length < 2) return false;
 
         const gameDateStr = parts[0];
-        const gameTeam = parts[2];
+        const gameTeam = parts[parts.length - 1];
         const gameDateISO = normalizeDate(gameDateStr);
 
         const isValidGame =
@@ -463,9 +464,9 @@ const JikgwanGaja = () => {
       .filter((game) => {
         if (!game || !game.id) return false;
         const parts = game.id.split('_');
-        if (parts.length < 3) return false;
+        if (parts.length < 2) return false;
         const gameDateStr = parts[0];
-        const team = parts[2];
+        const team = parts[parts.length - 1];
         const gameDateISO = normalizeDate(gameDateStr);
         return gameDateISO === selectedDateISO && team === selectedTeam;
       })
