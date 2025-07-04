@@ -213,20 +213,13 @@ const LineupTab = ({
                 <button
                   onClick={() => {
                     const recentGame = gameLineups
-                      .filter((game) => {
-                        const idParts = game.id.split('_');
-                        const team = idParts[idParts.length - 1];
-                        return idParts.length >= 2 && team === selectedTeam;
-                      })
-                      .sort((a, b) => {
-                        const dateA = a.id.split('_')[0];
-                        const dateB = b.id.split('_')[0];
-                        return dateB.localeCompare(dateA);
-                      })[0];
+                      .filter((game) => game.team === selectedTeam)
+                      .sort(
+                        (a, b) => new Date(b.date) - new Date(a.date)
+                      )[0];
 
                     if (recentGame) {
-                      const recentDate = recentGame.id.split('_')[0];
-                      setSelectedDate(recentDate);
+                      setSelectedDate(recentGame.date);
                     }
                   }}
                   className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
@@ -282,20 +275,11 @@ const LineupTab = ({
           <button
             onClick={() => {
               const recentGame = gameLineups
-                .filter((game) => {
-                  const idParts = game.id.split('_');
-                  const team = idParts[idParts.length - 1];
-                  return idParts.length >= 2 && team === selectedTeam;
-                })
-                .sort((a, b) => {
-                  const dateA = a.id.split('_')[0];
-                  const dateB = b.id.split('_')[0];
-                  return dateB.localeCompare(dateA);
-                })[0];
+                .filter((game) => game.team === selectedTeam)
+                .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
 
               if (recentGame) {
-                const recentDate = recentGame.id.split('_')[0];
-                setSelectedDate(recentDate);
+                setSelectedDate(recentGame.date);
               }
             }}
             className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
