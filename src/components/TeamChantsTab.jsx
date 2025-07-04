@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { RefreshCw, Trophy, Search, X } from 'lucide-react';
 import LyricsSection from './LyricsSection';
 import TeamChantVideo from './TeamChantVideo';
@@ -17,6 +17,7 @@ const TeamChantsTab = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState('');
   const [activeChantId, setActiveChantId] = useState(null);
+  const activeChantRef = useRef(null);
 
   useEffect(() => {
     const id = setTimeout(() => setDebouncedTerm(searchTerm), 300);
@@ -52,6 +53,15 @@ const TeamChantsTab = ({
   const activeChant = activeChantId
     ? teamChants.find((c) => c.id === activeChantId)
     : null;
+
+  useEffect(() => {
+    if (activeChantId && activeChantRef.current) {
+      activeChantRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [activeChantId]);
 
   const opts = {
     width: '100%',
@@ -168,6 +178,7 @@ const TeamChantsTab = ({
           </button>
           <div
             id={`chant-${activeChant.id}`}
+            ref={activeChantRef}
             className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm"
           >
             <div className="p-4 pb-2">
