@@ -8,19 +8,21 @@ from kbo_crawler import NaverKBOAllLineupCrawler
 
 def fetch_schedule(start_date: str, end_date: str) -> list:
     """Fetch schedule data between the given dates inclusive."""
-    crawler = NaverKBOAllLineupCrawler()
     results = []
-    try:
-        start = datetime.strptime(start_date, "%Y-%m-%d")
-        end = datetime.strptime(end_date, "%Y-%m-%d")
-        current = start
-        while current <= end:
-            date_str = current.strftime("%Y-%m-%d")
+    start = datetime.strptime(start_date, "%Y-%m-%d")
+    end = datetime.strptime(end_date, "%Y-%m-%d")
+    current = start
+
+    while current <= end:
+        date_str = current.strftime("%Y-%m-%d")
+        crawler = NaverKBOAllLineupCrawler()  # Create a new driver per day
+        try:
             games = crawler.get_daily_games(date_str)
             results.extend(games)
-            current += timedelta(days=1)
-    finally:
-        crawler.close()
+        finally:
+            crawler.close()
+        current += timedelta(days=1)
+
     return results
 
 
