@@ -95,22 +95,25 @@ class NaverKBOAllLineupCrawler:
                 time.sleep(5)  # 추가 대기 시간
                 
                 # 경기 목록이 로드될 때까지 대기
-                selectors = [
-                    "ul[class^='ScheduleAllType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleAllType_match_item_empty'])",
-                    "ul[class^='ScheduleLeagueType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleLeagueType_match_item_empty'])",
-                ]
                 game_items = []
-                last_exception = None
-                for selector in selectors:
-                    try:
-                        game_items = self.wait.until(
-                            EC.presence_of_all_elements_located((By.CSS_SELECTOR, selector))
+                try:
+                    # "KBO리그" 섹션만 선택
+                    kbo_section = self.wait.until(
+                        EC.presence_of_element_located(
+                            (
+                                By.XPATH,
+                                "//a[contains(@class,'ScheduleAllType_group_title')][.//em[contains(text(),'KBO')]]/following-sibling::ul",
+                            )
                         )
-                        if game_items:
-                            break
-                    except TimeoutException as e:
-                        last_exception = e
-                        continue
+                    )
+                    game_items = kbo_section.find_elements(
+                        By.CSS_SELECTOR,
+                        "li[class^='MatchBox_match_item']:not([class*='_empty'])",
+                    )
+                except TimeoutException as e:
+                    last_exception = e
+                except Exception as e:
+                    last_exception = e
 
                 if not game_items:
                     logger.warning(f"경기 목록을 찾을 수 없음 (시도 {attempt + 1}/{max_retries})")
