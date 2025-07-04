@@ -58,6 +58,18 @@ Run the crawler:
 python public/kbo_players_crawler.py
 ```
 
+## Crawling schedules
+
+`public/kbo_schedule_crawler.py` reuses the lineup crawler's Selenium logic to
+collect basic game schedule information such as time, status and scores. The
+results are written to `public/data/kboSchedule.json`.
+
+Run it for a specific date range:
+
+```bash
+python public/kbo_schedule_crawler.py --start 2025-03-25 --end 2025-03-30 --output public/data/kboSchedule.json
+```
+
 ## Automated daily crawl
 
 Three GitHub Actions workflows keep the data updated:
