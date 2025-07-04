@@ -5,6 +5,13 @@ const Footer = () => (
     © 2025 Jikgwangaza. All rights reserved.
     <br />
     Created and maintained by Sumin Lee.
+    <br />
+    <a
+      href="mailto:jikgwangaza@gmail.com?subject=Bug%20Report"
+      className="underline hover:text-blue-600"
+    >
+      오류 제보하기
+    </a>
   </footer>
 );
 
