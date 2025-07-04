@@ -41,6 +41,9 @@ Run it manually:
 python public/kbo_team_rank_crawler.py --output public/data/teamRank.json
 ```
 
+This output file is overwritten each run so historical rankings are **not**
+accumulated. Use version control if you wish to keep old snapshots.
+
 The crawler also runs automatically each day via GitHub Actions.
 
 ## Crawling player info
