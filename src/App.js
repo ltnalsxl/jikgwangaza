@@ -377,6 +377,18 @@ const JikgwanGaja = () => {
       return;
     }
 
+    // 선발투수만 있고 타자 라인업이 없으면 이전 경기 라인업을 사용하지 않음
+    if (
+      todayGame &&
+      todayGame.startingPitcher &&
+      Array.isArray(todayGame.lineup) &&
+      todayGame.lineup.length === 0
+    ) {
+      debugLog('오늘 경기 선발투수만 확인, 라인업 미확정 상태');
+      setCurrentLineup([]);
+      return;
+    }
+
     debugLog('오늘 경기 없음 또는 라인업 없음, 이전 경기 찾기 시작');
   
     // 이전 경기 찾기
