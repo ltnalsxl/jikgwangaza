@@ -95,24 +95,31 @@ class NaverKBOAllLineupCrawler:
                 time.sleep(5)  # 추가 대기 시간
                 
                 # 경기 목록이 로드될 때까지 대기
-                try:
-                    # 빈 li 요소를 제외하고 실제 경기 목록만 가져오기
-                    game_items = self.wait.until(
-                        EC.presence_of_all_elements_located(
-                            (
-                                By.CSS_SELECTOR,
-                                "ul[class^='ScheduleAllType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleAllType_match_item_empty'])",
-                            )
+                selectors = [
+                    "ul[class^='ScheduleAllType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleAllType_match_item_empty'])",
+                    "ul[class^='ScheduleLeagueType_match_list'] > li[class^='MatchBox_match_item']:not([class*='ScheduleLeagueType_match_item_empty'])",
+                ]
+                game_items = []
+                last_exception = None
+                for selector in selectors:
+                    try:
+                        game_items = self.wait.until(
+                            EC.presence_of_all_elements_located((By.CSS_SELECTOR, selector))
                         )
-                    )
-                    logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
-                        
-                except TimeoutException:
+                        if game_items:
+                            break
+                    except TimeoutException as e:
+                        last_exception = e
+                        continue
+
+                if not game_items:
                     logger.warning(f"경기 목록을 찾을 수 없음 (시도 {attempt + 1}/{max_retries})")
                     if attempt < max_retries - 1:
                         time.sleep(retry_delay)
                         continue
                     return []
+
+                logger.info(f"경기 목록 로드 성공: {len(game_items)}개 경기 발견")
 
                 games_data = []
                 for game_item in game_items:
