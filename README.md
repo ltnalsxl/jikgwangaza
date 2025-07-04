@@ -27,7 +27,21 @@ python public/kbo_crawler.py --mode incremental --days 3 --save_dir public/data/
 ```
 
 
+
 The crawler saves each game's lineup JSON files and then rebuilds the index automatically.
+
+## Crawling team rankings
+
+`public/kbo_team_rank_crawler.py` collects the daily league standings and
+writes them to `public/data/teamRank.json`.
+
+Run it manually:
+
+```bash
+python public/kbo_team_rank_crawler.py --output public/data/teamRank.json
+```
+
+The crawler also runs automatically each day via GitHub Actions.
 
 ## Crawling player info
 
@@ -46,12 +60,13 @@ python public/kbo_players_crawler.py
 
 ## Automated daily crawl
 
-Two GitHub Actions workflows keep the data updated:
+Three GitHub Actions workflows keep the data updated:
 
 - `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day and rebuilds `public/data/kbo_crawler_data/index.json`.
 - `.github/workflows/player-crawl.yml` updates `public/data/kboPlayers.json` daily at 00:00 UTC.
+- `.github/workflows/team-rank-crawl.yml` refreshes `public/data/teamRank.json` once per day.
 
-Both workflows commit any changes back to the repository automatically.
+All workflows commit any changes back to the repository automatically.
 
 Any push to the `main` branch – including updates from these workflows –
 automatically triggers `.github/workflows/deploy.yml` to build the app and
