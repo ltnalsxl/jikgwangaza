@@ -1,5 +1,6 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
+import StartingPitcherCard from './StartingPitcherCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
 
@@ -146,11 +147,15 @@ const LineupTab = ({
           </div>
 
           {currentGame.startingPitcher && (
-            <div className="mb-4 text-sm font-medium text-gray-700 dark:text-gray-300">
-              오늘 선발투수: {currentGame.startingPitcher.playerName}
-              {currentGame.startingPitcher.throwingHand &&
-                ` (${currentGame.startingPitcher.throwingHand})`}
-            </div>
+            <StartingPitcherCard
+              pitcher={currentGame.startingPitcher}
+              playerSongs={playerSongs}
+              selectedTeam={selectedTeam}
+              setCurrentPlayer={setCurrentPlayer}
+              setPlaySource={setPlaySource}
+              setShowPlayer={setShowPlayer}
+              setCurrentPlayerName={setCurrentPlayerName}
+            />
           )}
 
           {currentGame.canceled ? (
