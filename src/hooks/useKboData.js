@@ -98,6 +98,7 @@ const useKboData = () => {
   const [kboPlayers, setKboPlayers] = useState([]);
   const [rawSongs, setRawSongs] = useState([]);
   const [teamRanks, setTeamRanks] = useState([]);
+  const [teamRankTime, setTeamRankTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -388,6 +389,7 @@ const useKboData = () => {
         ? teamRankData.results
         : [];
       setTeamRanks(ranks);
+      setTeamRankTime(teamRankData?.crawl_time || null);
 
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
@@ -418,6 +420,7 @@ const useKboData = () => {
     error,
     fetchJsonData,
     teamRanks,
+    teamRankTime,
   };
 };
 

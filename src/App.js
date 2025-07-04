@@ -199,6 +199,7 @@ const JikgwanGaja = () => {
     error,
     fetchJsonData,
     teamRanks,
+    teamRankTime,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
   const gameDatesForTeam = useMemo(
@@ -960,7 +961,9 @@ const getSortedChants = () => {
               setCurrentPlayerName={setCurrentPlayerName}
             />
             )}
-            {activeTab === 'ranking' && <RankingTab teamRanks={teamRanks} />}
+            {activeTab === 'ranking' && (
+              <RankingTab teamRanks={teamRanks} teamRankTime={teamRankTime} />
+            )}
           </>
         )}
       </div>
