@@ -25,10 +25,10 @@ const StartingPitcherCard = ({
   return (
     <div
       onClick={openPlayer}
-      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900 hover:border-blue-300 dark:hover:border-blue-600 mb-4"
+      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900 hover:border-blue-300 dark:hover:border-blue-600 mb-4 max-w-xs"
     >
       <div className="flex items-center justify-between">
-        <div>
+        <div className="flex items-center gap-2">
           <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
             {pitcher.playerName}
           </h3>
