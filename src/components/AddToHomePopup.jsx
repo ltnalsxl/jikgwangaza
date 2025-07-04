@@ -3,8 +3,12 @@ import { Share2, X } from 'lucide-react';
 
 const AddToHomePopup = () => {
   const [visible, setVisible] = useState(false);
+  const isSafari =
+    /safari/i.test(navigator.userAgent) &&
+    !/chrome|android|crios|fxios|edgios/i.test(navigator.userAgent);
 
   useEffect(() => {
+    if (!isSafari) return;
     try {
       const hideUntil = localStorage.getItem('hideAddToHomePopup');
       if (!hideUntil || Date.now() > Number(hideUntil)) {
@@ -13,7 +17,7 @@ const AddToHomePopup = () => {
     } catch {
       setVisible(true);
     }
-  }, []);
+  }, [isSafari]);
 
   const hideForDay = () => {
     const expire = Date.now() + 24 * 60 * 60 * 1000;
@@ -25,7 +29,7 @@ const AddToHomePopup = () => {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!isSafari || !visible) return null;
 
   const isIosSafari =
     /iPad|iPhone|iPod/.test(navigator.userAgent) && /Safari/i.test(navigator.userAgent);
