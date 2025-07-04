@@ -213,7 +213,13 @@ const LineupTab = ({
                 <button
                   onClick={() => {
                     const recentGame = gameLineups
-                      .filter((game) => game.team === selectedTeam)
+                      .filter(
+                        (game) =>
+                          game.team === selectedTeam &&
+                          Array.isArray(game.lineup) &&
+                          game.lineup.length > 0 &&
+                          !game.canceled
+                      )
                       .sort(
                         (a, b) => new Date(b.date) - new Date(a.date)
                       )[0];
@@ -278,7 +284,13 @@ const LineupTab = ({
           <button
             onClick={() => {
               const recentGame = gameLineups
-                .filter((game) => game.team === selectedTeam)
+                .filter(
+                  (game) =>
+                    game.team === selectedTeam &&
+                    Array.isArray(game.lineup) &&
+                    game.lineup.length > 0 &&
+                    !game.canceled
+                )
                 .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
 
               if (recentGame) {
