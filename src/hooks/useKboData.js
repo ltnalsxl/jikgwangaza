@@ -147,16 +147,6 @@ const useKboData = () => {
               normalizeTeamName(song.team) === teamName &&
               song.playerName === player.playerName
           );
-          if (matchedSongs.length === 0) {
-            matchedSongs = songsData.filter(
-              (song) => song.playerName === player.playerName
-            );
-            if (matchedSongs.length > 0) {
-              console.warn(
-                `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${teamName})`
-              );
-            }
-          }
         }
 
         if (matchedSongs.length === 0) {
