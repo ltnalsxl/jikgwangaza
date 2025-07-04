@@ -34,10 +34,12 @@ const PlayerTab = ({
         song.playerName === todayLineupPlayer.playerName && song.team === selectedTeam
     );
     if (songsForPlayer.length === 0) {
-      songsForPlayer = playerSongs.filter(
+      const nameMatches = playerSongs.filter(
         (song) => song.playerName === todayLineupPlayer.playerName
       );
-      if (songsForPlayer.length > 0) {
+      const uniqueTeams = [...new Set(nameMatches.map((s) => s.team))];
+      if (nameMatches.length > 0 && uniqueTeams.length === 1) {
+        songsForPlayer = nameMatches;
         console.warn(
           `팀 매칭 실패, 선수이름 기반 응원가 사용: ${todayLineupPlayer.playerName} (${selectedTeam})`
         );
@@ -56,9 +58,13 @@ const PlayerTab = ({
         song.playerName === baseSong.playerName && song.team === baseSong.team
     );
     if (songsForPlayer.length === 0) {
-      songsForPlayer = playerSongs.filter(
+      const nameMatches = playerSongs.filter(
         (song) => song.playerName === baseSong.playerName
       );
+      const uniqueTeams = [...new Set(nameMatches.map((s) => s.team))];
+      if (nameMatches.length > 0 && uniqueTeams.length === 1) {
+        songsForPlayer = nameMatches;
+      }
     }
     hasPlayerData = songsForPlayer.length > 0;
     const songToUse = songsForPlayer[songIndex] || baseSong;

@@ -23,13 +23,17 @@ const PlayerCard = ({
     );
 
     if (globalIndex === -1) {
-      globalIndex = playerSongs.findIndex(
-        (song) => song.playerName === player.playerName,
+      const nameMatches = playerSongs.filter(
+        (song) => song.playerName === player.playerName
       );
-      if (globalIndex !== -1) {
-        console.warn(
-          `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${selectedTeam})`
-        );
+      const uniqueTeams = [...new Set(nameMatches.map((s) => s.team))];
+      if (nameMatches.length === 1 || uniqueTeams.length === 1) {
+        globalIndex = playerSongs.indexOf(nameMatches[0]);
+        if (globalIndex !== -1) {
+          console.warn(
+            `팀 매칭 실패, 선수이름 기반 응원가 사용: ${player.playerName} (${selectedTeam})`
+          );
+        }
       }
     }
 
