@@ -336,9 +336,6 @@ const JikgwanGaja = () => {
           return null;
         }
   
-        // 만약 lineupPlayer에 선발투수 정보가 있을 때 null 체크
-        const pitcherName = lineupPlayer.starting_pitcher?.name || "-";
-  
         // Only the first matching song is used for lineup display.
         const song = playerSongs.find(song =>
           song && song.playerName === lineupPlayer.playerName && song.team === selectedTeam
