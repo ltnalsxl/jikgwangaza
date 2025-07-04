@@ -15,6 +15,8 @@ import {
   MessageCircle,
   ThumbsUp,
   RefreshCw,
+  Moon,
+  Sun,
   AlertCircle,
   Trophy,
   Calendar
@@ -774,6 +776,16 @@ const getSortedChants = () => {
           className="p-2 rounded-full hover:bg-gray-100"
         >
           <RefreshCw className="w-4 h-4 text-gray-600" />
+        </button>
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          {isDarkMode ? (
+            <Sun className="w-4 h-4 text-yellow-500" />
+          ) : (
+            <Moon className="w-4 h-4 text-gray-600" />
+          )}
         </button>
       </div>
        </div>
