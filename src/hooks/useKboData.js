@@ -98,6 +98,7 @@ const useKboData = () => {
   const [kboPlayers, setKboPlayers] = useState([]);
   const [rawSongs, setRawSongs] = useState([]);
   const [teamRanks, setTeamRanks] = useState([]);
+  const [teamRankTime, setTeamRankTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -124,7 +125,7 @@ const useKboData = () => {
         fetchSafeJson(`${base}/data/teamChants.json`, []),
         fetchSafeJson(`${base}/data/kboPlayers.json`, []),
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
-        fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
+        fetchSafeJson(`${base}/data/teamRank.json`, { results: [], crawl_time: null }),
       ]);
 
       console.log('로드된 데이터:', {
@@ -388,6 +389,7 @@ const useKboData = () => {
         ? teamRankData.results
         : [];
       setTeamRanks(ranks);
+      setTeamRankTime(teamRankData?.crawl_time || null);
 
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
@@ -418,6 +420,7 @@ const useKboData = () => {
     error,
     fetchJsonData,
     teamRanks,
+    teamRankTime,
   };
 };
 
