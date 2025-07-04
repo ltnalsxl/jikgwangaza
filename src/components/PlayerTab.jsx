@@ -57,6 +57,7 @@ const PlayerTab = ({
     return getTeamInfo(baseTeam).text;
   };
   const getDisplayPosition = () => currentChant.position;
+  const isPitcher = getPositionKorean(getDisplayPosition()) === '투수';
   const opts = {
     width: '100%',
     height: '100%',
@@ -164,7 +165,7 @@ const PlayerTab = ({
           )}
         </div>
       </div>
-      {songsForPlayer.length > 1 && (
+      {!isPitcher && songsForPlayer.length > 1 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           {songsForPlayer.map((song, idx) => (
             <button
@@ -212,16 +213,17 @@ const PlayerTab = ({
         </button>
       </div>
       {/* YouTube 플레이어 */}
-      <div className="w-full rounded-xl overflow-hidden aspect-video">
-        {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
-          <YouTube
-            className="w-full h-full"
-            key={`player-${currentChant.youtubeId}`}
-            videoId={currentChant.youtubeId}
-            opts={opts}
-            onReady={(event) => {
-              playerRef.current = event.target;
-            }}
+      {!isPitcher && (
+        <div className="w-full rounded-xl overflow-hidden aspect-video">
+          {currentChant.youtubeId && currentChant.youtubeId !== 'example' ? (
+            <YouTube
+              className="w-full h-full"
+              key={`player-${currentChant.youtubeId}`}
+              videoId={currentChant.youtubeId}
+              opts={opts}
+              onReady={(event) => {
+                playerRef.current = event.target;
+              }}
           />
         ) : (
           <div className="flex items-center justify-center h-full text-center text-white bg-gray-900">
@@ -235,12 +237,20 @@ const PlayerTab = ({
             </div>
           </div>
         )}
-      </div>
-      <LyricsSection
-        chant={currentChant}
-        hasVideo={!!currentChant.youtubeId && currentChant.youtubeId !== 'example'}
-        defaultExpanded
-      />
+        </div>
+      )}
+      {isPitcher && (
+        <div className="p-4 text-center text-sm text-gray-500">
+          투수는 개인 응원가가 제공되지 않습니다
+        </div>
+      )}
+      {!isPitcher && (
+        <LyricsSection
+          chant={currentChant}
+          hasVideo={!!currentChant.youtubeId && currentChant.youtubeId !== 'example'}
+          defaultExpanded
+        />
+      )}
       {/* 액션 버튼 (공유/정보 요청/플레이리스트) 제거 */}
     </div>
   );
