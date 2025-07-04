@@ -25,8 +25,13 @@ const LineupTab = ({
   gameLineups,
   setSelectedDate,
   handleShareLineup,
+  teamRanks,
 }) => {
   const currentGame = getCurrentGame();
+  const getRank = (team) => {
+    const r = teamRanks?.find((t) => t.team === team);
+    return r ? `${r.rank}위` : '';
+  };
 
   return (
     <div className="space-y-3">
@@ -93,6 +98,11 @@ const LineupTab = ({
                     />
                   )}
                   <span className="font-semibold">{currentGame.away}</span>
+                  {getRank(currentGame.away) && (
+                    <span className="text-xs text-gray-500 ml-1">(
+                      {getRank(currentGame.away)}
+                    )</span>
+                  )}
                   <span className="text-xs text-gray-500">(원정)</span>
                   <span className="mx-1 text-gray-500">vs</span>
                   {getTeamInfo(currentGame.home).logo && (
@@ -103,6 +113,11 @@ const LineupTab = ({
                     />
                   )}
                   <span className="font-semibold">{currentGame.home}</span>
+                  {getRank(currentGame.home) && (
+                    <span className="text-xs text-gray-500 ml-1">(
+                      {getRank(currentGame.home)}
+                    )</span>
+                  )}
                   <span className="text-xs text-gray-500">(홈)</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300">

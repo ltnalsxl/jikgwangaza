@@ -97,6 +97,7 @@ const useKboData = () => {
   const [teamChants, setTeamChants] = useState([]);
   const [kboPlayers, setKboPlayers] = useState([]);
   const [rawSongs, setRawSongs] = useState([]);
+  const [teamRanks, setTeamRanks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -117,19 +118,21 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
 
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups] = await Promise.all([
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
         fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
         fetchSafeJson(`${base}/data/teamChants.json`, []),
         fetchSafeJson(`${base}/data/kboPlayers.json`, []),
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
+        fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
       ]);
 
       console.log('로드된 데이터:', {
         songsCount: songsData?.length,
         lineupFiles: lineupIndex?.length,
         teamChantsCount: teamChantsData?.length,
-        kboPlayersCount: kboPlayersData?.length
+        kboPlayersCount: kboPlayersData?.length,
+        teamRankCount: teamRankData?.results?.length,
       });
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
@@ -381,11 +384,16 @@ const useKboData = () => {
       setPlayerSongs(parsedSongs);
       setGameLineups(finalLineups);
       setTeamChants(parsedTeamChants);
+      const ranks = Array.isArray(teamRankData?.results)
+        ? teamRankData.results
+        : [];
+      setTeamRanks(ranks);
 
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
         gameLineups: finalLineups.length,
-        teamChants: parsedTeamChants.length
+        teamChants: parsedTeamChants.length,
+        teamRanks: ranks.length,
       });
 
     } catch (err) {
@@ -409,6 +417,7 @@ const useKboData = () => {
     loading,
     error,
     fetchJsonData,
+    teamRanks,
   };
 };
 
