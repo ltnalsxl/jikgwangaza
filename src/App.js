@@ -32,6 +32,7 @@ import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
+import AddToHomePopup from './components/AddToHomePopup';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -914,6 +915,7 @@ const getSortedChants = () => {
         )}
       </div>
       <Footer />
+      <AddToHomePopup />
    </div>
  );
 };
