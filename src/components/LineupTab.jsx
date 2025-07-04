@@ -146,18 +146,6 @@ const LineupTab = ({
             </div>
           </div>
 
-          {currentGame.startingPitcher && (
-            <StartingPitcherCard
-              pitcher={currentGame.startingPitcher}
-              playerSongs={playerSongs}
-              selectedTeam={selectedTeam}
-              setCurrentPlayer={setCurrentPlayer}
-              setPlaySource={setPlaySource}
-              setShowPlayer={setShowPlayer}
-              setCurrentPlayerName={setCurrentPlayerName}
-            />
-          )}
-
           {currentGame.canceled ? (
             <div className="text-center py-8 text-gray-500">
               <AlertCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />
@@ -220,6 +208,18 @@ const LineupTab = ({
                 최근 라인업 보러가기
               </button>
             </div>
+          )}
+
+          {currentGame.startingPitcher && (
+            <StartingPitcherCard
+              pitcher={currentGame.startingPitcher}
+              playerSongs={playerSongs}
+              selectedTeam={selectedTeam}
+              setCurrentPlayer={setCurrentPlayer}
+              setPlaySource={setPlaySource}
+              setShowPlayer={setShowPlayer}
+              setCurrentPlayerName={setCurrentPlayerName}
+            />
           )}
         </>
       ) : (
