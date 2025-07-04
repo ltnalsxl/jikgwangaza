@@ -30,17 +30,17 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
           {formatUpdatedAt(rankUpdatedAt)} 기준
         </p>
       )}
-      <div className="overflow-x-auto flex justify-center">
-        <table className="min-w-[480px] text-sm">
+      <div className="flex justify-center">
+        <table className="w-full max-w-[480px] text-sm">
         <thead>
           <tr className="bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-200">
-            <th className="p-2 text-center">순위</th>
-            <th className="p-2 text-center">팀</th>
-            <th className="p-2 text-center">승</th>
-            <th className="p-2 text-center">무</th>
-            <th className="p-2 text-center">패</th>
-            <th className="p-2 text-center">승률</th>
-            <th className="p-2 text-center">게임차</th>
+            <th className="p-2 text-center whitespace-nowrap">순위</th>
+            <th className="p-2 text-center whitespace-nowrap">팀</th>
+            <th className="p-2 text-center whitespace-nowrap">승</th>
+            <th className="p-2 text-center whitespace-nowrap">무</th>
+            <th className="p-2 text-center whitespace-nowrap">패</th>
+            <th className="p-2 text-center whitespace-nowrap">승률</th>
+            <th className="p-2 text-center whitespace-nowrap">게임차</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
