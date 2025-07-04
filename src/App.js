@@ -34,6 +34,7 @@ import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
 import AddToHomePopup from './components/AddToHomePopup';
+import TeamSelectModal from './components/TeamSelectModal';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -71,7 +72,11 @@ const JikgwanGaja = () => {
     return `${yyyy}-${mm}-${dd}`;
   });
 
-  const [selectedTeam, setSelectedTeam] = useState('KIA');
+  const [selectedTeam, setSelectedTeam] = useState(() => {
+    const stored = localStorage.getItem('favoriteTeam');
+    return stored && stored !== 'none' ? stored : 'KIA';
+  });
+  const [showTeamModal, setShowTeamModal] = useState(() => !localStorage.getItem('favoriteTeam'));
   const [selectedGameCode, setSelectedGameCode] = useState(null);
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
@@ -686,6 +691,18 @@ const getSortedChants = () => {
     }
   };
 
+  const handleInitialTeam = (team) => {
+    try {
+      localStorage.setItem('favoriteTeam', team);
+    } catch {
+      // ignore write errors
+    }
+    if (team !== 'none') {
+      setSelectedTeam(team);
+    }
+    setShowTeamModal(false);
+  };
+
 
 
   
@@ -755,7 +772,17 @@ const getSortedChants = () => {
             gameDates={gameDatesForTeam}
             onOpenSchedule={() => setShowScheduleModal(true)}
           />
-          <TeamDropdown value={selectedTeam} onChange={setSelectedTeam} />
+          <TeamDropdown
+            value={selectedTeam}
+            onChange={(team) => {
+              setSelectedTeam(team);
+              try {
+                localStorage.setItem('favoriteTeam', team);
+              } catch {
+                // ignore write errors
+              }
+            }}
+          />
         </div>
      </div>
 
@@ -915,6 +942,7 @@ const getSortedChants = () => {
       </div>
       <Footer />
       <AddToHomePopup />
+      {showTeamModal && <TeamSelectModal onSelect={handleInitialTeam} />}
       {showScheduleModal && (
         <div className="fixed inset-0 z-50 flex flex-col bg-black/50 backdrop-blur-sm">
           <div className="bg-white dark:bg-gray-800 m-4 p-4 rounded-xl flex-1 overflow-y-auto">

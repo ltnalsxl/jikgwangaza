@@ -109,5 +109,11 @@ path – additional songs can be added as separate records in
 
 Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the current team's lineup.
 
+## Favorite team selection
+
+On first visit the site asks you to choose your favorite team. The choice is saved
+in `localStorage` under `favoriteTeam` so it persists across sessions. If you want
+to pick again, clear your browser storage or remove that key.
+
 © 2025 Jikgwangaza. All rights reserved.
 Created and maintained by Sumin Lee.
