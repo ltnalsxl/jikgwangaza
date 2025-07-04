@@ -74,10 +74,11 @@ const JikgwanGaja = () => {
   const [playSource, setPlaySource] = useState('lineup');
   const [currentLineupIndex, setCurrentLineupIndex] = useState(0);
 
-  // Ensure explore tab reflects the globally selected team
+  // Keep explore tab independent of the globally selected team
+  // Default to showing all teams so users can search freely
   useEffect(() => {
-    setExploreTeamFilter(selectedTeam);
-  }, [selectedTeam]);
+    setExploreTeamFilter('전체');
+  }, []);
 
   useEffect(() => {
     setSelectedGameCode(null);
