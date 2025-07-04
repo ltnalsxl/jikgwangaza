@@ -30,12 +30,12 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
           {formatUpdatedAt(rankUpdatedAt)} 기준
         </p>
       )}
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-sm">
+      <div className="overflow-x-auto flex justify-center">
+        <table className="min-w-[480px] text-sm">
         <thead>
           <tr className="bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-200">
             <th className="p-2 text-center">순위</th>
-            <th className="p-2 text-left">팀</th>
+            <th className="p-2 text-center">팀</th>
             <th className="p-2 text-center">승</th>
             <th className="p-2 text-center">무</th>
             <th className="p-2 text-center">패</th>
@@ -47,8 +47,8 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
           {teamRanks.map((t) => (
             <tr key={t.team} className="bg-white dark:bg-gray-800">
               <td className="p-2 text-center font-medium">{t.rank}</td>
-              <td className="p-2">
-                <div className="flex items-center gap-2">
+              <td className="p-2 text-center">
+                <div className="flex items-center justify-center gap-2">
                   {getTeamInfo(t.team).logo && (
                     <img
                       src={getTeamInfo(t.team).logo}
