@@ -54,7 +54,8 @@ const JikgwanGaja = () => {
   
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
   const [hasSongOnly, setHasSongOnly] = useState(false);
-  const [hasBatterOnly, setHasBatterOnly] = useState(false);
+  // 기본적으로 투수를 제외하고 타자만 표시한다
+  const [hasBatterOnly, setHasBatterOnly] = useState(true);
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [activeTab, setActiveTab] = useState('lineup');
