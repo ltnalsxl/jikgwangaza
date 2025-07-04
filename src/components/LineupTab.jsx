@@ -100,9 +100,9 @@ const LineupTab = ({
                   )}
                   <span className="font-semibold">{currentGame.away}</span>
                   {getRank(currentGame.away) && (
-                    <span className="text-xs text-gray-500 ml-1">(
+                    <span className="text-xs text-gray-700 dark:text-gray-300 ml-1">
                       {getRank(currentGame.away)}
-                    )</span>
+                    </span>
                   )}
                   <span className="text-xs text-gray-500">(원정)</span>
                   <span className="mx-1 text-gray-500">vs</span>
@@ -115,9 +115,9 @@ const LineupTab = ({
                   )}
                   <span className="font-semibold">{currentGame.home}</span>
                   {getRank(currentGame.home) && (
-                    <span className="text-xs text-gray-500 ml-1">(
+                    <span className="text-xs text-gray-700 dark:text-gray-300 ml-1">
                       {getRank(currentGame.home)}
-                    )</span>
+                    </span>
                   )}
                   <span className="text-xs text-gray-500">(홈)</span>
                 </div>
