@@ -60,11 +60,12 @@ python public/kbo_players_crawler.py
 
 ## Automated daily crawl
 
-Three GitHub Actions workflows keep the data updated:
+Four GitHub Actions workflows keep the data updated:
 
 - `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day and rebuilds `public/data/kbo_crawler_data/index.json`.
 - `.github/workflows/player-crawl.yml` updates `public/data/kboPlayers.json` daily at 00:00 UTC.
 - `.github/workflows/team-rank-crawl.yml` refreshes `public/data/teamRank.json` once per day.
+- `.github/workflows/schedule-crawl.yml` updates `public/data/kboSchedule.json` once per day.
 
 All workflows commit any changes back to the repository automatically.
 
