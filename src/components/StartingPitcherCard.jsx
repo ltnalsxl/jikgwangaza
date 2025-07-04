@@ -25,7 +25,7 @@ const StartingPitcherCard = ({
   return (
     <div
       onClick={openPlayer}
-      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 mb-4"
+      className="p-4 rounded-xl border-2 transition-all cursor-pointer border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900 hover:border-blue-300 dark:hover:border-blue-600 mb-4"
     >
       <div className="flex items-center justify-between">
         <div>
@@ -38,6 +38,9 @@ const StartingPitcherCard = ({
             </p>
           )}
         </div>
+        <span className="bg-blue-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+          선발투수
+        </span>
       </div>
     </div>
   );
