@@ -152,74 +152,88 @@ const LineupTab = ({
               <p>이 경기는 취소되었습니다</p>
             </div>
           ) : currentLineup.length > 0 ? (
-            currentLineup.map((player, index) => (
-              <PlayerCard
-                key={player.id || index}
-                player={player}
-                index={index}
-                isActive={currentPlayer === index}
-                playerSongs={playerSongs}
-                selectedTeam={selectedTeam}
-                setCurrentPlayer={setCurrentPlayer}
-                setCurrentLineupIndex={setCurrentLineupIndex}
-                setPlaySource={setPlaySource}
-                setShowPlayer={setShowPlayer}
-                setCurrentPlayerName={setCurrentPlayerName}
-              />
-            ))
+            <>
+              {currentLineup.map((player, index) => (
+                <PlayerCard
+                  key={player.id || index}
+                  player={player}
+                  index={index}
+                  isActive={currentPlayer === index}
+                  playerSongs={playerSongs}
+                  selectedTeam={selectedTeam}
+                  setCurrentPlayer={setCurrentPlayer}
+                  setCurrentLineupIndex={setCurrentLineupIndex}
+                  setPlaySource={setPlaySource}
+                  setShowPlayer={setShowPlayer}
+                  setCurrentPlayerName={setCurrentPlayerName}
+                />
+              ))}
+              {currentGame.startingPitcher && (
+                <StartingPitcherCard
+                  pitcher={currentGame.startingPitcher}
+                  playerSongs={playerSongs}
+                  selectedTeam={selectedTeam}
+                  setCurrentPlayer={setCurrentPlayer}
+                  setPlaySource={setPlaySource}
+                  setShowPlayer={setShowPlayer}
+                  setCurrentPlayerName={setCurrentPlayerName}
+                />
+              )}
+            </>
           ) : (
-            <div className="text-center py-8 text-gray-500">
-              <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
-              {(() => {
-                const selected = new Date(selectedDate);
-                const today = new Date();
-                const isToday =
-                  selected.toDateString() === today.toDateString();
-                if (isToday) {
-                  return (
-                    <>
-                      <p>오늘 라인업이 아직 올라오지 않았습니다</p>
-                      <p className="text-sm mt-2">최근 라인업 보러가실래요?</p>
-                    </>
-                  );
-                }
-                return <p>라인업 정보가 없습니다</p>;
-              })()}
-              <button
-                onClick={() => {
-                  const recentGame = gameLineups
-                    .filter((game) => {
-                      const idParts = game.id.split('_');
-                      return idParts.length >= 3 && idParts[2] === selectedTeam;
-                    })
-                    .sort((a, b) => {
-                      const dateA = a.id.split('_')[0];
-                      const dateB = b.id.split('_')[0];
-                      return dateB.localeCompare(dateA);
-                    })[0];
-
-                  if (recentGame) {
-                    const recentDate = recentGame.id.split('_')[0];
-                    setSelectedDate(recentDate);
+            <>
+              {currentGame.startingPitcher && (
+                <StartingPitcherCard
+                  pitcher={currentGame.startingPitcher}
+                  playerSongs={playerSongs}
+                  selectedTeam={selectedTeam}
+                  setCurrentPlayer={setCurrentPlayer}
+                  setPlaySource={setPlaySource}
+                  setShowPlayer={setShowPlayer}
+                  setCurrentPlayerName={setCurrentPlayerName}
+                />
+              )}
+              <div className="text-center py-8 text-gray-500">
+                <Music className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                {(() => {
+                  const selected = new Date(selectedDate);
+                  const today = new Date();
+                  const isToday =
+                    selected.toDateString() === today.toDateString();
+                  if (isToday) {
+                    return (
+                      <>
+                        <p>오늘 라인업이 아직 올라오지 않았습니다</p>
+                        <p className="text-sm mt-2">최근 라인업 보러가실래요?</p>
+                      </>
+                    );
                   }
-                }}
-                className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                최근 라인업 보러가기
-              </button>
-            </div>
-          )}
+                  return <p>라인업 정보가 없습니다</p>;
+                })()}
+                <button
+                  onClick={() => {
+                    const recentGame = gameLineups
+                      .filter((game) => {
+                        const idParts = game.id.split('_');
+                        return idParts.length >= 3 && idParts[2] === selectedTeam;
+                      })
+                      .sort((a, b) => {
+                        const dateA = a.id.split('_')[0];
+                        const dateB = b.id.split('_')[0];
+                        return dateB.localeCompare(dateA);
+                      })[0];
 
-          {currentGame.startingPitcher && (
-            <StartingPitcherCard
-              pitcher={currentGame.startingPitcher}
-              playerSongs={playerSongs}
-              selectedTeam={selectedTeam}
-              setCurrentPlayer={setCurrentPlayer}
-              setPlaySource={setPlaySource}
-              setShowPlayer={setShowPlayer}
-              setCurrentPlayerName={setCurrentPlayerName}
-            />
+                    if (recentGame) {
+                      const recentDate = recentGame.id.split('_')[0];
+                      setSelectedDate(recentDate);
+                    }
+                  }}
+                  className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  최근 라인업 보러가기
+                </button>
+              </div>
+            </>
           )}
         </>
       ) : (
