@@ -37,7 +37,6 @@ import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
 import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
-import LanguageDropdown from './components/LanguageDropdown';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -798,7 +797,6 @@ const getSortedChants = () => {
         >
           <RefreshCw className="w-4 h-4 text-gray-600" />
         </button>
-        <LanguageDropdown value={language} onChange={setLanguage} />
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
