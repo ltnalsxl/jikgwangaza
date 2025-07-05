@@ -1,6 +1,6 @@
 import React from "react";
 import { Play } from "lucide-react";
-import { getPositionKorean } from "../utils/team";
+import { getPositionKorean, getTeamInfo } from "../utils/team";
 
 const PlayerCard = ({
   player,
