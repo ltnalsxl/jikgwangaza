@@ -10,6 +10,7 @@ const PlayerSongsCard = ({
   setShowPlayer,
   handleShare,
   setCurrentPlayerName,
+  getDisplayName,
 }) => {
   if (!chants || chants.length === 0) return null;
   const first = chants[0];
@@ -35,7 +36,7 @@ const PlayerSongsCard = ({
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1">
-          <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">{first.playerName}</h3>
+          <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">{getDisplayName ? getDisplayName(first.playerName) : first.playerName}</h3>
           <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
             <div className="flex items-center gap-1">
               {getTeamInfo(first.team).logo && (

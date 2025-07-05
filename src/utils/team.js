@@ -5,6 +5,7 @@ export const getTeamInfo = team => {
       text: 'KIA',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png',
       fullName: 'KIA 타이거즈',
+      fullNameEn: 'KIA Tigers',
       stadium: '광주'
     },
     HT: {
@@ -12,6 +13,7 @@ export const getTeamInfo = team => {
       text: 'KIA',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HT.png',
       fullName: 'KIA 타이거즈',
+      fullNameEn: 'KIA Tigers',
       stadium: '광주'
     },
     두산: {
@@ -19,6 +21,7 @@ export const getTeamInfo = team => {
       text: '두산',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png',
       fullName: '두산 베어스',
+      fullNameEn: 'Doosan Bears',
       stadium: '잠실'
     },
     OB: {
@@ -26,6 +29,7 @@ export const getTeamInfo = team => {
       text: '두산',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_OB.png',
       fullName: '두산 베어스',
+      fullNameEn: 'Doosan Bears',
       stadium: '잠실'
     },
     LG: {
@@ -33,6 +37,7 @@ export const getTeamInfo = team => {
       text: 'LG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LG.png',
       fullName: 'LG 트윈스',
+      fullNameEn: 'LG Twins',
       stadium: '잠실'
     },
     삼성: {
@@ -40,6 +45,7 @@ export const getTeamInfo = team => {
       text: '삼성',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png',
       fullName: '삼성 라이온즈',
+      fullNameEn: 'Samsung Lions',
       stadium: '대구'
     },
     SS: {
@@ -47,6 +53,7 @@ export const getTeamInfo = team => {
       text: '삼성',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SS.png',
       fullName: '삼성 라이온즈',
+      fullNameEn: 'Samsung Lions',
       stadium: '대구'
     },
     롯데: {
@@ -54,6 +61,7 @@ export const getTeamInfo = team => {
       text: '롯데',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png',
       fullName: '롯데 자이언츠',
+      fullNameEn: 'Lotte Giants',
       stadium: '사직'
     },
     LT: {
@@ -61,6 +69,7 @@ export const getTeamInfo = team => {
       text: '롯데',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_LT.png',
       fullName: '롯데 자이언츠',
+      fullNameEn: 'Lotte Giants',
       stadium: '사직'
     },
     SSG: {
@@ -68,6 +77,7 @@ export const getTeamInfo = team => {
       text: 'SSG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png',
       fullName: 'SSG 랜더스',
+      fullNameEn: 'SSG Landers',
       stadium: '문학'
     },
     SK: {
@@ -75,6 +85,7 @@ export const getTeamInfo = team => {
       text: 'SSG',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png',
       fullName: 'SSG 랜더스',
+      fullNameEn: 'SSG Landers',
       stadium: '문학'
     },
     키움: {
@@ -82,6 +93,7 @@ export const getTeamInfo = team => {
       text: '키움',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png',
       fullName: '키움 히어로즈',
+      fullNameEn: 'Kiwoom Heroes',
       stadium: '고척'
     },
     WO: {
@@ -89,6 +101,7 @@ export const getTeamInfo = team => {
       text: '키움',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_WO.png',
       fullName: '키움 히어로즈',
+      fullNameEn: 'Kiwoom Heroes',
       stadium: '고척'
     },
     한화: {
@@ -96,6 +109,7 @@ export const getTeamInfo = team => {
       text: '한화',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png',
       fullName: '한화 이글스',
+      fullNameEn: 'Hanwha Eagles',
       stadium: '대전'
     },
     HH: {
@@ -103,6 +117,7 @@ export const getTeamInfo = team => {
       text: '한화',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png',
       fullName: '한화 이글스',
+      fullNameEn: 'Hanwha Eagles',
       stadium: '대전'
     },
     NC: {
@@ -110,6 +125,7 @@ export const getTeamInfo = team => {
       text: 'NC',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_NC.png',
       fullName: 'NC 다이노스',
+      fullNameEn: 'NC Dinos',
       stadium: '창원'
     },
     KT: {
@@ -117,6 +133,7 @@ export const getTeamInfo = team => {
       text: 'KT',
       logo: 'https://6ptotvmi5753.edge.naverncp.com/KBO_IMAGE/emblem/regular/fixed/emblem_KT.png',
       fullName: 'KT 위즈',
+      fullNameEn: 'KT Wiz',
       stadium: '수원'
     }
   };
@@ -125,7 +142,8 @@ export const getTeamInfo = team => {
       color: '#0ea5e9',
       text: '⚾',
       logo: null,
-      fullName: team
+      fullName: team,
+      fullNameEn: team
     }
   );
 };

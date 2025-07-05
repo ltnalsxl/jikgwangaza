@@ -27,6 +27,7 @@ const LineupTab = ({
   setSelectedDate,
   handleShareLineup,
   teamRanks,
+  getDisplayName,
 }) => {
   const currentGame = getCurrentGame();
   const getRank = (team) => {
@@ -166,6 +167,7 @@ const LineupTab = ({
                   setPlaySource={setPlaySource}
                   setShowPlayer={setShowPlayer}
                   setCurrentPlayerName={setCurrentPlayerName}
+                  getDisplayName={getDisplayName}
                 />
               ))}
               {currentGame.startingPitcher && (
@@ -177,6 +179,7 @@ const LineupTab = ({
                   setPlaySource={setPlaySource}
                   setShowPlayer={setShowPlayer}
                   setCurrentPlayerName={setCurrentPlayerName}
+                  getDisplayName={getDisplayName}
                 />
               )}
             </>
@@ -191,6 +194,7 @@ const LineupTab = ({
                   setPlaySource={setPlaySource}
                   setShowPlayer={setShowPlayer}
                   setCurrentPlayerName={setCurrentPlayerName}
+                  getDisplayName={getDisplayName}
                 />
               )}
               <div className="text-center py-8 text-gray-500">

@@ -35,6 +35,7 @@ const ExploreTab = ({
   setSearchQuery,
   isComposing,
   setCurrentPlayerName,
+  getDisplayName,
 }) => {
   const teamOptions = [
     'KIA',
@@ -198,6 +199,7 @@ const ExploreTab = ({
             setShowPlayer={setShowPlayer}
             handleShare={handleShare}
             setCurrentPlayerName={setCurrentPlayerName}
+            getDisplayName={getDisplayName}
           />
         ));
       })()}

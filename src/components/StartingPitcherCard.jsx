@@ -8,6 +8,7 @@ const StartingPitcherCard = ({
   setPlaySource,
   setShowPlayer,
   setCurrentPlayerName,
+  getDisplayName,
 }) => {
   if (!pitcher) return null;
   const openPlayer = () => {
@@ -30,7 +31,7 @@ const StartingPitcherCard = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
-            {pitcher.playerName}
+            {getDisplayName ? getDisplayName(pitcher.playerName) : pitcher.playerName}
           </h3>
           {pitcher.throwingHand && (
             <p className="text-gray-600 dark:text-gray-400 text-sm">
