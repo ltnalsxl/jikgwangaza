@@ -8,7 +8,7 @@ const Footer = () => (
     <br />
     <a
       href="mailto:jikgwangaza@gmail.com?subject=Bug%20Report"
-      className="underline hover:text-blue-600"
+      className="underline hover:text-gray-600"
     >
       오류 제보하기
     </a>

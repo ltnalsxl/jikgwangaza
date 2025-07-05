@@ -62,7 +62,7 @@ const ChantCard = ({
 
     <div className="flex items-center gap-2">
       <button
-        className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+        className="flex-1 bg-gradient-to-r from-gray-600 to-gray-700 text-white py-3 px-4 rounded-xl hover:from-gray-700 hover:to-gray-800 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
         onClick={(e) => {
           e.stopPropagation();
           openPlayer();

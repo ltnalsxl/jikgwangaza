@@ -12,7 +12,7 @@ const LyricsSection = ({ chant, hasVideo, defaultExpanded = false }) => {
         <div>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mb-3 font-medium"
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 transition-colors mb-3 font-medium"
           >
             <Music className="w-4 h-4" />
             {isExpanded ? '가사 숨기기' : '가사 보기'}

@@ -44,7 +44,7 @@ const ScheduleTab = ({
             onClick={() => setLocationFilter(opt)}
             className={`bg-white dark:bg-gray-800 border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 dark:text-gray-100 ${
               locationFilter === opt
-                ? 'ring-2 ring-blue-500 border-transparent'
+                ? 'ring-2 ring-gray-500 border-transparent'
                 : 'border-gray-200'
             }`}
           >

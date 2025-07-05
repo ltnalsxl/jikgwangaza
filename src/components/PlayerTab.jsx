@@ -94,7 +94,7 @@ const PlayerTab = ({
           {/* 타순 정보 (라인업 모드에서만) */}
           {playSource === 'lineup' &&
             getBattingOrder(currentChant.order, getDisplayPosition()) && (
-              <p className="text-sm text-blue-600 mb-2 font-medium">
+              <p className="text-sm text-gray-600 mb-2 font-medium">
                 {getBattingOrder(currentChant.order, getDisplayPosition())}
               </p>
             )}
@@ -109,7 +109,7 @@ const PlayerTab = ({
               </p>
               <button
                 onClick={handleInfoRequest}
-                className="text-sm text-blue-500 underline"
+                className="text-sm text-gray-600 underline"
               >
                 정보 요청하기
               </button>
@@ -173,7 +173,7 @@ const PlayerTab = ({
               onClick={() => setSongIndex(idx)}
               className={`px-3 py-1 rounded-full text-sm whitespace-nowrap ${
                 songIndex === idx
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-gray-600 text-white'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
               }`}
             >

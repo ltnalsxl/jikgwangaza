@@ -89,7 +89,7 @@ const PlayerSongsCard = ({
             openPlayer();
           }}
         >
-          <Play className="w-4 h-4 text-blue-600" />
+          <Play className="w-4 h-4 text-gray-600" />
           <span className="font-medium text-gray-900 dark:text-gray-100">응원가 재생</span>
         </button>
       )}

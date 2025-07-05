@@ -41,14 +41,14 @@ const LineupTab = ({
         <div className="flex items-center gap-2">
           <button
             onClick={handleShareLineup}
-            className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+            className="flex items-center gap-1 text-gray-600 hover:text-gray-800 transition-colors"
           >
             <Share2 className="w-4 h-4" />
             공유하기
           </button>
           <button
             onClick={fetchJsonData}
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+            className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -82,7 +82,7 @@ const LineupTab = ({
 
       {loading ? (
         <div className="text-center py-8">
-          <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
+          <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-gray-600" />
           <p className="text-gray-600">데이터를 불러오는 중...</p>
         </div>
       ) : currentGame ? (
@@ -231,7 +231,7 @@ const LineupTab = ({
                       setSelectedDate(dateOnly);
                     }
                   }}
-                  className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                  className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors"
                 >
                   최근 라인업 보러가기
                 </button>
@@ -300,7 +300,7 @@ const LineupTab = ({
                 setSelectedDate(dateOnly);
               }
             }}
-            className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors"
           >
             최근 라인업 보러가기
           </button>

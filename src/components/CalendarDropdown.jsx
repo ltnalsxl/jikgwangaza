@@ -103,11 +103,11 @@ const CalendarDropdown = ({ value, onChange, gameDates, onOpenSchedule }) => {
                   }}
                   className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
                     selected
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-gray-600 text-white'
                       : hasGame
-                      ? 'bg-blue-100 dark:bg-blue-900'
+                      ? 'bg-gray-100 dark:bg-gray-900'
                       : ''
-                  } hover:bg-blue-200 dark:hover:bg-blue-700`}
+                  } hover:bg-gray-200 dark:hover:bg-gray-700`}
                 >
                   {date.getDate()}
                 </button>
@@ -119,7 +119,7 @@ const CalendarDropdown = ({ value, onChange, gameDates, onOpenSchedule }) => {
               if (typeof onOpenSchedule === 'function') onOpenSchedule();
               setOpen(false);
             }}
-            className="mt-2 w-full text-sm text-blue-600 hover:text-blue-800"
+            className="mt-2 w-full text-sm text-gray-600 hover:text-gray-800"
           >
             전체 일정 보기
           </button>

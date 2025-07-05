@@ -107,7 +107,7 @@ const TeamChantsTab = ({
               setSelectedDate(`${yyyy}-${mm}-${dd}`);
               fetchJsonData();
             }}
-            className="p-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-full"
+            className="p-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 transition-colors hover:bg-gray-50 dark:hover:bg-gray-900/30 rounded-full"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -131,7 +131,7 @@ const TeamChantsTab = ({
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="응원가 제목이나 가사로 검색하세요"
           aria-label="응원가 검색"
-          className="w-full pl-9 pr-9 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500"
+          className="w-full pl-9 pr-9 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-gray-500"
         />
       </div>
 
@@ -165,14 +165,14 @@ const TeamChantsTab = ({
 
       {loading ? (
         <div className="text-center py-8">
-          <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-500" />
+          <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-gray-600" />
           <p className="text-gray-600 dark:text-gray-300">팀 응원가를 불러오는 중...</p>
         </div>
       ) : activeChant ? (
         <div className="space-y-4">
           <button
             onClick={() => setActiveChantId(null)}
-            className="text-blue-600 hover:text-blue-800 transition-colors mb-4"
+            className="text-gray-600 hover:text-gray-800 transition-colors mb-4"
           >
             목록으로
           </button>

@@ -822,7 +822,7 @@ const getSortedChants = () => {
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'lineup' && !showPlayer
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+              ? 'text-gray-800 dark:text-gray-200 border-b-2 border-gray-500 bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
         >
@@ -836,7 +836,7 @@ const getSortedChants = () => {
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'teamChants' && !showPlayer
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+              ? 'text-gray-800 dark:text-gray-200 border-b-2 border-gray-500 bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
         >
@@ -850,7 +850,7 @@ const getSortedChants = () => {
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'explore' && !showPlayer
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+              ? 'text-gray-800 dark:text-gray-200 border-b-2 border-gray-500 bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
         >
@@ -864,7 +864,7 @@ const getSortedChants = () => {
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'ranking' && !showPlayer
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+              ? 'text-gray-800 dark:text-gray-200 border-b-2 border-gray-500 bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
         >
@@ -878,7 +878,7 @@ const getSortedChants = () => {
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
             activeTab === 'schedule' && !showPlayer
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+              ? 'text-gray-800 dark:text-gray-200 border-b-2 border-gray-500 bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
         >

@@ -44,7 +44,7 @@ const PlayerCard = ({
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <span className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+            <span className="bg-gray-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
               {player.order || index + 1}
             </span>
             <div>
@@ -64,7 +64,7 @@ const PlayerCard = ({
                 e.stopPropagation();
                 openPlayer();
               }}
-              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+              className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label={`${player.playerName} 응원가 재생`}
             >
               <Play className="w-4 h-4" />

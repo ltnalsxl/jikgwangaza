@@ -77,7 +77,7 @@ const ExploreTab = ({
             onClick={() => setExploreTeamFilter('전체')}
             className={`bg-white dark:bg-gray-800 border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 dark:text-gray-100 ${
               exploreTeamFilter === '전체'
-                ? 'ring-2 ring-blue-500 border-transparent'
+                ? 'ring-2 ring-gray-500 border-transparent'
                 : 'border-gray-200'
             }`}
           >
@@ -91,7 +91,7 @@ const ExploreTab = ({
               onClick={() => setExploreTeamFilter(team)}
               className={`bg-white dark:bg-gray-800 border flex flex-col items-center p-2 rounded-lg ${
                 exploreTeamFilter === team
-                  ? 'ring-2 ring-blue-500 border-transparent'
+                  ? 'ring-2 ring-gray-500 border-transparent'
                   : 'border-gray-200'
               }`}
             >
@@ -110,7 +110,7 @@ const ExploreTab = ({
             type="checkbox"
             checked={hasSongOnly}
             onChange={(e) => setHasSongOnly(e.target.checked)}
-            className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded"
+            className="w-4 h-4 text-gray-600 border-gray-300 dark:border-gray-600 rounded"
           />
           <label htmlFor="songOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
             응원가 있는 선수만
@@ -120,7 +120,7 @@ const ExploreTab = ({
             type="checkbox"
             checked={hasBatterOnly}
             onChange={(e) => setHasBatterOnly(e.target.checked)}
-            className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded ml-4"
+            className="w-4 h-4 text-gray-600 border-gray-300 dark:border-gray-600 rounded ml-4"
           />
           <label htmlFor="batterOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
             타자만
@@ -130,17 +130,17 @@ const ExploreTab = ({
     </div>
     {/* 통계 카드 */}
     <div className="grid grid-cols-3 gap-3 mb-4">
-      <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 rounded-xl p-3 text-white shadow">
+      <div className="bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 rounded-xl p-3 text-white shadow">
         <h3 className="text-lg font-bold">{totalPlayers}</h3>
         <p className="text-xs text-indigo-100 mt-1">총 선수</p>
       </div>
-      <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-xl p-3 text-white shadow">
+      <div className="bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 rounded-xl p-3 text-white shadow">
         <h3 className="text-lg font-bold">{totalChants}</h3>
-        <p className="text-xs text-blue-100 mt-1">총 응원가</p>
+        <p className="text-xs text-gray-200 mt-1">총 응원가</p>
       </div>
-      <div className="bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-xl p-3 text-white shadow">
+      <div className="bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 rounded-xl p-3 text-white shadow">
         <h3 className="text-lg font-bold">{filteredChants.length}</h3>
-        <p className="text-xs text-emerald-100 mt-1">검색 결과</p>
+        <p className="text-xs text-gray-200 mt-1">검색 결과</p>
       </div>
     </div>
     {/* 응원가 목록 */}
@@ -162,7 +162,7 @@ const ExploreTab = ({
               setSelectedDate(`${yyyy}-${mm}-${dd}`);
               fetchJsonData();
             }}
-            className="p-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+            className="p-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
