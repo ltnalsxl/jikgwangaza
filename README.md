@@ -73,6 +73,19 @@ Run it after updating the Korean data:
 node scripts/generatePlayersEnglish.js
 ```
 
+## Crawling English player names
+
+`public/kbo_players_en_crawler.py` collects the official English names from
+<http://eng.koreabaseball.com/Teams/PlayerSearch.aspx> and merges them with the
+Korean player list using the same `playerId`. The resulting data is saved to
+`public/data/kboPlayersEn.json`.
+
+Run it manually:
+
+```bash
+python public/kbo_players_en_crawler.py
+```
+
 ## Crawling schedules
 
 `public/kbo_schedule_crawler.py` reuses the lineup crawler's Selenium logic to
