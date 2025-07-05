@@ -172,7 +172,7 @@ const TeamChantsTab = ({
         <div className="space-y-4">
           <button
             onClick={() => setActiveChantId(null)}
-            className="text-blue-600 hover:text-blue-800 transition-colors mb-4"
+            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mb-4"
           >
             목록으로
           </button>
@@ -222,7 +222,7 @@ const TeamChantsTab = ({
                 <img
                   src={getTeamInfo(selectedTeam).logo}
                   alt={selectedTeam}
-                  className="w-5 h-5 object-contain"
+                  className="team-logo w-5 h-5 object-contain"
                 />
               ) : (
                 <Trophy className="w-5 h-5" style={{ color: getTeamInfo(selectedTeam).color }} />

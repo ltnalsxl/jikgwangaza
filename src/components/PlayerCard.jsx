@@ -45,7 +45,10 @@ const PlayerCard = ({
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <span className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+            <span
+              className="text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg"
+              style={{ backgroundColor: `${getTeamInfo(selectedTeam).color}cc` }}
+            >
               {player.order || index + 1}
             </span>
             <div>

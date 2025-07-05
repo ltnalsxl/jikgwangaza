@@ -83,7 +83,7 @@ const ScheduleTab = ({
                 <img
                   src={getTeamInfo(game.away).logo}
                   alt={game.away}
-                  className="w-5 h-5 object-contain"
+                  className="team-logo w-5 h-5 object-contain"
                 />
               )}
               <span className="font-medium">{game.away}</span>
@@ -93,7 +93,7 @@ const ScheduleTab = ({
                 <img
                   src={getTeamInfo(game.home).logo}
                   alt={game.home}
-                  className="w-5 h-5 object-contain"
+                  className="team-logo w-5 h-5 object-contain"
                 />
               )}
               <span className="font-medium">{game.home}</span>

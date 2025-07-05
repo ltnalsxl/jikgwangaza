@@ -1,4 +1,5 @@
 import React from 'react';
+import { getTeamInfo } from '../utils/team';
 
 const StartingPitcherCard = ({
   pitcher,
@@ -39,7 +40,10 @@ const StartingPitcherCard = ({
             </p>
           )}
         </div>
-        <span className="bg-blue-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+        <span
+          className="text-white text-xs font-medium px-2 py-1 rounded-full"
+          style={{ backgroundColor: `${getTeamInfo(selectedTeam).color}cc` }}
+        >
           선발투수
         </span>
       </div>

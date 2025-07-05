@@ -99,7 +99,7 @@ const ExploreTab = ({
               <img
                 src={getTeamInfo(team).logo}
                 alt={team}
-                className="w-8 h-8 object-contain mb-1"
+                className="team-logo w-8 h-8 object-contain mb-1"
               />
               <span className="text-xs text-gray-900 dark:text-gray-100">{team}</span>
             </button>
