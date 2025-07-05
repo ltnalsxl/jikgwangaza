@@ -96,8 +96,6 @@ const useKboData = () => {
   const [gameLineups, setGameLineups] = useState([]);
   const [teamChants, setTeamChants] = useState([]);
   const [kboPlayers, setKboPlayers] = useState([]);
-  const [kboPlayersEn, setKboPlayersEn] = useState([]);
-  const [playerNameEnMap, setPlayerNameEnMap] = useState({});
   const [rawSongs, setRawSongs] = useState([]);
   const [teamRanks, setTeamRanks] = useState([]);
   const [teamRankTime, setTeamRankTime] = useState(null);
@@ -121,14 +119,13 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
 
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, kboPlayersEnData] = await Promise.all([
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
         fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
         fetchSafeJson(`${base}/data/teamChants.json`, []),
         fetchSafeJson(`${base}/data/kboPlayers.json`, []),
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
         fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
-        fetchSafeJson(`${base}/data/kboPlayersEn.json`, []),
       ]);
 
       console.log('로드된 데이터:', {
@@ -137,20 +134,11 @@ const useKboData = () => {
         teamChantsCount: teamChantsData?.length,
         kboPlayersCount: kboPlayersData?.length,
         teamRankCount: teamRankData?.results?.length,
-        kboPlayersEnCount: kboPlayersEnData?.length,
       });
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
-      const parsedKboPlayersEn = Array.isArray(kboPlayersEnData) ? kboPlayersEnData : [];
       setKboPlayers(parsedKboPlayers);
-      setKboPlayersEn(parsedKboPlayersEn);
-      const map = {};
-      parsedKboPlayersEn.forEach(p => {
-        if (p.playerName && p.playerNameEn) {
-          map[p.playerName] = p.playerNameEn;
-        }
-      });
-      setPlayerNameEnMap(map);
+
       setRawSongs(Array.isArray(songsData) ? songsData : []);
 
       // 선수 응원가 데이터 처리 - KBO 선수 기준으로 구성
@@ -456,8 +444,6 @@ const useKboData = () => {
     gameLineups,
     teamChants,
     kboPlayers,
-    kboPlayersEn,
-    playerNameEnMap,
     rawSongs,
     loading,
     error,
