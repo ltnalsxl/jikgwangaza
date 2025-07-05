@@ -61,6 +61,18 @@ Run the crawler:
 python public/kbo_players_crawler.py
 ```
 
+## Generating English player names
+
+`scripts/generatePlayersEnglish.js` converts the Korean names in
+`public/data/kboPlayers.json` to a romanized version. The output is written to
+`public/data/kboPlayersEn.json`.
+
+Run it after updating the Korean data:
+
+```bash
+node scripts/generatePlayersEnglish.js
+```
+
 ## Crawling schedules
 
 `public/kbo_schedule_crawler.py` reuses the lineup crawler's Selenium logic to
