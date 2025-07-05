@@ -42,7 +42,7 @@ const PlayerSongsCard = ({
                 <img
                   src={getTeamInfo(first.team).logo}
                   alt={first.team}
-                  className="w-4 h-4 object-contain dark:invert"
+                  className="w-4 h-4 object-contain"
                 />
               )}
               <span

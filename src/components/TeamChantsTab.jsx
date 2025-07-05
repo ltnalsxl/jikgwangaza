@@ -222,7 +222,7 @@ const TeamChantsTab = ({
                 <img
                   src={getTeamInfo(selectedTeam).logo}
                   alt={selectedTeam}
-                  className="w-5 h-5 object-contain dark:invert"
+                  className="w-5 h-5 object-contain"
                 />
               ) : (
                 <Trophy className="w-5 h-5" style={{ color: getTeamInfo(selectedTeam).color }} />

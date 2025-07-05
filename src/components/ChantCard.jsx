@@ -37,7 +37,7 @@ const ChantCard = ({
               <img
                 src={getTeamInfo(chant.team).logo}
                 alt={chant.team}
-                className="w-4 h-4 object-contain dark:invert"
+                className="w-4 h-4 object-contain"
               />
             )}
             <span className="font-medium px-2 py-1 rounded-full text-xs" style={{
