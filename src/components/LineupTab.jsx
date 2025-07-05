@@ -95,7 +95,7 @@ const LineupTab = ({
                     <img
                       src={getTeamInfo(currentGame.away).logo}
                       alt={currentGame.away}
-                      className="w-5 h-5 object-contain dark:invert"
+                      className="w-5 h-5 object-contain"
                     />
                   )}
                   <span className="font-semibold">{currentGame.away}</span>
@@ -110,7 +110,7 @@ const LineupTab = ({
                     <img
                       src={getTeamInfo(currentGame.home).logo}
                       alt={currentGame.home}
-                      className="w-5 h-5 object-contain dark:invert"
+                      className="w-5 h-5 object-contain"
                     />
                   )}
                   <span className="font-semibold">{currentGame.home}</span>
