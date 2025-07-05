@@ -4,7 +4,7 @@ import { getTeamInfo } from '../utils/team';
 
 const teams = ['KIA','두산','LG','삼성','롯데','SSG','키움','한화','NC','KT'];
 
-const TeamDropdown = ({ value, onChange, language = 'ko' }) => {
+const TeamDropdown = ({ value, onChange }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -24,7 +24,7 @@ const TeamDropdown = ({ value, onChange, language = 'ko' }) => {
         onClick={() => setOpen(!open)}
         className="flex items-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-xl px-4 py-2 border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600"
       >
-        {language === 'en' ? getTeamInfo(value).fullNameEn : getTeamInfo(value).fullName}
+        {getTeamInfo(value).fullName}
         <ChevronDown className="w-4 h-4 ml-2" />
       </button>
       {open && (
@@ -38,7 +38,7 @@ const TeamDropdown = ({ value, onChange, language = 'ko' }) => {
               }}
               className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              {language === 'en' ? getTeamInfo(team).fullNameEn : getTeamInfo(team).fullName}
+              {getTeamInfo(team).fullName}
             </button>
           ))}
         </div>

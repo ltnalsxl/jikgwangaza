@@ -67,9 +67,6 @@ const JikgwanGaja = () => {
     if (stored) return stored === 'dark';
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
-  const [language, setLanguage] = useState(() =>
-    localStorage.getItem('language') || 'ko'
-  );
   const [selectedDate, setSelectedDate] = useState(() => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -98,12 +95,7 @@ const JikgwanGaja = () => {
     setSelectedGameCode(null);
   }, [selectedDate, selectedTeam]);
 
-  const getDisplayName = (name) => {
-    if (language === 'en') {
-      return playerNameEnMap[name] || name;
-    }
-    return name;
-  };
+  const getDisplayName = (name) => name;
   
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -171,9 +163,6 @@ const JikgwanGaja = () => {
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -211,8 +200,6 @@ const JikgwanGaja = () => {
     gameLineups,
     teamChants,
     kboPlayers,
-    kboPlayersEn,
-    playerNameEnMap,
     rawSongs,
     loading,
     error,
@@ -776,10 +763,7 @@ const getSortedChants = () => {
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">직관가자</h1>
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            {language === 'en'
-              ? getTeamInfo(selectedTeam).fullNameEn
-              : getTeamInfo(selectedTeam).fullName}{' '}
-            • {formatDateKorean(selectedDate)}
+            {getTeamInfo(selectedTeam).fullName} • {formatDateKorean(selectedDate)}
           </p>
         </div>
       </div>
@@ -828,7 +812,6 @@ const getSortedChants = () => {
                 // ignore write errors
               }
             }}
-            language={language}
           />
         </div>
      </div>
