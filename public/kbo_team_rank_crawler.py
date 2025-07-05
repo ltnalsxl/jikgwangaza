@@ -114,6 +114,9 @@ def fetch_team_ranks(
 def save_ranks(ranks: list, path: str = "public/data/teamRank.json") -> None:
     """Write ranking data to ``path``, overwriting any existing file."""
 
+    # 항상 처음 10개만 유지
+    ranks = ranks[:10]
+
     os.makedirs(os.path.dirname(path), exist_ok=True)
     data = {
         "crawl_time": datetime.now().isoformat(),
