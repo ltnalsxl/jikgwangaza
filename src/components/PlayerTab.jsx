@@ -14,6 +14,7 @@ const PlayerTab = ({
   playPrev,
   playNext,
   handleShare,
+  getDisplayName,
 }) => {
   const playerRef = useRef(null);
   const [songIndex, setSongIndex] = useState(0);
@@ -70,12 +71,14 @@ const PlayerTab = ({
   };
   const handleInfoRequest = () => {
     logRequest(currentChant.playerName, 'info');
-    alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
+    const name = getDisplayName ? getDisplayName(currentChant.playerName) : currentChant.playerName;
+    alert(`${name} 선수에 대한 요청이 완료되었습니다.`);
   };
 
   const handleSongRequest = () => {
     logRequest(currentChant.playerName, 'song');
-    alert(`${currentChant.playerName} 선수에 대한 요청이 완료되었습니다.`);
+    const name = getDisplayName ? getDisplayName(currentChant.playerName) : currentChant.playerName;
+    alert(`${name} 선수에 대한 요청이 완료되었습니다.`);
   };
 
   const prevPlayerName =
@@ -100,7 +103,7 @@ const PlayerTab = ({
             )}
           {/* 선수명 */}
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-            {currentChant.playerName}
+            {getDisplayName ? getDisplayName(currentChant.playerName) : currentChant.playerName}
           </h2>
           {!hasPlayerData && (
             <div className="mt-2 text-center space-y-1">
@@ -194,7 +197,7 @@ const PlayerTab = ({
         >
           <SkipBack className="w-5 h-5" />
           {prevPlayerName && (
-            <span className="text-xs text-gray-700 dark:text-gray-300">{prevPlayerName}</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">{getDisplayName ? getDisplayName(prevPlayerName) : prevPlayerName}</span>
           )}
         </button>
         <button
@@ -207,7 +210,7 @@ const PlayerTab = ({
           className="flex items-center gap-1 p-2 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
         >
           {nextPlayerName && (
-            <span className="text-xs text-gray-700 dark:text-gray-300">{nextPlayerName}</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">{getDisplayName ? getDisplayName(nextPlayerName) : nextPlayerName}</span>
           )}
           <SkipForward className="w-5 h-5" />
         </button>

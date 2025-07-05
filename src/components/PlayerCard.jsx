@@ -13,6 +13,7 @@ const PlayerCard = ({
   setPlaySource,
   setShowPlayer,
   setCurrentPlayerName,
+  getDisplayName,
 }) => {
   const openPlayer = () => {
     // Use the first matching song for this player.
@@ -49,7 +50,7 @@ const PlayerCard = ({
             </span>
             <div>
               <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
-                {player.playerName}
+                {getDisplayName ? getDisplayName(player.playerName) : player.playerName}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 {player.position}
@@ -65,7 +66,7 @@ const PlayerCard = ({
                 openPlayer();
               }}
               className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
-              aria-label={`${player.playerName} 응원가 재생`}
+              aria-label={`${getDisplayName ? getDisplayName(player.playerName) : player.playerName} 응원가 재생`}
             >
               <Play className="w-4 h-4" />
             </button>

@@ -37,6 +37,7 @@ import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
 import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
+import LanguageDropdown from './components/LanguageDropdown';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -67,6 +68,9 @@ const JikgwanGaja = () => {
     if (stored) return stored === 'dark';
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
+  const [language, setLanguage] = useState(() =>
+    localStorage.getItem('language') || 'ko'
+  );
   const [selectedDate, setSelectedDate] = useState(() => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -94,6 +98,13 @@ const JikgwanGaja = () => {
   useEffect(() => {
     setSelectedGameCode(null);
   }, [selectedDate, selectedTeam]);
+
+  const getDisplayName = (name) => {
+    if (language === 'en') {
+      return playerNameEnMap[name] || name;
+    }
+    return name;
+  };
   
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -162,6 +173,10 @@ const JikgwanGaja = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
+  useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handler = (e) => {
       if (!localStorage.getItem('theme')) {
@@ -197,6 +212,8 @@ const JikgwanGaja = () => {
     gameLineups,
     teamChants,
     kboPlayers,
+    kboPlayersEn,
+    playerNameEnMap,
     rawSongs,
     loading,
     error,
@@ -760,7 +777,10 @@ const getSortedChants = () => {
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">직관가자</h1>
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            {getTeamInfo(selectedTeam).fullName} • {formatDateKorean(selectedDate)}
+            {language === 'en'
+              ? getTeamInfo(selectedTeam).fullNameEn
+              : getTeamInfo(selectedTeam).fullName}{' '}
+            • {formatDateKorean(selectedDate)}
           </p>
         </div>
       </div>
@@ -778,6 +798,7 @@ const getSortedChants = () => {
         >
           <RefreshCw className="w-4 h-4 text-gray-600" />
         </button>
+        <LanguageDropdown value={language} onChange={setLanguage} />
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -809,6 +830,7 @@ const getSortedChants = () => {
                 // ignore write errors
               }
             }}
+            language={language}
           />
         </div>
      </div>
@@ -898,17 +920,18 @@ const getSortedChants = () => {
               <SkipBack className="w-5 h-5" />
               <span className="sr-only">라인업으로 돌아가기</span>
             </button>
-            <PlayerTab
-              playerSongs={playerSongs}
-              currentPlayer={currentPlayer}
-              playSource={playSource}
-              currentLineup={currentLineup}
-              currentLineupIndex={currentLineupIndex}
-              selectedTeam={selectedTeam}
-              playPrev={playPrev}
-              playNext={playNext}
-              handleShare={handleShare}
-            />
+              <PlayerTab
+                playerSongs={playerSongs}
+                currentPlayer={currentPlayer}
+                playSource={playSource}
+                currentLineup={currentLineup}
+                currentLineupIndex={currentLineupIndex}
+                selectedTeam={selectedTeam}
+                playPrev={playPrev}
+                playNext={playNext}
+                handleShare={handleShare}
+                getDisplayName={getDisplayName}
+              />
           </div>
         ) : (
           <>
@@ -936,6 +959,7 @@ const getSortedChants = () => {
                 setSelectedDate={setSelectedDate}
                 handleShareLineup={handleShareLineup}
                 teamRanks={teamRanks}
+                getDisplayName={getDisplayName}
               />
             )}
             {activeTab === 'teamChants' && (
@@ -973,6 +997,7 @@ const getSortedChants = () => {
                 setSearchQuery={setSearchQuery}
                 isComposing={isComposing}
               setCurrentPlayerName={setCurrentPlayerName}
+              getDisplayName={getDisplayName}
             />
             )}
             {activeTab === 'ranking' && (
