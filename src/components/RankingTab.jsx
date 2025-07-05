@@ -4,7 +4,7 @@ import { getTeamInfo } from '../utils/team';
 const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
   if (!Array.isArray(teamRanks) || teamRanks.length === 0) {
     return (
-      <p className="text-center text-gray-500">순위 데이터를 불러올 수 없습니다.</p>
+      <p className="text-center text-gray-500 dark:text-gray-400">순위 데이터를 불러올 수 없습니다.</p>
     );
   }
 
@@ -26,7 +26,7 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
   return (
     <div className="space-y-2">
       {rankUpdatedAt && (
-        <p className="text-right text-xs text-gray-500">
+        <p className="text-right text-xs text-gray-500 dark:text-gray-400">
           {formatUpdatedAt(rankUpdatedAt)} 기준
         </p>
       )}
@@ -53,7 +53,7 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
                     <img
                       src={getTeamInfo(t.team).logo}
                       alt={t.team}
-                      className="w-5 h-5 object-contain"
+                      className="w-5 h-5 object-contain dark:invert"
                     />
                   )}
                   <span>{t.team}</span>

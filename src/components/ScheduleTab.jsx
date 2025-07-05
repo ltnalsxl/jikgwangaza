@@ -42,7 +42,7 @@ const ScheduleTab = ({
           <button
             key={opt}
             onClick={() => setLocationFilter(opt)}
-            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 ${
+            className={`bg-white dark:bg-gray-800 border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 dark:text-gray-100 ${
               locationFilter === opt
                 ? 'ring-2 ring-blue-500 border-transparent'
                 : 'border-gray-200'
@@ -83,21 +83,21 @@ const ScheduleTab = ({
                 <img
                   src={getTeamInfo(game.away).logo}
                   alt={game.away}
-                  className="w-5 h-5 object-contain"
+                  className="w-5 h-5 object-contain dark:invert"
                 />
               )}
               <span className="font-medium">{game.away}</span>
-              <span className="text-xs text-gray-500">(원정)</span>
-              <span className="mx-1 text-gray-500">vs</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">(원정)</span>
+              <span className="mx-1 text-gray-500 dark:text-gray-400">vs</span>
               {getTeamInfo(game.home).logo && (
                 <img
                   src={getTeamInfo(game.home).logo}
                   alt={game.home}
-                  className="w-5 h-5 object-contain"
+                  className="w-5 h-5 object-contain dark:invert"
                 />
               )}
               <span className="font-medium">{game.home}</span>
-              <span className="text-xs text-gray-500">(홈)</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">(홈)</span>
             </div>
             <div className="text-sm text-right text-gray-600 dark:text-gray-300">
                 <div>

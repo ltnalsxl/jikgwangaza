@@ -57,7 +57,7 @@ const ExploreTab = ({
     {/* 검색 및 필터 */}
     <div className="space-y-3">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
         <input
           type="text"
           placeholder="선수명, 응원가 제목, 팀명, 포지션으로 검색"
@@ -65,17 +65,17 @@ const ExploreTab = ({
           onChange={handleChange}
           onCompositionStart={handleCompositionStart}
           onCompositionEnd={handleCompositionEnd}
-          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50"
+          className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-gray-50 dark:bg-gray-700"
         />
       </div>
       {/* 팀 필터 */}
       <div className="space-y-2 pb-3 mb-4">
         <div className="flex items-center gap-2 flex-wrap">
-          <Filter className="w-5 h-5 text-gray-500 flex-shrink-0" />
-          <span className="text-sm text-gray-700">팀 선택</span>
+          <Filter className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+          <span className="text-sm text-gray-700 dark:text-gray-300">팀 선택</span>
           <button
             onClick={() => setExploreTeamFilter('전체')}
-            className={`bg-white border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 ${
+            className={`bg-white dark:bg-gray-800 border px-3 py-1 rounded-lg text-xs font-medium text-gray-900 dark:text-gray-100 ${
               exploreTeamFilter === '전체'
                 ? 'ring-2 ring-blue-500 border-transparent'
                 : 'border-gray-200'
@@ -89,7 +89,7 @@ const ExploreTab = ({
             <button
               key={team}
               onClick={() => setExploreTeamFilter(team)}
-              className={`bg-white border flex flex-col items-center p-2 rounded-lg ${
+              className={`bg-white dark:bg-gray-800 border flex flex-col items-center p-2 rounded-lg ${
                 exploreTeamFilter === team
                   ? 'ring-2 ring-blue-500 border-transparent'
                   : 'border-gray-200'
@@ -98,9 +98,9 @@ const ExploreTab = ({
               <img
                 src={getTeamInfo(team).logo}
                 alt={team}
-                className="w-8 h-8 object-contain mb-1"
+                className="w-8 h-8 object-contain mb-1 dark:invert"
               />
-              <span className="text-xs text-gray-900">{team}</span>
+              <span className="text-xs text-gray-900 dark:text-gray-100">{team}</span>
             </button>
           ))}
         </div>
@@ -110,9 +110,9 @@ const ExploreTab = ({
             type="checkbox"
             checked={hasSongOnly}
             onChange={(e) => setHasSongOnly(e.target.checked)}
-            className="w-4 h-4 text-blue-600 border-gray-300 rounded"
+            className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded"
           />
-          <label htmlFor="songOnly" className="text-sm text-gray-700 whitespace-nowrap">
+          <label htmlFor="songOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
             응원가 있는 선수만
           </label>
           <input
@@ -120,9 +120,9 @@ const ExploreTab = ({
             type="checkbox"
             checked={hasBatterOnly}
             onChange={(e) => setHasBatterOnly(e.target.checked)}
-            className="w-4 h-4 text-blue-600 border-gray-300 rounded ml-4"
+            className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded ml-4"
           />
-          <label htmlFor="batterOnly" className="text-sm text-gray-700 whitespace-nowrap">
+          <label htmlFor="batterOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
             타자만
           </label>
         </div>
@@ -152,7 +152,7 @@ const ExploreTab = ({
             : `${exploreTeamFilter} 응원가`}
         </h2>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">{filteredChants.length}개</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{filteredChants.length}개</span>
           <button
             onClick={() => {
               const today = new Date();
@@ -162,7 +162,7 @@ const ExploreTab = ({
               setSelectedDate(`${yyyy}-${mm}-${dd}`);
               fetchJsonData();
             }}
-            className="p-1 text-blue-600 hover:text-blue-800 transition-colors"
+            className="p-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -202,7 +202,7 @@ const ExploreTab = ({
         ));
       })()}
       {filteredChants.length === 0 && (searchQuery || exploreTeamFilter !== '전체') && !isComposing && (
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
           <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>
             {searchQuery
