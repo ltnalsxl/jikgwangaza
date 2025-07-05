@@ -19,7 +19,7 @@ const TeamSelectModal = ({ onSelect }) => {
                 <img
                   src={getTeamInfo(team).logo}
                   alt={team}
-                  className="w-10 h-10 object-contain"
+                  className="w-10 h-10 object-contain dark:invert"
                 />
               )}
               <span className="text-xs mt-1 whitespace-nowrap">

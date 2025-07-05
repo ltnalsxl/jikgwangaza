@@ -122,7 +122,7 @@ const PlayerTab = ({
                 <img
                   src={getTeamInfo(getDisplayTeam()).logo}
                   alt={getDisplayTeam()}
-                  className="w-5 h-5 object-contain"
+                  className="w-5 h-5 object-contain dark:invert"
                 />
               )}
               <span className="font-semibold" style={{ color: getTeamInfo(getDisplayTeam()).color }}>
@@ -194,7 +194,7 @@ const PlayerTab = ({
         >
           <SkipBack className="w-5 h-5" />
           {prevPlayerName && (
-            <span className="text-xs text-gray-700">{prevPlayerName}</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">{prevPlayerName}</span>
           )}
         </button>
         <button
@@ -207,7 +207,7 @@ const PlayerTab = ({
           className="flex items-center gap-1 p-2 rounded-full bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
         >
           {nextPlayerName && (
-            <span className="text-xs text-gray-700">{nextPlayerName}</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">{nextPlayerName}</span>
           )}
           <SkipForward className="w-5 h-5" />
         </button>
