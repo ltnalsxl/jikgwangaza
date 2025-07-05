@@ -53,7 +53,7 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
                     <img
                       src={getTeamInfo(t.team).logo}
                       alt={t.team}
-                      className="w-5 h-5 object-contain"
+                      className="team-logo w-5 h-5 object-contain"
                     />
                   )}
                   <span>{t.team}</span>
