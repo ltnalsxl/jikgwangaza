@@ -1,6 +1,6 @@
 import React from "react";
 import { Play } from "lucide-react";
-import { getPositionKorean, getTeamInfo } from "../utils/team";
+import { getPositionKorean } from "../utils/team";
 
 const PlayerCard = ({
   player,
@@ -45,10 +45,7 @@ const PlayerCard = ({
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <span
-              className="text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg"
-              style={{ backgroundColor: `${getTeamInfo(selectedTeam).color}cc` }}
-            >
+            <span className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
               {player.order || index + 1}
             </span>
             <div>
