@@ -1,0 +1,47 @@
+{
+  "date": "2025-07-08",
+  "game_code": "20250708SSNC02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "삼성",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "NC",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250708SSNC02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "삼성",
+      "team_code": "SS",
+      "starting_pitcher": {
+        "player_id": "55460",
+        "name": "가라비토",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "NC",
+      "team_code": "NC",
+      "starting_pitcher": {
+        "player_id": "53973",
+        "name": "목지훈",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-07-08T06:22:27.601070"
+}
