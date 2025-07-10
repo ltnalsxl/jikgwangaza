@@ -742,7 +742,7 @@ const getSortedChants = () => {
  return (
   <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
      {/* 헤더 */}
-    <div className="bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible relative z-10">
+    <div className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
         <div 
