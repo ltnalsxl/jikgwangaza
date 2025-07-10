@@ -727,8 +727,10 @@ const getSortedChants = () => {
 
   useEffect(() => {
     if (Capacitor.isNativePlatform && Capacitor.isNativePlatform()) {
+      // Show dark icons and let the app background extend into the notch
       StatusBar.setStyle({ style: Style.Dark });
-      StatusBar.setOverlaysWebView({ overlay: false });
+      StatusBar.setBackgroundColor({ color: '#00000000' });
+      StatusBar.setOverlaysWebView({ overlay: true });
     }
   }, []);
 
