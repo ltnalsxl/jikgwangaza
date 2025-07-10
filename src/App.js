@@ -37,6 +37,9 @@ import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
 import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
+import { useEffect } from 'react';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { Capacitor } from '@capacitor/core';
 
 // simple helper to avoid logs in production
 const debugLog = (...args) => {
@@ -722,6 +725,13 @@ const getSortedChants = () => {
     }
     setShowTeamModal(false);
   };
+
+  useEffect(() => {
+    if (Capacitor.isNativePlatform && Capacitor.isNativePlatform()) {
+      StatusBar.setStyle({ style: Style.Dark });
+      StatusBar.setOverlaysWebView({ overlay: false });
+    }
+  }, []);
 
 
 
