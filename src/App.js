@@ -826,7 +826,7 @@ const getSortedChants = () => {
      </div>
 
      {/* 탭 네비게이션 */}
-      <div className="flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+      <div className="sticky top-0 z-20 flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
         <button
           onClick={() => {
             setActiveTab('lineup');
