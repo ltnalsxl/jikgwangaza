@@ -143,5 +143,5 @@ On first visit the site asks you to choose your favorite team. The choice is sav
 in `localStorage` under `favoriteTeam` so it persists across sessions. If you want
 to pick again, clear your browser storage or remove that key.
 
-© 2025 Jikgwangaza. All rights reserved.
+© 2025 직관가자. All rights reserved.
 Created and maintained by Sumin Lee.
