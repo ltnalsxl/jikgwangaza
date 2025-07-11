@@ -124,16 +124,17 @@ npm run build # build for production
 
 Running these commands requires **Node.js 20 or later**.
 
-## Updating the iOS app icon
+## Updating native app icons
 
-The master icon images live under `public/AppIcon/Assets.xcassets/AppIcon.appiconset`.
-Run the following command to copy them into the iOS project:
+All master icon images live in `public/AppIcon`. Use the following commands to
+copy them into the native projects:
 
 ```bash
 npm run update-ios-icons
+npm run update-android-icons
 ```
 
-After copying, rebuild the Xcode project to see the new logo.
+After copying, rebuild the Xcode or Android project to see the new logos.
 
 ## Handling multiple songs per player
 

@@ -29,7 +29,8 @@
     "eject": "react-scripts eject",
     "build-lineup-index": "node scripts/generateLineupIndex.js",
     "update-song-mapping": "node scripts/updatePlayerSongTeams.js",
-    "update-ios-icons": "node scripts/updateIosIcon.js"
+    "update-ios-icons": "node scripts/updateIosIcon.js",
+    "update-android-icons": "node scripts/updateAndroidIcons.js"
   },
   "eslintConfig": {
     "extends": [
