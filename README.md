@@ -124,6 +124,17 @@ npm run build # build for production
 
 Running these commands requires **Node.js 20 or later**.
 
+## Updating the iOS app icon
+
+The master icon images live under `public/AppIcon/Assets.xcassets/AppIcon.appiconset`.
+Run the following command to copy them into the iOS project:
+
+```bash
+npm run update-ios-icons
+```
+
+After copying, rebuild the Xcode project to see the new logo.
+
 ## Handling multiple songs per player
 
 Some players have more than one walk‑up song. When the app opens a player
