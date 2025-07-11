@@ -3,9 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-       <key>CFBundleDisplayName</key>
-       <string>직관가자</string>
+	<string>ko</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.sports</string>
+	<key>CFBundleDisplayName</key>
+	<string>직관가자</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
