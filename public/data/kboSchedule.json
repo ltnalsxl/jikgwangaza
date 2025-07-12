@@ -1,4 +1,24 @@
 {
-  "crawl_time": "2025-07-11T01:12:19.646200",
-  "results": []
+  "crawl_time": "2025-07-12T01:12:30.454393",
+  "results": [
+    {
+      "date": "2025-07-12",
+      "game_code": "99990712EAWE02025",
+      "game_time": "경기 시간\n18:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "드림",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "나눔",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/99990712EAWE02025/lineup"
+    }
+  ]
 }
