@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import StartingPitcherCard from './StartingPitcherCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
@@ -28,12 +28,82 @@ const LineupTab = ({
   handleShareLineup,
   teamRanks,
   getDisplayName,
+  allStarData,
 }) => {
   const currentGame = getCurrentGame();
+  const [allStarTeam, setAllStarTeam] = useState('dream');
+  const isAllStarDay = selectedDate === '2025-07-12';
   const getRank = (team) => {
     const r = teamRanks?.find((t) => t.team === team);
     return r ? `${r.rank}위` : '';
   };
+
+  const renderAllStarSection = (title, items) => (
+    <div className="mb-4">
+      <h3 className="font-semibold mb-2">{title}</h3>
+      <ul className="space-y-1">
+        {items.map((p, idx) => (
+          <li
+            key={`${title}_${idx}`}
+            className="flex justify-between border-b pb-1 text-sm"
+          >
+            <span>
+              {p.position || p.role}
+              {p.role && p.position ? `(${p.position})` : ''}
+            </span>
+            <span>{p.playerName || p.name}</span>
+            <span className="text-gray-500">{p.team}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  if (isAllStarDay) {
+    if (!allStarData) {
+      return <p className="text-center py-8">올스타전 데이터가 없습니다.</p>;
+    }
+
+    const roster =
+      allStarTeam === 'dream' ? allStarData.dream : allStarData.nanum;
+    const teamLabel = allStarTeam === 'dream' ? '드림 올스타' : '나눔 올스타';
+
+    return (
+      <div className="space-y-4">
+        <div className="flex gap-2">
+          <button
+            onClick={() => setAllStarTeam('dream')}
+            className={`flex-1 py-2 rounded-lg text-sm font-medium ${
+              allStarTeam === 'dream'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white dark:bg-gray-800 border border-gray-200'
+            }`}
+          >
+            드림
+          </button>
+          <button
+            onClick={() => setAllStarTeam('nanum')}
+            className={`flex-1 py-2 rounded-lg text-sm font-medium ${
+              allStarTeam === 'nanum'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white dark:bg-gray-800 border border-gray-200'
+            }`}
+          >
+            나눔
+          </button>
+        </div>
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+          2025 KBO 올스타전 {teamLabel}
+        </h2>
+        {renderAllStarSection('BEST 12', roster.best)}
+        {renderAllStarSection('감독 추천선수', roster.coachPicks)}
+        {renderAllStarSection(
+          '올스타 코칭스태프',
+          roster.coaches.map((c) => ({ ...c }))
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-3">
