@@ -1,0 +1,78 @@
+{
+  "dream": {
+    "best": [
+      {"position":"투수","role":"선발","playerName":"박세웅","team":"롯데"},
+      {"position":"투수","role":"중간","playerName":"배찬승","team":"삼성"},
+      {"position":"투수","role":"마무리","playerName":"김원중","team":"롯데"},
+      {"position":"포수","playerName":"강민호","team":"삼성"},
+      {"position":"1루수","playerName":"디아즈","team":"삼성"},
+      {"position":"2루수","playerName":"류지혁","team":"삼성"},
+      {"position":"3루수","playerName":"최정","team":"SSG"},
+      {"position":"유격수","playerName":"전민재","team":"롯데"},
+      {"position":"외야수","playerName":"구자욱","team":"삼성"},
+      {"position":"외야수","playerName":"김지찬","team":"삼성"},
+      {"position":"외야수","playerName":"레이예스","team":"롯데"},
+      {"position":"지명타자","playerName":"전준우","team":"롯데"}
+    ],
+    "coachPicks": [
+      {"position":"투수","playerName":"이호성","team":"삼성"},
+      {"position":"투수","playerName":"김택연","team":"두산"},
+      {"position":"투수","playerName":"박치국","team":"두산"},
+      {"position":"투수","playerName":"박영현","team":"KT"},
+      {"position":"투수","playerName":"우규민","team":"KT"},
+      {"position":"투수","playerName":"이로운","team":"SSG"},
+      {"position":"투수","playerName":"조병현","team":"SSG"},
+      {"position":"포수","playerName":"장성우","team":"KT"},
+      {"position":"포수","playerName":"조형우","team":"SSG"},
+      {"position":"내야수","playerName":"오명진","team":"두산"},
+      {"position":"내야수","playerName":"권동진","team":"KT"},
+      {"position":"외야수","playerName":"배정대","team":"KT"},
+      {"position":"외야수","playerName":"안현민","team":"KT"}
+    ],
+    "coaches": [
+      {"role":"감독","name":"박진만","team":"삼성"},
+      {"role":"코치","name":"조성환","team":"두산"},
+      {"role":"코치","name":"이강철","team":"KT"},
+      {"role":"코치","name":"이숭용","team":"SSG"},
+      {"role":"코치","name":"김태형","team":"롯데"}
+    ]
+  },
+  "nanum": {
+    "best": [
+      {"position":"투수","role":"선발","playerName":"폰세","team":"한화"},
+      {"position":"투수","role":"중간","playerName":"박상원","team":"한화"},
+      {"position":"투수","role":"마무리","playerName":"김서현","team":"한화"},
+      {"position":"포수","playerName":"박동원","team":"LG"},
+      {"position":"1루수","playerName":"채은성","team":"한화"},
+      {"position":"2루수","playerName":"박민우","team":"NC"},
+      {"position":"3루수","playerName":"송성문","team":"키움"},
+      {"position":"유격수","playerName":"박찬호","team":"KIA"},
+      {"position":"외야수","playerName":"박건우","team":"NC"},
+      {"position":"외야수","playerName":"이주형","team":"키움"},
+      {"position":"외야수","playerName":"박해민","team":"LG"},
+      {"position":"지명타자","playerName":"문현빈","team":"한화"}
+    ],
+    "coachPicks": [
+      {"position":"투수","playerName":"성영탁","team":"KIA"},
+      {"position":"투수","playerName":"최지민","team":"KIA"},
+      {"position":"투수","playerName":"김영우","team":"LG"},
+      {"position":"투수","playerName":"박명근","team":"LG"},
+      {"position":"투수","playerName":"배재환","team":"NC"},
+      {"position":"투수","playerName":"주승우","team":"키움"},
+      {"position":"투수","playerName":"하영민","team":"키움"},
+      {"position":"포수","playerName":"김태군","team":"KIA"},
+      {"position":"포수","playerName":"김형준","team":"NC"},
+      {"position":"내야수","playerName":"이도윤","team":"한화"},
+      {"position":"내야수","playerName":"김주원","team":"NC"},
+      {"position":"외야수","playerName":"김현수","team":"LG"},
+      {"position":"외야수","playerName":"김호령","team":"KIA"}
+    ],
+    "coaches": [
+      {"role":"감독","name":"이범호","team":"KIA"},
+      {"role":"코치","name":"염경엽","team":"LG"},
+      {"role":"코치","name":"김경문","team":"한화"},
+      {"role":"코치","name":"이호준","team":"NC"},
+      {"role":"코치","name":"홍원기","team":"키움"}
+    ]
+  }
+}

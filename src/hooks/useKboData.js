@@ -99,6 +99,7 @@ const useKboData = () => {
   const [rawSongs, setRawSongs] = useState([]);
   const [teamRanks, setTeamRanks] = useState([]);
   const [teamRankTime, setTeamRankTime] = useState(null);
+  const [allStarData, setAllStarData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -119,13 +120,14 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
 
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData] = await Promise.all([
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, allStar] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
         fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
         fetchSafeJson(`${base}/data/teamChants.json`, []),
         fetchSafeJson(`${base}/data/kboPlayers.json`, []),
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
         fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
+        fetchSafeJson(`${base}/data/allStar2025.json`, null),
       ]);
 
       console.log('로드된 데이터:', {
@@ -134,6 +136,7 @@ const useKboData = () => {
         teamChantsCount: teamChantsData?.length,
         kboPlayersCount: kboPlayersData?.length,
         teamRankCount: teamRankData?.results?.length,
+        allStarLoaded: !!allStar,
       });
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
@@ -419,12 +422,14 @@ const useKboData = () => {
         : [];
       setTeamRanks(ranks);
       setTeamRankTime(teamRankData?.crawl_time || null);
+      setAllStarData(allStar);
 
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
         gameLineups: finalLineups.length,
         teamChants: parsedTeamChants.length,
         teamRanks: ranks.length,
+        allStar: allStar ? 'loaded' : 'none',
       });
 
     } catch (err) {
@@ -450,6 +455,7 @@ const useKboData = () => {
     fetchJsonData,
     teamRanks,
     teamRankTime,
+    allStarData,
   };
 };
 
