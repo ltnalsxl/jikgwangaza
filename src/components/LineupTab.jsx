@@ -253,6 +253,19 @@ const LineupTab = ({
               selected.toDateString() === today.toDateString();
             const isPast = selected < new Date(today.toDateString());
             const isMonday = selected.getDay() === 1;
+            const isAllStarBreak =
+              // JavaScript months are zero-indexed, so add 1 for readability
+              selected.getMonth() + 1 === 7 &&
+              selected.getDate() >= 11 &&
+              selected.getDate() <= 16;
+            if (isAllStarBreak) {
+              return (
+                <>
+                  <p>올스타 브레이크입니다!</p>
+                  <p className="text-sm mt-2">7월 17일에 만나요!</p>
+                </>
+              );
+            }
             if (isMonday) {
               return (
                 <>
