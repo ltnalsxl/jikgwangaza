@@ -73,6 +73,18 @@ Run it after updating the Korean data:
 node scripts/generatePlayersEnglish.js
 ```
 
+## Generating All-Star song mapping
+
+`scripts/generateAllStarSongs.js` merges the All-Star roster with each player's
+cheer song information. The output is saved to
+`public/data/allStarSongs2025.json`.
+
+Run it whenever the All-Star or song data changes:
+
+```bash
+npm run build-allstar-songs
+```
+
 ## Crawling English player names
 
 `public/kbo_players_en_crawler.py` collects the official English names from
