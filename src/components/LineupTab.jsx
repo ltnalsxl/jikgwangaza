@@ -333,7 +333,7 @@ const LineupTab = ({
                   <p className="text-sm mt-2">🪫. . . 충 전 중 . . .🔋</p>
                   <p>올스타 브레이크 기간입니다</p>
 
-                  <p className="text-sm mt-2">7월 17일에 더 뜨거운 경기로 만나요!</p>
+                  <p className="text-sm mt-2">7월 17일 목요일에 만나요!</p>
                 </>
               );
             }
