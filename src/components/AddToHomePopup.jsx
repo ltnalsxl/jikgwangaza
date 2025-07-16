@@ -46,7 +46,7 @@ const AddToHomePopup = () => {
             <X className="w-5 h-5" />
           </button>
           <p className="text-center text-sm mb-4">
-            공유 {isIosSafari ? '⬆️' : <Share2 className="inline w-4 h-4 mx-1" />} 아이콘을 누르고 홈 화면에 추가를 선택해 주세요.
+            공유 {isIosSafari ? '' : <Share2 className="inline w-4 h-4 mx-1" />} 아이콘을 누르고 홈 화면에 추가를 선택해 주세요.
           </p>
           <button
             onClick={hideForDay}
