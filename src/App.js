@@ -35,7 +35,7 @@ import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
-import AddToHomePopup from './components/AddToHomePopup';
+// import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
 
 // simple helper to avoid logs in production
@@ -1020,7 +1020,7 @@ const getSortedChants = () => {
         )}
       </div>
       <Footer />
-      <AddToHomePopup />
+      {/* <AddToHomePopup /> */}
       {showTeamModal && <TeamSelectModal onSelect={handleInitialTeam} />}
       {showScheduleModal && (
         <div className="fixed inset-0 z-50 flex flex-col bg-black/50 backdrop-blur-sm">
