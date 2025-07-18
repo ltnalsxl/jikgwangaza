@@ -1,7 +1,8 @@
 import json
 import os
 from datetime import datetime, timezone, timedelta
-import requests
+from urllib.parse import urlencode
+from urllib.request import urlopen
 
 BASE_URL = "https://apis.data.go.kr/1360000/RoadWthrInfoService/getCctvStnRoadWthr"
 SERVICE_KEY = os.environ.get("GOKR_WEATHER_API_KEY")
@@ -35,9 +36,9 @@ for item in sources:
             "hhCode": "00",
         }
         try:
-            resp = requests.get(BASE_URL, params=params, timeout=10)
-            resp.raise_for_status()
-            data = resp.json()
+            url = BASE_URL + "?" + urlencode(params)
+            with urlopen(url, timeout=10) as resp:
+                data = json.load(resp)
             items = (
                 data.get("response", {})
                 .get("body", {})
