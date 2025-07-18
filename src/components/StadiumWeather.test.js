@@ -10,7 +10,11 @@ beforeEach(() => {
       ok: true,
       json: () =>
         Promise.resolve({
-          response: { body: { items: { item: [{ weatherNm: '맑음' }] } } },
+          updatedAt: '2025-07-18T17:00:00+09:00',
+          data: [
+            { eqmtId: '123', stadium: 'A', weatherNm: '맑음', team: 'T1' },
+            { eqmtId: '456', stadium: 'B', weatherNm: '흐림', team: 'T2' },
+          ],
         }),
     })
   );
