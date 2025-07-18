@@ -15,6 +15,39 @@ with open("public/data/stadiumCctvIds.json", "r", encoding="utf-8") as f:
 kst = timezone(timedelta(hours=9))
 now = datetime.now(kst)
 
+
+def fetch_weather(eqmt_id: str) -> dict | None:
+    """Fetch weather information for a single CCTV ID."""
+    params = {
+        "serviceKey": SERVICE_KEY,
+        "pageNo": "1",
+        "numOfRows": "1",
+        "dataType": "JSON",
+        "eqmtId": eqmt_id,
+        "hhCode": "00",
+    }
+    resp = requests.get(BASE_URL, params=params, timeout=10)
+    resp.raise_for_status()
+
+    data = resp.json()
+    header = data.get("response", {}).get("header", {})
+    if header.get("resultCode") != "00":
+        raise RuntimeError(
+            f"API error {header.get('resultCode')}: {header.get('resultMsg')}"
+        )
+
+    items = (
+        data.get("response", {})
+        .get("body", {})
+        .get("items", {})
+        .get("item")
+    )
+    if not items:
+        return None
+    if isinstance(items, list):
+        return items[0]
+    return items
+
 results = []
 for item in sources:
     eqmt_ids = item.get("eqmtIds") or [item.get("eqmtId")]
@@ -26,27 +59,10 @@ for item in sources:
     used_id = eqmt_ids[0]
 
     for eqmt_id in eqmt_ids:
-        params = {
-            "serviceKey": SERVICE_KEY,
-            "pageNo": "1",
-            "numOfRows": "1",
-            "dataType": "JSON",
-            "eqmtId": eqmt_id,
-            "hhCode": "00",
-        }
         try:
-            resp = requests.get(BASE_URL, params=params, timeout=10)
-            resp.raise_for_status()
-            data = resp.json()
-            items = (
-                data.get("response", {})
-                .get("body", {})
-                .get("items", {})
-                .get("item", [])
-            )
-            if not items:
+            info = fetch_weather(eqmt_id)
+            if not info:
                 continue
-            info = items[0]
             w = info.get("weatherNm", "정보없음")
             base_date = info.get("baseDate")
             base_time = info.get("baseTime")
