@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Calendar } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
+import useBallparkWeather from '../hooks/useBallparkWeather';
 
 const ALL_TEAMS = [
   'KIA',
@@ -21,8 +22,15 @@ const ScheduleTab = ({
   formatDateKorean,
   setSelectedDate,
   setActiveTab,
+  teamRanks,
 }) => {
   const [locationFilter, setLocationFilter] = useState('전체');
+  const weatherMap = useBallparkWeather();
+
+  const getRank = (team) => {
+    const r = teamRanks?.find((t) => t.team === team);
+    return r ? `${r.rank}위` : '';
+  };
 
   const schedules = gameLineups
     .filter((game) => game.team === selectedTeam)
@@ -71,13 +79,16 @@ const ScheduleTab = ({
           return (
             <div
               key={game.id}
-              onClick={() => { if (setSelectedDate) setSelectedDate(game.date); if (setActiveTab) setActiveTab("lineup"); }}
+              onClick={() => {
+                if (setSelectedDate) setSelectedDate(game.date);
+                if (setActiveTab) setActiveTab('lineup');
+              }}
               className={`cursor-pointer flex items-center justify-between rounded-lg p-3 shadow ${
                 isCanceled
-                ? 'bg-gray-100 dark:bg-gray-800 text-gray-500 line-through'
-                : 'bg-white dark:bg-gray-700'
-            }`}
-          >
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-500 line-through'
+                  : 'bg-white dark:bg-gray-700'
+              }`}
+            >
             <div className="flex items-center gap-2">
               {getTeamInfo(game.away).logo && (
                 <img
@@ -87,6 +98,11 @@ const ScheduleTab = ({
                 />
               )}
               <span className="font-medium">{game.away}</span>
+              {getRank(game.away) && (
+                <span className="text-xs text-gray-700 dark:text-gray-300 ml-1">
+                  {getRank(game.away)}
+                </span>
+              )}
               <span className="text-xs text-gray-500 dark:text-gray-400">(원정)</span>
               <span className="mx-1 text-gray-500 dark:text-gray-400">vs</span>
               {getTeamInfo(game.home).logo && (
@@ -97,21 +113,28 @@ const ScheduleTab = ({
                 />
               )}
               <span className="font-medium">{game.home}</span>
+              {getRank(game.home) && (
+                <span className="text-xs text-gray-700 dark:text-gray-300 ml-1">
+                  {getRank(game.home)}
+                </span>
+              )}
               <span className="text-xs text-gray-500 dark:text-gray-400">(홈)</span>
             </div>
-            <div className="text-sm text-right text-gray-600 dark:text-gray-300">
-                <div>
-                  {game.gameTime || '미정'} •{' '}
-                  {game.location || getTeamInfo(game.home).stadium}
-                </div>
-                <div>
-                  {formatDateKorean(game.date)}
-                  {displayStatus ? ` • ${displayStatus}` : ''}
-                </div>
+            <div className="text-sm text-right text-gray-600 dark:text-gray-300 leading-snug">
+              <div>
+                {game.location || getTeamInfo(game.home).stadium}
+                {weatherMap[game.location || getTeamInfo(game.home).stadium]
+                  ? ` • ${weatherMap[game.location || getTeamInfo(game.home).stadium]}`
+                  : ''}
+              </div>
+              <div>
+                {formatDateKorean(game.date)}
+                {displayStatus ? ` • ${displayStatus}` : ''}
               </div>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
     </div>
   );
 };
