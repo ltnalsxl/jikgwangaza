@@ -1020,6 +1020,7 @@ const getSortedChants = () => {
                 formatDateKorean={formatDateKorean}
                 setSelectedDate={setSelectedDate}
                 setActiveTab={setActiveTab}
+                teamRanks={teamRanks}
               />
             )}
           </>
@@ -1045,6 +1046,7 @@ const getSortedChants = () => {
               formatDateKorean={formatDateKorean}
               setSelectedDate={setSelectedDate}
               setActiveTab={setActiveTab}
+              teamRanks={teamRanks}
             />
           </div>
         </div>
