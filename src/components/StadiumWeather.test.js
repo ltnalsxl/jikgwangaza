@@ -30,4 +30,7 @@ test('renders weather list', async () => {
   // Wait for fetch
   const items = await screen.findAllByRole('listitem');
   expect(items.length).toBe(2);
+  expect(items[0].textContent).toContain('⚾ A');
+  expect(items[0].textContent).toContain('맑음');
+  expect(items[0].textContent).toContain('17:00');
 });
