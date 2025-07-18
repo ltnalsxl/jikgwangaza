@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const fetchWeather = async (eqmtId) => {
-  const baseUrl = 'http://apis.data.go.kr/1360000/RoadWthrInfoService/getCctvStnRoadWthr';
+  const baseUrl = 'https://apis.data.go.kr/1360000/RoadWthrInfoService/getCctvStnRoadWthr';
   const params = new URLSearchParams({
     serviceKey: process.env.REACT_APP_ROAD_API_KEY || '',
     pageNo: '1',
