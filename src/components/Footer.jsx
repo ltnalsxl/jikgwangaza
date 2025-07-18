@@ -6,6 +6,8 @@ const Footer = () => (
     <br />
     Created and maintained by Sumin Lee.
     <br />
+    Road weather data © Korea Meteorological Administration.
+    <br />
     <a
       href="mailto:jikgwangaza@gmail.com?subject=Bug%20Report"
       className="underline hover:text-blue-600"

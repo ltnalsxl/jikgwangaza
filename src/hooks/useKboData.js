@@ -100,6 +100,7 @@ const useKboData = () => {
   const [teamRanks, setTeamRanks] = useState([]);
   const [teamRankTime, setTeamRankTime] = useState(null);
   const [allStarData, setAllStarData] = useState(null);
+  const [stadiumCctvIds, setStadiumCctvIds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -120,7 +121,7 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
 
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, allStar] = await Promise.all([
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, allStar, stadiumCctvData] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
         fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
         fetchSafeJson(`${base}/data/teamChants.json`, []),
@@ -128,6 +129,7 @@ const useKboData = () => {
         fetchSafeJson(`${base}/data/gameLineups.json`, []),
         fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
         fetchSafeJson(`${base}/data/allStar2025.json`, null),
+        fetchSafeJson(`${base}/data/stadiumCctvIds.json`, []),
       ]);
 
       console.log('로드된 데이터:', {
@@ -137,6 +139,7 @@ const useKboData = () => {
         kboPlayersCount: kboPlayersData?.length,
         teamRankCount: teamRankData?.results?.length,
         allStarLoaded: !!allStar,
+        stadiumCctvCount: stadiumCctvData?.length,
       });
 
       const parsedKboPlayers = Array.isArray(kboPlayersData) ? kboPlayersData : [];
@@ -423,6 +426,7 @@ const useKboData = () => {
       setTeamRanks(ranks);
       setTeamRankTime(teamRankData?.crawl_time || null);
       setAllStarData(allStar);
+      setStadiumCctvIds(Array.isArray(stadiumCctvData) ? stadiumCctvData : []);
 
       console.log('최종 설정된 데이터:', {
         playerSongs: parsedSongs.length,
@@ -430,6 +434,7 @@ const useKboData = () => {
         teamChants: parsedTeamChants.length,
         teamRanks: ranks.length,
         allStar: allStar ? 'loaded' : 'none',
+        stadiumCctv: Array.isArray(stadiumCctvData) ? stadiumCctvData.length : 0,
       });
 
     } catch (err) {
@@ -456,6 +461,7 @@ const useKboData = () => {
     teamRanks,
     teamRankTime,
     allStarData,
+    stadiumCctvIds,
   };
 };
 
