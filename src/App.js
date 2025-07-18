@@ -35,6 +35,7 @@ import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
 import Footer from './components/Footer';
+import { mapEqmtIds } from './utils/weather';
 // import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
 
@@ -220,6 +221,7 @@ const JikgwanGaja = () => {
     teamRanks,
     teamRankTime,
     allStarData,
+    stadiumCctvIds,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
   const gameDatesForTeam = useMemo(
@@ -235,6 +237,9 @@ const JikgwanGaja = () => {
       ),
     [gameLineups, selectedTeam]
   );
+
+  const eqmtMap = useMemo(() => mapEqmtIds(stadiumCctvIds), [stadiumCctvIds]);
+  const selectedEqmtIds = eqmtMap[selectedTeam] || [];
 
   useEffect(() => {
     if (pendingPlayerName && playerSongs.length > 0) {
@@ -964,6 +969,7 @@ const getSortedChants = () => {
                 teamRanks={teamRanks}
                 getDisplayName={getDisplayName}
                 allStarData={allStarData}
+                eqmtIds={selectedEqmtIds}
               />
             )}
             {activeTab === 'teamChants' && (

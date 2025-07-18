@@ -155,5 +155,14 @@ On first visit the site asks you to choose your favorite team. The choice is sav
 in `localStorage` under `favoriteTeam` so it persists across sessions. If you want
 to pick again, clear your browser storage or remove that key.
 
+## Stadium road weather
+
+The app can display near-stadium road weather using the Korea Meteorological
+Administration's Road Weather API. The mapping of each KBO stadium to its CCTV
+IDs lives in `public/data/stadiumCctvIds.json`.
+
+Set the API key in your environment as `REACT_APP_ROAD_API_KEY` and the lineup
+tab will show a small section with live conditions.
+
 © 2025 직관가자. All rights reserved.
 Created and maintained by Sumin Lee.

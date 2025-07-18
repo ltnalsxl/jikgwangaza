@@ -3,6 +3,7 @@ import PlayerCard from './PlayerCard';
 import StartingPitcherCard from './StartingPitcherCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
+import StadiumWeather from './StadiumWeather';
 
 const LineupTab = ({
   currentLineup,
@@ -29,6 +30,7 @@ const LineupTab = ({
   teamRanks,
   getDisplayName,
   allStarData,
+  eqmtIds,
 }) => {
   const currentGame = getCurrentGame();
   const [allStarTeam, setAllStarTeam] = useState('dream');
@@ -125,6 +127,10 @@ const LineupTab = ({
           </button>
         </div>
       </div>
+
+      {eqmtIds && eqmtIds.length > 0 && (
+        <StadiumWeather eqmtIds={eqmtIds} />
+      )}
 
       {availableGames && availableGames.length > 1 && (
         <div className="mb-2">
