@@ -9,43 +9,76 @@ SERVICE_KEY = os.environ.get("GOKR_WEATHER_API_KEY")
 if not SERVICE_KEY:
     raise SystemExit("GOKR_WEATHER_API_KEY environment variable not set")
 
-with open("public/data/ballpark_weather_sources.json", "r", encoding="utf-8") as f:
+with open("public/data/stadiumCctvIds.json", "r", encoding="utf-8") as f:
     sources = json.load(f)
+
+kst = timezone(timedelta(hours=9))
+now = datetime.now(kst)
 
 results = []
 for item in sources:
-    params = {
-        "serviceKey": SERVICE_KEY,
-        "pageNo": "1",
-        "numOfRows": "1",
-        "dataType": "JSON",
-        "eqmtId": item["eqmtId"],
-        "hhCode": "00",
-    }
-    try:
-        resp = requests.get(BASE_URL, params=params, timeout=10)
-        resp.raise_for_status()
-        data = resp.json()
-        weather = (
-            data.get("response", {})
-            .get("body", {})
-            .get("items", {})
-            .get("item", [{}])[0]
-            .get("weatherNm", "정보없음")
-        )
-    except Exception as e:
-        print("Failed to fetch", item["eqmtId"], e)
-        weather = "정보없음"
-    results.append({
-        "team": item["team"],
-        "stadium": item["stadium"],
-        "weatherNm": weather,
-        "eqmtId": item["eqmtId"],
-    })
+    eqmt_ids = item.get("eqmtIds") or [item.get("eqmtId")]
+    eqmt_ids = [e for e in eqmt_ids if e]
+    if not eqmt_ids:
+        continue
 
-kst = timezone(timedelta(hours=9))
+    weather = "정보없음"
+    used_id = eqmt_ids[0]
+
+    for eqmt_id in eqmt_ids:
+        params = {
+            "serviceKey": SERVICE_KEY,
+            "pageNo": "1",
+            "numOfRows": "1",
+            "dataType": "JSON",
+            "eqmtId": eqmt_id,
+            "hhCode": "00",
+        }
+        try:
+            resp = requests.get(BASE_URL, params=params, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+            items = (
+                data.get("response", {})
+                .get("body", {})
+                .get("items", {})
+                .get("item", [])
+            )
+            if not items:
+                continue
+            info = items[0]
+            w = info.get("weatherNm", "정보없음")
+            base_date = info.get("baseDate")
+            base_time = info.get("baseTime")
+            base_dt = None
+            if base_date and base_time:
+                try:
+                    base_dt = datetime.strptime(
+                        base_date + base_time, "%Y%m%d%H%M"
+                    ).replace(tzinfo=kst)
+                except ValueError:
+                    base_dt = None
+
+            if w != "정보없음" and (
+                base_dt is None or now - base_dt <= timedelta(hours=2)
+            ):
+                weather = w
+                used_id = eqmt_id
+                break
+        except Exception as e:
+            print("Failed to fetch", eqmt_id, e)
+
+    results.append(
+        {
+            "team": item["team"],
+            "stadium": item.get("stadiumName") or item.get("stadium"),
+            "weatherNm": weather,
+            "eqmtId": used_id,
+        }
+    )
+
 output = {
-    "updatedAt": datetime.now(kst).isoformat(),
+    "updatedAt": now.isoformat(),
     "data": results,
 }
 
