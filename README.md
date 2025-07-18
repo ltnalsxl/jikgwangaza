@@ -157,12 +157,11 @@ to pick again, clear your browser storage or remove that key.
 
 ## Stadium road weather
 
-The app can display near-stadium road weather using the Korea Meteorological
-Administration's Road Weather API. The mapping of each KBO stadium to its CCTV
-IDs lives in `public/data/stadiumCctvIds.json`.
-
-Set the API key in your environment as `REACT_APP_ROAD_API_KEY` and the lineup
-tab will show a small section with live conditions.
+The app shows near-stadium road weather from the Korea Meteorological
+Administration. A GitHub Actions workflow runs `update_weather.py` regularly and
+writes the latest results to `public/data/kboBallparkWeather.json`. The mapping
+of each ballpark to its CCTV ID lives in `public/data/ballpark_weather_sources.json`.
+The workflow uses the secret `GOKR_WEATHER_API_KEY` when calling the API.
 
 © 2025 직관가자. All rights reserved.
 Created and maintained by Sumin Lee.

@@ -1,53 +1,43 @@
 import React, { useEffect, useState } from 'react';
 
-const fetchWeather = async (eqmtId) => {
-  const baseUrl = 'https://apis.data.go.kr/1360000/RoadWthrInfoService/getCctvStnRoadWthr';
-  const params = new URLSearchParams({
-    serviceKey: process.env.REACT_APP_ROAD_API_KEY || '',
-    pageNo: '1',
-    numOfRows: '1',
-    dataType: 'JSON',
-    eqmtId,
-    hhCode: '00',
-  });
-
-  try {
-    const res = await fetch(`${baseUrl}?${params.toString()}`);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    const item = data?.response?.body?.items?.item?.[0];
-    return item?.weatherNm || '정보없음';
-  } catch (err) {
-    console.warn('날씨 조회 실패', err);
-    return '정보없음';
-  }
-};
-
 const StadiumWeather = ({ eqmtIds = [] }) => {
-  const [results, setResults] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    const run = async () => {
-      const outs = [];
-      for (const id of eqmtIds) {
-        outs.push({ id, weather: await fetchWeather(id) });
+    const load = async () => {
+      try {
+        const base = process.env.PUBLIC_URL || '';
+        const res = await fetch(`${base}/data/kboBallparkWeather.json`);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const json = await res.json();
+        setData(json);
+      } catch (err) {
+        console.warn('날씨 데이터 로드 실패', err);
       }
-      setResults(outs);
     };
-    if (eqmtIds.length > 0) {
-      run();
-    }
-  }, [eqmtIds]);
+    load();
+  }, []);
 
-  if (!eqmtIds.length) return null;
+  if (!eqmtIds.length || !data) return null;
+
+  const items = data.data.filter((d) => eqmtIds.includes(d.eqmtId));
+  if (items.length === 0) return null;
+
+  const timeLabel = data.updatedAt
+    ? `기준 시각: ${new Date(data.updatedAt).toLocaleTimeString('ko-KR', {
+        hour: '2-digit',
+        minute: '2-digit',
+      })}`
+    : null;
 
   return (
     <div className="text-sm mb-3" data-testid="stadium-weather">
       <h3 className="font-semibold mb-1">구장 주변 도로 날씨</h3>
+      {timeLabel && <p className="text-gray-500 mb-1">{timeLabel}</p>}
       <ul className="list-disc list-inside space-y-1">
-        {results.map((r) => (
-          <li key={r.id}>
-            {r.id}: {r.weather}
+        {items.map((r) => (
+          <li key={r.eqmtId}>
+            {r.stadium}: {r.weatherNm}
           </li>
         ))}
       </ul>
