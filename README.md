@@ -155,16 +155,6 @@ On first visit the site asks you to choose your favorite team. The choice is sav
 in `localStorage` under `favoriteTeam` so it persists across sessions. If you want
 to pick again, clear your browser storage or remove that key.
 
-## Stadium road weather
-
-The app shows near-stadium road weather from the Korea Meteorological
-Administration. A GitHub Actions workflow runs `update_weather.py` regularly and
-writes the latest results to `public/data/kboBallparkWeather.json`. The mapping
-of each ballpark to one or more nearby CCTV IDs lives in
-`public/data/stadiumCctvIds.json`. The update script queries each ID in order and
-uses the most recent result, falling back to "정보없음" when no fresh data is
-available. The workflow uses the secret `GOKR_WEATHER_API_KEY` when calling the
-API.
 
 © 2025 직관가자. All rights reserved.
 Created and maintained by Sumin Lee.
