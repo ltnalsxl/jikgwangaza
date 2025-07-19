@@ -248,7 +248,11 @@ const LineupTab = ({
             </button>
           )}
           {showWeather && (
-            <BallparkWeatherModal forecast={forecast} onClose={() => setShowWeather(false)} />
+            <BallparkWeatherModal
+              forecast={forecast}
+              updatedAt={ballparkForecast?.updatedAt}
+              onClose={() => setShowWeather(false)}
+            />
           )}
 
           {currentGame.canceled ? (

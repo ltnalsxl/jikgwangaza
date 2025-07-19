@@ -1,7 +1,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 
-const BallparkWeatherModal = ({ forecast, onClose }) => {
+const BallparkWeatherModal = ({ forecast, updatedAt, onClose }) => {
   if (!forecast) return null;
 
   const skyMap = { '1': '맑음', '3': '구름많음', '4': '흐림' };
@@ -10,6 +10,21 @@ const BallparkWeatherModal = ({ forecast, onClose }) => {
   const entries = Object.entries(forecast.forecasts || {}).sort(
     ([a], [b]) => parseInt(a) - parseInt(b)
   );
+
+  const formatUpdatedAt = (iso) => {
+    try {
+      const d = new Date(iso);
+      if (isNaN(d)) return '';
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const h = String(d.getHours()).padStart(2, '0');
+      const min = String(d.getMinutes()).padStart(2, '0');
+      return `${y}년 ${m}월 ${day}일 ${h}시 ${min}분`;
+    } catch (e) {
+      return '';
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
@@ -20,6 +35,11 @@ const BallparkWeatherModal = ({ forecast, onClose }) => {
             <X className="w-5 h-5" />
           </button>
         </div>
+        {updatedAt && (
+          <p className="text-right text-xs text-gray-500 dark:text-gray-400 mb-2">
+            {formatUpdatedAt(updatedAt)} 기준
+          </p>
+        )}
         <div className="overflow-y-auto max-h-[70vh]">
           <table className="w-full text-sm">
             <thead>
