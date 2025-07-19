@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import StartingPitcherCard from './StartingPitcherCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
+import BallparkWeather from './BallparkWeather';
 import { getTeamInfo } from '../utils/team';
 
 const LineupTab = ({
@@ -29,6 +30,7 @@ const LineupTab = ({
   teamRanks,
   getDisplayName,
   allStarData,
+  ballparkForecast,
 }) => {
   const currentGame = getCurrentGame();
   const [allStarTeam, setAllStarTeam] = useState('dream');
@@ -37,6 +39,13 @@ const LineupTab = ({
     const r = teamRanks?.find((t) => t.team === team);
     return r ? `${r.rank}위` : '';
   };
+
+  const forecast =
+    currentGame && ballparkForecast?.data
+      ? ballparkForecast.data.find((f) =>
+          f.team.includes(getTeamInfo(currentGame.home).fullNameEn)
+        )
+      : null;
 
   const renderAllStarSection = (title, items) => (
     <div className="mb-4">
@@ -219,6 +228,7 @@ const LineupTab = ({
               </div>
             </div>
           </div>
+          <BallparkWeather forecast={forecast} gameTime={currentGame.gameTime} />
 
           {currentGame.canceled ? (
             <div className="text-center py-8 text-gray-500">
