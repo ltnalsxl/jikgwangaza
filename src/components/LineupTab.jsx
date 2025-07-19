@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import StartingPitcherCard from './StartingPitcherCard';
-import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
+import { RefreshCw, AlertCircle, Music, Circle, Share2, CloudSun } from 'lucide-react';
 import BallparkWeather from './BallparkWeather';
+import BallparkWeatherModal from './BallparkWeatherModal';
 import { getTeamInfo } from '../utils/team';
 
 const LineupTab = ({
@@ -34,6 +35,7 @@ const LineupTab = ({
 }) => {
   const currentGame = getCurrentGame();
   const [allStarTeam, setAllStarTeam] = useState('dream');
+  const [showWeather, setShowWeather] = useState(false);
   const isAllStarDay = selectedDate === '2025-07-12';
   const getRank = (team) => {
     const r = teamRanks?.find((t) => t.team === team);
@@ -229,6 +231,17 @@ const LineupTab = ({
             </div>
           </div>
           <BallparkWeather forecast={forecast} gameTime={currentGame.gameTime} />
+          {forecast && (
+            <button
+              onClick={() => setShowWeather(true)}
+              className="mt-2 flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              <CloudSun className="w-4 h-4" /> 구장 날씨 보기
+            </button>
+          )}
+          {showWeather && (
+            <BallparkWeatherModal forecast={forecast} onClose={() => setShowWeather(false)} />
+          )}
 
           {currentGame.canceled ? (
             <div className="text-center py-8 text-gray-500">
