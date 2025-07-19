@@ -3,8 +3,6 @@ import PlayerCard from './PlayerCard';
 import StartingPitcherCard from './StartingPitcherCard';
 import { RefreshCw, AlertCircle, Music, Circle, Share2 } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
-import StadiumWeather from './StadiumWeather';
-import useBallparkWeather from '../hooks/useBallparkWeather';
 
 const LineupTab = ({
   currentLineup,
@@ -31,10 +29,8 @@ const LineupTab = ({
   teamRanks,
   getDisplayName,
   allStarData,
-  eqmtIds,
 }) => {
   const currentGame = getCurrentGame();
-  const weatherMap = useBallparkWeather();
   const [allStarTeam, setAllStarTeam] = useState('dream');
   const isAllStarDay = selectedDate === '2025-07-12';
   const getRank = (team) => {
@@ -130,10 +126,6 @@ const LineupTab = ({
         </div>
       </div>
 
-      {eqmtIds && eqmtIds.length > 0 && (
-        <StadiumWeather eqmtIds={eqmtIds} />
-      )}
-
       {availableGames && availableGames.length > 1 && (
         <div className="mb-2">
           <select
@@ -203,9 +195,6 @@ const LineupTab = ({
                 <div className="text-sm text-gray-600 dark:text-gray-300 leading-snug">
                   <div>
                     {currentGame.location || getTeamInfo(currentGame.home).stadium}
-                    {weatherMap[currentGame.location || getTeamInfo(currentGame.home).stadium]
-                      ? ` • ${weatherMap[currentGame.location || getTeamInfo(currentGame.home).stadium]}`
-                      : ''}
                   </div>
                   <div>
                     {formatDateKorean(currentGame.date)}
