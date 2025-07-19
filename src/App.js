@@ -220,6 +220,7 @@ const JikgwanGaja = () => {
     teamRanks,
     teamRankTime,
     allStarData,
+    ballparkForecast,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
   const gameDatesForTeam = useMemo(
@@ -965,6 +966,7 @@ const getSortedChants = () => {
                 teamRanks={teamRanks}
                 getDisplayName={getDisplayName}
                 allStarData={allStarData}
+                ballparkForecast={ballparkForecast}
               />
             )}
             {activeTab === 'teamChants' && (
