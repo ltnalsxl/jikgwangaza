@@ -216,9 +216,6 @@ const LineupTab = ({
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300 leading-snug">
                   <div>
-                    {currentGame.location || getTeamInfo(currentGame.home).stadium}
-                  </div>
-                  <div>
                     {formatDateKorean(currentGame.date)}
                     {(() => {
                       const isCanceled =
