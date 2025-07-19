@@ -42,8 +42,19 @@ const LineupTab = ({
     return r ? `${r.rank}위` : '';
   };
 
+  const isWeatherToday =
+    ballparkForecast?.updatedAt &&
+    new Date(ballparkForecast.updatedAt).toDateString() ===
+      new Date().toDateString();
+
+  const isSelectedDateToday =
+    new Date(selectedDate).toDateString() === new Date().toDateString();
+
   const forecast =
-    currentGame && ballparkForecast?.data
+    currentGame &&
+    ballparkForecast?.data &&
+    isWeatherToday &&
+    isSelectedDateToday
       ? ballparkForecast.data.find((f) =>
           f.team.includes(getTeamInfo(currentGame.home).fullNameEn)
         )
