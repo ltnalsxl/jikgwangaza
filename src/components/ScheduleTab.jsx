@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Calendar } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
-import useBallparkWeather from '../hooks/useBallparkWeather';
 
 const ALL_TEAMS = [
   'KIA',
@@ -25,7 +24,6 @@ const ScheduleTab = ({
   teamRanks,
 }) => {
   const [locationFilter, setLocationFilter] = useState('전체');
-  const weatherMap = useBallparkWeather();
 
   const getRank = (team) => {
     const r = teamRanks?.find((t) => t.team === team);
@@ -123,9 +121,6 @@ const ScheduleTab = ({
             <div className="text-sm text-right text-gray-600 dark:text-gray-300 leading-snug">
               <div>
                 {game.location || getTeamInfo(game.home).stadium}
-                {weatherMap[game.location || getTeamInfo(game.home).stadium]
-                  ? ` • ${weatherMap[game.location || getTeamInfo(game.home).stadium]}`
-                  : ''}
               </div>
               <div>
                 {formatDateKorean(game.date)}
