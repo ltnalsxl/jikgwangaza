@@ -230,7 +230,13 @@ const JikgwanGaja = () => {
           .filter((game) => {
             const parts = game.id.split('_');
             const team = parts[parts.length - 1];
-            return parts.length >= 2 && team === selectedTeam;
+            const isCanceled = game.canceled ||
+              (game.gameStatus && game.gameStatus.includes('취소'));
+            return (
+              parts.length >= 2 &&
+              team === selectedTeam &&
+              !isCanceled
+            );
           })
           .map((game) => game.id.split('_')[0])
       ),
