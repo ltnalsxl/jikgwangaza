@@ -112,12 +112,13 @@ python public/kbo_schedule_crawler.py --start 2025-03-25 --end 2025-03-30 --outp
 
 ## Automated daily crawl
 
-Four GitHub Actions workflows keep the data updated:
+Five GitHub Actions workflows keep the data updated:
 
 - `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day and rebuilds `public/data/kbo_crawler_data/index.json`.
 - `.github/workflows/player-crawl.yml` updates `public/data/kboPlayers.json` daily at 00:00 UTC.
 - `.github/workflows/team-rank-crawl.yml` refreshes `public/data/teamRank.json` once per day.
 - `.github/workflows/schedule-crawl.yml` updates `public/data/kboSchedule.json` once per day.
+- `.github/workflows/weather-crawl.yml` refreshes `public/data/kboBallparkForecast.json` hourly.
 
 All workflows commit any changes back to the repository automatically.
 
