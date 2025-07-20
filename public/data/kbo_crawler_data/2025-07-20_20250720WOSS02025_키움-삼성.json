@@ -27,7 +27,80 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "65357",
+          "name": "송성문",
+          "batting_order": 1,
+          "position": "3루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "64340",
+          "name": "임지열",
+          "batting_order": 2,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50167",
+          "name": "이주형",
+          "batting_order": 3,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "76267",
+          "name": "최주환",
+          "batting_order": 4,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55326",
+          "name": "스톤",
+          "batting_order": 5,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69332",
+          "name": "주성원",
+          "batting_order": 6,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55392",
+          "name": "어준서",
+          "batting_order": 7,
+          "position": "유격수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53312",
+          "name": "김건희",
+          "batting_order": 8,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55397",
+          "name": "전태현",
+          "batting_order": 9,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        }
+      ]
     },
     "team_2": {
       "team_name": "삼성",
@@ -39,9 +112,82 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "62234",
+          "name": "류지혁",
+          "batting_order": 1,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "67449",
+          "name": "김성윤",
+          "batting_order": 2,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62404",
+          "name": "구자욱",
+          "batting_order": 3,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54400",
+          "name": "디아즈",
+          "batting_order": 4,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52430",
+          "name": "김영웅",
+          "batting_order": 5,
+          "position": "3루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62360",
+          "name": "김태훈",
+          "batting_order": 6,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "74540",
+          "name": "강민호",
+          "batting_order": 7,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "66409",
+          "name": "이성규",
+          "batting_order": 8,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52415",
+          "name": "이재현",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     }
   },
   "lineup_status": "confirmed",
-  "crawl_time": "2025-07-20T07:47:46.865044"
+  "crawl_time": "2025-07-20T08:20:30.967013"
 }
