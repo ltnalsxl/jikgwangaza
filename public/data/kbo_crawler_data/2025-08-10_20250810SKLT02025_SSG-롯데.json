@@ -27,7 +27,80 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "67893",
+          "name": "박성한",
+          "batting_order": 1,
+          "position": "유격수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53827",
+          "name": "에레디아",
+          "batting_order": 2,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "75847",
+          "name": "최정",
+          "batting_order": 3,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62895",
+          "name": "한유섬",
+          "batting_order": 4,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50840",
+          "name": "현원회",
+          "batting_order": 5,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50854",
+          "name": "최지훈",
+          "batting_order": 6,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69813",
+          "name": "하재훈",
+          "batting_order": 7,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "76802",
+          "name": "김성현",
+          "batting_order": 8,
+          "position": "2루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "51865",
+          "name": "조형우",
+          "batting_order": 9,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     },
     "team_2": {
       "team_name": "롯데",
@@ -39,9 +112,82 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "50500",
+          "name": "황성빈",
+          "batting_order": 1,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52568",
+          "name": "한태양",
+          "batting_order": 2,
+          "position": "2루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69517",
+          "name": "고승민",
+          "batting_order": 3,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54529",
+          "name": "레이예스",
+          "batting_order": 4,
+          "position": "좌익수",
+          "batting_hand": "양타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "61102",
+          "name": "유강남",
+          "batting_order": 5,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52591",
+          "name": "윤동희",
+          "batting_order": 6,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50150",
+          "name": "손호영",
+          "batting_order": 7,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "77564",
+          "name": "김민성",
+          "batting_order": 8,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68205",
+          "name": "전민재",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     }
   },
   "lineup_status": "confirmed",
-  "crawl_time": "2025-08-10T07:45:59.645247"
+  "crawl_time": "2025-08-10T08:19:13.909983"
 }
