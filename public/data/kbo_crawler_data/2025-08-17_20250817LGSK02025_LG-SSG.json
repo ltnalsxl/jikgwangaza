@@ -1,0 +1,47 @@
+{
+  "date": "2025-08-17",
+  "game_code": "20250817LGSK02025",
+  "game_time": "경기 시간\n18:00",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "LG",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250817LGSK02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": {
+        "player_id": "61101",
+        "name": "임찬규",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "SSG",
+      "team_code": "SK",
+      "starting_pitcher": {
+        "player_id": "68856",
+        "name": "최민준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-08-17T06:19:56.930683"
+}
