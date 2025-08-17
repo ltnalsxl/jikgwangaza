@@ -1,9 +1,28 @@
 {
-  "crawl_time": "2025-08-16T01:08:07.143760",
+  "crawl_time": "2025-08-17T01:16:33.101338",
   "results": [
     {
-      "date": "2025-08-16",
-      "game_code": "20250816HHNC02025",
+      "date": "2025-08-17",
+      "game_code": "20250817KTWO02025",
+      "game_time": "경기 시간\n14:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "KT",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "키움",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250817KTWO02025/lineup"
+    },
+    {
+      "date": "2025-08-17",
+      "game_code": "20250817HHNC02025",
       "game_time": "경기 시간\n18:00",
       "game_status": "예정",
       "teams": [
@@ -18,11 +37,11 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250816HHNC02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250817HHNC02025/lineup"
     },
     {
-      "date": "2025-08-16",
-      "game_code": "20250816HTOB02025",
+      "date": "2025-08-17",
+      "game_code": "20250817HTOB02025",
       "game_time": "경기 시간\n18:00",
       "game_status": "예정",
       "teams": [
@@ -37,30 +56,11 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250816HTOB02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250817HTOB02025/lineup"
     },
     {
-      "date": "2025-08-16",
-      "game_code": "20250816KTWO02025",
-      "game_time": "경기 시간\n18:00",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "KT",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "키움",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20250816KTWO02025/lineup"
-    },
-    {
-      "date": "2025-08-16",
-      "game_code": "20250816LGSK02025",
+      "date": "2025-08-17",
+      "game_code": "20250817LGSK02025",
       "game_time": "경기 시간\n18:00",
       "game_status": "예정",
       "teams": [
@@ -75,11 +75,11 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250816LGSK02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250817LGSK02025/lineup"
     },
     {
-      "date": "2025-08-16",
-      "game_code": "20250816SSLT02025",
+      "date": "2025-08-17",
+      "game_code": "20250817SSLT02025",
       "game_time": "경기 시간\n18:00",
       "game_status": "예정",
       "teams": [
@@ -94,7 +94,7 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250816SSLT02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250817SSLT02025/lineup"
     }
   ]
 }
