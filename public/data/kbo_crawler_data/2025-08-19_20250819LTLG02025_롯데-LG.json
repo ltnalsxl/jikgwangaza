@@ -1,0 +1,47 @@
+{
+  "date": "2025-08-19",
+  "game_code": "20250819LTLG02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "롯데",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "LG",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250819LTLG02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "롯데",
+      "team_code": "LT",
+      "starting_pitcher": {
+        "player_id": "55526",
+        "name": "벨라스케즈",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": {
+        "player_id": "55130",
+        "name": "톨허스트",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-08-19T06:19:13.569665"
+}
