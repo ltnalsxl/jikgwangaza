@@ -1,90 +1,33 @@
 {
-  "crawl_time": "2025-08-21T01:06:41.169894",
+  "crawl_time": "2025-08-22T01:07:09.407414",
   "results": [
     {
-      "date": "2025-08-21",
-      "game_code": "20250821LTLG02025",
+      "date": "2025-08-22",
+      "game_code": "20250822KTOB02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
-        {
-          "name": "롯데",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "LG",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20250821LTLG02025/lineup"
-    },
-    {
-      "date": "2025-08-21",
-      "game_code": "20250821OBHH02025",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "두산",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "한화",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20250821OBHH02025/lineup"
-    },
-    {
-      "date": "2025-08-21",
-      "game_code": "20250821SKKT02025",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "SSG",
-          "score": "-",
-          "is_home": false
-        },
         {
           "name": "KT",
           "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20250821SKKT02025/lineup"
-    },
-    {
-      "date": "2025-08-21",
-      "game_code": "20250821SSNC02025",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "삼성",
-          "score": "-",
           "is_home": false
         },
         {
-          "name": "NC",
+          "name": "두산",
           "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250821SSNC02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250822KTOB02025/lineup"
     },
     {
-      "date": "2025-08-21",
-      "game_code": "20250821WOHT02025",
+      "date": "2025-08-22",
+      "game_code": "20250822LGHT02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
         {
-          "name": "키움",
+          "name": "LG",
           "score": "-",
           "is_home": false
         },
@@ -94,7 +37,64 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250821WOHT02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250822LGHT02025/lineup"
+    },
+    {
+      "date": "2025-08-22",
+      "game_code": "20250822LTNC02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "롯데",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "NC",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250822LTNC02025/lineup"
+    },
+    {
+      "date": "2025-08-22",
+      "game_code": "20250822SKHH02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "SSG",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "한화",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250822SKHH02025/lineup"
+    },
+    {
+      "date": "2025-08-22",
+      "game_code": "20250822WOSS02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "키움",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250822WOSS02025/lineup"
     }
   ]
 }
