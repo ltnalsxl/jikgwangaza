@@ -290,13 +290,13 @@
   {
     "teamCode": "HH",
     "teamName": "한화",
-    "number": "96",
+    "number": "",
     "playerName": "문승진",
     "position": "투수",
     "throwBat": "",
     "birth": "2002-04-02T00:00:00Z",
     "body": "185cm, 91kg",
-    "school": "서울청구초-홍은중-서울고",
+    "school": "서울청구초-홍은중-서울고-한화",
     "playerId": "51705"
   },
   {
@@ -5834,13 +5834,13 @@
   {
     "teamCode": "WO",
     "teamName": "키움",
-    "number": "27",
+    "number": "",
     "playerName": "강진성",
     "position": "내야수",
     "throwBat": "",
     "birth": "1993-10-19T00:00:00Z",
     "body": "176cm, 89kg",
-    "school": "가동초-잠신중-경기고-NC-경찰-NC-두산-SSG",
+    "school": "가동초-잠신중-경기고-NC-경찰-NC-두산-SSG-키움",
     "playerId": "62925"
   },
   {
@@ -6554,7 +6554,7 @@
   {
     "teamCode": "WO",
     "teamName": "키움",
-    "number": "34",
+    "number": "",
     "playerName": "이명기",
     "position": "내야수",
     "throwBat": "",
@@ -6746,13 +6746,13 @@
   {
     "teamCode": "WO",
     "teamName": "키움",
-    "number": "18",
+    "number": "",
     "playerName": "장필준",
     "position": "투수",
     "throwBat": "",
     "birth": "1988-04-08T00:00:00Z",
     "body": "190cm, 90kg",
-    "school": "온양온천초-온양중-북일고-상무-삼성",
+    "school": "온양온천초-온양중-북일고-상무-삼성-키움",
     "playerId": "77927"
   },
   {
@@ -9518,6 +9518,18 @@
   {
     "teamCode": "SK",
     "teamName": "SSG",
+    "number": "",
+    "playerName": "박대온",
+    "position": "포수",
+    "throwBat": "",
+    "birth": "1995-08-28T00:00:00Z",
+    "body": "182cm, 85kg",
+    "school": "서울도곡초-서울이수중-휘문고-NC-SSG",
+    "playerId": "64944"
+  },
+  {
+    "teamCode": "SK",
+    "teamName": "SSG",
     "number": "07",
     "playerName": "박명현",
     "position": "투수",
@@ -10064,7 +10076,7 @@
     "throwBat": "",
     "birth": "1996-04-16T00:00:00Z",
     "body": "179cm, 76kg",
-    "school": "강남초-선린중-신일고-LG",
+    "school": "강남초-선린중-신일고-LG-SSG",
     "playerId": "65157"
   },
   {
@@ -10076,7 +10088,7 @@
     "throwBat": "",
     "birth": "1999-08-20T00:00:00Z",
     "body": "178cm, 75kg",
-    "school": "석교초-청주중-북일고",
+    "school": "석교초-청주중-북일고-SSG",
     "playerId": "68805"
   },
   {
@@ -10526,18 +10538,6 @@
   {
     "teamCode": "KT",
     "teamName": "KT",
-    "number": "2",
-    "playerName": "박민석",
-    "position": "내야수",
-    "throwBat": "",
-    "birth": "2000-04-13T00:00:00Z",
-    "body": "180cm, 77kg",
-    "school": "성동초-덕수중-장충고",
-    "playerId": "69056"
-  },
-  {
-    "teamCode": "KT",
-    "teamName": "KT",
     "number": "104",
     "playerName": "박민석",
     "position": "외야수",
@@ -10546,6 +10546,18 @@
     "body": "178cm, 83kg",
     "school": "남정초-건대부중-덕수고",
     "playerId": "55004"
+  },
+  {
+    "teamCode": "KT",
+    "teamName": "KT",
+    "number": "2",
+    "playerName": "박민석",
+    "position": "내야수",
+    "throwBat": "",
+    "birth": "2000-04-13T00:00:00Z",
+    "body": "180cm, 77kg",
+    "school": "성동초-덕수중-장충고",
+    "playerId": "69056"
   },
   {
     "teamCode": "KT",
