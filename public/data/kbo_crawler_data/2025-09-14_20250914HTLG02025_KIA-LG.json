@@ -1,0 +1,47 @@
+{
+  "date": "2025-09-14",
+  "game_code": "20250914HTLG02025",
+  "game_time": "경기 시간\n17:00",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "KIA",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "LG",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250914HTLG02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "KIA",
+      "team_code": "HT",
+      "starting_pitcher": {
+        "player_id": "77637",
+        "name": "양현종",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": {
+        "player_id": "55130",
+        "name": "톨허스트",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-09-14T06:21:36.481683"
+}
