@@ -1,28 +1,28 @@
 {
   "date": "2025-09-17",
-  "game_code": "20250917LGKT02025",
+  "game_code": "20250917SKNC02025",
   "game_time": "경기 시간\n18:30",
   "game_status": "예정",
   "teams": [
     {
-      "name": "LG",
+      "name": "SSG",
       "score": "-",
       "is_home": false
     },
     {
-      "name": "KT",
+      "name": "NC",
       "score": "-",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20250917LGKT02025/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/20250917SKNC02025/lineup",
   "starting_lineups": {
     "team_1": {
-      "team_name": "LG",
-      "team_code": "LG",
+      "team_name": "SSG",
+      "team_code": "SK",
       "starting_pitcher": {
-        "player_id": "55146",
-        "name": "치리노스",
+        "player_id": "62869",
+        "name": "문승원",
         "throwing_hand": "우투",
         "position": "투수",
         "role": "선발투수"
@@ -30,11 +30,11 @@
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "KT",
-      "team_code": "KT",
+      "team_name": "NC",
+      "team_code": "NC",
       "starting_pitcher": {
-        "player_id": "55032",
-        "name": "패트릭",
+        "player_id": "68902",
+        "name": "신민혁",
         "throwing_hand": "우투",
         "position": "투수",
         "role": "선발투수"
@@ -43,5 +43,5 @@
     }
   },
   "lineup_status": "confirmed",
-  "crawl_time": "2025-09-17T07:17:35.715223"
+  "crawl_time": "2025-09-17T07:18:52.723158"
 }
