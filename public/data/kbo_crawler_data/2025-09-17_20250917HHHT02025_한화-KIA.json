@@ -1,0 +1,47 @@
+{
+  "date": "2025-09-17",
+  "game_code": "20250917HHHT02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "한화",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "KIA",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250917HHHT02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "한화",
+      "team_code": "HH",
+      "starting_pitcher": {
+        "player_id": "76715",
+        "name": "류현진",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "KIA",
+      "team_code": "HT",
+      "starting_pitcher": {
+        "player_id": "76225",
+        "name": "김건국",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-09-17T06:21:40.520725"
+}
