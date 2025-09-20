@@ -1,0 +1,47 @@
+{
+  "date": "2025-09-20",
+  "game_code": "20250920HHKT02025",
+  "game_time": "경기 시간\n17:00",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "한화",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "KT",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20250920HHKT02025/lineup",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "한화",
+      "team_code": "HH",
+      "starting_pitcher": {
+        "player_id": "55730",
+        "name": "폰세",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "KT",
+      "team_code": "KT",
+      "starting_pitcher": {
+        "player_id": "64001",
+        "name": "고영표",
+        "throwing_hand": "",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2025-09-20T06:18:22.810805"
+}
