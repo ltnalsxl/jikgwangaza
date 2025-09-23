@@ -1,14 +1,14 @@
 {
-  "crawl_time": "2025-09-22T01:07:29.707950",
+  "crawl_time": "2025-09-23T01:02:09.205649",
   "results": [
     {
-      "date": "2025-09-22",
-      "game_code": "20250922OBSK02025",
+      "date": "2025-09-23",
+      "game_code": "20250923HTSK02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
         {
-          "name": "두산",
+          "name": "KIA",
           "score": "-",
           "is_home": false
         },
@@ -18,7 +18,64 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250922OBSK02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250923HTSK02025/lineup"
+    },
+    {
+      "date": "2025-09-23",
+      "game_code": "20250923NCLT02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "NC",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "롯데",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250923NCLT02025/lineup"
+    },
+    {
+      "date": "2025-09-23",
+      "game_code": "20250923OBSS02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "두산",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250923OBSS02025/lineup"
+    },
+    {
+      "date": "2025-09-23",
+      "game_code": "20250923WOKT02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "키움",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "KT",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250923WOKT02025/lineup"
     }
   ]
 }
