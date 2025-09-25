@@ -1,9 +1,9 @@
 {
-  "crawl_time": "2025-09-24T01:04:53.385954",
+  "crawl_time": "2025-09-25T01:08:35.182195",
   "results": [
     {
-      "date": "2025-09-24",
-      "game_code": "20250924HHSK02025",
+      "date": "2025-09-25",
+      "game_code": "20250925HHOB02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
@@ -13,35 +13,35 @@
           "is_home": false
         },
         {
+          "name": "두산",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20250925HHOB02025/lineup"
+    },
+    {
+      "date": "2025-09-25",
+      "game_code": "20250925KTSK02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "KT",
+          "score": "-",
+          "is_home": false
+        },
+        {
           "name": "SSG",
           "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250924HHSK02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250925KTSK02025/lineup"
     },
     {
-      "date": "2025-09-24",
-      "game_code": "20250924HTWO02025",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "KIA",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "키움",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20250924HTWO02025/lineup"
-    },
-    {
-      "date": "2025-09-24",
-      "game_code": "20250924LGNC02025",
+      "date": "2025-09-25",
+      "game_code": "20250925LGLT02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
@@ -51,21 +51,21 @@
           "is_home": false
         },
         {
-          "name": "NC",
+          "name": "롯데",
           "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250924LGNC02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250925LGLT02025/lineup"
     },
     {
-      "date": "2025-09-24",
-      "game_code": "20250924LTSS02025",
+      "date": "2025-09-25",
+      "game_code": "20250925WOSS02025",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
         {
-          "name": "롯데",
+          "name": "키움",
           "score": "-",
           "is_home": false
         },
@@ -75,7 +75,7 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20250924LTSS02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20250925WOSS02025/lineup"
     }
   ]
 }
