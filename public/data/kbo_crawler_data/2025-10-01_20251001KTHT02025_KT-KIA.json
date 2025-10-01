@@ -2,22 +2,22 @@
   "date": "2025-10-01",
   "game_code": "20251001KTHT02025",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "KT",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "KIA",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20251001KTHT02025/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5568e4c6833a <unknown>\n#1 0x5568e46e66e6 <unknown>\n#2 0x5568e4738854 <unknown>\n#3 0x5568e4738af1 <unknown>\n#4 0x5568e4787024 <unknown>\n#5 0x5568e475e80d <unknown>\n#6 0x5568e47844b8 <unknown>\n#7 0x5568e475e5b3 <unknown>\n#8 0x5568e472acc2 <unknown>\n#9 0x5568e472b981 <unknown>\n#10 0x5568e4c2aba8 <unknown>\n#11 0x5568e4c2ea17 <unknown>\n#12 0x5568e4c120c9 <unknown>\n#13 0x5568e4c2f5c5 <unknown>\n#14 0x5568e4bf790f <unknown>\n#15 0x5568e4c54898 <unknown>\n#16 0x5568e4c54a73 <unknown>\n#17 0x5568e4c672d3 <unknown>\n#18 0x7f2db5a9caa4 <unknown>\n#19 0x7f2db5b29c6c <unknown>\n",
-  "crawl_time": "2025-10-01T09:24:45.128408"
+  "error": "Message: \nStacktrace:\n#0 0x563e3885d33a <unknown>\n#1 0x563e382db6e6 <unknown>\n#2 0x563e3832d854 <unknown>\n#3 0x563e3832daf1 <unknown>\n#4 0x563e3837c024 <unknown>\n#5 0x563e3835380d <unknown>\n#6 0x563e383794b8 <unknown>\n#7 0x563e383535b3 <unknown>\n#8 0x563e3831fcc2 <unknown>\n#9 0x563e38320981 <unknown>\n#10 0x563e3881fba8 <unknown>\n#11 0x563e38823a17 <unknown>\n#12 0x563e388070c9 <unknown>\n#13 0x563e388245c5 <unknown>\n#14 0x563e387ec90f <unknown>\n#15 0x563e38849898 <unknown>\n#16 0x563e38849a73 <unknown>\n#17 0x563e3885c2d3 <unknown>\n#18 0x7fcda209caa4 <unknown>\n#19 0x7fcda2129c6c <unknown>\n",
+  "crawl_time": "2025-10-01T09:46:30.371135"
 }
