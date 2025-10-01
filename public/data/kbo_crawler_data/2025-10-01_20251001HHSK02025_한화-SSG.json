@@ -1,0 +1,23 @@
+{
+  "date": "2025-10-01",
+  "game_code": "20251001HHSK02025",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "예정",
+  "teams": [
+    {
+      "name": "한화",
+      "score": "-",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "-",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20251001HHSK02025/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x555f9348633a <unknown>\n#1 0x555f92f046e6 <unknown>\n#2 0x555f92f56854 <unknown>\n#3 0x555f92f56af1 <unknown>\n#4 0x555f92fa5024 <unknown>\n#5 0x555f92f7c80d <unknown>\n#6 0x555f92fa24b8 <unknown>\n#7 0x555f92f7c5b3 <unknown>\n#8 0x555f92f48cc2 <unknown>\n#9 0x555f92f49981 <unknown>\n#10 0x555f93448ba8 <unknown>\n#11 0x555f9344ca17 <unknown>\n#12 0x555f934300c9 <unknown>\n#13 0x555f9344d5c5 <unknown>\n#14 0x555f9341590f <unknown>\n#15 0x555f93472898 <unknown>\n#16 0x555f93472a73 <unknown>\n#17 0x555f934852d3 <unknown>\n#18 0x7f6511e9caa4 <unknown>\n#19 0x7f6511f29c6c <unknown>\n",
+  "crawl_time": "2025-10-01T06:19:57.080830"
+}
