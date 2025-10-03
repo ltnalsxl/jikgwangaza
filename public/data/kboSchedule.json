@@ -1,14 +1,52 @@
 {
-  "crawl_time": "2025-10-02T01:02:29.598100",
+  "crawl_time": "2025-10-03T01:01:24.315554",
   "results": [
     {
-      "date": "2025-10-02",
-      "game_code": "20251002SKHT02025",
-      "game_time": "경기 시간\n18:30",
+      "date": "2025-10-03",
+      "game_code": "20251003HHKT02025",
+      "game_time": "경기 시간\n17:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "한화",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "KT",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20251003HHKT02025/lineup"
+    },
+    {
+      "date": "2025-10-03",
+      "game_code": "20251003SKNC02025",
+      "game_time": "경기 시간\n17:00",
       "game_status": "예정",
       "teams": [
         {
           "name": "SSG",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "NC",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20251003SKNC02025/lineup"
+    },
+    {
+      "date": "2025-10-03",
+      "game_code": "20251003SSHT02025",
+      "game_time": "경기 시간\n17:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "삼성",
           "score": "-",
           "is_home": false
         },
@@ -18,7 +56,7 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20251002SKHT02025/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20251003SSHT02025/lineup"
     }
   ]
 }
