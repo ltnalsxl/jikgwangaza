@@ -2,22 +2,22 @@
   "date": "2025-10-06",
   "game_code": "44441006NCSS02025",
   "game_time": "경기 시간\n14:00",
-  "game_status": "5회초",
+  "game_status": "6회초",
   "teams": [
     {
       "name": "NC",
-      "score": "3",
+      "score": "4",
       "is_home": false
     },
     {
       "name": "삼성",
-      "score": "0",
+      "score": "1",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/44441006NCSS02025/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55e73400b33a <unknown>\n#1 0x55e733a896e6 <unknown>\n#2 0x55e733adb854 <unknown>\n#3 0x55e733adbaf1 <unknown>\n#4 0x55e733b2a024 <unknown>\n#5 0x55e733b0180d <unknown>\n#6 0x55e733b274b8 <unknown>\n#7 0x55e733b015b3 <unknown>\n#8 0x55e733acdcc2 <unknown>\n#9 0x55e733ace981 <unknown>\n#10 0x55e733fcdba8 <unknown>\n#11 0x55e733fd1a17 <unknown>\n#12 0x55e733fb50c9 <unknown>\n#13 0x55e733fd25c5 <unknown>\n#14 0x55e733f9a90f <unknown>\n#15 0x55e733ff7898 <unknown>\n#16 0x55e733ff7a73 <unknown>\n#17 0x55e73400a2d3 <unknown>\n#18 0x7f861c49caa4 <unknown>\n#19 0x7f861c529c6c <unknown>\n",
-  "crawl_time": "2025-10-06T06:52:06.194036"
+  "error": "Message: \nStacktrace:\n#0 0x55d24e18d33a <unknown>\n#1 0x55d24dc0b6e6 <unknown>\n#2 0x55d24dc5d854 <unknown>\n#3 0x55d24dc5daf1 <unknown>\n#4 0x55d24dcac024 <unknown>\n#5 0x55d24dc8380d <unknown>\n#6 0x55d24dca94b8 <unknown>\n#7 0x55d24dc835b3 <unknown>\n#8 0x55d24dc4fcc2 <unknown>\n#9 0x55d24dc50981 <unknown>\n#10 0x55d24e14fba8 <unknown>\n#11 0x55d24e153a17 <unknown>\n#12 0x55d24e1370c9 <unknown>\n#13 0x55d24e1545c5 <unknown>\n#14 0x55d24e11c90f <unknown>\n#15 0x55d24e179898 <unknown>\n#16 0x55d24e179a73 <unknown>\n#17 0x55d24e18c2d3 <unknown>\n#18 0x7f9f22a9caa4 <unknown>\n#19 0x7f9f22b29c6c <unknown>\n",
+  "crawl_time": "2025-10-06T07:15:37.745647"
 }
