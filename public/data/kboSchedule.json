@@ -1,4 +1,24 @@
 {
-  "crawl_time": "2025-10-08T01:04:24.056253",
-  "results": []
+  "crawl_time": "2025-10-09T01:02:23.479900",
+  "results": [
+    {
+      "date": "2025-10-09",
+      "game_code": "33331009SSSK02025",
+      "game_time": "경기 시간\n14:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "SSG",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/33331009SSSK02025/lineup"
+    }
+  ]
 }
