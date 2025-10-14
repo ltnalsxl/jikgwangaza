@@ -2,22 +2,22 @@
   "date": "2025-10-14",
   "game_code": "33331014SKSS02025",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "SSG",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "삼성",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/33331014SKSS02025/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5581a80bc4ca <unknown>\n#1 0x5581a7b3b566 <unknown>\n#2 0x5581a7b8d68d <unknown>\n#3 0x5581a7b8d921 <unknown>\n#4 0x5581a7bdbe94 <unknown>\n#5 0x5581a7bb365d <unknown>\n#6 0x5581a7bd9328 <unknown>\n#7 0x5581a7bb3403 <unknown>\n#8 0x5581a7b7fb02 <unknown>\n#9 0x5581a7b807c1 <unknown>\n#10 0x5581a8080298 <unknown>\n#11 0x5581a80840ff <unknown>\n#12 0x5581a8067729 <unknown>\n#13 0x5581a8084ca5 <unknown>\n#14 0x5581a804cf8f <unknown>\n#15 0x5581a80a9308 <unknown>\n#16 0x5581a80a94e3 <unknown>\n#17 0x5581a80bb463 <unknown>\n#18 0x7fa27949caa4 <unknown>\n#19 0x7fa279529c6c <unknown>\n",
-  "crawl_time": "2025-10-14T09:22:36.906123"
+  "error": "Message: \nStacktrace:\n#0 0x5630ecfbe4ca <unknown>\n#1 0x5630eca3d566 <unknown>\n#2 0x5630eca8f68d <unknown>\n#3 0x5630eca8f921 <unknown>\n#4 0x5630ecadde94 <unknown>\n#5 0x5630ecab565d <unknown>\n#6 0x5630ecadb328 <unknown>\n#7 0x5630ecab5403 <unknown>\n#8 0x5630eca81b02 <unknown>\n#9 0x5630eca827c1 <unknown>\n#10 0x5630ecf82298 <unknown>\n#11 0x5630ecf860ff <unknown>\n#12 0x5630ecf69729 <unknown>\n#13 0x5630ecf86ca5 <unknown>\n#14 0x5630ecf4ef8f <unknown>\n#15 0x5630ecfab308 <unknown>\n#16 0x5630ecfab4e3 <unknown>\n#17 0x5630ecfbd463 <unknown>\n#18 0x7efdef29caa4 <unknown>\n#19 0x7efdef329c6c <unknown>\n",
+  "crawl_time": "2025-10-14T09:45:18.014787"
 }
