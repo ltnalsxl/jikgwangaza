@@ -1,4 +1,24 @@
 {
-  "crawl_time": "2025-10-16T01:04:00.876324",
-  "results": []
+  "crawl_time": "2025-10-17T01:02:09.651563",
+  "results": [
+    {
+      "date": "2025-10-17",
+      "game_code": "55551017SSHH02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "한화",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/55551017SSHH02025/lineup"
+    }
+  ]
 }
