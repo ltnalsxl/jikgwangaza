@@ -1,4 +1,24 @@
 {
-  "crawl_time": "2025-10-20T01:08:39.719316",
-  "results": []
+  "crawl_time": "2025-10-21T01:04:27.227387",
+  "results": [
+    {
+      "date": "2025-10-21",
+      "game_code": "55551021HHSS02025",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "한화",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/55551021HHSS02025/lineup"
+    }
+  ]
 }
