@@ -2,22 +2,22 @@
   "date": "2025-10-30",
   "game_code": "77771030LGHH02025",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "LG",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "한화",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/77771030LGHH02025/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x565221ae2aea <unknown>\n#1 0x56522152ecdb <unknown>\n#2 0x5652215816c4 <unknown>\n#3 0x565221581901 <unknown>\n#4 0x5652215d08b4 <unknown>\n#5 0x5652215cdc87 <unknown>\n#6 0x565221573aca <unknown>\n#7 0x5652215747d1 <unknown>\n#8 0x565221aa9ab9 <unknown>\n#9 0x565221aaca8c <unknown>\n#10 0x565221a92d49 <unknown>\n#11 0x565221aad685 <unknown>\n#12 0x565221a7a6c3 <unknown>\n#13 0x565221acf7d8 <unknown>\n#14 0x565221acf9b3 <unknown>\n#15 0x565221ae1a83 <unknown>\n#16 0x7fc5f889caa4 <unknown>\n#17 0x7fc5f8929c6c <unknown>\n",
-  "crawl_time": "2025-10-30T09:23:12.107137"
+  "error": "Message: \nStacktrace:\n#0 0x560db3f75aea <unknown>\n#1 0x560db39c1cdb <unknown>\n#2 0x560db3a146c4 <unknown>\n#3 0x560db3a14901 <unknown>\n#4 0x560db3a638b4 <unknown>\n#5 0x560db3a60c87 <unknown>\n#6 0x560db3a06aca <unknown>\n#7 0x560db3a077d1 <unknown>\n#8 0x560db3f3cab9 <unknown>\n#9 0x560db3f3fa8c <unknown>\n#10 0x560db3f25d49 <unknown>\n#11 0x560db3f40685 <unknown>\n#12 0x560db3f0d6c3 <unknown>\n#13 0x560db3f627d8 <unknown>\n#14 0x560db3f629b3 <unknown>\n#15 0x560db3f74a83 <unknown>\n#16 0x7f8d96e9caa4 <unknown>\n#17 0x7f8d96f29c6c <unknown>\n",
+  "crawl_time": "2025-10-30T09:45:11.478465"
 }
