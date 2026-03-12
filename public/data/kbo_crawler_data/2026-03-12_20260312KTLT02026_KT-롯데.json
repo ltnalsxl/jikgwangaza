@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-12",
+  "game_code": "20260312KTLT02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "KT",
+      "score": "3",
+      "is_home": false
+    },
+    {
+      "name": "롯데",
+      "score": "4",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260312KTLT02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55a564bffada <unknown>\n#1 0x55a564610ea5 <unknown>\n#2 0x55a564663a6d <unknown>\n#3 0x55a564663cb1 <unknown>\n#4 0x55a5646aea24 <unknown>\n#5 0x55a5646abbc0 <unknown>\n#6 0x55a5646570af <unknown>\n#7 0x55a564657e71 <unknown>\n#8 0x55a564bc4954 <unknown>\n#9 0x55a564bc7851 <unknown>\n#10 0x55a564bb0fda <unknown>\n#11 0x55a564bc841e <unknown>\n#12 0x55a564b97a40 <unknown>\n#13 0x55a564bec9c8 <unknown>\n#14 0x55a564becb98 <unknown>\n#15 0x55a564bfe51e <unknown>\n#16 0x7f88e869caa4 <unknown>\n#17 0x7f88e8729c6c <unknown>\n",
+  "crawl_time": "2026-03-12T06:45:44.410210"
+}
