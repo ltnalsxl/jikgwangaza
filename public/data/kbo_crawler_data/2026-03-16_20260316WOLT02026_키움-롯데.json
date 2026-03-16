@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-16",
+  "game_code": "20260316WOLT02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "키움",
+      "score": "1",
+      "is_home": false
+    },
+    {
+      "name": "롯데",
+      "score": "12",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260316WOLT02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x560196312a9a <unknown>\n#1 0x560195d23ea5 <unknown>\n#2 0x560195d76a6d <unknown>\n#3 0x560195d76cb1 <unknown>\n#4 0x560195dc1a24 <unknown>\n#5 0x560195dbebc0 <unknown>\n#6 0x560195d6a0af <unknown>\n#7 0x560195d6ae71 <unknown>\n#8 0x5601962d7914 <unknown>\n#9 0x5601962da811 <unknown>\n#10 0x5601962c3f9a <unknown>\n#11 0x5601962db3de <unknown>\n#12 0x5601962aaa00 <unknown>\n#13 0x5601962ff988 <unknown>\n#14 0x5601962ffb58 <unknown>\n#15 0x5601963114de <unknown>\n#16 0x7f7dbda9caa4 <unknown>\n#17 0x7f7dbdb29c6c <unknown>\n",
+  "crawl_time": "2026-03-16T07:09:43.420568"
+}
