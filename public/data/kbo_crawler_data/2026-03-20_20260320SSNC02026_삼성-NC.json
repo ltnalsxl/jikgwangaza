@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-20",
+  "game_code": "20260320SSNC02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "9회초",
+  "teams": [
+    {
+      "name": "삼성",
+      "score": "4",
+      "is_home": false
+    },
+    {
+      "name": "NC",
+      "score": "6",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260320SSNC02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x561ed883241a <unknown>\n#1 0x561ed823f270 <unknown>\n#2 0x561ed8292e76 <unknown>\n#3 0x561ed82930b1 <unknown>\n#4 0x561ed82de074 <unknown>\n#5 0x561ed82db209 <unknown>\n#6 0x561ed82864cf <unknown>\n#7 0x561ed8287291 <unknown>\n#8 0x561ed87f7364 <unknown>\n#9 0x561ed87fa251 <unknown>\n#10 0x561ed87e411a <unknown>\n#11 0x561ed87fae1e <unknown>\n#12 0x561ed87cab10 <unknown>\n#13 0x561ed881ef88 <unknown>\n#14 0x561ed881f158 <unknown>\n#15 0x561ed8830e5e <unknown>\n#16 0x7fbb6ce9caa4 <unknown>\n#17 0x7fbb6cf29c6c <unknown>\n",
+  "crawl_time": "2026-03-20T06:44:47.300697"
+}
