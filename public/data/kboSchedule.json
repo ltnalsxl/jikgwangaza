@@ -1,52 +1,14 @@
 {
-  "crawl_time": "2026-03-20T01:28:22.545425",
+  "crawl_time": "2026-03-21T01:23:48.965582",
   "results": [
     {
-      "date": "2026-03-20",
-      "game_code": "20260320HTHH02026",
+      "date": "2026-03-21",
+      "game_code": "20260321HHLT02026",
       "game_time": "경기 시간\n13:00",
       "game_status": "예정",
       "teams": [
-        {
-          "name": "KIA",
-          "score": "-",
-          "is_home": false
-        },
         {
           "name": "한화",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260320HTHH02026/lineup"
-    },
-    {
-      "date": "2026-03-20",
-      "game_code": "20260320LGSK02026",
-      "game_time": "경기 시간\n13:00",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "LG",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "SSG",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260320LGSK02026/lineup"
-    },
-    {
-      "date": "2026-03-20",
-      "game_code": "20260320OBLT02026",
-      "game_time": "경기 시간\n13:00",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "두산",
           "score": "-",
           "is_home": false
         },
@@ -56,35 +18,54 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260320OBLT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260321HHLT02026/lineup"
     },
     {
-      "date": "2026-03-20",
-      "game_code": "20260320SSNC02026",
+      "date": "2026-03-21",
+      "game_code": "20260321HTOB02026",
       "game_time": "경기 시간\n13:00",
       "game_status": "예정",
       "teams": [
         {
-          "name": "삼성",
+          "name": "KIA",
           "score": "-",
           "is_home": false
         },
         {
-          "name": "NC",
+          "name": "두산",
           "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260320SSNC02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260321HTOB02026/lineup"
     },
     {
-      "date": "2026-03-20",
-      "game_code": "20260320WOKT02026",
+      "date": "2026-03-21",
+      "game_code": "20260321LGSS02026",
       "game_time": "경기 시간\n13:00",
       "game_status": "예정",
       "teams": [
         {
-          "name": "키움",
+          "name": "LG",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260321LGSS02026/lineup"
+    },
+    {
+      "date": "2026-03-21",
+      "game_code": "20260321NCKT02026",
+      "game_time": "경기 시간\n13:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "NC",
           "score": "-",
           "is_home": false
         },
@@ -94,7 +75,26 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260320WOKT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260321NCKT02026/lineup"
+    },
+    {
+      "date": "2026-03-21",
+      "game_code": "20260321WOSK02026",
+      "game_time": "경기 시간\n13:00",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "키움",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "SSG",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260321WOSK02026/lineup"
     }
   ]
 }
