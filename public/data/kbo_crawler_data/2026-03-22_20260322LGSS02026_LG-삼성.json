@@ -2,7 +2,7 @@
   "date": "2026-03-22",
   "game_code": "20260322LGSS02026",
   "game_time": "경기 시간\n13:00",
-  "game_status": "9회초",
+  "game_status": "종료",
   "teams": [
     {
       "name": "LG",
@@ -11,13 +11,13 @@
     },
     {
       "name": "삼성",
-      "score": "6",
+      "score": "13",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260322LGSS02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55e35484c41a <unknown>\n#1 0x55e354259270 <unknown>\n#2 0x55e3542ace76 <unknown>\n#3 0x55e3542ad0b1 <unknown>\n#4 0x55e3542f8074 <unknown>\n#5 0x55e3542f5209 <unknown>\n#6 0x55e3542a04cf <unknown>\n#7 0x55e3542a1291 <unknown>\n#8 0x55e354811364 <unknown>\n#9 0x55e354814251 <unknown>\n#10 0x55e3547fe11a <unknown>\n#11 0x55e354814e1e <unknown>\n#12 0x55e3547e4b10 <unknown>\n#13 0x55e354838f88 <unknown>\n#14 0x55e354839158 <unknown>\n#15 0x55e35484ae5e <unknown>\n#16 0x7f6d4ce9caa4 <unknown>\n#17 0x7f6d4cf29c6c <unknown>\n",
-  "crawl_time": "2026-03-22T07:28:27.578176"
+  "error": "Message: \nStacktrace:\n#0 0x55851679341a <unknown>\n#1 0x5585161a0270 <unknown>\n#2 0x5585161f3e76 <unknown>\n#3 0x5585161f40b1 <unknown>\n#4 0x55851623f074 <unknown>\n#5 0x55851623c209 <unknown>\n#6 0x5585161e74cf <unknown>\n#7 0x5585161e8291 <unknown>\n#8 0x558516758364 <unknown>\n#9 0x55851675b251 <unknown>\n#10 0x55851674511a <unknown>\n#11 0x55851675be1e <unknown>\n#12 0x55851672bb10 <unknown>\n#13 0x55851677ff88 <unknown>\n#14 0x558516780158 <unknown>\n#15 0x558516791e5e <unknown>\n#16 0x7fb60c69caa4 <unknown>\n#17 0x7fb60c729c6c <unknown>\n",
+  "crawl_time": "2026-03-22T08:01:46.460661"
 }
