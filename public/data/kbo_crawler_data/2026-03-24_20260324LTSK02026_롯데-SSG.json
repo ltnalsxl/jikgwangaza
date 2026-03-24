@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-24",
+  "game_code": "20260324LTSK02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "롯데",
+      "score": "3",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "6",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260324LTSK02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55d3d8252a6a <unknown>\n#1 0x55d3d7c61ab5 <unknown>\n#2 0x55d3d7cb4676 <unknown>\n#3 0x55d3d7cb48b1 <unknown>\n#4 0x55d3d7cff614 <unknown>\n#5 0x55d3d7cfc7b6 <unknown>\n#6 0x55d3d7ca7cbf <unknown>\n#7 0x55d3d7ca8a81 <unknown>\n#8 0x55d3d8218a64 <unknown>\n#9 0x55d3d821b951 <unknown>\n#10 0x55d3d820521e <unknown>\n#11 0x55d3d821c51e <unknown>\n#12 0x55d3d81ebbe0 <unknown>\n#13 0x55d3d823f9b8 <unknown>\n#14 0x55d3d823fb88 <unknown>\n#15 0x55d3d82514de <unknown>\n#16 0x7ff6dda9caa4 <unknown>\n#17 0x7ff6ddb29c6c <unknown>\n",
+  "crawl_time": "2026-03-24T06:57:12.795883"
+}
