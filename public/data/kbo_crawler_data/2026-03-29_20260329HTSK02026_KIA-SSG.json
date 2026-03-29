@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-29",
+  "game_code": "20260329HTSK02026",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "5회말",
+  "teams": [
+    {
+      "name": "KIA",
+      "score": "2",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "10",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260329HTSK02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55dd6c416a6a <unknown>\n#1 0x55dd6be25ab5 <unknown>\n#2 0x55dd6be78676 <unknown>\n#3 0x55dd6be788b1 <unknown>\n#4 0x55dd6bec3614 <unknown>\n#5 0x55dd6bec07b6 <unknown>\n#6 0x55dd6be6bcbf <unknown>\n#7 0x55dd6be6ca81 <unknown>\n#8 0x55dd6c3dca64 <unknown>\n#9 0x55dd6c3df951 <unknown>\n#10 0x55dd6c3c921e <unknown>\n#11 0x55dd6c3e051e <unknown>\n#12 0x55dd6c3afbe0 <unknown>\n#13 0x55dd6c4039b8 <unknown>\n#14 0x55dd6c403b88 <unknown>\n#15 0x55dd6c4154de <unknown>\n#16 0x7fe703e9caa4 <unknown>\n#17 0x7fe703f29c6c <unknown>\n",
+  "crawl_time": "2026-03-29T06:54:09.891766"
+}
