@@ -2,22 +2,22 @@
   "date": "2026-04-01",
   "game_code": "20260401OBSS02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "두산",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "삼성",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260401OBSS02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x56142c1c9a6a <unknown>\n#1 0x56142bbd8ab5 <unknown>\n#2 0x56142bc2b676 <unknown>\n#3 0x56142bc2b8b1 <unknown>\n#4 0x56142bc76614 <unknown>\n#5 0x56142bc737b6 <unknown>\n#6 0x56142bc1ecbf <unknown>\n#7 0x56142bc1fa81 <unknown>\n#8 0x56142c18fa64 <unknown>\n#9 0x56142c192951 <unknown>\n#10 0x56142c17c21e <unknown>\n#11 0x56142c19351e <unknown>\n#12 0x56142c162be0 <unknown>\n#13 0x56142c1b69b8 <unknown>\n#14 0x56142c1b6b88 <unknown>\n#15 0x56142c1c84de <unknown>\n#16 0x7f244c89caa4 <unknown>\n#17 0x7f244c929c6c <unknown>\n",
-  "crawl_time": "2026-04-01T09:27:58.190493"
+  "error": "Message: \nStacktrace:\n#0 0x560cff2c1a6a <unknown>\n#1 0x560cfecd0ab5 <unknown>\n#2 0x560cfed23676 <unknown>\n#3 0x560cfed238b1 <unknown>\n#4 0x560cfed6e614 <unknown>\n#5 0x560cfed6b7b6 <unknown>\n#6 0x560cfed16cbf <unknown>\n#7 0x560cfed17a81 <unknown>\n#8 0x560cff287a64 <unknown>\n#9 0x560cff28a951 <unknown>\n#10 0x560cff27421e <unknown>\n#11 0x560cff28b51e <unknown>\n#12 0x560cff25abe0 <unknown>\n#13 0x560cff2ae9b8 <unknown>\n#14 0x560cff2aeb88 <unknown>\n#15 0x560cff2c04de <unknown>\n#16 0x7fe1ab49caa4 <unknown>\n#17 0x7fe1ab529c6c <unknown>\n",
+  "crawl_time": "2026-04-01T09:47:17.417088"
 }
