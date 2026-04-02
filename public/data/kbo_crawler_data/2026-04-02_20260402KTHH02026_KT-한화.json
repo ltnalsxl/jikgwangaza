@@ -2,22 +2,22 @@
   "date": "2026-04-02",
   "game_code": "20260402KTHH02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회초",
   "teams": [
     {
       "name": "KT",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "한화",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260402KTHH02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55c690ceba6a <unknown>\n#1 0x55c6906faab5 <unknown>\n#2 0x55c69074d676 <unknown>\n#3 0x55c69074d8b1 <unknown>\n#4 0x55c690798614 <unknown>\n#5 0x55c6907957b6 <unknown>\n#6 0x55c690740cbf <unknown>\n#7 0x55c690741a81 <unknown>\n#8 0x55c690cb1a64 <unknown>\n#9 0x55c690cb4951 <unknown>\n#10 0x55c690c9e21e <unknown>\n#11 0x55c690cb551e <unknown>\n#12 0x55c690c84be0 <unknown>\n#13 0x55c690cd89b8 <unknown>\n#14 0x55c690cd8b88 <unknown>\n#15 0x55c690cea4de <unknown>\n#16 0x7ff7c129caa4 <unknown>\n#17 0x7ff7c1329c6c <unknown>\n",
-  "crawl_time": "2026-04-02T09:17:34.270693"
+  "error": "Message: \nStacktrace:\n#0 0x5627d3d60a6a <unknown>\n#1 0x5627d376fab5 <unknown>\n#2 0x5627d37c2676 <unknown>\n#3 0x5627d37c28b1 <unknown>\n#4 0x5627d380d614 <unknown>\n#5 0x5627d380a7b6 <unknown>\n#6 0x5627d37b5cbf <unknown>\n#7 0x5627d37b6a81 <unknown>\n#8 0x5627d3d26a64 <unknown>\n#9 0x5627d3d29951 <unknown>\n#10 0x5627d3d1321e <unknown>\n#11 0x5627d3d2a51e <unknown>\n#12 0x5627d3cf9be0 <unknown>\n#13 0x5627d3d4d9b8 <unknown>\n#14 0x5627d3d4db88 <unknown>\n#15 0x5627d3d5f4de <unknown>\n#16 0x7f520689caa4 <unknown>\n#17 0x7f5206929c6c <unknown>\n",
+  "crawl_time": "2026-04-02T09:36:14.239627"
 }
