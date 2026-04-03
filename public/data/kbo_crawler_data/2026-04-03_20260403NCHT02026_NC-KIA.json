@@ -2,22 +2,22 @@
   "date": "2026-04-03",
   "game_code": "20260403NCHT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "NC",
-      "score": "-",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "KIA",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260403NCHT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x556e431c8a6a <unknown>\n#1 0x556e42bd7ab5 <unknown>\n#2 0x556e42c2a676 <unknown>\n#3 0x556e42c2a8b1 <unknown>\n#4 0x556e42c75614 <unknown>\n#5 0x556e42c727b6 <unknown>\n#6 0x556e42c1dcbf <unknown>\n#7 0x556e42c1ea81 <unknown>\n#8 0x556e4318ea64 <unknown>\n#9 0x556e43191951 <unknown>\n#10 0x556e4317b21e <unknown>\n#11 0x556e4319251e <unknown>\n#12 0x556e43161be0 <unknown>\n#13 0x556e431b59b8 <unknown>\n#14 0x556e431b5b88 <unknown>\n#15 0x556e431c74de <unknown>\n#16 0x7fdcbd69caa4 <unknown>\n#17 0x7fdcbd729c6c <unknown>\n",
-  "crawl_time": "2026-04-03T09:13:48.572547"
+  "error": "Message: \nStacktrace:\n#0 0x558559d5fa6a <unknown>\n#1 0x55855976eab5 <unknown>\n#2 0x5585597c1676 <unknown>\n#3 0x5585597c18b1 <unknown>\n#4 0x55855980c614 <unknown>\n#5 0x5585598097b6 <unknown>\n#6 0x5585597b4cbf <unknown>\n#7 0x5585597b5a81 <unknown>\n#8 0x558559d25a64 <unknown>\n#9 0x558559d28951 <unknown>\n#10 0x558559d1221e <unknown>\n#11 0x558559d2951e <unknown>\n#12 0x558559cf8be0 <unknown>\n#13 0x558559d4c9b8 <unknown>\n#14 0x558559d4cb88 <unknown>\n#15 0x558559d5e4de <unknown>\n#16 0x7fe30929caa4 <unknown>\n#17 0x7fe309329c6c <unknown>\n",
+  "crawl_time": "2026-04-03T09:56:15.178947"
 }
