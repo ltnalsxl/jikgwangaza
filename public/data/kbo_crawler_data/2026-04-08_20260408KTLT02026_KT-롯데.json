@@ -2,22 +2,22 @@
   "date": "2026-04-08",
   "game_code": "20260408KTLT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "KT",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "롯데",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260408KTLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5588e3e48b6a <unknown>\n#1 0x5588e384a265 <unknown>\n#2 0x5588e389cf76 <unknown>\n#3 0x5588e389d1b1 <unknown>\n#4 0x5588e38e87d4 <unknown>\n#5 0x5588e38e5969 <unknown>\n#6 0x5588e38905cf <unknown>\n#7 0x5588e3891391 <unknown>\n#8 0x5588e3e0e04b <unknown>\n#9 0x5588e3e1100d <unknown>\n#10 0x5588e3dfa808 <unknown>\n#11 0x5588e3e11ba0 <unknown>\n#12 0x5588e3de1280 <unknown>\n#13 0x5588e3e35db8 <unknown>\n#14 0x5588e3e35f88 <unknown>\n#15 0x5588e3e475de <unknown>\n#16 0x7ff56d69caa4 <unknown>\n#17 0x7ff56d729c6c <unknown>\n",
-  "crawl_time": "2026-04-08T09:21:38.812962"
+  "error": "Message: \nStacktrace:\n#0 0x5579f20a3b6a <unknown>\n#1 0x5579f1aa5265 <unknown>\n#2 0x5579f1af7f76 <unknown>\n#3 0x5579f1af81b1 <unknown>\n#4 0x5579f1b437d4 <unknown>\n#5 0x5579f1b40969 <unknown>\n#6 0x5579f1aeb5cf <unknown>\n#7 0x5579f1aec391 <unknown>\n#8 0x5579f206904b <unknown>\n#9 0x5579f206c00d <unknown>\n#10 0x5579f2055808 <unknown>\n#11 0x5579f206cba0 <unknown>\n#12 0x5579f203c280 <unknown>\n#13 0x5579f2090db8 <unknown>\n#14 0x5579f2090f88 <unknown>\n#15 0x5579f20a25de <unknown>\n#16 0x7f9290c9caa4 <unknown>\n#17 0x7f9290d29c6c <unknown>\n",
+  "crawl_time": "2026-04-08T09:44:45.887812"
 }
