@@ -2,7 +2,7 @@
   "date": "2026-04-08",
   "game_code": "20260408LGNC02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "1회말",
+  "game_status": "2회말",
   "teams": [
     {
       "name": "LG",
@@ -11,13 +11,13 @@
     },
     {
       "name": "NC",
-      "score": "0",
+      "score": "1",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260408LGNC02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5579f20a3b6a <unknown>\n#1 0x5579f1aa5265 <unknown>\n#2 0x5579f1af7f76 <unknown>\n#3 0x5579f1af81b1 <unknown>\n#4 0x5579f1b437d4 <unknown>\n#5 0x5579f1b40969 <unknown>\n#6 0x5579f1aeb5cf <unknown>\n#7 0x5579f1aec391 <unknown>\n#8 0x5579f206904b <unknown>\n#9 0x5579f206c00d <unknown>\n#10 0x5579f2055808 <unknown>\n#11 0x5579f206cba0 <unknown>\n#12 0x5579f203c280 <unknown>\n#13 0x5579f2090db8 <unknown>\n#14 0x5579f2090f88 <unknown>\n#15 0x5579f20a25de <unknown>\n#16 0x7f9290c9caa4 <unknown>\n#17 0x7f9290d29c6c <unknown>\n",
-  "crawl_time": "2026-04-08T09:45:55.980224"
+  "error": "Message: \nStacktrace:\n#0 0x5609c2910b6a <unknown>\n#1 0x5609c2312265 <unknown>\n#2 0x5609c2364f76 <unknown>\n#3 0x5609c23651b1 <unknown>\n#4 0x5609c23b07d4 <unknown>\n#5 0x5609c23ad969 <unknown>\n#6 0x5609c23585cf <unknown>\n#7 0x5609c2359391 <unknown>\n#8 0x5609c28d604b <unknown>\n#9 0x5609c28d900d <unknown>\n#10 0x5609c28c2808 <unknown>\n#11 0x5609c28d9ba0 <unknown>\n#12 0x5609c28a9280 <unknown>\n#13 0x5609c28fddb8 <unknown>\n#14 0x5609c28fdf88 <unknown>\n#15 0x5609c290f5de <unknown>\n#16 0x7f1b2e89caa4 <unknown>\n#17 0x7f1b2e929c6c <unknown>\n",
+  "crawl_time": "2026-04-08T10:10:48.832598"
 }
