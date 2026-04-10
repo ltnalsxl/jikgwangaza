@@ -2,22 +2,22 @@
   "date": "2026-04-10",
   "game_code": "20260410NCSS02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "NC",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "삼성",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260410NCSS02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x56015f3fdb6a <unknown>\n#1 0x56015edff265 <unknown>\n#2 0x56015ee51f76 <unknown>\n#3 0x56015ee521b1 <unknown>\n#4 0x56015ee9d7d4 <unknown>\n#5 0x56015ee9a969 <unknown>\n#6 0x56015ee455cf <unknown>\n#7 0x56015ee46391 <unknown>\n#8 0x56015f3c304b <unknown>\n#9 0x56015f3c600d <unknown>\n#10 0x56015f3af808 <unknown>\n#11 0x56015f3c6ba0 <unknown>\n#12 0x56015f396280 <unknown>\n#13 0x56015f3eadb8 <unknown>\n#14 0x56015f3eaf88 <unknown>\n#15 0x56015f3fc5de <unknown>\n#16 0x7fe6a9e9caa4 <unknown>\n#17 0x7fe6a9f29c6c <unknown>\n",
-  "crawl_time": "2026-04-10T09:28:24.934611"
+  "error": "Message: \nStacktrace:\n#0 0x55eeca301b6a <unknown>\n#1 0x55eec9d03265 <unknown>\n#2 0x55eec9d55f76 <unknown>\n#3 0x55eec9d561b1 <unknown>\n#4 0x55eec9da17d4 <unknown>\n#5 0x55eec9d9e969 <unknown>\n#6 0x55eec9d495cf <unknown>\n#7 0x55eec9d4a391 <unknown>\n#8 0x55eeca2c704b <unknown>\n#9 0x55eeca2ca00d <unknown>\n#10 0x55eeca2b3808 <unknown>\n#11 0x55eeca2caba0 <unknown>\n#12 0x55eeca29a280 <unknown>\n#13 0x55eeca2eedb8 <unknown>\n#14 0x55eeca2eef88 <unknown>\n#15 0x55eeca3005de <unknown>\n#16 0x7f2688a9caa4 <unknown>\n#17 0x7f2688b29c6c <unknown>\n",
+  "crawl_time": "2026-04-10T09:47:52.446022"
 }
