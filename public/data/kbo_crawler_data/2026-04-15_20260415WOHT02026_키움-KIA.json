@@ -2,7 +2,7 @@
   "date": "2026-04-15",
   "game_code": "20260415WOHT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "1회말",
+  "game_status": "2회말",
   "teams": [
     {
       "name": "키움",
@@ -11,13 +11,13 @@
     },
     {
       "name": "KIA",
-      "score": "0",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260415WOHT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5591f2ab8b6a <unknown>\n#1 0x5591f24ba265 <unknown>\n#2 0x5591f250cf76 <unknown>\n#3 0x5591f250d1b1 <unknown>\n#4 0x5591f25587d4 <unknown>\n#5 0x5591f2555969 <unknown>\n#6 0x5591f25005cf <unknown>\n#7 0x5591f2501391 <unknown>\n#8 0x5591f2a7e04b <unknown>\n#9 0x5591f2a8100d <unknown>\n#10 0x5591f2a6a808 <unknown>\n#11 0x5591f2a81ba0 <unknown>\n#12 0x5591f2a51280 <unknown>\n#13 0x5591f2aa5db8 <unknown>\n#14 0x5591f2aa5f88 <unknown>\n#15 0x5591f2ab75de <unknown>\n#16 0x7f4d9169caa4 <unknown>\n#17 0x7f4d91729c6c <unknown>\n",
-  "crawl_time": "2026-04-15T10:01:08.303929"
+  "error": "Message: \nStacktrace:\n#0 0x563490dd5b6a <unknown>\n#1 0x5634907d7265 <unknown>\n#2 0x563490829f76 <unknown>\n#3 0x56349082a1b1 <unknown>\n#4 0x5634908757d4 <unknown>\n#5 0x563490872969 <unknown>\n#6 0x56349081d5cf <unknown>\n#7 0x56349081e391 <unknown>\n#8 0x563490d9b04b <unknown>\n#9 0x563490d9e00d <unknown>\n#10 0x563490d87808 <unknown>\n#11 0x563490d9eba0 <unknown>\n#12 0x563490d6e280 <unknown>\n#13 0x563490dc2db8 <unknown>\n#14 0x563490dc2f88 <unknown>\n#15 0x563490dd45de <unknown>\n#16 0x7f2ad8e9caa4 <unknown>\n#17 0x7f2ad8f29c6c <unknown>\n",
+  "crawl_time": "2026-04-15T10:22:20.300823"
 }
