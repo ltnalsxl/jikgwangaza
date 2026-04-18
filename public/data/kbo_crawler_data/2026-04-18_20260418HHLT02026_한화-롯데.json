@@ -2,22 +2,22 @@
   "date": "2026-04-18",
   "game_code": "20260418HHLT02026",
   "game_time": "경기 시간\n17:00",
-  "game_status": "예정",
+  "game_status": "1회초",
   "teams": [
     {
       "name": "한화",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "롯데",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260418HHLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x557f4d255afa <unknown>\n#1 0x557f4cc57265 <unknown>\n#2 0x557f4cca9f76 <unknown>\n#3 0x557f4ccaa1b1 <unknown>\n#4 0x557f4ccf57d4 <unknown>\n#5 0x557f4ccf2969 <unknown>\n#6 0x557f4cc9d5cf <unknown>\n#7 0x557f4cc9e391 <unknown>\n#8 0x557f4d21afdb <unknown>\n#9 0x557f4d21df9d <unknown>\n#10 0x557f4d207798 <unknown>\n#11 0x557f4d21eb30 <unknown>\n#12 0x557f4d1ee210 <unknown>\n#13 0x557f4d242d48 <unknown>\n#14 0x557f4d242f18 <unknown>\n#15 0x557f4d25456e <unknown>\n#16 0x7f956389caa4 <unknown>\n#17 0x7f9563929c6c <unknown>\n",
-  "crawl_time": "2026-04-18T07:58:59.389761"
+  "error": "Message: \nStacktrace:\n#0 0x563377819afa <unknown>\n#1 0x56337721b265 <unknown>\n#2 0x56337726df76 <unknown>\n#3 0x56337726e1b1 <unknown>\n#4 0x5633772b97d4 <unknown>\n#5 0x5633772b6969 <unknown>\n#6 0x5633772615cf <unknown>\n#7 0x563377262391 <unknown>\n#8 0x5633777defdb <unknown>\n#9 0x5633777e1f9d <unknown>\n#10 0x5633777cb798 <unknown>\n#11 0x5633777e2b30 <unknown>\n#12 0x5633777b2210 <unknown>\n#13 0x563377806d48 <unknown>\n#14 0x563377806f18 <unknown>\n#15 0x56337781856e <unknown>\n#16 0x7f5736e9caa4 <unknown>\n#17 0x7f5736f29c6c <unknown>\n",
+  "crawl_time": "2026-04-18T08:11:35.006784"
 }
