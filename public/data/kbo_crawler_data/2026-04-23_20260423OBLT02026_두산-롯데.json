@@ -2,7 +2,7 @@
   "date": "2026-04-23",
   "game_code": "20260423OBLT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "3회말",
+  "game_status": "4회말",
   "teams": [
     {
       "name": "두산",
@@ -11,13 +11,13 @@
     },
     {
       "name": "롯데",
-      "score": "2",
+      "score": "5",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260423OBLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x56504c12679a <unknown>\n#1 0x56504bb22215 <unknown>\n#2 0x56504bb74f06 <unknown>\n#3 0x56504bb75141 <unknown>\n#4 0x56504bbc0634 <unknown>\n#5 0x56504bbbd7d0 <unknown>\n#6 0x56504bb6855f <unknown>\n#7 0x56504bb69321 <unknown>\n#8 0x56504c0ea06b <unknown>\n#9 0x56504c0ed01d <unknown>\n#10 0x56504c0d6718 <unknown>\n#11 0x56504c0edbb0 <unknown>\n#12 0x56504c0bd150 <unknown>\n#13 0x56504c1135e8 <unknown>\n#14 0x56504c1137b8 <unknown>\n#15 0x56504c1251de <unknown>\n#16 0x7fbaf829caa4 <unknown>\n#17 0x7fbaf8329c6c <unknown>\n",
-  "crawl_time": "2026-04-23T10:26:25.125463"
+  "error": "Message: \nStacktrace:\n#0 0x555c16b0679a <unknown>\n#1 0x555c16502215 <unknown>\n#2 0x555c16554f06 <unknown>\n#3 0x555c16555141 <unknown>\n#4 0x555c165a0634 <unknown>\n#5 0x555c1659d7d0 <unknown>\n#6 0x555c1654855f <unknown>\n#7 0x555c16549321 <unknown>\n#8 0x555c16aca06b <unknown>\n#9 0x555c16acd01d <unknown>\n#10 0x555c16ab6718 <unknown>\n#11 0x555c16acdbb0 <unknown>\n#12 0x555c16a9d150 <unknown>\n#13 0x555c16af35e8 <unknown>\n#14 0x555c16af37b8 <unknown>\n#15 0x555c16b051de <unknown>\n#16 0x7f79b249caa4 <unknown>\n#17 0x7f79b2529c6c <unknown>\n",
+  "crawl_time": "2026-04-23T10:59:03.540102"
 }
