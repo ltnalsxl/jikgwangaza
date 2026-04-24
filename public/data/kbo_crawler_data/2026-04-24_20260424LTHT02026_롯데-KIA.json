@@ -2,22 +2,22 @@
   "date": "2026-04-24",
   "game_code": "20260424LTHT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "2회말",
   "teams": [
     {
       "name": "롯데",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "KIA",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260424LTHT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55d2d71e879a <unknown>\n#1 0x55d2d6be4215 <unknown>\n#2 0x55d2d6c36f06 <unknown>\n#3 0x55d2d6c37141 <unknown>\n#4 0x55d2d6c82634 <unknown>\n#5 0x55d2d6c7f7d0 <unknown>\n#6 0x55d2d6c2a55f <unknown>\n#7 0x55d2d6c2b321 <unknown>\n#8 0x55d2d71ac06b <unknown>\n#9 0x55d2d71af01d <unknown>\n#10 0x55d2d7198718 <unknown>\n#11 0x55d2d71afbb0 <unknown>\n#12 0x55d2d717f150 <unknown>\n#13 0x55d2d71d55e8 <unknown>\n#14 0x55d2d71d57b8 <unknown>\n#15 0x55d2d71e71de <unknown>\n#16 0x7f19e349caa4 <unknown>\n#17 0x7f19e3529c6c <unknown>\n",
-  "crawl_time": "2026-04-24T09:23:01.993276"
+  "error": "Message: \nStacktrace:\n#0 0x55f994a5c79a <unknown>\n#1 0x55f994458215 <unknown>\n#2 0x55f9944aaf06 <unknown>\n#3 0x55f9944ab141 <unknown>\n#4 0x55f9944f6634 <unknown>\n#5 0x55f9944f37d0 <unknown>\n#6 0x55f99449e55f <unknown>\n#7 0x55f99449f321 <unknown>\n#8 0x55f994a2006b <unknown>\n#9 0x55f994a2301d <unknown>\n#10 0x55f994a0c718 <unknown>\n#11 0x55f994a23bb0 <unknown>\n#12 0x55f9949f3150 <unknown>\n#13 0x55f994a495e8 <unknown>\n#14 0x55f994a497b8 <unknown>\n#15 0x55f994a5b1de <unknown>\n#16 0x7f2349a9caa4 <unknown>\n#17 0x7f2349b29c6c <unknown>\n",
+  "crawl_time": "2026-04-24T09:58:10.688083"
 }
