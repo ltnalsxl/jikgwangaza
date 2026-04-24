@@ -1,47 +1,66 @@
 {
-  "crawl_time": "2026-04-23T02:03:06.608173",
+  "crawl_time": "2026-04-24T02:03:19.567433",
   "results": [
     {
-      "date": "2026-04-23",
-      "game_code": "20260423HHLG02026",
+      "date": "2026-04-24",
+      "game_code": "20260424KTSK02026",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
-        {
-          "name": "한화",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "LG",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260423HHLG02026/lineup"
-    },
-    {
-      "date": "2026-04-23",
-      "game_code": "20260423HTKT02026",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "KIA",
-          "score": "-",
-          "is_home": false
-        },
         {
           "name": "KT",
           "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "SSG",
+          "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260423HTKT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260424KTSK02026/lineup"
     },
     {
-      "date": "2026-04-23",
-      "game_code": "20260423NCWO02026",
+      "date": "2026-04-24",
+      "game_code": "20260424LGOB02026",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "LG",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "두산",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260424LGOB02026/lineup"
+    },
+    {
+      "date": "2026-04-24",
+      "game_code": "20260424LTHT02026",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "롯데",
+          "score": "-",
+          "is_home": false
+        },
+        {
+          "name": "KIA",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260424LTHT02026/lineup"
+    },
+    {
+      "date": "2026-04-24",
+      "game_code": "20260424NCHH02026",
       "game_time": "경기 시간\n18:30",
       "game_status": "예정",
       "teams": [
@@ -51,50 +70,31 @@
           "is_home": false
         },
         {
+          "name": "한화",
+          "score": "-",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260424NCHH02026/lineup"
+    },
+    {
+      "date": "2026-04-24",
+      "game_code": "20260424SSWO02026",
+      "game_time": "경기 시간\n18:30",
+      "game_status": "예정",
+      "teams": [
+        {
+          "name": "삼성",
+          "score": "-",
+          "is_home": false
+        },
+        {
           "name": "키움",
           "score": "-",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260423NCWO02026/lineup"
-    },
-    {
-      "date": "2026-04-23",
-      "game_code": "20260423OBLT02026",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "두산",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "롯데",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260423OBLT02026/lineup"
-    },
-    {
-      "date": "2026-04-23",
-      "game_code": "20260423SKSS02026",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
-      "teams": [
-        {
-          "name": "SSG",
-          "score": "-",
-          "is_home": false
-        },
-        {
-          "name": "삼성",
-          "score": "-",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260423SKSS02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260424SSWO02026/lineup"
     }
   ]
 }
