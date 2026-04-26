@@ -1,0 +1,23 @@
+{
+  "date": "2026-04-26",
+  "game_code": "20260426KTSK02026",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "7회초",
+  "teams": [
+    {
+      "name": "KT",
+      "score": "8",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "2",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260426KTSK02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55f88b6d179a <unknown>\n#1 0x55f88b0cd215 <unknown>\n#2 0x55f88b11ff06 <unknown>\n#3 0x55f88b120141 <unknown>\n#4 0x55f88b16b634 <unknown>\n#5 0x55f88b1687d0 <unknown>\n#6 0x55f88b11355f <unknown>\n#7 0x55f88b114321 <unknown>\n#8 0x55f88b69506b <unknown>\n#9 0x55f88b69801d <unknown>\n#10 0x55f88b681718 <unknown>\n#11 0x55f88b698bb0 <unknown>\n#12 0x55f88b668150 <unknown>\n#13 0x55f88b6be5e8 <unknown>\n#14 0x55f88b6be7b8 <unknown>\n#15 0x55f88b6d01de <unknown>\n#16 0x7efde129caa4 <unknown>\n#17 0x7efde1329c6c <unknown>\n",
+  "crawl_time": "2026-04-26T07:17:32.873024"
+}
