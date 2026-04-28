@@ -2,22 +2,22 @@
   "date": "2026-04-28",
   "game_code": "20260428HTNC02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "1회말",
+  "game_status": "2회말",
   "teams": [
     {
       "name": "KIA",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "NC",
-      "score": "0",
+      "score": "1",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260428HTNC02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x560e15ead79a <unknown>\n#1 0x560e158a9215 <unknown>\n#2 0x560e158fbf06 <unknown>\n#3 0x560e158fc141 <unknown>\n#4 0x560e15947634 <unknown>\n#5 0x560e159447d0 <unknown>\n#6 0x560e158ef55f <unknown>\n#7 0x560e158f0321 <unknown>\n#8 0x560e15e7106b <unknown>\n#9 0x560e15e7401d <unknown>\n#10 0x560e15e5d718 <unknown>\n#11 0x560e15e74bb0 <unknown>\n#12 0x560e15e44150 <unknown>\n#13 0x560e15e9a5e8 <unknown>\n#14 0x560e15e9a7b8 <unknown>\n#15 0x560e15eac1de <unknown>\n#16 0x7f7a1de9caa4 <unknown>\n#17 0x7f7a1df29c6c <unknown>\n",
-  "crawl_time": "2026-04-28T09:44:07.944915"
+  "error": "Message: \nStacktrace:\n#0 0x5648de6e479a <unknown>\n#1 0x5648de0e0215 <unknown>\n#2 0x5648de132f06 <unknown>\n#3 0x5648de133141 <unknown>\n#4 0x5648de17e634 <unknown>\n#5 0x5648de17b7d0 <unknown>\n#6 0x5648de12655f <unknown>\n#7 0x5648de127321 <unknown>\n#8 0x5648de6a806b <unknown>\n#9 0x5648de6ab01d <unknown>\n#10 0x5648de694718 <unknown>\n#11 0x5648de6abbb0 <unknown>\n#12 0x5648de67b150 <unknown>\n#13 0x5648de6d15e8 <unknown>\n#14 0x5648de6d17b8 <unknown>\n#15 0x5648de6e31de <unknown>\n#16 0x7fb05789caa4 <unknown>\n#17 0x7fb057929c6c <unknown>\n",
+  "crawl_time": "2026-04-28T10:02:29.978384"
 }
