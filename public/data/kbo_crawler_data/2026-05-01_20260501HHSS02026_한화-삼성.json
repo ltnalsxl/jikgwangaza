@@ -2,7 +2,7 @@
   "date": "2026-05-01",
   "game_code": "20260501HHSS02026",
   "game_time": "경기 시간\n17:00",
-  "game_status": "5회말",
+  "game_status": "6회말",
   "teams": [
     {
       "name": "한화",
@@ -11,13 +11,13 @@
     },
     {
       "name": "삼성",
-      "score": "0",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260501HHSS02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55ef550b779a <unknown>\n#1 0x55ef54ab3215 <unknown>\n#2 0x55ef54b05f06 <unknown>\n#3 0x55ef54b06141 <unknown>\n#4 0x55ef54b51634 <unknown>\n#5 0x55ef54b4e7d0 <unknown>\n#6 0x55ef54af955f <unknown>\n#7 0x55ef54afa321 <unknown>\n#8 0x55ef5507b06b <unknown>\n#9 0x55ef5507e01d <unknown>\n#10 0x55ef55067718 <unknown>\n#11 0x55ef5507ebb0 <unknown>\n#12 0x55ef5504e150 <unknown>\n#13 0x55ef550a45e8 <unknown>\n#14 0x55ef550a47b8 <unknown>\n#15 0x55ef550b61de <unknown>\n#16 0x7f3b8a49caa4 <unknown>\n#17 0x7f3b8a529c6c <unknown>\n",
-  "crawl_time": "2026-05-01T09:26:58.080138"
+  "error": "Message: \nStacktrace:\n#0 0x559868ac279a <unknown>\n#1 0x5598684be215 <unknown>\n#2 0x559868510f06 <unknown>\n#3 0x559868511141 <unknown>\n#4 0x55986855c634 <unknown>\n#5 0x5598685597d0 <unknown>\n#6 0x55986850455f <unknown>\n#7 0x559868505321 <unknown>\n#8 0x559868a8606b <unknown>\n#9 0x559868a8901d <unknown>\n#10 0x559868a72718 <unknown>\n#11 0x559868a89bb0 <unknown>\n#12 0x559868a59150 <unknown>\n#13 0x559868aaf5e8 <unknown>\n#14 0x559868aaf7b8 <unknown>\n#15 0x559868ac11de <unknown>\n#16 0x7f466989caa4 <unknown>\n#17 0x7f4669929c6c <unknown>\n",
+  "crawl_time": "2026-05-01T09:58:39.231009"
 }
