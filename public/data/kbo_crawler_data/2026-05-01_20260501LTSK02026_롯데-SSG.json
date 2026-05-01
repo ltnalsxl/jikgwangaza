@@ -2,7 +2,7 @@
   "date": "2026-05-01",
   "game_code": "20260501LTSK02026",
   "game_time": "경기 시간\n17:00",
-  "game_status": "2회말",
+  "game_status": "3회말",
   "teams": [
     {
       "name": "롯데",
@@ -11,13 +11,13 @@
     },
     {
       "name": "SSG",
-      "score": "1",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260501LTSK02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x564921cf179a <unknown>\n#1 0x5649216ed215 <unknown>\n#2 0x56492173ff06 <unknown>\n#3 0x564921740141 <unknown>\n#4 0x56492178b634 <unknown>\n#5 0x5649217887d0 <unknown>\n#6 0x56492173355f <unknown>\n#7 0x564921734321 <unknown>\n#8 0x564921cb506b <unknown>\n#9 0x564921cb801d <unknown>\n#10 0x564921ca1718 <unknown>\n#11 0x564921cb8bb0 <unknown>\n#12 0x564921c88150 <unknown>\n#13 0x564921cde5e8 <unknown>\n#14 0x564921cde7b8 <unknown>\n#15 0x564921cf01de <unknown>\n#16 0x7fb5bd69caa4 <unknown>\n#17 0x7fb5bd729c6c <unknown>\n",
-  "crawl_time": "2026-05-01T08:32:41.592317"
+  "error": "Message: \nStacktrace:\n#0 0x562955a2479a <unknown>\n#1 0x562955420215 <unknown>\n#2 0x562955472f06 <unknown>\n#3 0x562955473141 <unknown>\n#4 0x5629554be634 <unknown>\n#5 0x5629554bb7d0 <unknown>\n#6 0x56295546655f <unknown>\n#7 0x562955467321 <unknown>\n#8 0x5629559e806b <unknown>\n#9 0x5629559eb01d <unknown>\n#10 0x5629559d4718 <unknown>\n#11 0x5629559ebbb0 <unknown>\n#12 0x5629559bb150 <unknown>\n#13 0x562955a115e8 <unknown>\n#14 0x562955a117b8 <unknown>\n#15 0x562955a231de <unknown>\n#16 0x7f19a189caa4 <unknown>\n#17 0x7f19a1929c6c <unknown>\n",
+  "crawl_time": "2026-05-01T08:58:13.186373"
 }
