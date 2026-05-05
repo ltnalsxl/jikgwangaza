@@ -2,7 +2,7 @@
   "date": "2026-05-05",
   "game_code": "20260505NCSK02026",
   "game_time": "경기 시간\n14:00",
-  "game_status": "10회말",
+  "game_status": "종료",
   "teams": [
     {
       "name": "NC",
@@ -11,13 +11,13 @@
     },
     {
       "name": "SSG",
-      "score": "6",
+      "score": "7",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260505NCSK02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5559f79ec79a <unknown>\n#1 0x5559f73e8215 <unknown>\n#2 0x5559f743af06 <unknown>\n#3 0x5559f743b141 <unknown>\n#4 0x5559f7486634 <unknown>\n#5 0x5559f74837d0 <unknown>\n#6 0x5559f742e55f <unknown>\n#7 0x5559f742f321 <unknown>\n#8 0x5559f79b006b <unknown>\n#9 0x5559f79b301d <unknown>\n#10 0x5559f799c718 <unknown>\n#11 0x5559f79b3bb0 <unknown>\n#12 0x5559f7983150 <unknown>\n#13 0x5559f79d95e8 <unknown>\n#14 0x5559f79d97b8 <unknown>\n#15 0x5559f79eb1de <unknown>\n#16 0x7fdcc829caa4 <unknown>\n#17 0x7fdcc8329c6c <unknown>\n",
-  "crawl_time": "2026-05-05T09:06:04.291878"
+  "error": "Message: \nStacktrace:\n#0 0x564507adf79a <unknown>\n#1 0x5645074db215 <unknown>\n#2 0x56450752df06 <unknown>\n#3 0x56450752e141 <unknown>\n#4 0x564507579634 <unknown>\n#5 0x5645075767d0 <unknown>\n#6 0x56450752155f <unknown>\n#7 0x564507522321 <unknown>\n#8 0x564507aa306b <unknown>\n#9 0x564507aa601d <unknown>\n#10 0x564507a8f718 <unknown>\n#11 0x564507aa6bb0 <unknown>\n#12 0x564507a76150 <unknown>\n#13 0x564507acc5e8 <unknown>\n#14 0x564507acc7b8 <unknown>\n#15 0x564507ade1de <unknown>\n#16 0x7f8fbd29caa4 <unknown>\n#17 0x7f8fbd329c6c <unknown>\n",
+  "crawl_time": "2026-05-05T09:30:01.376475"
 }
