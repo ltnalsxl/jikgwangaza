@@ -2,22 +2,22 @@
   "date": "2026-05-08",
   "game_code": "20260508SKOB02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "2회초",
   "teams": [
     {
       "name": "SSG",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "두산",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260508SKOB02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x559e1fc558aa <unknown>\n#1 0x559e1f6508a9 <unknown>\n#2 0x559e1f6a4e76 <unknown>\n#3 0x559e1f6a50b1 <unknown>\n#4 0x559e1f6efda4 <unknown>\n#5 0x559e1f6ecf40 <unknown>\n#6 0x559e1f6984cf <unknown>\n#7 0x559e1f699291 <unknown>\n#8 0x559e1fc1b76b <unknown>\n#9 0x559e1fc1e67d <unknown>\n#10 0x559e1fc086c8 <unknown>\n#11 0x559e1fc1f210 <unknown>\n#12 0x559e1fbef170 <unknown>\n#13 0x559e1fc427b8 <unknown>\n#14 0x559e1fc42955 <unknown>\n#15 0x559e1fc5430e <unknown>\n#16 0x7fe4b189caa4 <unknown>\n#17 0x7fe4b1929c6c <unknown>\n",
-  "crawl_time": "2026-05-08T09:03:43.904714"
+  "error": "Message: \nStacktrace:\n#0 0x558f954d08aa <unknown>\n#1 0x558f94ecb8a9 <unknown>\n#2 0x558f94f1fe76 <unknown>\n#3 0x558f94f200b1 <unknown>\n#4 0x558f94f6ada4 <unknown>\n#5 0x558f94f67f40 <unknown>\n#6 0x558f94f134cf <unknown>\n#7 0x558f94f14291 <unknown>\n#8 0x558f9549676b <unknown>\n#9 0x558f9549967d <unknown>\n#10 0x558f954836c8 <unknown>\n#11 0x558f9549a210 <unknown>\n#12 0x558f9546a170 <unknown>\n#13 0x558f954bd7b8 <unknown>\n#14 0x558f954bd955 <unknown>\n#15 0x558f954cf30e <unknown>\n#16 0x7faba809caa4 <unknown>\n#17 0x7faba8129c6c <unknown>\n",
+  "crawl_time": "2026-05-08T09:54:24.348331"
 }
