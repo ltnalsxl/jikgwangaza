@@ -2,22 +2,22 @@
   "date": "2026-05-13",
   "game_code": "20260513NCLT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "3회초",
+  "game_status": "4회말",
   "teams": [
     {
       "name": "NC",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "롯데",
-      "score": "2",
+      "score": "5",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260513NCLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55c3f1ba822a <unknown>\n#1 0x55c3f15a6ab9 <unknown>\n#2 0x55c3f15fb046 <unknown>\n#3 0x55c3f15fb281 <unknown>\n#4 0x55c3f1645f74 <unknown>\n#5 0x55c3f1643116 <unknown>\n#6 0x55c3f15ee662 <unknown>\n#7 0x55c3f15ef451 <unknown>\n#8 0x55c3f1b6bd8b <unknown>\n#9 0x55c3f1b6ec65 <unknown>\n#10 0x55c3f1b58458 <unknown>\n#11 0x55c3f1b6f7f0 <unknown>\n#12 0x55c3f1b3f1c0 <unknown>\n#13 0x55c3f1b95168 <unknown>\n#14 0x55c3f1b95305 <unknown>\n#15 0x55c3f1ba6c5e <unknown>\n#16 0x7fc6ed49caa4 <unknown>\n#17 0x7fc6ed529c6c <unknown>\n",
-  "crawl_time": "2026-05-13T10:07:33.538847"
+  "error": "Message: \nStacktrace:\n#0 0x55c9daf2f22a <unknown>\n#1 0x55c9da92dab9 <unknown>\n#2 0x55c9da982046 <unknown>\n#3 0x55c9da982281 <unknown>\n#4 0x55c9da9ccf74 <unknown>\n#5 0x55c9da9ca116 <unknown>\n#6 0x55c9da975662 <unknown>\n#7 0x55c9da976451 <unknown>\n#8 0x55c9daef2d8b <unknown>\n#9 0x55c9daef5c65 <unknown>\n#10 0x55c9daedf458 <unknown>\n#11 0x55c9daef67f0 <unknown>\n#12 0x55c9daec61c0 <unknown>\n#13 0x55c9daf1c168 <unknown>\n#14 0x55c9daf1c305 <unknown>\n#15 0x55c9daf2dc5e <unknown>\n#16 0x7f1aeea9caa4 <unknown>\n#17 0x7f1aeeb29c6c <unknown>\n",
+  "crawl_time": "2026-05-13T10:42:51.908557"
 }
