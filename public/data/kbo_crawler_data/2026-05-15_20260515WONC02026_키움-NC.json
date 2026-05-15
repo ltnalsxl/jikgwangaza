@@ -2,22 +2,22 @@
   "date": "2026-05-15",
   "game_code": "20260515WONC02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "키움",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "NC",
-      "score": "-",
+      "score": "0",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260515WONC02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x563d518de22a <unknown>\n#1 0x563d512dcab9 <unknown>\n#2 0x563d51331046 <unknown>\n#3 0x563d51331281 <unknown>\n#4 0x563d5137bf74 <unknown>\n#5 0x563d51379116 <unknown>\n#6 0x563d51324662 <unknown>\n#7 0x563d51325451 <unknown>\n#8 0x563d518a1d8b <unknown>\n#9 0x563d518a4c65 <unknown>\n#10 0x563d5188e458 <unknown>\n#11 0x563d518a57f0 <unknown>\n#12 0x563d518751c0 <unknown>\n#13 0x563d518cb168 <unknown>\n#14 0x563d518cb305 <unknown>\n#15 0x563d518dcc5e <unknown>\n#16 0x7ff76e69caa4 <unknown>\n#17 0x7ff76e729c6c <unknown>\n",
-  "crawl_time": "2026-05-15T09:36:19.763408"
+  "error": "Message: \nStacktrace:\n#0 0x563e8759d22a <unknown>\n#1 0x563e86f9bab9 <unknown>\n#2 0x563e86ff0046 <unknown>\n#3 0x563e86ff0281 <unknown>\n#4 0x563e8703af74 <unknown>\n#5 0x563e87038116 <unknown>\n#6 0x563e86fe3662 <unknown>\n#7 0x563e86fe4451 <unknown>\n#8 0x563e87560d8b <unknown>\n#9 0x563e87563c65 <unknown>\n#10 0x563e8754d458 <unknown>\n#11 0x563e875647f0 <unknown>\n#12 0x563e875341c0 <unknown>\n#13 0x563e8758a168 <unknown>\n#14 0x563e8758a305 <unknown>\n#15 0x563e8759bc5e <unknown>\n#16 0x7f6c9849caa4 <unknown>\n#17 0x7f6c98529c6c <unknown>\n",
+  "crawl_time": "2026-05-15T09:45:17.216251"
 }
