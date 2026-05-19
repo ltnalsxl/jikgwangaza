@@ -2,22 +2,22 @@
   "date": "2026-05-19",
   "game_code": "20260519LGHT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "예정",
+  "game_status": "2회말",
   "teams": [
     {
       "name": "LG",
-      "score": "-",
+      "score": "0",
       "is_home": false
     },
     {
       "name": "KIA",
-      "score": "-",
+      "score": "1",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260519LGHT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x56380ea1c22a <unknown>\n#1 0x56380e41aab9 <unknown>\n#2 0x56380e46f046 <unknown>\n#3 0x56380e46f281 <unknown>\n#4 0x56380e4b9f74 <unknown>\n#5 0x56380e4b7116 <unknown>\n#6 0x56380e462662 <unknown>\n#7 0x56380e463451 <unknown>\n#8 0x56380e9dfd8b <unknown>\n#9 0x56380e9e2c65 <unknown>\n#10 0x56380e9cc458 <unknown>\n#11 0x56380e9e37f0 <unknown>\n#12 0x56380e9b31c0 <unknown>\n#13 0x56380ea09168 <unknown>\n#14 0x56380ea09305 <unknown>\n#15 0x56380ea1ac5e <unknown>\n#16 0x7f7a7529caa4 <unknown>\n#17 0x7f7a75329c6c <unknown>\n",
-  "crawl_time": "2026-05-19T09:01:06.196989"
+  "error": "Message: \nStacktrace:\n#0 0x5619f278522a <unknown>\n#1 0x5619f2183ab9 <unknown>\n#2 0x5619f21d8046 <unknown>\n#3 0x5619f21d8281 <unknown>\n#4 0x5619f2222f74 <unknown>\n#5 0x5619f2220116 <unknown>\n#6 0x5619f21cb662 <unknown>\n#7 0x5619f21cc451 <unknown>\n#8 0x5619f2748d8b <unknown>\n#9 0x5619f274bc65 <unknown>\n#10 0x5619f2735458 <unknown>\n#11 0x5619f274c7f0 <unknown>\n#12 0x5619f271c1c0 <unknown>\n#13 0x5619f2772168 <unknown>\n#14 0x5619f2772305 <unknown>\n#15 0x5619f2783c5e <unknown>\n#16 0x7f9dd1a9caa4 <unknown>\n#17 0x7f9dd1b29c6c <unknown>\n",
+  "crawl_time": "2026-05-19T10:15:38.186076"
 }
