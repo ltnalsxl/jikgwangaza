@@ -2,22 +2,22 @@
   "date": "2026-05-22",
   "game_code": "20260522SSLT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "2회초",
+  "game_status": "3회말",
   "teams": [
     {
       "name": "삼성",
-      "score": "2",
+      "score": "3",
       "is_home": false
     },
     {
       "name": "롯데",
-      "score": "1",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260522SSLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55744f59d16a <unknown>\n#1 0x55744ef9a6b9 <unknown>\n#2 0x55744efeec0d <unknown>\n#3 0x55744efeee51 <unknown>\n#4 0x55744f039b24 <unknown>\n#5 0x55744f036cbf <unknown>\n#6 0x55744efe2222 <unknown>\n#7 0x55744efe3011 <unknown>\n#8 0x55744f562a0b <unknown>\n#9 0x55744f56592d <unknown>\n#10 0x55744f54f948 <unknown>\n#11 0x55744f5664c0 <unknown>\n#12 0x55744f536560 <unknown>\n#13 0x55744f589dd8 <unknown>\n#14 0x55744f589f75 <unknown>\n#15 0x55744f59bbce <unknown>\n#16 0x7fe30d69caa4 <unknown>\n#17 0x7fe30d729c6c <unknown>\n",
-  "crawl_time": "2026-05-22T10:00:25.055693"
+  "error": "Message: \nStacktrace:\n#0 0x5593e0e7d16a <unknown>\n#1 0x5593e087a6b9 <unknown>\n#2 0x5593e08cec0d <unknown>\n#3 0x5593e08cee51 <unknown>\n#4 0x5593e0919b24 <unknown>\n#5 0x5593e0916cbf <unknown>\n#6 0x5593e08c2222 <unknown>\n#7 0x5593e08c3011 <unknown>\n#8 0x5593e0e42a0b <unknown>\n#9 0x5593e0e4592d <unknown>\n#10 0x5593e0e2f948 <unknown>\n#11 0x5593e0e464c0 <unknown>\n#12 0x5593e0e16560 <unknown>\n#13 0x5593e0e69dd8 <unknown>\n#14 0x5593e0e69f75 <unknown>\n#15 0x5593e0e7bbce <unknown>\n#16 0x7f549ce9caa4 <unknown>\n#17 0x7f549cf29c6c <unknown>\n",
+  "crawl_time": "2026-05-22T10:21:40.396834"
 }
