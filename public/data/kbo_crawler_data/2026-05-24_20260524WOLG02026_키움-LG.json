@@ -2,7 +2,7 @@
   "date": "2026-05-24",
   "game_code": "20260524WOLG02026",
   "game_time": "경기 시간\n14:00",
-  "game_status": "9회말",
+  "game_status": "종료",
   "teams": [
     {
       "name": "키움",
@@ -11,13 +11,13 @@
     },
     {
       "name": "LG",
-      "score": "3",
+      "score": "6",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260524WOLG02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x5593ad14f16a <unknown>\n#1 0x5593acb4c6b9 <unknown>\n#2 0x5593acba0c0d <unknown>\n#3 0x5593acba0e51 <unknown>\n#4 0x5593acbebb24 <unknown>\n#5 0x5593acbe8cbf <unknown>\n#6 0x5593acb94222 <unknown>\n#7 0x5593acb95011 <unknown>\n#8 0x5593ad114a0b <unknown>\n#9 0x5593ad11792d <unknown>\n#10 0x5593ad101948 <unknown>\n#11 0x5593ad1184c0 <unknown>\n#12 0x5593ad0e8560 <unknown>\n#13 0x5593ad13bdd8 <unknown>\n#14 0x5593ad13bf75 <unknown>\n#15 0x5593ad14dbce <unknown>\n#16 0x7fb68589caa4 <unknown>\n#17 0x7fb685929c6c <unknown>\n",
-  "crawl_time": "2026-05-24T08:18:03.282287"
+  "error": "Message: \nStacktrace:\n#0 0x563f444fc16a <unknown>\n#1 0x563f43ef96b9 <unknown>\n#2 0x563f43f4dc0d <unknown>\n#3 0x563f43f4de51 <unknown>\n#4 0x563f43f98b24 <unknown>\n#5 0x563f43f95cbf <unknown>\n#6 0x563f43f41222 <unknown>\n#7 0x563f43f42011 <unknown>\n#8 0x563f444c1a0b <unknown>\n#9 0x563f444c492d <unknown>\n#10 0x563f444ae948 <unknown>\n#11 0x563f444c54c0 <unknown>\n#12 0x563f44495560 <unknown>\n#13 0x563f444e8dd8 <unknown>\n#14 0x563f444e8f75 <unknown>\n#15 0x563f444fabce <unknown>\n#16 0x7f1b0709caa4 <unknown>\n#17 0x7f1b07129c6c <unknown>\n",
+  "crawl_time": "2026-05-24T09:11:46.191395"
 }
