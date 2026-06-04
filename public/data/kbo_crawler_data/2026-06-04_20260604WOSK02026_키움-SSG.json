@@ -2,7 +2,7 @@
   "date": "2026-06-04",
   "game_code": "20260604WOSK02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "2회말",
+  "game_status": "3회말",
   "teams": [
     {
       "name": "키움",
@@ -11,13 +11,13 @@
     },
     {
       "name": "SSG",
-      "score": "2",
+      "score": "4",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260604WOSK02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55948359e80a <unknown>\n#1 0x559482f81289 <unknown>\n#2 0x559482fd59b4 <unknown>\n#3 0x559482fd5c01 <unknown>\n#4 0x559483020874 <unknown>\n#5 0x55948301da4c <unknown>\n#6 0x559482fc8f7f <unknown>\n#7 0x559482fc9d61 <unknown>\n#8 0x5594835650f7 <unknown>\n#9 0x5594835638bd <unknown>\n#10 0x55948354e5a6 <unknown>\n#11 0x55948356449a <unknown>\n#12 0x559483536560 <unknown>\n#13 0x55948358b288 <unknown>\n#14 0x55948358b425 <unknown>\n#15 0x55948359d38e <unknown>\n#16 0x7f377ee9caa4 <unknown>\n#17 0x7f377ef29c6c <unknown>\n",
-  "crawl_time": "2026-06-04T10:40:10.209503"
+  "error": "Message: \nStacktrace:\n#0 0x55f8171d580a <unknown>\n#1 0x55f816bb8289 <unknown>\n#2 0x55f816c0c9b4 <unknown>\n#3 0x55f816c0cc01 <unknown>\n#4 0x55f816c57874 <unknown>\n#5 0x55f816c54a4c <unknown>\n#6 0x55f816bfff7f <unknown>\n#7 0x55f816c00d61 <unknown>\n#8 0x55f81719c0f7 <unknown>\n#9 0x55f81719a8bd <unknown>\n#10 0x55f8171855a6 <unknown>\n#11 0x55f81719b49a <unknown>\n#12 0x55f81716d560 <unknown>\n#13 0x55f8171c2288 <unknown>\n#14 0x55f8171c2425 <unknown>\n#15 0x55f8171d438e <unknown>\n#16 0x7fc40849caa4 <unknown>\n#17 0x7fc408529c6c <unknown>\n",
+  "crawl_time": "2026-06-04T10:54:30.613750"
 }
