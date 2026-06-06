@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-06",
+  "game_code": "20260606WOOB02026",
+  "game_time": "경기 시간\n17:00",
+  "game_status": "1회말",
+  "teams": [
+    {
+      "name": "키움",
+      "score": "1",
+      "is_home": false
+    },
+    {
+      "name": "두산",
+      "score": "1",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260606WOOB02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x563f54aa080a <unknown>\n#1 0x563f54483289 <unknown>\n#2 0x563f544d79b4 <unknown>\n#3 0x563f544d7c01 <unknown>\n#4 0x563f54522874 <unknown>\n#5 0x563f5451fa4c <unknown>\n#6 0x563f544caf7f <unknown>\n#7 0x563f544cbd61 <unknown>\n#8 0x563f54a670f7 <unknown>\n#9 0x563f54a658bd <unknown>\n#10 0x563f54a505a6 <unknown>\n#11 0x563f54a6649a <unknown>\n#12 0x563f54a38560 <unknown>\n#13 0x563f54a8d288 <unknown>\n#14 0x563f54a8d425 <unknown>\n#15 0x563f54a9f38e <unknown>\n#16 0x7f4bbde9caa4 <unknown>\n#17 0x7f4bbdf29c6c <unknown>\n",
+  "crawl_time": "2026-06-06T08:28:44.100758"
+}
