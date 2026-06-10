@@ -2,11 +2,11 @@
   "date": "2026-06-10",
   "game_code": "20260610OBLT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "8회말",
+  "game_status": "종료",
   "teams": [
     {
       "name": "두산",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
@@ -18,6 +18,6 @@
   "lineup_url": "https://m.sports.naver.com/game/20260610OBLT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x557211ed77ca <unknown>\n#1 0x5572118ba289 <unknown>\n#2 0x55721190e9b4 <unknown>\n#3 0x55721190ec01 <unknown>\n#4 0x557211959874 <unknown>\n#5 0x557211956a4c <unknown>\n#6 0x557211901f7f <unknown>\n#7 0x557211902d61 <unknown>\n#8 0x557211e9e0b7 <unknown>\n#9 0x557211e9c87d <unknown>\n#10 0x557211e87566 <unknown>\n#11 0x557211e9d45a <unknown>\n#12 0x557211e6f520 <unknown>\n#13 0x557211ec4248 <unknown>\n#14 0x557211ec43e5 <unknown>\n#15 0x557211ed634e <unknown>\n#16 0x7fbdbf09caa4 <unknown>\n#17 0x7fbdbf129c6c <unknown>\n",
-  "crawl_time": "2026-06-10T12:23:22.749474"
+  "error": "Message: \nStacktrace:\n#0 0x55a8069467ca <unknown>\n#1 0x55a806329289 <unknown>\n#2 0x55a80637d9b4 <unknown>\n#3 0x55a80637dc01 <unknown>\n#4 0x55a8063c8874 <unknown>\n#5 0x55a8063c5a4c <unknown>\n#6 0x55a806370f7f <unknown>\n#7 0x55a806371d61 <unknown>\n#8 0x55a80690d0b7 <unknown>\n#9 0x55a80690b87d <unknown>\n#10 0x55a8068f6566 <unknown>\n#11 0x55a80690c45a <unknown>\n#12 0x55a8068de520 <unknown>\n#13 0x55a806933248 <unknown>\n#14 0x55a8069333e5 <unknown>\n#15 0x55a80694534e <unknown>\n#16 0x7fc7bba9caa4 <unknown>\n#17 0x7fc7bbb29c6c <unknown>\n",
+  "crawl_time": "2026-06-10T12:50:30.055127"
 }
