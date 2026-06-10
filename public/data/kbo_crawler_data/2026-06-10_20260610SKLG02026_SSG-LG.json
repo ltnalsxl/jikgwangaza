@@ -2,22 +2,22 @@
   "date": "2026-06-10",
   "game_code": "20260610SKLG02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "7회초",
+  "game_status": "8회초",
   "teams": [
     {
       "name": "SSG",
-      "score": "5",
+      "score": "6",
       "is_home": false
     },
     {
       "name": "LG",
-      "score": "7",
+      "score": "8",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260610SKLG02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55e1863817ca <unknown>\n#1 0x55e185d64289 <unknown>\n#2 0x55e185db89b4 <unknown>\n#3 0x55e185db8c01 <unknown>\n#4 0x55e185e03874 <unknown>\n#5 0x55e185e00a4c <unknown>\n#6 0x55e185dabf7f <unknown>\n#7 0x55e185dacd61 <unknown>\n#8 0x55e1863480b7 <unknown>\n#9 0x55e18634687d <unknown>\n#10 0x55e186331566 <unknown>\n#11 0x55e18634745a <unknown>\n#12 0x55e186319520 <unknown>\n#13 0x55e18636e248 <unknown>\n#14 0x55e18636e3e5 <unknown>\n#15 0x55e18638034e <unknown>\n#16 0x7fa41f69caa4 <unknown>\n#17 0x7fa41f729c6c <unknown>\n",
-  "crawl_time": "2026-06-10T11:52:32.248422"
+  "error": "Message: \nStacktrace:\n#0 0x557211ed77ca <unknown>\n#1 0x5572118ba289 <unknown>\n#2 0x55721190e9b4 <unknown>\n#3 0x55721190ec01 <unknown>\n#4 0x557211959874 <unknown>\n#5 0x557211956a4c <unknown>\n#6 0x557211901f7f <unknown>\n#7 0x557211902d61 <unknown>\n#8 0x557211e9e0b7 <unknown>\n#9 0x557211e9c87d <unknown>\n#10 0x557211e87566 <unknown>\n#11 0x557211e9d45a <unknown>\n#12 0x557211e6f520 <unknown>\n#13 0x557211ec4248 <unknown>\n#14 0x557211ec43e5 <unknown>\n#15 0x557211ed634e <unknown>\n#16 0x7fbdbf09caa4 <unknown>\n#17 0x7fbdbf129c6c <unknown>\n",
+  "crawl_time": "2026-06-10T12:24:32.242203"
 }
