@@ -2,7 +2,7 @@
   "date": "2026-06-12",
   "game_code": "20260612OBHT02026",
   "game_time": "경기 시간\n18:30",
-  "game_status": "9회말",
+  "game_status": "종료",
   "teams": [
     {
       "name": "두산",
@@ -11,13 +11,13 @@
     },
     {
       "name": "KIA",
-      "score": "1",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260612OBHT02026/lineup",
   "starting_lineups": {},
   "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55a7334a529a <unknown>\n#1 0x55a732e87449 <unknown>\n#2 0x55a732edbbaf <unknown>\n#3 0x55a732edbe01 <unknown>\n#4 0x55a732f26ae4 <unknown>\n#5 0x55a732f23cbf <unknown>\n#6 0x55a732ecf132 <unknown>\n#7 0x55a732ecff41 <unknown>\n#8 0x55a73346b737 <unknown>\n#9 0x55a733469f39 <unknown>\n#10 0x55a733454c26 <unknown>\n#11 0x55a73346aada <unknown>\n#12 0x55a73343cbd0 <unknown>\n#13 0x55a733491c28 <unknown>\n#14 0x55a733491dc5 <unknown>\n#15 0x55a7334a3e1e <unknown>\n#16 0x7f808e69caa4 <unknown>\n#17 0x7f808e729c6c <unknown>\n",
-  "crawl_time": "2026-06-12T12:23:00.601156"
+  "error": "Message: \nStacktrace:\n#0 0x55bdb8bae29a <unknown>\n#1 0x55bdb8590449 <unknown>\n#2 0x55bdb85e4baf <unknown>\n#3 0x55bdb85e4e01 <unknown>\n#4 0x55bdb862fae4 <unknown>\n#5 0x55bdb862ccbf <unknown>\n#6 0x55bdb85d8132 <unknown>\n#7 0x55bdb85d8f41 <unknown>\n#8 0x55bdb8b74737 <unknown>\n#9 0x55bdb8b72f39 <unknown>\n#10 0x55bdb8b5dc26 <unknown>\n#11 0x55bdb8b73ada <unknown>\n#12 0x55bdb8b45bd0 <unknown>\n#13 0x55bdb8b9ac28 <unknown>\n#14 0x55bdb8b9adc5 <unknown>\n#15 0x55bdb8bace1e <unknown>\n#16 0x7f314309caa4 <unknown>\n#17 0x7f3143129c6c <unknown>\n",
+  "crawl_time": "2026-06-12T12:47:31.054589"
 }
