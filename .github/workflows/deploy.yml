@@ -16,7 +16,16 @@ jobs:
       - run: npm ci
       - run: CI=false npm run build
       - run: npm install -g firebase-tools@12
+      - name: Check Firebase token
+        run: |
+          if [ -z "$FIREBASE_TOKEN" ]; then
+            echo "❌ FIREBASE_TOKEN is empty or not set"
+            exit 1
+          fi
+          echo "✅ FIREBASE_TOKEN is set (length: ${#FIREBASE_TOKEN})"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --project jikgwangaza --only hosting
+        run: firebase deploy --project jikgwangaza --only hosting --debug
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
