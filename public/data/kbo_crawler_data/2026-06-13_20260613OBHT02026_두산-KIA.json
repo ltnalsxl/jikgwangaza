@@ -1,21 +1,29 @@
 {
   "date": "2026-06-13",
   "game_code": "20260613OBHT02026",
-  "game_time": "경기 시간\n17:00",
-  "game_status": "종료",
+  "game_time": "17:00",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "두산",
+      "full_name": "두산 베어스",
+      "code": "OB",
       "score": "1",
       "is_home": false
     },
     {
       "name": "KIA",
+      "full_name": "KIA 타이거즈",
+      "code": "HT",
       "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260613OBHT02026/lineup",
+  "stadium": "광주",
+  "away_starter_name": "벤자민",
+  "home_starter_name": "네일",
+  "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
@@ -23,7 +31,7 @@
       "starting_pitcher": {
         "player_id": "52043",
         "name": "벤자민",
-        "throwing_hand": "",
+        "throwing_hand": "좌투",
         "position": "투수",
         "role": "선발투수"
       },
@@ -32,72 +40,72 @@
           "player_id": "79231",
           "name": "정수빈",
           "batting_order": 1,
-          "position": "중",
-          "batting_hand": "",
+          "position": "중견수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "64646",
           "name": "박찬호",
           "batting_order": 2,
-          "position": "유",
-          "batting_hand": "",
+          "position": "유격수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "77532",
           "name": "손아섭",
           "batting_order": 3,
-          "position": "지",
-          "batting_hand": "",
+          "position": "지명타자",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "76232",
           "name": "양의지",
           "batting_order": 4,
-          "position": "포",
-          "batting_hand": "",
+          "position": "포수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "53554",
           "name": "김민석",
           "batting_order": 5,
-          "position": "좌",
-          "batting_hand": "",
+          "position": "좌익수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "50208",
           "name": "오명진",
           "batting_order": 6,
-          "position": "一",
-          "batting_hand": "",
+          "position": "1루수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "51203",
           "name": "안재석",
           "batting_order": 7,
-          "position": "三",
-          "batting_hand": "",
+          "position": "3루수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "67207",
           "name": "이유찬",
           "batting_order": 8,
-          "position": "二",
-          "batting_hand": "",
+          "position": "2루수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "66209",
           "name": "조수행",
           "batting_order": 9,
-          "position": "우좌",
-          "batting_hand": "",
+          "position": "우익수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         }
       ]
@@ -108,7 +116,7 @@
       "starting_pitcher": {
         "player_id": "54640",
         "name": "네일",
-        "throwing_hand": "",
+        "throwing_hand": "우투",
         "position": "투수",
         "role": "선발투수"
       },
@@ -117,78 +125,78 @@
           "player_id": "56637",
           "name": "김민규",
           "batting_order": 1,
-          "position": "좌",
-          "batting_hand": "",
+          "position": "좌익수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "65653",
           "name": "김호령",
           "batting_order": 2,
-          "position": "중",
-          "batting_hand": "",
+          "position": "중견수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "52605",
           "name": "김도영",
           "batting_order": 3,
-          "position": "지",
-          "batting_hand": "",
+          "position": "지명타자",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "62947",
           "name": "나성범",
           "batting_order": 4,
-          "position": "우",
-          "batting_hand": "",
+          "position": "우익수",
+          "batting_hand": "좌타",
           "role": "선발타자"
         },
         {
           "player_id": "78603",
           "name": "김선빈",
           "batting_order": 5,
-          "position": "二",
-          "batting_hand": "",
+          "position": "2루수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "69727",
           "name": "변우혁",
           "batting_order": 6,
-          "position": "三一",
-          "batting_hand": "",
+          "position": "3루수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "65610",
           "name": "황대인",
           "batting_order": 7,
-          "position": "一",
-          "batting_hand": "",
+          "position": "1루수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "78122",
           "name": "김태군",
           "batting_order": 8,
-          "position": "포",
-          "batting_hand": "",
+          "position": "포수",
+          "batting_hand": "우타",
           "role": "선발타자"
         },
         {
           "player_id": "50657",
           "name": "박민",
           "batting_order": 9,
-          "position": "유三",
-          "batting_hand": "",
+          "position": "유격수",
+          "batting_hand": "우타",
           "role": "선발타자"
         }
       ]
     }
   },
   "lineup_status": "confirmed",
-  "crawl_time": "2026-06-14T01:10:16.858117",
-  "lineup_source": "naver_api_record"
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T01:50:36.567315"
 }

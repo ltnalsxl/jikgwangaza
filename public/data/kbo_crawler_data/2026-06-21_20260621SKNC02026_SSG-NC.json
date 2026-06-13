@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-21",
+  "game_code": "20260621SKNC02026",
+  "game_time": "17:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "SSG",
+      "full_name": "SSG 랜더스",
+      "code": "SK",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "NC",
+      "full_name": "NC 다이노스",
+      "code": "NC",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260621SKNC02026/lineup",
+  "stadium": "창원",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "MBC SPORTS+^SPOTV",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "SSG",
+      "team_code": "SK",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "NC",
+      "team_code": "NC",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T01:52:17.244189",
+  "error": "API preview did not include full batting orders"
+}

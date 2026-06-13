@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-26",
+  "game_code": "20260626LGLT02026",
+  "game_time": "18:30",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "LG",
+      "full_name": "LG 트윈스",
+      "code": "LG",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "롯데",
+      "full_name": "롯데 자이언츠",
+      "code": "LT",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260626LGLT02026/lineup",
+  "stadium": "사직",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "롯데",
+      "team_code": "LT",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T01:53:12.331920",
+  "error": "API preview did not include full batting orders"
+}

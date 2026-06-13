@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-27",
+  "game_code": "20260627KTSS02026",
+  "game_time": "17:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "KT",
+      "full_name": "kt wiz",
+      "code": "KT",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "삼성",
+      "full_name": "삼성 라이온즈",
+      "code": "SS",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260627KTSS02026/lineup",
+  "stadium": "대구",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "KT",
+      "team_code": "KT",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "삼성",
+      "team_code": "SS",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T01:53:23.883419",
+  "error": "API preview did not include full batting orders"
+}

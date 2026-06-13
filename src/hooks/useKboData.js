@@ -67,26 +67,21 @@ const normalizeDate = (dateStr) => {
 // 위치 정규화 함수
 const normalizePosition = (position) => {
   const positionMap = {
-    '투수': '투수',
-    '포수': '포수',
-    '1루수': '1루수',
-    '2루수': '2루수',
-    '3루수': '3루수',
-    '유격수': '유격수',
-    '좌익수': '좌익수',
-    '중견수': '중견수',
-    '우익수': '우익수',
-    '지명타자': '지명타자',
-    'P': '투수',
-    'C': '포수',
-    '1B': '1루수',
-    '2B': '2루수',
-    '3B': '3루수',
-    'SS': '유격수',
-    'LF': '좌익수',
-    'CF': '중견수',
-    'RF': '우익수',
-    'DH': '지명타자',
+    // 전체 한국어 명칭
+    '투수': '투수', '포수': '포수', '1루수': '1루수', '2루수': '2루수',
+    '3루수': '3루수', '유격수': '유격수', '좌익수': '좌익수', '중견수': '중견수',
+    '우익수': '우익수', '지명타자': '지명타자',
+    // 영문 약어
+    'P': '투수', 'C': '포수', '1B': '1루수', '2B': '2루수', '3B': '3루수',
+    'SS': '유격수', 'LF': '좌익수', 'CF': '중견수', 'RF': '우익수', 'DH': '지명타자',
+    // 한글 단축 (네이버 크롤러)
+    '투': '투수', '포': '포수', '유': '유격수',
+    '좌': '좌익수', '중': '중견수', '우': '우익수', '지': '지명타자',
+    '1루': '1루수', '2루': '2루수', '3루': '3루수',
+    // 한자 포지션 (네이버 KBO API)
+    '一': '1루수', '二': '2루수', '三': '3루수',
+    '遊': '유격수', '左': '좌익수', '中': '중견수', '右': '우익수',
+    '捕': '포수', '投': '투수', '指': '지명타자',
   };
   return positionMap[position] || position;
 };
@@ -269,11 +264,7 @@ const useKboData = () => {
           }
 
           const isCanceled = !!(game.game_status && game.game_status.includes('취소'));
-
-          if (!isCanceled && !game.starting_lineups) {
-            console.warn('라인업 정보 없음:', file);
-            return [];
-          }
+          const hasLineup = !isCanceled && !!game.starting_lineups;
 
           try {
             const homeTeam = normalizeTeamName(
@@ -289,8 +280,7 @@ const useKboData = () => {
               ? game.game_time.replace('경기 시간', '').trim()
               : '미정';
 
-            if (!dateStr) {
-              console.warn('유효하지 않은 날짜:', game.date, file);
+            if (!dateStr || !homeTeam || !awayTeam) {
               return [];
             }
 
@@ -316,27 +306,25 @@ const useKboData = () => {
                     position: normalizePosition(batter.position),
                   }))
                   .sort((a, b) => a.order - b.order);
-              } else {
-                console.warn('타자 라인업 없음:', teamName, file);
               }
 
               return { pitcher, batters };
             };
 
-            const team1Name = normalizeTeamName(game.starting_lineups?.team_1?.team_name || '');
-            const team2Name = normalizeTeamName(game.starting_lineups?.team_2?.team_name || '');
+            // starting_lineups에서 팀명 추출, 없으면 teams 배열에서 fallback
+            const team1Name = hasLineup
+              ? normalizeTeamName(game.starting_lineups.team_1?.team_name || '') || awayTeam
+              : awayTeam;
+            const team2Name = hasLineup
+              ? normalizeTeamName(game.starting_lineups.team_2?.team_name || '') || homeTeam
+              : homeTeam;
 
-            if (!team1Name || !team2Name) {
-              console.warn('팀명 정보 부족:', file, { team1Name, team2Name });
-              return [];
-            }
-
-            const lineupData1 = isCanceled
-              ? { pitcher: null, batters: [] }
-              : buildLineupData(game.starting_lineups?.team_1, team1Name);
-            const lineupData2 = isCanceled
-              ? { pitcher: null, batters: [] }
-              : buildLineupData(game.starting_lineups?.team_2, team2Name);
+            const lineupData1 = hasLineup
+              ? buildLineupData(game.starting_lineups.team_1, team1Name)
+              : { pitcher: null, batters: [] };
+            const lineupData2 = hasLineup
+              ? buildLineupData(game.starting_lineups.team_2, team2Name)
+              : { pitcher: null, batters: [] };
 
             return [
               {
