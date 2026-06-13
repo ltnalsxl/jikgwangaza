@@ -16,8 +16,179 @@
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260512OBHT02026/lineup",
-  "starting_lineups": {},
-  "lineup_status": "error",
-  "error": "Message: \nStacktrace:\n#0 0x55637e90c8aa <unknown>\n#1 0x55637e3078a9 <unknown>\n#2 0x55637e35be76 <unknown>\n#3 0x55637e35c0b1 <unknown>\n#4 0x55637e3a6da4 <unknown>\n#5 0x55637e3a3f40 <unknown>\n#6 0x55637e34f4cf <unknown>\n#7 0x55637e350291 <unknown>\n#8 0x55637e8d276b <unknown>\n#9 0x55637e8d567d <unknown>\n#10 0x55637e8bf6c8 <unknown>\n#11 0x55637e8d6210 <unknown>\n#12 0x55637e8a6170 <unknown>\n#13 0x55637e8f97b8 <unknown>\n#14 0x55637e8f9955 <unknown>\n#15 0x55637e90b30e <unknown>\n#16 0x7fc982e9caa4 <unknown>\n#17 0x7fc982f29c6c <unknown>\n",
-  "crawl_time": "2026-05-12T11:35:44.299649"
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "두산",
+      "team_code": "OB",
+      "starting_pitcher": {
+        "player_id": "51264",
+        "name": "최승용",
+        "throwing_hand": "",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "64646",
+          "name": "박찬호",
+          "batting_order": 1,
+          "position": "유",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53554",
+          "name": "김민석",
+          "batting_order": 2,
+          "position": "좌",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55252",
+          "name": "박준순",
+          "batting_order": 3,
+          "position": "二",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "56251",
+          "name": "카메론",
+          "batting_order": 4,
+          "position": "우",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "66233",
+          "name": "홍성호",
+          "batting_order": 5,
+          "position": "지",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "76232",
+          "name": "양의지",
+          "batting_order": 6,
+          "position": "포",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "79231",
+          "name": "정수빈",
+          "batting_order": 7,
+          "position": "중",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50204",
+          "name": "박지훈",
+          "batting_order": 8,
+          "position": "三",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50208",
+          "name": "오명진",
+          "batting_order": 9,
+          "position": "一",
+          "batting_hand": "",
+          "role": "선발타자"
+        }
+      ]
+    },
+    "team_2": {
+      "team_name": "KIA",
+      "team_code": "HT",
+      "starting_pitcher": {
+        "player_id": "55633",
+        "name": "올러",
+        "throwing_hand": "",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "55636",
+          "name": "박재현",
+          "batting_order": 1,
+          "position": "좌",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "65653",
+          "name": "김호령",
+          "batting_order": 2,
+          "position": "중",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "78603",
+          "name": "김선빈",
+          "batting_order": 3,
+          "position": "지",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52605",
+          "name": "김도영",
+          "batting_order": 4,
+          "position": "三",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "56613",
+          "name": "아데를린",
+          "batting_order": 5,
+          "position": "一",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62947",
+          "name": "나성범",
+          "batting_order": 6,
+          "position": "우",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52667",
+          "name": "윤도현",
+          "batting_order": 7,
+          "position": "二",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68646",
+          "name": "한준수",
+          "batting_order": 8,
+          "position": "포",
+          "batting_hand": "",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50657",
+          "name": "박민",
+          "batting_order": 9,
+          "position": "유",
+          "batting_hand": "",
+          "role": "선발타자"
+        }
+      ]
+    }
+  },
+  "lineup_status": "confirmed",
+  "crawl_time": "2026-06-14T01:09:27.504970",
+  "lineup_source": "naver_api_record"
 }
