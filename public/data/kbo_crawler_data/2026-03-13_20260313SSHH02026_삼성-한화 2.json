@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-13",
+  "game_code": "20260313SSHH02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "삼성",
+      "score": "2",
+      "is_home": false
+    },
+    {
+      "name": "한화",
+      "score": "3",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260313SSHH02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55ad191baaca <unknown>\n#1 0x55ad18bcbea5 <unknown>\n#2 0x55ad18c1ea6d <unknown>\n#3 0x55ad18c1ecb1 <unknown>\n#4 0x55ad18c69a24 <unknown>\n#5 0x55ad18c66bc0 <unknown>\n#6 0x55ad18c120af <unknown>\n#7 0x55ad18c12e71 <unknown>\n#8 0x55ad1917f944 <unknown>\n#9 0x55ad19182841 <unknown>\n#10 0x55ad1916bfca <unknown>\n#11 0x55ad1918340e <unknown>\n#12 0x55ad19152a30 <unknown>\n#13 0x55ad191a79b8 <unknown>\n#14 0x55ad191a7b88 <unknown>\n#15 0x55ad191b950e <unknown>\n#16 0x7fb51b89caa4 <unknown>\n#17 0x7fb51b929c6c <unknown>\n",
+  "crawl_time": "2026-03-13T10:09:26.208588"
+}

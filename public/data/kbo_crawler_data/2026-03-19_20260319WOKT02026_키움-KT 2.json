@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-19",
+  "game_code": "20260319WOKT02026",
+  "game_time": "경기 시간\n13:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "키움",
+      "score": "11",
+      "is_home": false
+    },
+    {
+      "name": "KT",
+      "score": "4",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260319WOKT02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55a4fda1641a <unknown>\n#1 0x55a4fd423270 <unknown>\n#2 0x55a4fd476e76 <unknown>\n#3 0x55a4fd4770b1 <unknown>\n#4 0x55a4fd4c2074 <unknown>\n#5 0x55a4fd4bf209 <unknown>\n#6 0x55a4fd46a4cf <unknown>\n#7 0x55a4fd46b291 <unknown>\n#8 0x55a4fd9db364 <unknown>\n#9 0x55a4fd9de251 <unknown>\n#10 0x55a4fd9c811a <unknown>\n#11 0x55a4fd9dee1e <unknown>\n#12 0x55a4fd9aeb10 <unknown>\n#13 0x55a4fda02f88 <unknown>\n#14 0x55a4fda03158 <unknown>\n#15 0x55a4fda14e5e <unknown>\n#16 0x7f21fda9caa4 <unknown>\n#17 0x7f21fdb29c6c <unknown>\n",
+  "crawl_time": "2026-03-19T10:14:59.447502"
+}

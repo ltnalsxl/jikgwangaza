@@ -1,0 +1,23 @@
+{
+  "date": "2025-10-11",
+  "game_code": "33331011SSSK02025",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "삼성",
+      "score": "3",
+      "is_home": false
+    },
+    {
+      "name": "SSG",
+      "score": "4",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/33331011SSSK02025/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55b41c7084ca <unknown>\n#1 0x55b41c187566 <unknown>\n#2 0x55b41c1d968d <unknown>\n#3 0x55b41c1d9921 <unknown>\n#4 0x55b41c227e94 <unknown>\n#5 0x55b41c1ff65d <unknown>\n#6 0x55b41c225328 <unknown>\n#7 0x55b41c1ff403 <unknown>\n#8 0x55b41c1cbb02 <unknown>\n#9 0x55b41c1cc7c1 <unknown>\n#10 0x55b41c6cc298 <unknown>\n#11 0x55b41c6d00ff <unknown>\n#12 0x55b41c6b3729 <unknown>\n#13 0x55b41c6d0ca5 <unknown>\n#14 0x55b41c698f8f <unknown>\n#15 0x55b41c6f5308 <unknown>\n#16 0x55b41c6f54e3 <unknown>\n#17 0x55b41c707463 <unknown>\n#18 0x7f1b9ee9caa4 <unknown>\n#19 0x7f1b9ef29c6c <unknown>\n",
+  "crawl_time": "2025-10-11T09:38:48.561900"
+}

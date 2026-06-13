@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-11",
+  "game_code": "20260611HTHH02026",
+  "game_time": "경기 시간\n18:30",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "KIA",
+      "score": "1",
+      "is_home": false
+    },
+    {
+      "name": "한화",
+      "score": "5",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260611HTHH02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55b9b8aa57ca <unknown>\n#1 0x55b9b8488289 <unknown>\n#2 0x55b9b84dc9b4 <unknown>\n#3 0x55b9b84dcc01 <unknown>\n#4 0x55b9b8527874 <unknown>\n#5 0x55b9b8524a4c <unknown>\n#6 0x55b9b84cff7f <unknown>\n#7 0x55b9b84d0d61 <unknown>\n#8 0x55b9b8a6c0b7 <unknown>\n#9 0x55b9b8a6a87d <unknown>\n#10 0x55b9b8a55566 <unknown>\n#11 0x55b9b8a6b45a <unknown>\n#12 0x55b9b8a3d520 <unknown>\n#13 0x55b9b8a92248 <unknown>\n#14 0x55b9b8a923e5 <unknown>\n#15 0x55b9b8aa434e <unknown>\n#16 0x7f6b6909caa4 <unknown>\n#17 0x7f6b69129c6c <unknown>\n",
+  "crawl_time": "2026-06-11T13:04:24.219256"
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-23",
+  "game_code": "20260523WOLG02026",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "키움",
+      "score": "2",
+      "is_home": false
+    },
+    {
+      "name": "LG",
+      "score": "5",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260523WOLG02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x563a5d01f16a <unknown>\n#1 0x563a5ca1c6b9 <unknown>\n#2 0x563a5ca70c0d <unknown>\n#3 0x563a5ca70e51 <unknown>\n#4 0x563a5cabbb24 <unknown>\n#5 0x563a5cab8cbf <unknown>\n#6 0x563a5ca64222 <unknown>\n#7 0x563a5ca65011 <unknown>\n#8 0x563a5cfe4a0b <unknown>\n#9 0x563a5cfe792d <unknown>\n#10 0x563a5cfd1948 <unknown>\n#11 0x563a5cfe84c0 <unknown>\n#12 0x563a5cfb8560 <unknown>\n#13 0x563a5d00bdd8 <unknown>\n#14 0x563a5d00bf75 <unknown>\n#15 0x563a5d01dbce <unknown>\n#16 0x7fcaa789caa4 <unknown>\n#17 0x7fcaa7929c6c <unknown>\n",
+  "crawl_time": "2026-05-23T10:55:30.350666"
+}

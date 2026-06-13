@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-31",
+  "game_code": "20260531SKHH02026",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "SSG",
+      "score": "2",
+      "is_home": false
+    },
+    {
+      "name": "한화",
+      "score": "6",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260531SKHH02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x564ddb7f516a <unknown>\n#1 0x564ddb1f26b9 <unknown>\n#2 0x564ddb246c0d <unknown>\n#3 0x564ddb246e51 <unknown>\n#4 0x564ddb291b24 <unknown>\n#5 0x564ddb28ecbf <unknown>\n#6 0x564ddb23a222 <unknown>\n#7 0x564ddb23b011 <unknown>\n#8 0x564ddb7baa0b <unknown>\n#9 0x564ddb7bd92d <unknown>\n#10 0x564ddb7a7948 <unknown>\n#11 0x564ddb7be4c0 <unknown>\n#12 0x564ddb78e560 <unknown>\n#13 0x564ddb7e1dd8 <unknown>\n#14 0x564ddb7e1f75 <unknown>\n#15 0x564ddb7f3bce <unknown>\n#16 0x7f75fae9caa4 <unknown>\n#17 0x7f75faf29c6c <unknown>\n",
+  "crawl_time": "2026-05-31T11:22:49.989670"
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-30",
+  "game_code": "20260530KTWO02026",
+  "game_time": "경기 시간\n17:00",
+  "game_status": "7회말",
+  "teams": [
+    {
+      "name": "KT",
+      "score": "5",
+      "is_home": false
+    },
+    {
+      "name": "키움",
+      "score": "5",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260530KTWO02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x5585b3a1d16a <unknown>\n#1 0x5585b341a6b9 <unknown>\n#2 0x5585b346ec0d <unknown>\n#3 0x5585b346ee51 <unknown>\n#4 0x5585b34b9b24 <unknown>\n#5 0x5585b34b6cbf <unknown>\n#6 0x5585b3462222 <unknown>\n#7 0x5585b3463011 <unknown>\n#8 0x5585b39e2a0b <unknown>\n#9 0x5585b39e592d <unknown>\n#10 0x5585b39cf948 <unknown>\n#11 0x5585b39e64c0 <unknown>\n#12 0x5585b39b6560 <unknown>\n#13 0x5585b3a09dd8 <unknown>\n#14 0x5585b3a09f75 <unknown>\n#15 0x5585b3a1bbce <unknown>\n#16 0x7f1e4a29caa4 <unknown>\n#17 0x7f1e4a329c6c <unknown>\n",
+  "crawl_time": "2026-05-30T11:01:05.231974"
+}

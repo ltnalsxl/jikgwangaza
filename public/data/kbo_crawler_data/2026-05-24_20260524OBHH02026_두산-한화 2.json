@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-24",
+  "game_code": "20260524OBHH02026",
+  "game_time": "경기 시간\n14:00",
+  "game_status": "종료",
+  "teams": [
+    {
+      "name": "두산",
+      "score": "2",
+      "is_home": false
+    },
+    {
+      "name": "한화",
+      "score": "5",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260524OBHH02026/lineup",
+  "starting_lineups": {},
+  "lineup_status": "error",
+  "error": "Message: \nStacktrace:\n#0 0x55c3f718216a <unknown>\n#1 0x55c3f6b7f6b9 <unknown>\n#2 0x55c3f6bd3c0d <unknown>\n#3 0x55c3f6bd3e51 <unknown>\n#4 0x55c3f6c1eb24 <unknown>\n#5 0x55c3f6c1bcbf <unknown>\n#6 0x55c3f6bc7222 <unknown>\n#7 0x55c3f6bc8011 <unknown>\n#8 0x55c3f7147a0b <unknown>\n#9 0x55c3f714a92d <unknown>\n#10 0x55c3f7134948 <unknown>\n#11 0x55c3f714b4c0 <unknown>\n#12 0x55c3f711b560 <unknown>\n#13 0x55c3f716edd8 <unknown>\n#14 0x55c3f716ef75 <unknown>\n#15 0x55c3f7180bce <unknown>\n#16 0x7f690de9caa4 <unknown>\n#17 0x7f690df29c6c <unknown>\n",
+  "crawl_time": "2026-05-24T10:58:38.139039"
+}
