@@ -30,13 +30,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class NaverKBOAllLineupCrawler:
-    def __init__(self, save_dir='public/data/kbo_crawler_data'):
+    def __init__(self, save_dir='public/data/kbo_crawler_data', use_selenium=True):
         self.base_url = "https://m.sports.naver.com"
         self.api_base_url = "https://api-gw.sports.naver.com"
         self.save_dir = save_dir
         self.driver = None
         self.wait = None
-        self.driver_setup_attempted = False
+        self.driver_setup_attempted = not use_selenium
         self.all_data = []
         self.session = requests.Session()
         self.session.headers.update({
@@ -1432,6 +1432,7 @@ if __name__ == "__main__":
     parser.add_argument('--end-date', type=str, help='range 모드 종료일 (YYYY-MM-DD)')
     parser.add_argument('--skip-existing-dates', action='store_true', help='이미 저장된 날짜는 건너뜀')
     parser.add_argument('--save_dir', type=str, default='public/data/kbo_crawler_data', help='저장 디렉토리')
+    parser.add_argument('--no-selenium', action='store_true', help='Selenium 사용 안 함 (API만 사용)')
     args = parser.parse_args()
 
     save_dir = args.save_dir
@@ -1441,7 +1442,10 @@ if __name__ == "__main__":
     print(f"📁 설정된 저장 경로: {save_dir}")
     print(f"📁 절대 경로: {os.path.abspath(save_dir)}")
 
-    crawler = NaverKBOAllLineupCrawler(save_dir=save_dir)
+    use_selenium = not args.no_selenium
+    if not use_selenium:
+        print("ℹ️ Selenium 비활성화: API 전용 모드로 실행")
+    crawler = NaverKBOAllLineupCrawler(save_dir=save_dir, use_selenium=use_selenium)
     try:
         if args.mode == 'full':
             # 전체 시즌 날짜 리스트 생성
