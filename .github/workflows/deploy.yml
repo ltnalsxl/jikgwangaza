@@ -15,5 +15,5 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: CI=false npm run build
-      - run: npm install -g firebase-tools
+      - run: npm install -g firebase-tools@12
       - run: firebase deploy --project jikgwangaza --token "${{ secrets.FIREBASE_TOKEN }}"
