@@ -1,0 +1,57 @@
+{
+  "date": "2026-06-14",
+  "game_code": "20260614HHWO02026",
+  "game_time": "14:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "한화",
+      "full_name": "한화 이글스",
+      "code": "HH",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "키움",
+      "full_name": "키움 히어로즈",
+      "code": "WO",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260614HHWO02026/lineup",
+  "stadium": "고척",
+  "away_starter_name": "왕옌청",
+  "home_starter_name": "로젠버그",
+  "broadcast_channel": "SBS",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "한화",
+      "team_code": "HH",
+      "starting_pitcher": {
+        "player_id": "56719",
+        "name": "왕옌청",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "키움",
+      "team_code": "WO",
+      "starting_pitcher": {
+        "player_id": "55322",
+        "name": "로젠버그",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T00:43:46.811731",
+  "error": "API preview did not include full batting orders"
+}

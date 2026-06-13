@@ -1,0 +1,57 @@
+{
+  "date": "2026-06-14",
+  "game_code": "20260614LTLG02026",
+  "game_time": "17:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "롯데",
+      "full_name": "롯데 자이언츠",
+      "code": "LT",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "LG",
+      "full_name": "LG 트윈스",
+      "code": "LG",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260614LTLG02026/lineup",
+  "stadium": "잠실",
+  "away_starter_name": "비슬리",
+  "home_starter_name": "임찬규",
+  "broadcast_channel": "SPOTV2",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "롯데",
+      "team_code": "LT",
+      "starting_pitcher": {
+        "player_id": "56523",
+        "name": "비슬리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": {
+        "player_id": "61101",
+        "name": "임찬규",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T00:45:57.120859",
+  "error": "API preview did not include full batting orders"
+}

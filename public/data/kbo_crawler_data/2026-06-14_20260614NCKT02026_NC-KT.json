@@ -1,0 +1,57 @@
+{
+  "date": "2026-06-14",
+  "game_code": "20260614NCKT02026",
+  "game_time": "17:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "NC",
+      "full_name": "NC 다이노스",
+      "code": "NC",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "KT",
+      "full_name": "kt wiz",
+      "code": "KT",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260614NCKT02026/lineup",
+  "stadium": "수원",
+  "away_starter_name": "김준원",
+  "home_starter_name": "고영표",
+  "broadcast_channel": "SBS SPORTS^SPOTV",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "NC",
+      "team_code": "NC",
+      "starting_pitcher": {
+        "player_id": "54910",
+        "name": "김준원",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "KT",
+      "team_code": "KT",
+      "starting_pitcher": {
+        "player_id": "64001",
+        "name": "고영표",
+        "throwing_hand": "우언",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-14T00:48:05.340168",
+  "error": "API preview did not include full batting orders"
+}
