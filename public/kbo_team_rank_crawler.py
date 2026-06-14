@@ -60,7 +60,7 @@ def setup_driver(headless: bool = True):
 
 
 def fetch_team_ranks(
-    url: str = "https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2025&tab=teamRank",
+    url: str = "https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=teamRank",
 ) -> list:
     """Fetch team rankings from Naver Sports."""
     driver, wait = setup_driver()
