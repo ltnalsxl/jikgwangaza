@@ -1,100 +1,140 @@
 {
-  "crawl_time": "2026-06-13T02:46:26.982491",
+  "crawl_time": "2026-06-14T02:55:04.559878",
   "results": [
     {
-      "date": "2026-06-13",
-      "game_code": "20260613HHWO02026",
-      "game_time": "경기 시간\n17:00",
-      "game_status": "예정",
+      "date": "2026-06-14",
+      "game_code": "20260614HHWO02026",
+      "game_time": "14:00",
+      "game_status": "경기전",
       "teams": [
         {
           "name": "한화",
-          "score": "-",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
           "is_home": false
         },
         {
           "name": "키움",
-          "score": "-",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260613HHWO02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260614HHWO02026/lineup",
+      "stadium": "고척",
+      "away_starter_name": "왕옌청",
+      "home_starter_name": "로젠버그",
+      "broadcast_channel": "SBS"
     },
     {
-      "date": "2026-06-13",
-      "game_code": "20260613LTLG02026",
-      "game_time": "경기 시간\n17:00",
-      "game_status": "예정",
+      "date": "2026-06-14",
+      "game_code": "20260614LTLG02026",
+      "game_time": "17:00",
+      "game_status": "경기전",
       "teams": [
         {
           "name": "롯데",
-          "score": "-",
+          "full_name": "롯데",
+          "code": "LT",
+          "score": "0",
           "is_home": false
         },
         {
           "name": "LG",
-          "score": "-",
+          "full_name": "LG",
+          "code": "LG",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260613LTLG02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260614LTLG02026/lineup",
+      "stadium": "잠실",
+      "away_starter_name": "비슬리",
+      "home_starter_name": "임찬규",
+      "broadcast_channel": "SPOTV2"
     },
     {
-      "date": "2026-06-13",
-      "game_code": "20260613NCKT02026",
-      "game_time": "경기 시간\n17:00",
-      "game_status": "예정",
+      "date": "2026-06-14",
+      "game_code": "20260614NCKT02026",
+      "game_time": "17:00",
+      "game_status": "경기전",
       "teams": [
         {
           "name": "NC",
-          "score": "-",
+          "full_name": "NC",
+          "code": "NC",
+          "score": "0",
           "is_home": false
         },
         {
           "name": "KT",
-          "score": "-",
+          "full_name": "KT",
+          "code": "KT",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260613NCKT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260614NCKT02026/lineup",
+      "stadium": "수원",
+      "away_starter_name": "김준원",
+      "home_starter_name": "고영표",
+      "broadcast_channel": "SBS SPORTS^SPOTV"
     },
     {
-      "date": "2026-06-13",
-      "game_code": "20260613OBHT02026",
-      "game_time": "경기 시간\n17:00",
-      "game_status": "예정",
+      "date": "2026-06-14",
+      "game_code": "20260614OBHT02026",
+      "game_time": "17:00",
+      "game_status": "경기전",
       "teams": [
         {
           "name": "두산",
-          "score": "-",
+          "full_name": "두산",
+          "code": "OB",
+          "score": "0",
           "is_home": false
         },
         {
           "name": "KIA",
-          "score": "-",
+          "full_name": "KIA",
+          "code": "HT",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260613OBHT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260614OBHT02026/lineup",
+      "stadium": "광주",
+      "away_starter_name": "곽빈",
+      "home_starter_name": "김태형",
+      "broadcast_channel": "KBS N SPORTS"
     },
     {
-      "date": "2026-06-13",
-      "game_code": "20260613SKSS02026",
-      "game_time": "경기 시간\n17:00",
-      "game_status": "예정",
+      "date": "2026-06-14",
+      "game_code": "20260614SKSS02026",
+      "game_time": "17:00",
+      "game_status": "경기전",
       "teams": [
         {
           "name": "SSG",
-          "score": "-",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
           "is_home": false
         },
         {
           "name": "삼성",
-          "score": "-",
+          "full_name": "삼성",
+          "code": "SS",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260613SKSS02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260614SKSS02026/lineup",
+      "stadium": "대구",
+      "away_starter_name": "해치",
+      "home_starter_name": "양창섭",
+      "broadcast_channel": "MBC SPORTS+"
     }
   ]
 }
