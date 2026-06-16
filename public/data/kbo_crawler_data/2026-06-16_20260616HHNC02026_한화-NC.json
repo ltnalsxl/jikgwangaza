@@ -2,44 +2,201 @@
   "date": "2026-06-16",
   "game_code": "20260616HHNC02026",
   "game_time": "18:30",
-  "game_status": "경기전",
+  "game_status": "4회말",
   "teams": [
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "0",
+      "score": "2",
       "is_home": false
     },
     {
       "name": "NC",
       "full_name": "NC 다이노스",
       "code": "NC",
-      "score": "0",
+      "score": "2",
       "is_home": true
     }
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260616HHNC02026/lineup",
   "stadium": "창원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "화이트",
+  "home_starter_name": "구창모",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
-      "starting_batters": []
+      "starting_pitcher": {
+        "player_id": "56724",
+        "name": "화이트",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "56754",
+          "name": "오재원",
+          "batting_order": 1,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54730",
+          "name": "페라자",
+          "batting_order": 2,
+          "position": "우익수",
+          "batting_hand": "양타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53764",
+          "name": "문현빈",
+          "batting_order": 3,
+          "position": "좌익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68050",
+          "name": "강백호",
+          "batting_order": 4,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69737",
+          "name": "노시환",
+          "batting_order": 5,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "66704",
+          "name": "김태연",
+          "batting_order": 6,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52764",
+          "name": "허인서",
+          "batting_order": 7,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "65703",
+          "name": "이도윤",
+          "batting_order": 8,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "64006",
+          "name": "심우준",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     },
     "team_2": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
-      "starting_batters": []
+      "starting_pitcher": {
+        "player_id": "65933",
+        "name": "구창모",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
+      "starting_batters": [
+        {
+          "player_id": "51907",
+          "name": "김주원",
+          "batting_order": 1,
+          "position": "유격수",
+          "batting_hand": "양타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "63260",
+          "name": "이우성",
+          "batting_order": 2,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62907",
+          "name": "박민우",
+          "batting_order": 3,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "79215",
+          "name": "박건우",
+          "batting_order": 4,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54944",
+          "name": "데이비슨",
+          "batting_order": 5,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69995",
+          "name": "서호철",
+          "batting_order": 6,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "67905",
+          "name": "천재환",
+          "batting_order": 7,
+          "position": "중견수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68912",
+          "name": "김형준",
+          "batting_order": 8,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50996",
+          "name": "박시원",
+          "batting_order": 9,
+          "position": "우익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        }
+      ]
     }
   },
-  "lineup_status": "not_confirmed",
+  "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-14T01:51:02.453603",
-  "error": "API preview did not include full batting orders"
+  "crawl_time": "2026-06-16T10:50:37.934614"
 }
