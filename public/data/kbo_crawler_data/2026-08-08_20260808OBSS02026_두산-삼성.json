@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-08",
+  "game_code": "20260808OBSS02026",
+  "game_time": "18:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "두산",
+      "full_name": "두산 베어스",
+      "code": "OB",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "삼성",
+      "full_name": "삼성 라이온즈",
+      "code": "SS",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260808OBSS02026/lineup",
+  "stadium": "대구",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "두산",
+      "team_code": "OB",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "삼성",
+      "team_code": "SS",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-17T00:25:16.275061",
+  "error": "API preview did not include full batting orders"
+}

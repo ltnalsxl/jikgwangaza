@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-18",
+  "game_code": "20260818OBNC02026",
+  "game_time": "18:30",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "두산",
+      "full_name": "두산 베어스",
+      "code": "OB",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "NC",
+      "full_name": "NC 다이노스",
+      "code": "NC",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260818OBNC02026/lineup",
+  "stadium": "창원",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "두산",
+      "team_code": "OB",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "NC",
+      "team_code": "NC",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-17T00:27:06.384095",
+  "error": "API preview did not include full batting orders"
+}

@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-05",
+  "game_code": "20260805WOLT02026",
+  "game_time": "18:30",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "키움",
+      "full_name": "키움 히어로즈",
+      "code": "WO",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "롯데",
+      "full_name": "롯데 자이언츠",
+      "code": "LT",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260805WOLT02026/lineup",
+  "stadium": "사직",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "키움",
+      "team_code": "WO",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "롯데",
+      "team_code": "LT",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-06-17T00:24:39.304553",
+  "error": "API preview did not include full batting orders"
+}
