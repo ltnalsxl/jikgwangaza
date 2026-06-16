@@ -1,8 +1,8 @@
-name: Daily KBO player crawl
+name: Weekly KBO player crawl
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 1'  # 매주 월요일 09:00 KST
   workflow_dispatch:
 
 jobs:
@@ -27,24 +27,20 @@ jobs:
 
       - name: Install Chrome
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg
           wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
           echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
-          sudo apt-get update
+          sudo apt-get update -q
           sudo apt-get install -y google-chrome-stable
 
       - name: Run player crawler
-        run: |
-          export DISPLAY=:99
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
-          python public/kbo_players_crawler.py
+        run: python public/kbo_players_crawler.py || echo "⚠️ Player crawl failed, keeping last data"
 
       - name: Commit and push
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add public/data/kboPlayers.json
-          git commit -m "Daily player update" || echo "No changes to commit"
+          git diff --cached --quiet && echo "No player changes" && exit 0
+          git commit -m "Weekly player roster update"
           git pull --rebase origin main
           git push origin main
