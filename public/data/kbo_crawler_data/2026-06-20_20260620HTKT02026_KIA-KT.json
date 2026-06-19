@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260620HTKT02026/lineup",
   "stadium": "수원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "황동하",
+  "home_starter_name": "배제성",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52641",
+        "name": "황동하",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "65516",
+        "name": "배제성",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-19T12:44:33.494298",
+  "crawl_time": "2026-06-19T12:59:47.707638",
   "error": "API preview did not include full batting orders"
 }
