@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260620SKNC02026/lineup",
   "stadium": "창원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "해치",
+  "home_starter_name": "김준원",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56855",
+        "name": "해치",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54910",
+        "name": "김준원",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-19T11:58:25.442402",
+  "crawl_time": "2026-06-19T12:16:51.633011",
   "error": "API preview did not include full batting orders"
 }
