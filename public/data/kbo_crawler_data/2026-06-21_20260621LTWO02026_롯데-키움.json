@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260621LTWO02026/lineup",
   "stadium": "고척",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "비슬리",
+  "home_starter_name": "배동현",
   "broadcast_channel": "SBS",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56523",
+        "name": "비슬리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "키움",
       "team_code": "WO",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "51761",
+        "name": "배동현",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-20T10:44:35.601016",
+  "crawl_time": "2026-06-20T11:16:49.219093",
   "error": "API preview did not include full batting orders"
 }
