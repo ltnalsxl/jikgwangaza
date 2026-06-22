@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260623OBHH02026/lineup",
   "stadium": "대전",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "타카다",
+  "home_starter_name": "류현진",
   "broadcast_channel": "SBS SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56212",
+        "name": "타카다",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "76715",
+        "name": "류현진",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-21T11:59:44.419951",
+  "crawl_time": "2026-06-22T11:30:49.567545",
   "error": "API preview did not include full batting orders"
 }
