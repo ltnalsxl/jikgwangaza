@@ -1,4 +1,140 @@
 {
-  "crawl_time": "2026-06-22T03:30:13.741515",
-  "results": []
+  "crawl_time": "2026-06-23T02:36:30.878983",
+  "results": [
+    {
+      "date": "2026-06-23",
+      "game_code": "20260623HTWO02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "KIA",
+          "full_name": "KIA",
+          "code": "HT",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260623HTWO02026/lineup",
+      "stadium": "고척",
+      "away_starter_name": "올러",
+      "home_starter_name": "박준현",
+      "broadcast_channel": "SPOTV"
+    },
+    {
+      "date": "2026-06-23",
+      "game_code": "20260623NCLT02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "NC",
+          "full_name": "NC",
+          "code": "NC",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "롯데",
+          "full_name": "롯데",
+          "code": "LT",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260623NCLT02026/lineup",
+      "stadium": "사직",
+      "away_starter_name": "라일리",
+      "home_starter_name": "박세웅",
+      "broadcast_channel": "MBC SPORTS+"
+    },
+    {
+      "date": "2026-06-23",
+      "game_code": "20260623OBHH02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "두산",
+          "full_name": "두산",
+          "code": "OB",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "한화",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260623OBHH02026/lineup",
+      "stadium": "대전",
+      "away_starter_name": "타카다",
+      "home_starter_name": "류현진",
+      "broadcast_channel": "SBS SPORTS"
+    },
+    {
+      "date": "2026-06-23",
+      "game_code": "20260623SKKT02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "SSG",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "KT",
+          "full_name": "KT",
+          "code": "KT",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260623SKKT02026/lineup",
+      "stadium": "수원",
+      "away_starter_name": "김건우",
+      "home_starter_name": "고영표",
+      "broadcast_channel": "SPOTV2"
+    },
+    {
+      "date": "2026-06-23",
+      "game_code": "20260623SSLG02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "삼성",
+          "full_name": "삼성",
+          "code": "SS",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "LG",
+          "full_name": "LG",
+          "code": "LG",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260623SSLG02026/lineup",
+      "stadium": "잠실",
+      "away_starter_name": "최원태",
+      "home_starter_name": "장현식",
+      "broadcast_channel": "KBS N SPORTS"
+    }
+  ]
 }
