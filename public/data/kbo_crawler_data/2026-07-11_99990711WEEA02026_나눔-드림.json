@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-27",
-  "game_code": "20260627LGLT02026",
-  "game_time": "17:00",
+  "date": "2026-07-11",
+  "game_code": "99990711WEEA02026",
+  "game_time": "18:00",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "LG",
-      "full_name": "LG 트윈스",
-      "code": "LG",
+      "name": "나눔",
+      "full_name": "나눔",
+      "code": "WE",
       "score": "0",
       "is_home": false
     },
     {
-      "name": "롯데",
-      "full_name": "롯데 자이언츠",
-      "code": "LT",
+      "name": "드림",
+      "full_name": "드림",
+      "code": "EA",
       "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260627LGLT02026/lineup",
-  "stadium": "사직",
+  "lineup_url": "https://m.sports.naver.com/game/99990711WEEA02026/lineup",
+  "stadium": "잠실",
   "away_starter_name": "",
   "home_starter_name": "",
-  "broadcast_channel": "KBS N SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "LG",
-      "team_code": "LG",
+      "team_name": "나눔",
+      "team_code": "WE",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "롯데",
-      "team_code": "LT",
+      "team_name": "드림",
+      "team_code": "EA",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-25T08:49:52.122248",
+  "crawl_time": "2026-06-25T08:52:44.174663",
   "error": "API preview did not include full batting orders"
 }
