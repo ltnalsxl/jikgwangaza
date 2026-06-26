@@ -2,20 +2,20 @@
   "date": "2026-06-25",
   "game_code": "20260625SSLG02026",
   "game_time": "18:30",
-  "game_status": "8회초",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "삼성",
       "full_name": "삼성 라이온즈",
       "code": "SS",
-      "score": "11",
+      "score": "13",
       "is_home": false
     },
     {
       "name": "LG",
       "full_name": "LG 트윈스",
       "code": "LG",
-      "score": "3",
+      "score": "6",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "잠실",
   "away_starter_name": "후라도",
   "home_starter_name": "이정용",
-  "broadcast_channel": "KBS N SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "삼성",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-25T12:01:41.917062"
+  "crawl_time": "2026-06-26T08:47:31.525552"
 }

@@ -2,20 +2,20 @@
   "date": "2026-06-25",
   "game_code": "20260625SKKT02026",
   "game_time": "18:30",
-  "game_status": "8회초",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "SSG",
       "full_name": "SSG 랜더스",
       "code": "SK",
-      "score": "5",
+      "score": "7",
       "is_home": false
     },
     {
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "7",
+      "score": "12",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "수원",
   "away_starter_name": "베니지아노",
   "home_starter_name": "소형준",
-  "broadcast_channel": "SPOTV2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "SSG",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-25T12:01:39.474771"
+  "crawl_time": "2026-06-26T08:47:28.904488"
 }
