@@ -1,9 +1,36 @@
 {
-  "crawl_time": "2026-06-25T02:38:15.480439",
+  "crawl_time": "2026-06-26T02:41:24.004714",
   "results": [
     {
-      "date": "2026-06-25",
-      "game_code": "20260625HTWO02026",
+      "date": "2026-06-26",
+      "game_code": "20260626HHSK02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "한화",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "SSG",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260626HHSK02026/lineup",
+      "stadium": "문학",
+      "away_starter_name": "왕옌청",
+      "home_starter_name": "해치",
+      "broadcast_channel": "SPOTV"
+    },
+    {
+      "date": "2026-06-26",
+      "game_code": "20260626HTOB02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
@@ -15,29 +42,56 @@
           "is_home": false
         },
         {
-          "name": "키움",
-          "full_name": "키움",
-          "code": "WO",
+          "name": "두산",
+          "full_name": "두산",
+          "code": "OB",
           "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260625HTWO02026/lineup",
-      "stadium": "고척",
-      "away_starter_name": "네일",
-      "home_starter_name": "알칸타라",
-      "broadcast_channel": "SPOTV"
+      "lineup_url": "https://m.sports.naver.com/game/20260626HTOB02026/lineup",
+      "stadium": "잠실",
+      "away_starter_name": "황동하",
+      "home_starter_name": "곽빈",
+      "broadcast_channel": "SBS SPORTS"
     },
     {
-      "date": "2026-06-25",
-      "game_code": "20260625NCLT02026",
+      "date": "2026-06-26",
+      "game_code": "20260626KTSS02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
         {
-          "name": "NC",
-          "full_name": "NC",
-          "code": "NC",
+          "name": "KT",
+          "full_name": "KT",
+          "code": "KT",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "삼성",
+          "full_name": "삼성",
+          "code": "SS",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260626KTSS02026/lineup",
+      "stadium": "대구",
+      "away_starter_name": "오원석",
+      "home_starter_name": "장찬희",
+      "broadcast_channel": "SPOTV2"
+    },
+    {
+      "date": "2026-06-26",
+      "game_code": "20260626LGLT02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "LG",
+          "full_name": "LG",
+          "code": "LG",
           "score": "0",
           "is_home": false
         },
@@ -49,92 +103,38 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260625NCLT02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260626LGLT02026/lineup",
       "stadium": "사직",
-      "away_starter_name": "토다",
-      "home_starter_name": "이민석",
-      "broadcast_channel": "MBC SPORTS+"
-    },
-    {
-      "date": "2026-06-25",
-      "game_code": "20260625OBHH02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "두산",
-          "full_name": "두산",
-          "code": "OB",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "한화",
-          "full_name": "한화",
-          "code": "HH",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260625OBHH02026/lineup",
-      "stadium": "대전",
-      "away_starter_name": "벤자민",
-      "home_starter_name": "박준영",
-      "broadcast_channel": "SBS SPORTS"
-    },
-    {
-      "date": "2026-06-25",
-      "game_code": "20260625SKKT02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "SSG",
-          "full_name": "SSG",
-          "code": "SK",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "KT",
-          "full_name": "KT",
-          "code": "KT",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260625SKKT02026/lineup",
-      "stadium": "수원",
-      "away_starter_name": "베니지아노",
-      "home_starter_name": "소형준",
-      "broadcast_channel": "SPOTV2"
-    },
-    {
-      "date": "2026-06-25",
-      "game_code": "20260625SSLG02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "삼성",
-          "full_name": "삼성",
-          "code": "SS",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "LG",
-          "full_name": "LG",
-          "code": "LG",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260625SSLG02026/lineup",
-      "stadium": "잠실",
-      "away_starter_name": "후라도",
-      "home_starter_name": "이정용",
+      "away_starter_name": "임찬규",
+      "home_starter_name": "나균안",
       "broadcast_channel": "KBS N SPORTS"
+    },
+    {
+      "date": "2026-06-26",
+      "game_code": "20260626WONC02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "NC",
+          "full_name": "NC",
+          "code": "NC",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260626WONC02026/lineup",
+      "stadium": "창원",
+      "away_starter_name": "배동현",
+      "home_starter_name": "김태경",
+      "broadcast_channel": "MBC SPORTS+"
     }
   ]
 }
