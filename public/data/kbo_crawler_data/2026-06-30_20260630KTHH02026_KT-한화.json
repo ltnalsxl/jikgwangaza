@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260630KTHH02026/lineup",
   "stadium": "대전",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "사우어",
+  "home_starter_name": "에르난데스",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56032",
+        "name": "사우어",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56712",
+        "name": "에르난데스",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-06-28T11:20:53.391603",
+  "crawl_time": "2026-06-29T10:18:22.032972",
   "error": "API preview did not include full batting orders"
 }
