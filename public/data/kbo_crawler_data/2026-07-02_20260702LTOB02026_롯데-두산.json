@@ -2,20 +2,20 @@
   "date": "2026-07-02",
   "game_code": "20260702LTOB02026",
   "game_time": "18:30",
-  "game_status": "4회초",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
-      "score": "0",
+      "score": "3",
       "is_home": false
     },
     {
       "name": "두산",
       "full_name": "두산 베어스",
       "code": "OB",
-      "score": "0",
+      "score": "8",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "잠실",
   "away_starter_name": "나균안",
   "home_starter_name": "곽빈",
-  "broadcast_channel": "KBS N SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-02T11:53:02.751150"
+  "crawl_time": "2026-07-03T08:45:40.892937"
 }
