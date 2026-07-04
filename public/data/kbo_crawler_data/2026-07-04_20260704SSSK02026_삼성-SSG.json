@@ -2,20 +2,20 @@
   "date": "2026-07-04",
   "game_code": "20260704SSSK02026",
   "game_time": "18:00",
-  "game_status": "1회초",
+  "game_status": "1회말",
   "teams": [
     {
       "name": "삼성",
       "full_name": "삼성 라이온즈",
       "code": "SS",
-      "score": "1",
+      "score": "2",
       "is_home": false
     },
     {
       "name": "SSG",
       "full_name": "SSG 랜더스",
       "code": "SK",
-      "score": "0",
+      "score": "5",
       "is_home": true
     }
   ],
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-04T09:13:55.370760"
+  "crawl_time": "2026-07-04T09:36:55.516672"
 }
