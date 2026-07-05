@@ -1,9 +1,36 @@
 {
-  "crawl_time": "2026-07-04T02:11:19.206839",
+  "crawl_time": "2026-07-05T02:26:58.399657",
   "results": [
     {
-      "date": "2026-07-04",
-      "game_code": "20260704HHLG02026",
+      "date": "2026-07-05",
+      "game_code": "20260705OBWO02026",
+      "game_time": "14:00",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "두산",
+          "full_name": "두산",
+          "code": "OB",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260705OBWO02026/lineup",
+      "stadium": "고척",
+      "away_starter_name": "최민석",
+      "home_starter_name": "김윤하",
+      "broadcast_channel": "SBS"
+    },
+    {
+      "date": "2026-07-05",
+      "game_code": "20260705HHLG02026",
       "game_time": "18:00",
       "game_status": "경기전",
       "teams": [
@@ -22,15 +49,15 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260704HHLG02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260705HHLG02026/lineup",
       "stadium": "잠실",
-      "away_starter_name": "에르난데스",
-      "home_starter_name": "장현식",
+      "away_starter_name": "류현진",
+      "home_starter_name": "톨허스트",
       "broadcast_channel": "MBC SPORTS+"
     },
     {
-      "date": "2026-07-04",
-      "game_code": "20260704LTKT02026",
+      "date": "2026-07-05",
+      "game_code": "20260705LTKT02026",
       "game_time": "18:00",
       "game_status": "경기전",
       "teams": [
@@ -49,15 +76,15 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260704LTKT02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260705LTKT02026/lineup",
       "stadium": "수원",
-      "away_starter_name": "비슬리",
-      "home_starter_name": "고영표",
-      "broadcast_channel": "KBS N SPORTS"
+      "away_starter_name": "박세웅",
+      "home_starter_name": "사우어",
+      "broadcast_channel": "KBS N SPORTS^SPOTV2"
     },
     {
-      "date": "2026-07-04",
-      "game_code": "20260704NCHT02026",
+      "date": "2026-07-05",
+      "game_code": "20260705NCHT02026",
       "game_time": "18:00",
       "game_status": "경기전",
       "teams": [
@@ -76,42 +103,15 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260704NCHT02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260705NCHT02026/lineup",
       "stadium": "광주",
-      "away_starter_name": "라일리",
-      "home_starter_name": "시라카와",
+      "away_starter_name": "테일러",
+      "home_starter_name": "김태형",
       "broadcast_channel": "SBS SPORTS"
     },
     {
-      "date": "2026-07-04",
-      "game_code": "20260704OBWO02026",
-      "game_time": "18:00",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "두산",
-          "full_name": "두산",
-          "code": "OB",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "키움",
-          "full_name": "키움",
-          "code": "WO",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260704OBWO02026/lineup",
-      "stadium": "고척",
-      "away_starter_name": "최승용",
-      "home_starter_name": "박준현",
-      "broadcast_channel": "SPOTV2"
-    },
-    {
-      "date": "2026-07-04",
-      "game_code": "20260704SSSK02026",
+      "date": "2026-07-05",
+      "game_code": "20260705SSSK02026",
       "game_time": "18:00",
       "game_status": "경기전",
       "teams": [
@@ -130,10 +130,10 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260704SSSK02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260705SSSK02026/lineup",
       "stadium": "문학",
-      "away_starter_name": "최원태",
-      "home_starter_name": "타케다",
+      "away_starter_name": "양창섭",
+      "home_starter_name": "김건우",
       "broadcast_channel": "SPOTV"
     }
   ]
