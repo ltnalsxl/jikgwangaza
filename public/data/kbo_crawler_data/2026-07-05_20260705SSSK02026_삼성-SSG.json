@@ -2,20 +2,20 @@
   "date": "2026-07-05",
   "game_code": "20260705SSSK02026",
   "game_time": "18:00",
-  "game_status": "6회초",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "삼성",
       "full_name": "삼성 라이온즈",
       "code": "SS",
-      "score": "8",
+      "score": "13",
       "is_home": false
     },
     {
       "name": "SSG",
       "full_name": "SSG 랜더스",
       "code": "SK",
-      "score": "0",
+      "score": "3",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "문학",
   "away_starter_name": "양창섭",
   "home_starter_name": "김건우",
-  "broadcast_channel": "SPOTV",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "삼성",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-05T11:17:33.097649"
+  "crawl_time": "2026-07-06T09:52:14.368788"
 }

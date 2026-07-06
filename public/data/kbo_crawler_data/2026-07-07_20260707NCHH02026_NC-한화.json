@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260707NCHH02026/lineup",
   "stadium": "대전",
-  "away_starter_name": "",
-  "home_starter_name": "",
-  "broadcast_channel": "MBC SPORTS+",
+  "away_starter_name": "테일러",
+  "home_starter_name": "박준영",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56966",
+        "name": "테일러",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56709",
+        "name": "박준영",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-05T11:17:46.064526",
+  "crawl_time": "2026-07-06T09:52:27.056622",
   "error": "API preview did not include full batting orders"
 }
