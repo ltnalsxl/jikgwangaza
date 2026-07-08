@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260708SKOB02026/lineup",
   "stadium": "잠실",
-  "away_starter_name": "",
-  "home_starter_name": "",
-  "broadcast_channel": "",
+  "away_starter_name": "전영준",
+  "home_starter_name": "곽빈",
+  "broadcast_channel": "SBS SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52809",
+        "name": "전영준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68220",
+        "name": "곽빈",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-07T12:15:17.242645",
+  "crawl_time": "2026-07-08T08:05:28.891700",
   "error": "API preview did not include full batting orders"
 }

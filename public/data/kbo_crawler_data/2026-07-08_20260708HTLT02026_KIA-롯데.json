@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260708HTLT02026/lineup",
   "stadium": "사직",
-  "away_starter_name": "",
-  "home_starter_name": "",
-  "broadcast_channel": "",
+  "away_starter_name": "네일",
+  "home_starter_name": "나균안",
+  "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54640",
+        "name": "네일",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "67539",
+        "name": "나균안",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-07T12:15:09.379194",
+  "crawl_time": "2026-07-08T08:05:20.830291",
   "error": "API preview did not include full batting orders"
 }

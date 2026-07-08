@@ -2,20 +2,20 @@
   "date": "2026-07-07",
   "game_code": "20260707NCHH02026",
   "game_time": "18:30",
-  "game_status": "8회초",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "NC",
       "full_name": "NC 다이노스",
       "code": "NC",
-      "score": "5",
+      "score": "9",
       "is_home": false
     },
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "1",
+      "score": "6",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "대전",
   "away_starter_name": "테일러",
   "home_starter_name": "박준영",
-  "broadcast_channel": "",
+  "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-07T12:14:57.782492"
+  "crawl_time": "2026-07-08T08:05:10.048641"
 }
