@@ -2,7 +2,7 @@
   "date": "2026-07-09",
   "game_code": "20260709WOKT02026",
   "game_time": "18:30",
-  "game_status": "4회말",
+  "game_status": "경기취소",
   "teams": [
     {
       "name": "키움",
@@ -15,7 +15,7 @@
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "3",
+      "score": "0",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "수원",
   "away_starter_name": "하영민",
   "home_starter_name": "배제성",
-  "broadcast_channel": "SPOTV2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "키움",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-09T12:19:50.510194"
+  "crawl_time": "2026-07-10T08:57:24.499499"
 }
