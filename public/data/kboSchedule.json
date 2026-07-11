@@ -1,4 +1,32 @@
 {
-  "crawl_time": "2026-07-10T02:13:58.780692",
-  "results": []
+  "crawl_time": "2026-07-11T01:58:48.849102",
+  "results": [
+    {
+      "date": "2026-07-11",
+      "game_code": "99990711WEEA02026",
+      "game_time": "18:00",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "나눔",
+          "full_name": "나눔",
+          "code": "WE",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "드림",
+          "full_name": "드림",
+          "code": "EA",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/99990711WEEA02026/lineup",
+      "stadium": "잠실",
+      "away_starter_name": "올러",
+      "home_starter_name": "곽빈",
+      "broadcast_channel": "KBS N SPORTS^MBC SPORTS+^SBS SPORTS^SPOTV^SPOTV2"
+    }
+  ]
 }
