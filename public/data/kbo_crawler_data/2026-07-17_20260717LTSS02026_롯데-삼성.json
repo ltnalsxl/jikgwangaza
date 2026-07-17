@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260717LTSS02026/lineup",
   "stadium": "대구",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "나균안",
+  "home_starter_name": "원태인",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "67539",
+        "name": "나균안",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "69446",
+        "name": "원태인",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-16T11:17:57.877586",
+  "crawl_time": "2026-07-17T07:50:01.399911",
   "error": "API preview did not include full batting orders"
 }
