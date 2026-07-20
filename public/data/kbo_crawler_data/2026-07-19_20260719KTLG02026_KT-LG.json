@@ -2,20 +2,20 @@
   "date": "2026-07-19",
   "game_code": "20260719KTLG02026",
   "game_time": "18:00",
-  "game_status": "6회말",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "1",
+      "score": "4",
       "is_home": false
     },
     {
       "name": "LG",
       "full_name": "LG 트윈스",
       "code": "LG",
-      "score": "0",
+      "score": "1",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "잠실",
   "away_starter_name": "고영표",
   "home_starter_name": "송승기",
-  "broadcast_channel": "SPOTV",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "KT",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-19T10:53:37.924103"
+  "crawl_time": "2026-07-20T08:35:15.054073"
 }

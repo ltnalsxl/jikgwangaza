@@ -2,20 +2,20 @@
   "date": "2026-07-19",
   "game_code": "20260719LTSS02026",
   "game_time": "18:00",
-  "game_status": "6회초",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
-      "score": "7",
+      "score": "11",
       "is_home": false
     },
     {
       "name": "삼성",
       "full_name": "삼성 라이온즈",
       "code": "SS",
-      "score": "3",
+      "score": "8",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "대구",
   "away_starter_name": "김진욱",
   "home_starter_name": "원태인",
-  "broadcast_channel": "MBC SPORTS+",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-19T10:53:40.408220"
+  "crawl_time": "2026-07-20T08:35:17.681648"
 }

@@ -2,20 +2,20 @@
   "date": "2026-07-19",
   "game_code": "20260719WOHH02026",
   "game_time": "18:00",
-  "game_status": "6회초",
+  "game_status": "11회말",
   "teams": [
     {
       "name": "키움",
       "full_name": "키움 히어로즈",
       "code": "WO",
-      "score": "1",
+      "score": "9",
       "is_home": false
     },
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "8",
+      "score": "9",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "대전",
   "away_starter_name": "박준현",
   "home_starter_name": "류현진",
-  "broadcast_channel": "SBS SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "키움",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-19T10:53:45.378946"
+  "crawl_time": "2026-07-20T08:35:22.960592"
 }
