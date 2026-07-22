@@ -2,7 +2,7 @@
   "date": "2026-07-22",
   "game_code": "20260722OBKT02026",
   "game_time": "18:30",
-  "game_status": "경기전",
+  "game_status": "경기취소",
   "teams": [
     {
       "name": "두산",
@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260722OBKT02026/lineup",
   "stadium": "수원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "곽빈",
+  "home_starter_name": "로건",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68220",
+        "name": "곽빈",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55912",
+        "name": "로건",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-21T11:23:46.327580",
+  "crawl_time": "2026-07-22T08:05:36.108080",
   "error": "API preview did not include full batting orders"
 }

@@ -2,20 +2,20 @@
   "date": "2026-07-21",
   "game_code": "20260721NCLG02026",
   "game_time": "18:30",
-  "game_status": "5회말",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "NC",
       "full_name": "NC 다이노스",
       "code": "NC",
-      "score": "5",
+      "score": "7",
       "is_home": false
     },
     {
       "name": "LG",
       "full_name": "LG 트윈스",
       "code": "LG",
-      "score": "2",
+      "score": "5",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "잠실",
   "away_starter_name": "원종해",
   "home_starter_name": "장현식",
-  "broadcast_channel": "SBS SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-21T11:23:25.784860"
+  "crawl_time": "2026-07-22T08:05:18.111655"
 }

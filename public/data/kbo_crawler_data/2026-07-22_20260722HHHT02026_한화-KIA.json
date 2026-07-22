@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260722HHHT02026/lineup",
   "stadium": "광주",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "화이트",
+  "home_starter_name": "올러",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56724",
+        "name": "화이트",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55633",
+        "name": "올러",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-21T11:23:40.698676",
+  "crawl_time": "2026-07-22T08:05:30.983666",
   "error": "API preview did not include full batting orders"
 }

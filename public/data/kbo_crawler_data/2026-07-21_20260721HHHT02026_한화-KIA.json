@@ -2,20 +2,20 @@
   "date": "2026-07-21",
   "game_code": "20260721HHHT02026",
   "game_time": "18:30",
-  "game_status": "6회초",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "1",
+      "score": "3",
       "is_home": false
     },
     {
       "name": "KIA",
       "full_name": "KIA 타이거즈",
       "code": "HT",
-      "score": "6",
+      "score": "7",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "광주",
   "away_starter_name": "박준영",
   "home_starter_name": "황동하",
-  "broadcast_channel": "MBC SPORTS+",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-21T11:23:23.149689"
+  "crawl_time": "2026-07-22T08:05:15.673552"
 }
