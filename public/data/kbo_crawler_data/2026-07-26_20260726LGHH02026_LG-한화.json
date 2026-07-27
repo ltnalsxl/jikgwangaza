@@ -2,20 +2,20 @@
   "date": "2026-07-26",
   "game_code": "20260726LGHH02026",
   "game_time": "18:00",
-  "game_status": "6회초",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "LG",
       "full_name": "LG 트윈스",
       "code": "LG",
-      "score": "0",
+      "score": "4",
       "is_home": false
     },
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "4",
+      "score": "14",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "대전",
   "away_starter_name": "박시원",
   "home_starter_name": "짐머맨",
-  "broadcast_channel": "MBC SPORTS+",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "LG",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-26T11:00:44.685093"
+  "crawl_time": "2026-07-27T09:24:27.692782"
 }
