@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260729HTSS02026/lineup",
   "stadium": "대구",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "시라카와",
+  "home_starter_name": "양창섭",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54843",
+        "name": "시라카와",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68415",
+        "name": "양창섭",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-28T11:35:54.073886",
+  "crawl_time": "2026-07-29T08:15:53.165565",
   "error": "API preview did not include full batting orders"
 }
