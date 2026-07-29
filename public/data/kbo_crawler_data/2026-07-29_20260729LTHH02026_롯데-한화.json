@@ -35,7 +35,80 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "50500",
+          "name": "황성빈",
+          "batting_order": 1,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69517",
+          "name": "고승민",
+          "batting_order": 2,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54529",
+          "name": "레이예스",
+          "batting_order": 3,
+          "position": "좌익수",
+          "batting_hand": "양타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68525",
+          "name": "한동희",
+          "batting_order": 4,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "51551",
+          "name": "나승엽",
+          "batting_order": 5,
+          "position": "1루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52591",
+          "name": "윤동희",
+          "batting_order": 6,
+          "position": "우익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "61102",
+          "name": "유강남",
+          "batting_order": 7,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68205",
+          "name": "전민재",
+          "batting_order": 8,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "51528",
+          "name": "손성빈",
+          "batting_order": 9,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     },
     "team_2": {
       "team_name": "한화",
@@ -47,11 +120,83 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "68700",
+          "name": "이원석",
+          "batting_order": 1,
+          "position": "중견수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54730",
+          "name": "페라자",
+          "batting_order": 2,
+          "position": "우익수",
+          "batting_hand": "양타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53764",
+          "name": "문현빈",
+          "batting_order": 3,
+          "position": "좌익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69737",
+          "name": "노시환",
+          "batting_order": 4,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "79192",
+          "name": "채은성",
+          "batting_order": 5,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52764",
+          "name": "허인서",
+          "batting_order": 6,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "66704",
+          "name": "김태연",
+          "batting_order": 7,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "65703",
+          "name": "이도윤",
+          "batting_order": 8,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "64006",
+          "name": "심우준",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     }
   },
-  "lineup_status": "not_confirmed",
+  "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-29T08:15:58.547905",
-  "error": "API preview did not include full batting orders"
+  "crawl_time": "2026-07-29T09:20:08.499503"
 }
