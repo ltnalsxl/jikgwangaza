@@ -1,9 +1,36 @@
 {
-  "crawl_time": "2026-07-30T01:48:08.860673",
+  "crawl_time": "2026-07-31T02:05:41.372954",
   "results": [
     {
-      "date": "2026-07-30",
-      "game_code": "20260730HTSS02026",
+      "date": "2026-07-31",
+      "game_code": "20260731HHKT02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "한화",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "KT",
+          "full_name": "KT",
+          "code": "KT",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260731HHKT02026/lineup",
+      "stadium": "수원",
+      "away_starter_name": "류현진",
+      "home_starter_name": "소형준",
+      "broadcast_channel": "KBS N SPORTS"
+    },
+    {
+      "date": "2026-07-31",
+      "game_code": "20260731HTNC02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
@@ -15,33 +42,6 @@
           "is_home": false
         },
         {
-          "name": "삼성",
-          "full_name": "삼성",
-          "code": "SS",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260730HTSS02026/lineup",
-      "stadium": "대구",
-      "away_starter_name": "네일",
-      "home_starter_name": "페덱",
-      "broadcast_channel": "SPOTV"
-    },
-    {
-      "date": "2026-07-30",
-      "game_code": "20260730KTNC02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "KT",
-          "full_name": "KT",
-          "code": "KT",
-          "score": "0",
-          "is_home": false
-        },
-        {
           "name": "NC",
           "full_name": "NC",
           "code": "NC",
@@ -49,92 +49,92 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260730KTNC02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260731HTNC02026/lineup",
       "stadium": "창원",
-      "away_starter_name": "로건",
-      "home_starter_name": "구창모",
-      "broadcast_channel": "SBS SPORTS"
+      "away_starter_name": "양현종",
+      "home_starter_name": "토다",
+      "broadcast_channel": "SPOTV"
     },
     {
-      "date": "2026-07-30",
-      "game_code": "20260730LTHH02026",
+      "date": "2026-07-31",
+      "game_code": "20260731LGOB02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
-        {
-          "name": "롯데",
-          "full_name": "롯데",
-          "code": "LT",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "한화",
-          "full_name": "한화",
-          "code": "HH",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260730LTHH02026/lineup",
-      "stadium": "대전",
-      "away_starter_name": "나균안",
-      "home_starter_name": "박준영",
-      "broadcast_channel": "MBC SPORTS+"
-    },
-    {
-      "date": "2026-07-30",
-      "game_code": "20260730OBSK02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "두산",
-          "full_name": "두산",
-          "code": "OB",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "SSG",
-          "full_name": "SSG",
-          "code": "SK",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260730OBSK02026/lineup",
-      "stadium": "문학",
-      "away_starter_name": "최민석",
-      "home_starter_name": "해치",
-      "broadcast_channel": "SPOTV2"
-    },
-    {
-      "date": "2026-07-30",
-      "game_code": "20260730WOLG02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "키움",
-          "full_name": "키움",
-          "code": "WO",
-          "score": "0",
-          "is_home": false
-        },
         {
           "name": "LG",
           "full_name": "LG",
           "code": "LG",
           "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "두산",
+          "full_name": "두산",
+          "code": "OB",
+          "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260730WOLG02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260731LGOB02026/lineup",
       "stadium": "잠실",
-      "away_starter_name": "안우진",
-      "home_starter_name": "임찬규",
-      "broadcast_channel": "KBS N SPORTS"
+      "away_starter_name": "송승기",
+      "home_starter_name": "잭로그",
+      "broadcast_channel": "SPOTV2"
+    },
+    {
+      "date": "2026-07-31",
+      "game_code": "20260731SKWO02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "SSG",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260731SKWO02026/lineup",
+      "stadium": "고척",
+      "away_starter_name": "김건우",
+      "home_starter_name": "박준현",
+      "broadcast_channel": "SBS SPORTS"
+    },
+    {
+      "date": "2026-07-31",
+      "game_code": "20260731SSLT02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "삼성",
+          "full_name": "삼성",
+          "code": "SS",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "롯데",
+          "full_name": "롯데",
+          "code": "LT",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260731SSLT02026/lineup",
+      "stadium": "사직",
+      "away_starter_name": "원태인",
+      "home_starter_name": "김진욱",
+      "broadcast_channel": "MBC SPORTS+"
     }
   ]
 }
