@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260731HHKT02026/lineup",
   "stadium": "수원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "류현진",
+  "home_starter_name": "소형준",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "76715",
+        "name": "류현진",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "50030",
+        "name": "소형준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-30T11:29:42.588923",
+  "crawl_time": "2026-07-31T08:30:20.564095",
   "error": "API preview did not include full batting orders"
 }
