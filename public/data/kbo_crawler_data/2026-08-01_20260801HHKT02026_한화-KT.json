@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260801HHKT02026/lineup",
   "stadium": "수원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "짐머맨",
+  "home_starter_name": "배제성",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56799",
+        "name": "짐머맨",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "65516",
+        "name": "배제성",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-31T11:38:59.100005",
+  "crawl_time": "2026-08-01T08:00:11.761130",
   "error": "API preview did not include full batting orders"
 }

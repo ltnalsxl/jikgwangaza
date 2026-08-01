@@ -2,7 +2,7 @@
   "date": "2026-08-01",
   "game_code": "20260801SSLT02026",
   "game_time": "18:00",
-  "game_status": "경기전",
+  "game_status": "경기취소",
   "teams": [
     {
       "name": "삼성",
@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260801SSLT02026/lineup",
   "stadium": "사직",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "보스",
+  "home_starter_name": "비슬리",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56402",
+        "name": "보스",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56523",
+        "name": "비슬리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-07-31T11:39:09.465773",
+  "crawl_time": "2026-08-01T08:00:22.245245",
   "error": "API preview did not include full batting orders"
 }
