@@ -2,20 +2,20 @@
   "date": "2026-08-02",
   "game_code": "20260802HHKT02026",
   "game_time": "18:00",
-  "game_status": "6회말",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "1",
+      "score": "12",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "수원",
   "away_starter_name": "화이트",
   "home_starter_name": "고영표",
-  "broadcast_channel": "KBS N SPORTS^SBS SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-02T11:00:24.019566"
+  "crawl_time": "2026-08-03T08:58:01.467486"
 }

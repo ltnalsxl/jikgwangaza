@@ -2,20 +2,20 @@
   "date": "2026-08-02",
   "game_code": "20260802SSLT02026",
   "game_time": "18:00",
-  "game_status": "5회초",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "삼성",
       "full_name": "삼성 라이온즈",
       "code": "SS",
-      "score": "0",
+      "score": "7",
       "is_home": false
     },
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
-      "score": "7",
+      "score": "10",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "사직",
   "away_starter_name": "보스",
   "home_starter_name": "비슬리",
-  "broadcast_channel": "MBC SPORTS+",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "삼성",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-02T11:00:29.243128"
+  "crawl_time": "2026-08-03T08:58:06.316180"
 }
