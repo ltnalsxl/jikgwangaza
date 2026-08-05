@@ -2,7 +2,7 @@
   "date": "2026-08-05",
   "game_code": "20260805LGSK02026",
   "game_time": "18:30",
-  "game_status": "경기전",
+  "game_status": "경기취소",
   "teams": [
     {
       "name": "LG",
@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260805LGSK02026/lineup",
   "stadium": "문학",
-  "away_starter_name": "",
-  "home_starter_name": "",
-  "broadcast_channel": "SPOTV2",
+  "away_starter_name": "임찬규",
+  "home_starter_name": "해치",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "LG",
       "team_code": "LG",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "61101",
+        "name": "임찬규",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56855",
+        "name": "해치",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-04T11:40:20.671261",
+  "crawl_time": "2026-08-05T08:13:32.202258",
   "error": "API preview did not include full batting orders"
 }
