@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260811KTNC02026/lineup",
   "stadium": "창원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "로건",
+  "home_starter_name": "라일리",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55912",
+        "name": "로건",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55903",
+        "name": "라일리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-09T10:05:44.443718",
+  "crawl_time": "2026-08-10T07:06:10.847172",
   "error": "API preview did not include full batting orders"
 }

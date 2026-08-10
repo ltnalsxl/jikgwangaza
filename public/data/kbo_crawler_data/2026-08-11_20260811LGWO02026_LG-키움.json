@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260811LGWO02026/lineup",
   "stadium": "고척",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "카라스코",
+  "home_starter_name": "안우진",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "LG",
       "team_code": "LG",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56103",
+        "name": "카라스코",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "키움",
       "team_code": "WO",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68341",
+        "name": "안우진",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-09T10:05:47.166592",
+  "crawl_time": "2026-08-10T07:06:13.517051",
   "error": "API preview did not include full batting orders"
 }

@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260811LTSK02026/lineup",
   "stadium": "문학",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "비슬리",
+  "home_starter_name": "아빌라",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56523",
+        "name": "비슬리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56801",
+        "name": "아빌라",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-09T10:05:49.899115",
+  "crawl_time": "2026-08-10T07:06:16.270299",
   "error": "API preview did not include full batting orders"
 }
