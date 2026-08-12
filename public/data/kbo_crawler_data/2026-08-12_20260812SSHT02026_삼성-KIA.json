@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260812SSHT02026/lineup",
   "stadium": "광주",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "보스",
+  "home_starter_name": "네일",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56402",
+        "name": "보스",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54640",
+        "name": "네일",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-11T10:25:43.755780",
+  "crawl_time": "2026-08-12T07:05:14.908688",
   "error": "API preview did not include full batting orders"
 }
