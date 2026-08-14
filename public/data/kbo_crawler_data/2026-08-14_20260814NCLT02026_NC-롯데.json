@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260814NCLT02026/lineup",
   "stadium": "사직",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "토다",
+  "home_starter_name": "김진욱",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56911",
+        "name": "토다",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "51516",
+        "name": "김진욱",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-13T10:36:39.388525",
+  "crawl_time": "2026-08-14T07:05:19.721548",
   "error": "API preview did not include full batting orders"
 }
