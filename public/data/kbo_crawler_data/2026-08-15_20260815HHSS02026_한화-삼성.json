@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260815HHSS02026/lineup",
   "stadium": "대구",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "박준영",
+  "home_starter_name": "양창섭",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52731",
+        "name": "박준영",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68415",
+        "name": "양창섭",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-14T10:33:19.911806",
+  "crawl_time": "2026-08-15T06:18:07.536398",
   "error": "API preview did not include full batting orders"
 }
