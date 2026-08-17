@@ -2,13 +2,13 @@
   "date": "2026-08-16",
   "game_code": "20260816SKLG02026",
   "game_time": "19:00",
-  "game_status": "경기전",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "SSG",
       "full_name": "SSG 랜더스",
       "code": "SK",
-      "score": "0",
+      "score": "6",
       "is_home": false
     },
     {
@@ -23,7 +23,7 @@
   "stadium": "잠실",
   "away_starter_name": "아빌라",
   "home_starter_name": "카라스코",
-  "broadcast_channel": "SPOTV",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "SSG",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-16T09:51:48.830109"
+  "crawl_time": "2026-08-17T06:29:55.861587"
 }

@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260818OBNC02026/lineup",
   "stadium": "창원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "벤자민",
+  "home_starter_name": "라일리",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52043",
+        "name": "벤자민",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55903",
+        "name": "라일리",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-16T09:52:03.723888",
+  "crawl_time": "2026-08-17T06:30:10.424835",
   "error": "API preview did not include full batting orders"
 }

@@ -2,20 +2,20 @@
   "date": "2026-08-16",
   "game_code": "20260816WOKT02026",
   "game_time": "19:00",
-  "game_status": "경기전",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "키움",
       "full_name": "키움 히어로즈",
       "code": "WO",
-      "score": "0",
+      "score": "2",
       "is_home": false
     },
     {
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "0",
+      "score": "6",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "수원",
   "away_starter_name": "김윤하",
   "home_starter_name": "로건",
-  "broadcast_channel": "SPOTV2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "키움",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-16T09:51:51.355152"
+  "crawl_time": "2026-08-17T06:29:58.355918"
 }

@@ -2,20 +2,20 @@
   "date": "2026-08-16",
   "game_code": "20260816OBHT02026",
   "game_time": "19:00",
-  "game_status": "경기전",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "두산",
       "full_name": "두산 베어스",
       "code": "OB",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "KIA",
       "full_name": "KIA 타이거즈",
       "code": "HT",
-      "score": "0",
+      "score": "2",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "광주",
   "away_starter_name": "곽빈",
   "home_starter_name": "올러",
-  "broadcast_channel": "SBS SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-16T09:51:46.300758"
+  "crawl_time": "2026-08-17T06:29:53.362342"
 }
