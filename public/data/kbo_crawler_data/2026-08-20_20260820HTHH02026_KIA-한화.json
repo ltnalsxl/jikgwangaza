@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260820HTHH02026/lineup",
   "stadium": "대전",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "황동하",
+  "home_starter_name": "류현진",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52641",
+        "name": "황동하",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "76715",
+        "name": "류현진",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-19T09:58:59.869184",
+  "crawl_time": "2026-08-20T06:24:20.876790",
   "error": "API preview did not include full batting orders"
 }
