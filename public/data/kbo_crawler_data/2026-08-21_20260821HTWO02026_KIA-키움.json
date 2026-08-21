@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260821HTWO02026/lineup",
   "stadium": "고척",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "양현종",
+  "home_starter_name": "하영민",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "77637",
+        "name": "양현종",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "키움",
       "team_code": "WO",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "64350",
+        "name": "하영민",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-20T10:01:07.907913",
+  "crawl_time": "2026-08-21T06:24:36.711829",
   "error": "API preview did not include full batting orders"
 }
