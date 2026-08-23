@@ -1,5 +1,5 @@
 {
-  "crawl_time": "2026-08-22T13:36:34.004410",
+  "crawl_time": "2026-08-23T12:14:05.575312",
   "results": [
     {
       "rank": "1",
@@ -19,35 +19,20 @@
     {
       "rank": "2",
       "team": "삼성",
-      "win_rate": "0.589",
-      "gb": "1.5",
-      "games": "109",
-      "wins": "63",
+      "win_rate": "0.593",
+      "gb": "1.0",
+      "games": "110",
+      "wins": "64",
       "losses": "44",
       "draws": "2",
-      "streak": "2패",
-      "batting_avg": "0.279",
-      "era": "4.28",
+      "streak": "1승",
+      "batting_avg": "0.280",
+      "era": "4.29",
       "last_5": "",
       "next_game": "vs NC"
     },
     {
       "rank": "3",
-      "team": "KIA",
-      "win_rate": "0.550",
-      "gb": "5.5",
-      "games": "111",
-      "wins": "60",
-      "losses": "49",
-      "draws": "2",
-      "streak": "1패",
-      "batting_avg": "0.272",
-      "era": "4.35",
-      "last_5": "",
-      "next_game": "vs 키움"
-    },
-    {
-      "rank": "4",
       "team": "LG",
       "win_rate": "0.545",
       "gb": "6.0",
@@ -60,6 +45,21 @@
       "era": "4.95",
       "last_5": "",
       "next_game": "vs 한화"
+    },
+    {
+      "rank": "3",
+      "team": "KIA",
+      "win_rate": "0.545",
+      "gb": "6.0",
+      "games": "112",
+      "wins": "60",
+      "losses": "50",
+      "draws": "2",
+      "streak": "2패",
+      "batting_avg": "0.272",
+      "era": "4.38",
+      "last_5": "",
+      "next_game": "vs 롯데"
     },
     {
       "rank": "5",
@@ -78,21 +78,6 @@
     },
     {
       "rank": "6",
-      "team": "NC",
-      "win_rate": "0.471",
-      "gb": "14.0",
-      "games": "104",
-      "wins": "48",
-      "losses": "54",
-      "draws": "2",
-      "streak": "2승",
-      "batting_avg": "0.273",
-      "era": "4.79",
-      "last_5": "",
-      "next_game": "vs 삼성"
-    },
-    {
-      "rank": "7",
       "team": "롯데",
       "win_rate": "0.467",
       "gb": "14.5",
@@ -107,7 +92,7 @@
       "next_game": "vs 두산"
     },
     {
-      "rank": "8",
+      "rank": "7",
       "team": "한화",
       "win_rate": "0.467",
       "gb": "14.5",
@@ -120,6 +105,21 @@
       "era": "4.92",
       "last_5": "",
       "next_game": "vs LG"
+    },
+    {
+      "rank": "8",
+      "team": "NC",
+      "win_rate": "0.466",
+      "gb": "14.5",
+      "games": "105",
+      "wins": "48",
+      "losses": "55",
+      "draws": "2",
+      "streak": "1패",
+      "batting_avg": "0.274",
+      "era": "4.82",
+      "last_5": "",
+      "next_game": "vs 삼성"
     },
     {
       "rank": "9",
@@ -139,17 +139,17 @@
     {
       "rank": "10",
       "team": "키움",
-      "win_rate": "0.363",
-      "gb": "26.5",
-      "games": "115",
-      "wins": "41",
+      "win_rate": "0.368",
+      "gb": "26.0",
+      "games": "116",
+      "wins": "42",
       "losses": "72",
       "draws": "2",
-      "streak": "1승",
-      "batting_avg": "0.245",
-      "era": "5.21",
+      "streak": "2승",
+      "batting_avg": "0.246",
+      "era": "5.22",
       "last_5": "",
-      "next_game": "vs KIA"
+      "next_game": "vs 삼성"
     }
   ]
 }
