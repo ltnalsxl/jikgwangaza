@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-19",
+  "game_code": "20260919HHLG02026",
+  "game_time": "17:00",
+  "game_status": "경기전",
+  "teams": [
+    {
+      "name": "한화",
+      "full_name": "한화 이글스",
+      "code": "HH",
+      "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "LG",
+      "full_name": "LG 트윈스",
+      "code": "LG",
+      "score": "0",
+      "is_home": true
+    }
+  ],
+  "lineup_url": "https://m.sports.naver.com/game/20260919HHLG02026/lineup",
+  "stadium": "잠실",
+  "away_starter_name": "",
+  "home_starter_name": "",
+  "broadcast_channel": "",
+  "starting_lineups": {
+    "team_1": {
+      "team_name": "한화",
+      "team_code": "HH",
+      "starting_pitcher": null,
+      "starting_batters": []
+    },
+    "team_2": {
+      "team_name": "LG",
+      "team_code": "LG",
+      "starting_pitcher": null,
+      "starting_batters": []
+    }
+  },
+  "lineup_status": "not_confirmed",
+  "lineup_source": "naver_api_preview",
+  "crawl_time": "2026-08-25T06:30:30.361762",
+  "error": "API preview did not include full batting orders"
+}
