@@ -1,7 +1,7 @@
 {
-  "date": "2026-09-20",
-  "game_code": "20260920SSLT02026",
-  "game_time": "14:00",
+  "date": "2026-09-25",
+  "game_code": "20260925SSSK02026",
+  "game_time": "17:00",
   "game_status": "경기전",
   "teams": [
     {
@@ -12,15 +12,15 @@
       "is_home": false
     },
     {
-      "name": "롯데",
-      "full_name": "롯데 자이언츠",
-      "code": "LT",
+      "name": "SSG",
+      "full_name": "SSG 랜더스",
+      "code": "SK",
       "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260920SSLT02026/lineup",
-  "stadium": "사직",
+  "lineup_url": "https://m.sports.naver.com/game/20260925SSSK02026/lineup",
+  "stadium": "문학",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
@@ -32,14 +32,14 @@
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "롯데",
-      "team_code": "LT",
+      "team_name": "SSG",
+      "team_code": "SK",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-26T06:32:20.238999",
+  "crawl_time": "2026-08-26T06:33:10.027277",
   "error": "API preview did not include full batting orders"
 }

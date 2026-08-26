@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260826HHSK02026/lineup",
   "stadium": "문학",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "류현진",
+  "home_starter_name": "최민준",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "76715",
+        "name": "류현진",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68856",
+        "name": "최민준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-25T10:01:17.950400",
+  "crawl_time": "2026-08-26T06:26:49.198265",
   "error": "API preview did not include full batting orders"
 }

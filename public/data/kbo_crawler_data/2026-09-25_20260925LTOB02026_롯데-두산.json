@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-20",
-  "game_code": "20260920SSLT02026",
-  "game_time": "14:00",
+  "date": "2026-09-25",
+  "game_code": "20260925LTOB02026",
+  "game_time": "17:00",
   "game_status": "경기전",
   "teams": [
-    {
-      "name": "삼성",
-      "full_name": "삼성 라이온즈",
-      "code": "SS",
-      "score": "0",
-      "is_home": false
-    },
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
       "score": "0",
+      "is_home": false
+    },
+    {
+      "name": "두산",
+      "full_name": "두산 베어스",
+      "code": "OB",
+      "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260920SSLT02026/lineup",
-  "stadium": "사직",
+  "lineup_url": "https://m.sports.naver.com/game/20260925LTOB02026/lineup",
+  "stadium": "잠실",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "삼성",
-      "team_code": "SS",
+      "team_name": "롯데",
+      "team_code": "LT",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "롯데",
-      "team_code": "LT",
+      "team_name": "두산",
+      "team_code": "OB",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-26T06:32:20.238999",
+  "crawl_time": "2026-08-26T06:33:07.304588",
   "error": "API preview did not include full batting orders"
 }
