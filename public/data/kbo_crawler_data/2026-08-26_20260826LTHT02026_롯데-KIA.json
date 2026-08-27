@@ -2,20 +2,20 @@
   "date": "2026-08-26",
   "game_code": "20260826LTHT02026",
   "game_time": "18:30",
-  "game_status": "2회말",
+  "game_status": "9회초",
   "teams": [
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
-      "score": "1",
+      "score": "11",
       "is_home": false
     },
     {
       "name": "KIA",
       "full_name": "KIA 타이거즈",
       "code": "HT",
-      "score": "3",
+      "score": "16",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "광주",
   "away_starter_name": "로드리게스",
   "home_starter_name": "황동하",
-  "broadcast_channel": "SPOTV2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-26T10:06:01.457590"
+  "crawl_time": "2026-08-27T17:00:07.734367"
 }

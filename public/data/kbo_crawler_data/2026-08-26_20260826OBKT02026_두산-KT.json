@@ -2,20 +2,20 @@
   "date": "2026-08-26",
   "game_code": "20260826OBKT02026",
   "game_time": "18:30",
-  "game_status": "3회초",
+  "game_status": "9회말",
   "teams": [
     {
       "name": "두산",
       "full_name": "두산 베어스",
       "code": "OB",
-      "score": "1",
+      "score": "4",
       "is_home": false
     },
     {
       "name": "KT",
       "full_name": "kt wiz",
       "code": "KT",
-      "score": "0",
+      "score": "5",
       "is_home": true
     }
   ],
@@ -23,7 +23,7 @@
   "stadium": "수원",
   "away_starter_name": "잭로그",
   "home_starter_name": "대니엘",
-  "broadcast_channel": "SBS SPORTS",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
@@ -198,5 +198,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-26T10:06:06.639882"
+  "crawl_time": "2026-08-27T17:00:12.861978"
 }
