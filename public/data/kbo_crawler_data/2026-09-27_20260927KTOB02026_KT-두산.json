@@ -1,13 +1,13 @@
 {
-  "date": "2026-09-25",
-  "game_code": "20260925LTOB02026",
+  "date": "2026-09-27",
+  "game_code": "20260927KTOB02026",
   "game_time": "17:00",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "롯데",
-      "full_name": "롯데 자이언츠",
-      "code": "LT",
+      "name": "KT",
+      "full_name": "kt wiz",
+      "code": "KT",
       "score": "0",
       "is_home": false
     },
@@ -19,15 +19,15 @@
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260925LTOB02026/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/20260927KTOB02026/lineup",
   "stadium": "잠실",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "롯데",
-      "team_code": "LT",
+      "team_name": "KT",
+      "team_code": "KT",
       "starting_pitcher": null,
       "starting_batters": []
     },
@@ -40,6 +40,6 @@
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-28T17:55:52.265041",
+  "crawl_time": "2026-08-28T17:56:14.978081",
   "error": "API preview did not include full batting orders"
 }

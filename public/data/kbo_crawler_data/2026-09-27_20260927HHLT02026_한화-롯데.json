@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-25",
-  "game_code": "20260925LTOB02026",
+  "date": "2026-09-27",
+  "game_code": "20260927HHLT02026",
   "game_time": "17:00",
   "game_status": "경기전",
   "teams": [
+    {
+      "name": "한화",
+      "full_name": "한화 이글스",
+      "code": "HH",
+      "score": "0",
+      "is_home": false
+    },
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
       "score": "0",
-      "is_home": false
-    },
-    {
-      "name": "두산",
-      "full_name": "두산 베어스",
-      "code": "OB",
-      "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260925LTOB02026/lineup",
-  "stadium": "잠실",
+  "lineup_url": "https://m.sports.naver.com/game/20260927HHLT02026/lineup",
+  "stadium": "사직",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "롯데",
-      "team_code": "LT",
+      "team_name": "한화",
+      "team_code": "HH",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "두산",
-      "team_code": "OB",
+      "team_name": "롯데",
+      "team_code": "LT",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-28T17:55:52.265041",
+  "crawl_time": "2026-08-28T17:56:12.248109",
   "error": "API preview did not include full batting orders"
 }
