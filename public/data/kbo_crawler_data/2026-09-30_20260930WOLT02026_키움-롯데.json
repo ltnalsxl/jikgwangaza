@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-15",
-  "game_code": "20260915LGNC02026",
+  "date": "2026-09-30",
+  "game_code": "20260930WOLT02026",
   "game_time": "18:30",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "LG",
-      "full_name": "LG 트윈스",
-      "code": "LG",
+      "name": "키움",
+      "full_name": "키움 히어로즈",
+      "code": "WO",
       "score": "0",
       "is_home": false
     },
     {
-      "name": "NC",
-      "full_name": "NC 다이노스",
-      "code": "NC",
+      "name": "롯데",
+      "full_name": "롯데 자이언츠",
+      "code": "LT",
       "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260915LGNC02026/lineup",
-  "stadium": "창원",
+  "lineup_url": "https://m.sports.naver.com/game/20260930WOLT02026/lineup",
+  "stadium": "사직",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "LG",
-      "team_code": "LG",
+      "team_name": "키움",
+      "team_code": "WO",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "NC",
-      "team_code": "NC",
+      "team_name": "롯데",
+      "team_code": "LT",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-31T12:04:50.270787",
+  "crawl_time": "2026-08-31T12:07:48.761426",
   "error": "API preview did not include full batting orders"
 }

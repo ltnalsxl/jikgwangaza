@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260901LTSS02026/lineup",
   "stadium": "대구",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "로드리게스",
+  "home_starter_name": "보스",
   "broadcast_channel": "SBS SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56531",
+        "name": "로드리게스",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "삼성",
       "team_code": "SS",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56402",
+        "name": "보스",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-08-30T14:30:18.564934",
+  "crawl_time": "2026-08-31T12:01:44.550920",
   "error": "API preview did not include full batting orders"
 }
