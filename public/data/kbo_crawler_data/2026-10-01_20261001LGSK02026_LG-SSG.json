@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-27",
-  "game_code": "20260927KTOB02026",
-  "game_time": "17:00",
+  "date": "2026-10-01",
+  "game_code": "20261001LGSK02026",
+  "game_time": "18:30",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "KT",
-      "full_name": "kt wiz",
-      "code": "KT",
+      "name": "LG",
+      "full_name": "LG 트윈스",
+      "code": "LG",
       "score": "0",
       "is_home": false
     },
     {
-      "name": "두산",
-      "full_name": "두산 베어스",
-      "code": "OB",
+      "name": "SSG",
+      "full_name": "SSG 랜더스",
+      "code": "SK",
       "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260927KTOB02026/lineup",
-  "stadium": "잠실",
+  "lineup_url": "https://m.sports.naver.com/game/20261001LGSK02026/lineup",
+  "stadium": "문학",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "KT",
-      "team_code": "KT",
+      "team_name": "LG",
+      "team_code": "LG",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "두산",
-      "team_code": "OB",
+      "team_name": "SSG",
+      "team_code": "SK",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-01T10:46:00.781510",
+  "crawl_time": "2026-09-01T10:46:53.795413",
   "error": "API preview did not include full batting orders"
 }
