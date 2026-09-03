@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-19",
-  "game_code": "20260919HHLG02026",
-  "game_time": "17:00",
+  "date": "2026-10-03",
+  "game_code": "20261003WOHH02026",
+  "game_time": "14:00",
   "game_status": "경기전",
   "teams": [
+    {
+      "name": "키움",
+      "full_name": "키움 히어로즈",
+      "code": "WO",
+      "score": "0",
+      "is_home": false
+    },
     {
       "name": "한화",
       "full_name": "한화 이글스",
       "code": "HH",
       "score": "0",
-      "is_home": false
-    },
-    {
-      "name": "LG",
-      "full_name": "LG 트윈스",
-      "code": "LG",
-      "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260919HHLG02026/lineup",
-  "stadium": "잠실",
+  "lineup_url": "https://m.sports.naver.com/game/20261003WOHH02026/lineup",
+  "stadium": "대전",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "한화",
-      "team_code": "HH",
+      "team_name": "키움",
+      "team_code": "WO",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "LG",
-      "team_code": "LG",
+      "team_name": "한화",
+      "team_code": "HH",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-03T10:20:08.001198",
+  "crawl_time": "2026-09-03T10:22:47.141238",
   "error": "API preview did not include full batting orders"
 }

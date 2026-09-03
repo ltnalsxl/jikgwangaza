@@ -1,13 +1,13 @@
 {
-  "date": "2026-09-19",
-  "game_code": "20260919HHLG02026",
-  "game_time": "17:00",
+  "date": "2026-10-03",
+  "game_code": "20261003HTLG02026",
+  "game_time": "14:00",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "한화",
-      "full_name": "한화 이글스",
-      "code": "HH",
+      "name": "KIA",
+      "full_name": "KIA 타이거즈",
+      "code": "HT",
       "score": "0",
       "is_home": false
     },
@@ -19,15 +19,15 @@
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260919HHLG02026/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/20261003HTLG02026/lineup",
   "stadium": "잠실",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "한화",
-      "team_code": "HH",
+      "team_name": "KIA",
+      "team_code": "HT",
       "starting_pitcher": null,
       "starting_batters": []
     },
@@ -40,6 +40,6 @@
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-03T10:20:08.001198",
+  "crawl_time": "2026-09-03T10:22:36.534338",
   "error": "API preview did not include full batting orders"
 }
