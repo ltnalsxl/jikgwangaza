@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260905OBSK02026/lineup",
   "stadium": "문학",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "최민석",
+  "home_starter_name": "김민준",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55268",
+        "name": "최민석",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56840",
+        "name": "김민준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-04T11:36:52.275020",
+  "crawl_time": "2026-09-04T11:56:20.393049",
   "error": "API preview did not include full batting orders"
 }
