@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260905HHLT02026/lineup",
   "stadium": "사직",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "황준서",
+  "home_starter_name": "나균안",
   "broadcast_channel": "SBS SPORTS",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54729",
+        "name": "황준서",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "67539",
+        "name": "나균안",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-04T13:08:52.602207",
+  "crawl_time": "2026-09-04T13:41:59.690053",
   "error": "API preview did not include full batting orders"
 }
