@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-26",
-  "game_code": "20260926LGHT02026",
-  "game_time": "17:00",
+  "date": "2026-10-04",
+  "game_code": "20261004SKNC02026",
+  "game_time": "14:00",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "LG",
-      "full_name": "LG 트윈스",
-      "code": "LG",
+      "name": "SSG",
+      "full_name": "SSG 랜더스",
+      "code": "SK",
       "score": "0",
       "is_home": false
     },
     {
-      "name": "KIA",
-      "full_name": "KIA 타이거즈",
-      "code": "HT",
+      "name": "NC",
+      "full_name": "NC 다이노스",
+      "code": "NC",
       "score": "0",
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20260926LGHT02026/lineup",
-  "stadium": "광주",
+  "lineup_url": "https://m.sports.naver.com/game/20261004SKNC02026/lineup",
+  "stadium": "창원",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "LG",
-      "team_code": "LG",
+      "team_name": "SSG",
+      "team_code": "SK",
       "starting_pitcher": null,
       "starting_batters": []
     },
     "team_2": {
-      "team_name": "KIA",
-      "team_code": "HT",
+      "team_name": "NC",
+      "team_code": "NC",
       "starting_pitcher": null,
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-04T10:17:09.477749",
+  "crawl_time": "2026-09-04T10:18:49.413488",
   "error": "API preview did not include full batting orders"
 }
