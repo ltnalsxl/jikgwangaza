@@ -1,13 +1,13 @@
 {
-  "date": "2026-10-03",
-  "game_code": "20261003WOHH02026",
-  "game_time": "14:00",
+  "date": "2026-10-06",
+  "game_code": "20261006SKHH02026",
+  "game_time": "18:30",
   "game_status": "경기전",
   "teams": [
     {
-      "name": "키움",
-      "full_name": "키움 히어로즈",
-      "code": "WO",
+      "name": "SSG",
+      "full_name": "SSG 랜더스",
+      "code": "SK",
       "score": "0",
       "is_home": false
     },
@@ -19,15 +19,15 @@
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/20261003WOHH02026/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/20261006SKHH02026/lineup",
   "stadium": "대전",
   "away_starter_name": "",
   "home_starter_name": "",
   "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
-      "team_name": "키움",
-      "team_code": "WO",
+      "team_name": "SSG",
+      "team_code": "SK",
       "starting_pitcher": null,
       "starting_batters": []
     },
@@ -40,6 +40,6 @@
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-06T09:55:36.803294",
+  "crawl_time": "2026-09-06T09:56:26.097326",
   "error": "API preview did not include full batting orders"
 }
