@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260909NCHT02026/lineup",
   "stadium": "광주",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "송명기",
+  "home_starter_name": "황동하",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "69962",
+        "name": "송명기",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52641",
+        "name": "황동하",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-08T12:50:45.494919",
+  "crawl_time": "2026-09-08T13:19:26.025932",
   "error": "API preview did not include full batting orders"
 }
