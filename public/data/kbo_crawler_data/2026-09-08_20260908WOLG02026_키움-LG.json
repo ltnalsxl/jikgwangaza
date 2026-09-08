@@ -2,7 +2,7 @@
   "date": "2026-09-08",
   "game_code": "20260908WOLG02026",
   "game_time": "18:30",
-  "game_status": "경기전",
+  "game_status": "3회초",
   "teams": [
     {
       "name": "키움",
@@ -35,7 +35,80 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "78168",
+          "name": "서건창",
+          "batting_order": 1,
+          "position": "지명타자",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68362",
+          "name": "추재현",
+          "batting_order": 2,
+          "position": "우익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "54944",
+          "name": "데이비슨",
+          "batting_order": 3,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "56305",
+          "name": "히우라",
+          "batting_order": 4,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "65898",
+          "name": "김웅빈",
+          "batting_order": 5,
+          "position": "3루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53344",
+          "name": "김동헌",
+          "batting_order": 6,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55339",
+          "name": "염승원",
+          "batting_order": 7,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "50357",
+          "name": "박주홍",
+          "batting_order": 8,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "55371",
+          "name": "권혁빈",
+          "batting_order": 9,
+          "position": "유격수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     },
     "team_2": {
       "team_name": "LG",
@@ -47,11 +120,83 @@
         "position": "투수",
         "role": "선발투수"
       },
-      "starting_batters": []
+      "starting_batters": [
+        {
+          "player_id": "65207",
+          "name": "신민재",
+          "batting_order": 1,
+          "position": "2루수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "62415",
+          "name": "박해민",
+          "batting_order": 2,
+          "position": "중견수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "53123",
+          "name": "오스틴",
+          "batting_order": 3,
+          "position": "지명타자",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "68110",
+          "name": "송찬의",
+          "batting_order": 4,
+          "position": "좌익수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "52121",
+          "name": "문정빈",
+          "batting_order": 5,
+          "position": "1루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "66108",
+          "name": "홍창기",
+          "batting_order": 6,
+          "position": "우익수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "69100",
+          "name": "구본혁",
+          "batting_order": 7,
+          "position": "3루수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "79109",
+          "name": "오지환",
+          "batting_order": 8,
+          "position": "유격수",
+          "batting_hand": "좌타",
+          "role": "선발타자"
+        },
+        {
+          "player_id": "79365",
+          "name": "박동원",
+          "batting_order": 9,
+          "position": "포수",
+          "batting_hand": "우타",
+          "role": "선발타자"
+        }
+      ]
     }
   },
-  "lineup_status": "not_confirmed",
+  "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-07T15:09:45.200015",
-  "error": "API preview did not include full batting orders"
+  "crawl_time": "2026-09-08T10:12:48.627023"
 }
