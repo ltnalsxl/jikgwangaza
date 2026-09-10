@@ -1,9 +1,36 @@
 {
-  "crawl_time": "2026-09-09T02:28:18.170377",
+  "crawl_time": "2026-09-10T02:28:46.096020",
   "results": [
     {
-      "date": "2026-09-09",
-      "game_code": "20260909KTSS02026",
+      "date": "2026-09-10",
+      "game_code": "20260910HHSK02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
+      "teams": [
+        {
+          "name": "한화",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
+          "is_home": false
+        },
+        {
+          "name": "SSG",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
+          "is_home": true
+        }
+      ],
+      "lineup_url": "https://m.sports.naver.com/game/20260910HHSK02026/lineup",
+      "stadium": "문학",
+      "away_starter_name": "박준영",
+      "home_starter_name": "아빌라",
+      "broadcast_channel": "SPOTV2"
+    },
+    {
+      "date": "2026-09-10",
+      "game_code": "20260910KTLT02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
@@ -15,49 +42,22 @@
           "is_home": false
         },
         {
-          "name": "삼성",
-          "full_name": "삼성",
-          "code": "SS",
+          "name": "롯데",
+          "full_name": "롯데",
+          "code": "LT",
           "score": "0",
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260909KTSS02026/lineup",
-      "stadium": "대구",
-      "away_starter_name": "고영표",
-      "home_starter_name": "원태인",
-      "broadcast_channel": "KBS N SPORTS"
-    },
-    {
-      "date": "2026-09-09",
-      "game_code": "20260909LGHH02026",
-      "game_time": "18:30",
-      "game_status": "경기전",
-      "teams": [
-        {
-          "name": "LG",
-          "full_name": "LG",
-          "code": "LG",
-          "score": "0",
-          "is_home": false
-        },
-        {
-          "name": "한화",
-          "full_name": "한화",
-          "code": "HH",
-          "score": "0",
-          "is_home": true
-        }
-      ],
-      "lineup_url": "https://m.sports.naver.com/game/20260909LGHH02026/lineup",
-      "stadium": "대전",
-      "away_starter_name": "카라스코",
-      "home_starter_name": "왕옌청",
+      "lineup_url": "https://m.sports.naver.com/game/20260910KTLT02026/lineup",
+      "stadium": "사직",
+      "away_starter_name": "배제성",
+      "home_starter_name": "비슬리",
       "broadcast_channel": "SBS SPORTS"
     },
     {
-      "date": "2026-09-09",
-      "game_code": "20260909NCHT02026",
+      "date": "2026-09-10",
+      "game_code": "20260910NCHT02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
@@ -76,22 +76,22 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260909NCHT02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260910NCHT02026/lineup",
       "stadium": "광주",
-      "away_starter_name": "송명기",
-      "home_starter_name": "황동하",
-      "broadcast_channel": "SPOTV2"
+      "away_starter_name": "라일리",
+      "home_starter_name": "올러",
+      "broadcast_channel": "MBC SPORTS+"
     },
     {
-      "date": "2026-09-09",
-      "game_code": "20260909SKOB02026",
+      "date": "2026-09-10",
+      "game_code": "20260910WOOB02026",
       "game_time": "18:30",
       "game_status": "경기전",
       "teams": [
         {
-          "name": "SSG",
-          "full_name": "SSG",
-          "code": "SK",
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
           "score": "0",
           "is_home": false
         },
@@ -103,11 +103,11 @@
           "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/20260909SKOB02026/lineup",
+      "lineup_url": "https://m.sports.naver.com/game/20260910WOOB02026/lineup",
       "stadium": "잠실",
-      "away_starter_name": "이로운",
-      "home_starter_name": "곽빈",
-      "broadcast_channel": "MBC SPORTS+^SPOTV"
+      "away_starter_name": "박준현",
+      "home_starter_name": "벤자민",
+      "broadcast_channel": "KBS N SPORTS^SPOTV"
     }
   ]
 }
