@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260916LGNC02026/lineup",
   "stadium": "창원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "박시원",
+  "home_starter_name": "클레빈저",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "LG",
       "team_code": "LG",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55121",
+        "name": "박시원",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56939",
+        "name": "클레빈저",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-15T12:49:25.896176",
+  "crawl_time": "2026-09-15T12:58:59.666651",
   "error": "API preview did not include full batting orders"
 }
