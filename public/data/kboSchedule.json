@@ -1,81 +1,113 @@
 {
-  "crawl_time": "2026-09-21T02:50:10.384807",
+  "crawl_time": "2026-09-22T02:43:38.355395",
   "results": [
     {
-      "date": "2026-09-21",
-      "game_code": "88880921HKTH02026",
-      "game_time": "경기 시간\n12:00",
-      "game_status": "예정",
+      "date": "2026-09-22",
+      "game_code": "20260922KTSK02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
       "teams": [
         {
-          "name": "홍콩",
-          "score": "-",
+          "name": "KT",
+          "full_name": "KT",
+          "code": "KT",
+          "score": "0",
           "is_home": false
         },
         {
-          "name": "태국",
-          "score": "-",
-          "is_home": false
+          "name": "SSG",
+          "full_name": "SSG",
+          "code": "SK",
+          "score": "0",
+          "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/88880921HKTH02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260922KTSK02026/lineup",
+      "stadium": "문학",
+      "away_starter_name": "배제성",
+      "home_starter_name": "아빌라",
+      "broadcast_channel": "SPOTV2"
     },
     {
-      "date": "2026-09-21",
-      "game_code": "88880921PHPT02026",
-      "game_time": "경기 시간\n12:00",
-      "game_status": "예정",
+      "date": "2026-09-22",
+      "game_code": "20260922LTHH02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
       "teams": [
         {
-          "name": "필리핀",
-          "score": "-",
+          "name": "롯데",
+          "full_name": "롯데",
+          "code": "LT",
+          "score": "0",
           "is_home": false
         },
         {
-          "name": "팔레스타인",
-          "score": "-",
-          "is_home": false
+          "name": "한화",
+          "full_name": "한화",
+          "code": "HH",
+          "score": "0",
+          "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/88880921PHPT02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260922LTHH02026/lineup",
+      "stadium": "대전",
+      "away_starter_name": "비슬리",
+      "home_starter_name": "류현진",
+      "broadcast_channel": "SBS SPORTS"
     },
     {
-      "date": "2026-09-21",
-      "game_code": "88880921JPCN02026",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
+      "date": "2026-09-22",
+      "game_code": "20260922NCSS02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
       "teams": [
         {
-          "name": "일본",
-          "score": "-",
+          "name": "NC",
+          "full_name": "NC",
+          "code": "NC",
+          "score": "0",
           "is_home": false
         },
         {
-          "name": "중국",
-          "score": "-",
-          "is_home": false
+          "name": "삼성",
+          "full_name": "삼성",
+          "code": "SS",
+          "score": "0",
+          "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/88880921JPCN02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260922NCSS02026/lineup",
+      "stadium": "대구",
+      "away_starter_name": "클레빈저",
+      "home_starter_name": "페덱",
+      "broadcast_channel": "KBS N SPORTS"
     },
     {
-      "date": "2026-09-21",
-      "game_code": "88880921TWKR02026",
-      "game_time": "경기 시간\n18:30",
-      "game_status": "예정",
+      "date": "2026-09-22",
+      "game_code": "20260922OBWO02026",
+      "game_time": "18:30",
+      "game_status": "경기전",
       "teams": [
         {
-          "name": "차이니스 타이베이",
-          "score": "-",
+          "name": "두산",
+          "full_name": "두산",
+          "code": "OB",
+          "score": "0",
           "is_home": false
         },
         {
-          "name": "대한민국",
-          "score": "-",
-          "is_home": false
+          "name": "키움",
+          "full_name": "키움",
+          "code": "WO",
+          "score": "0",
+          "is_home": true
         }
       ],
-      "lineup_url": "https://m.sports.naver.com/game/88880921TWKR02026/lineup"
+      "lineup_url": "https://m.sports.naver.com/game/20260922OBWO02026/lineup",
+      "stadium": "고척",
+      "away_starter_name": "벤자민",
+      "home_starter_name": "전준표",
+      "broadcast_channel": "MBC SPORTS+^SPOTV"
     }
   ]
 }
