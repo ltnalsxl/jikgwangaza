@@ -21,25 +21,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260924NCKT02026/lineup",
   "stadium": "수원",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "송명기",
+  "home_starter_name": "대니엘",
   "broadcast_channel": "MBC SPORTS+^SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "69962",
+        "name": "송명기",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56002",
+        "name": "대니엘",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-23T13:06:19.631260",
+  "crawl_time": "2026-09-23T13:35:59.247942",
   "error": "API preview did not include full batting orders"
 }
