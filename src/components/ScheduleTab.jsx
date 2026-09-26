@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { MapPin, ChevronRight } from 'lucide-react';
+import { MapPin, ChevronRight, ChevronDown } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
+import { toLocalDateStr, getRecentStarts, projectStarters } from '../utils/rotation';
 
 const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -37,14 +38,35 @@ const ScheduleTab = ({
 }) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const todayStr = today.toISOString().slice(0, 10);
+  // toISOString()은 UTC라 KST 자정~오전 9시에는 하루 전 날짜가 된다.
+  const todayStr = toLocalDateStr(today);
+  const tomorrowStr = toLocalDateStr(new Date(today.getTime() + 86400000));
 
   const [selectedStadium, setSelectedStadium] = useState(null); // null = 전체
+  const [expandedGame, setExpandedGame] = useState(null);
 
   const getRank = (team) => {
     const r = teamRanks?.find((t) => t.team === team);
     return r ? `${r.rank}위` : '';
   };
+
+  // 예고 선발 + 로테이션 기반 예상 선발 (선택 팀 / 상대 팀)
+  const projections = useMemo(() => {
+    const byTeam = {};
+    const teams = new Set([selectedTeam]);
+    gameLineups.forEach((g) => {
+      if (g.team === selectedTeam && g.date >= todayStr) {
+        teams.add(g.home === selectedTeam ? g.away : g.home);
+      }
+    });
+    teams.forEach((t) => {
+      byTeam[t] = projectStarters(gameLineups, t, todayStr);
+    });
+    return byTeam;
+  }, [gameLineups, selectedTeam, todayStr]);
+
+  const starterInfo = (game, team) =>
+    projections[team]?.[game.gameCode || game.id] || { pitcher: '', announced: false };
 
   // 이 팀의 전체 경기 (취소 제외, 날짜 오름차순)
   const allGames = useMemo(
@@ -93,7 +115,12 @@ const ScheduleTab = ({
   const pastGames = useMemo(
     () =>
       withStadium
-        .filter((g) => g.date < todayStr && (!selectedStadium || g.stadiumShort === selectedStadium))
+        .filter(
+          (g) =>
+            g.date < todayStr &&
+            g.date.slice(0, 4) === todayStr.slice(0, 4) &&
+            (!selectedStadium || g.stadiumShort === selectedStadium)
+        )
         .reverse(),
     [withStadium, todayStr, selectedStadium]
   );
@@ -106,17 +133,23 @@ const ScheduleTab = ({
     const isHome = game.home === selectedTeam;
     const opponent = isHome ? game.away : game.home;
     const isToday = game.date === todayStr;
-    const isTomorrow =
-      game.date ===
-      new Date(today.getTime() + 86400000).toISOString().slice(0, 10);
+    const isTomorrow = game.date === tomorrowStr;
+    const gameKey = game.gameCode || game.id;
+    const isExpanded = expandedGame === gameKey;
+
+    const myStarter = isPast
+      ? { pitcher: isHome ? game.homeStarter : game.awayStarter, announced: true }
+      : starterInfo(game, selectedTeam);
+    const oppStarter = isPast
+      ? { pitcher: isHome ? game.awayStarter : game.homeStarter, announced: true }
+      : starterInfo(game, opponent);
+    const anyAnnounced = myStarter.announced || oppStarter.announced;
+    const showStarters = myStarter.pitcher || oppStarter.pitcher;
 
     return (
+      <div key={game.id}>
       <div
-        key={game.id}
-        onClick={() => {
-          if (setSelectedDate) setSelectedDate(game.date);
-          if (setActiveTab) setActiveTab('lineup');
-        }}
+        onClick={() => setExpandedGame(isExpanded ? null : gameKey)}
         className={`cursor-pointer rounded-xl p-3 flex items-center gap-3 transition-all active:scale-[0.98] ${
           isPast
             ? 'bg-gray-50 dark:bg-gray-800/40 opacity-40'
@@ -191,21 +224,109 @@ const ScheduleTab = ({
             {getRank(opponent) && (
               <div className="text-[10px] text-gray-400">{getRank(opponent)}</div>
             )}
+            {showStarters && (
+              <div className="text-[11px] text-gray-500 dark:text-gray-400 truncate mt-0.5">
+                <span className={anyAnnounced ? 'text-emerald-600 dark:text-emerald-400 font-medium' : 'text-gray-400'}>
+                  {isPast ? '선발' : anyAnnounced ? '예고' : '예상'}
+                </span>{' '}
+                {myStarter.pitcher || '?'}
+                {!isPast && myStarter.pitcher && !myStarter.announced && anyAnnounced ? '(예상)' : ''}
+                {' vs '}
+                {oppStarter.pitcher || '?'}
+                {!isPast && oppStarter.pitcher && !oppStarter.announced && anyAnnounced ? '(예상)' : ''}
+              </div>
+            )}
           </div>
         </div>
 
         {/* 라벨 / 화살표 */}
-        <div className="text-xs shrink-0 text-gray-300 dark:text-gray-500">
+        <div className="text-xs shrink-0 text-gray-300 dark:text-gray-500 flex flex-col items-end gap-1">
           {isToday ? (
             <span className="text-blue-500 font-semibold text-[11px]">오늘</span>
           ) : isTomorrow ? (
             <span className="text-amber-500 font-semibold text-[11px]">내일</span>
           ) : isPast ? (
-            <span className="text-gray-300 text-[11px]">종료</span>
-          ) : (
-            <ChevronRight size={14} />
-          )}
+            <span className="text-gray-300 text-[11px]">
+              {/^\d+$/.test(String(game.awayScore)) && /^\d+$/.test(String(game.homeScore))
+                ? `${isHome ? game.homeScore : game.awayScore}:${isHome ? game.awayScore : game.homeScore}`
+                : '종료'}
+            </span>
+          ) : null}
+          {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
         </div>
+      </div>
+      {isExpanded && renderDetail(game, opponent, myStarter, oppStarter, isPast)}
+      </div>
+    );
+  };
+
+  const formatMD = (dateStr) => {
+    const d = new Date(`${dateStr}T00:00:00`);
+    return `${d.getMonth() + 1}.${String(d.getDate()).padStart(2, '0')}(${DAYS_KO[d.getDay()]})`;
+  };
+
+  const renderRotation = (team, beforeDate) => {
+    const starts = getRecentStarts(gameLineups, team, beforeDate, 6);
+    return (
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-1 mb-1">
+          {getTeamInfo(team).logo && (
+            <img src={getTeamInfo(team).logo} alt={team} className="w-4 h-4 object-contain" />
+          )}
+          <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">{team}</span>
+        </div>
+        {starts.length === 0 ? (
+          <p className="text-[11px] text-gray-400">기록 없음</p>
+        ) : (
+          <ul className="space-y-0.5">
+            {starts.map((s) => (
+              <li key={`${team}_${s.date}_${s.pitcher}`} className="flex justify-between gap-1 text-[11px]">
+                <span className="text-gray-400 shrink-0">{formatMD(s.date)}</span>
+                <span className="text-gray-700 dark:text-gray-200 truncate">{s.pitcher}</span>
+                <span className="text-gray-400 shrink-0">{s.restDays}일 휴식</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  };
+
+  const renderDetail = (game, opponent, myStarter, oppStarter, isPast) => {
+    const label = (s) =>
+      !s.pitcher ? '미정' : isPast || s.announced ? s.pitcher : `${s.pitcher} (예상)`;
+    return (
+      <div className="mt-1 mb-2 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 space-y-3">
+        <div>
+          <p className="text-[11px] text-gray-400 mb-1">
+            {isPast ? '선발 투수' : '선발 투수 (예고 발표 전에는 최근 로테이션 기준 예상)'}
+          </p>
+          <div className="flex items-center justify-between text-sm">
+            <span className="font-semibold text-gray-800 dark:text-gray-100">
+              {selectedTeam} · {label(myStarter)}
+            </span>
+            <span className="text-gray-400 text-xs">vs</span>
+            <span className="font-semibold text-gray-800 dark:text-gray-100">
+              {label(oppStarter)} · {opponent}
+            </span>
+          </div>
+        </div>
+        <div>
+          <p className="text-[11px] text-gray-400 mb-1">최근 선발 로테이션 (휴식일은 이 경기 기준)</p>
+          <div className="flex gap-4">
+            {renderRotation(selectedTeam, game.date)}
+            {renderRotation(opponent, game.date)}
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            if (setSelectedDate) setSelectedDate(game.date);
+            if (setActiveTab) setActiveTab('lineup');
+          }}
+          className="w-full py-2 rounded-lg text-xs font-medium bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900"
+        >
+          라인업 · 응원가 보기
+        </button>
       </div>
     );
   };

@@ -23,11 +23,35 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
     }
   };
 
+  const updatedMs = rankUpdatedAt ? new Date(rankUpdatedAt).getTime() : NaN;
+  const isStale = !isNaN(updatedMs) && Date.now() - updatedMs > 36 * 60 * 60 * 1000;
+
+  const renderLast5 = (last5) => {
+    if (!last5) return null;
+    return (
+      <div className="flex justify-center gap-0.5">
+        {last5.split('').map((r, i) => (
+          <span
+            key={i}
+            className={`w-2 h-2 rounded-full ${
+              r === 'W' ? 'bg-blue-500' : r === 'L' ? 'bg-red-400' : 'bg-gray-300'
+            }`}
+            title={r === 'W' ? '승' : r === 'L' ? '패' : '무'}
+          />
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-2">
       {rankUpdatedAt && (
-        <p className="text-right text-xs text-gray-500 dark:text-gray-400">
-          {formatUpdatedAt(rankUpdatedAt)} 기준
+        <p
+          className={`text-right text-xs ${
+            isStale ? 'text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400'
+          }`}
+        >
+          {formatUpdatedAt(rankUpdatedAt)} 기준{isStale ? ' · 업데이트 지연 중' : ''}
         </p>
       )}
       <div className="flex justify-center">
@@ -41,6 +65,7 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
             <th className="p-2 text-center whitespace-nowrap">패</th>
             <th className="p-2 text-center whitespace-nowrap">승률</th>
             <th className="p-2 text-center whitespace-nowrap">게임차</th>
+            <th className="p-2 text-center whitespace-nowrap">최근 5</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -64,6 +89,9 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
               <td className="p-2 text-center">{t.losses}</td>
               <td className="p-2 text-center">{t.win_rate}</td>
               <td className="p-2 text-center">{t.gb}</td>
+              <td className="p-2 text-center" title={t.streak || ''}>
+                {renderLast5(t.last_5)}
+              </td>
             </tr>
           ))}
         </tbody>

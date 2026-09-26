@@ -1,46 +1,63 @@
-name: Daily KBO player crawl
+name: KBO roster & chant sync
 
+# 1) KBO 공식 선수 명단(전 페이지)을 받아 kboPlayers.json을 갱신하고
+# 2) 이적/신규 주전 선수의 응원가를 YouTube에서 찾아 playerSongs.json에 반영한다.
+#    확신이 낮은 후보는 실행 요약(Step Summary)에 표로 남긴다.
 on:
   schedule:
-    - cron: '0 0 * * *'  # 매일 09:00 KST
+    - cron: '37 0 * * *'  # 09:37 KST
   workflow_dispatch:
+    inputs:
+      check_links:
+        description: '등록된 YouTube 링크 전체 점검'
+        type: boolean
+        default: false
+
+concurrency:
+  group: kbo-roster
+  cancel-in-progress: false
 
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: write
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-crawler.txt
 
       - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pandas selenium webdriver-manager
+        run: pip install -r requirements-crawler.txt
 
-      - name: Install Chrome
-        run: |
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
-          sudo apt-get update -q
-          sudo apt-get install -y google-chrome-stable
+      - name: Crawl KBO rosters
+        run: python public/kbo_players_crawler.py
 
-      - name: Run player crawler
-        run: python public/kbo_players_crawler.py || echo "⚠️ Player crawl failed, keeping last data"
+      - name: Sync player chants
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          TZ: Asia/Seoul
+        run: |
+          ARGS=""
+          # 매주 월요일 또는 수동 요청 시 기존 링크 전체 점검
+          if [ "$(date +%u)" = "1" ] || [ "${{ inputs.check_links }}" = "true" ]; then ARGS="--check-links"; fi
+          python scripts/sync_player_songs.py $ARGS
 
       - name: Commit and push
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git add public/data/kboPlayers.json
-          git diff --cached --quiet && echo "No player changes" && exit 0
-          git commit -m "Daily player roster update"
-          git pull --rebase origin main
-          git push origin main
+        id: commit
+        run: >-
+          scripts/ci/commit-and-push.sh "Update rosters & player chants"
+          public/data/kboPlayers.json public/data/playerSongs.json scripts/data/songSearchState.json
+
+  deploy:
+    needs: crawl
+    if: needs.crawl.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

@@ -1,15 +1,23 @@
+"""KBO 선수 명단 크롤러 (koreabaseball.com 선수 조회).
+
+예전 Selenium 버전은 팀당 최대 5페이지(100명)까지만 읽어서, 이름순으로 뒤에 오는
+선수(예: 롯데 황성빈)가 명단에서 통째로 빠지는 문제가 있었다. 이 버전은 ASP.NET
+postback을 requests로 직접 호출해 모든 페이지를 읽는다.
+"""
+
+import argparse
 import json
-import time
+import os
 import re
+import sys
+import time
 from datetime import datetime
+
+import requests
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import Select, WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+
+URL = "https://www.koreabaseball.com/Player/Search.aspx"
+PREFIX = "ctl00$ctl00$ctl00$cphContents$cphContents$cphContents$"
 
 TEAM_CODES = {
     "HH": "한화",
@@ -24,6 +32,9 @@ TEAM_CODES = {
     "KT": "KT",
 }
 
+MIN_PLAYERS_PER_TEAM = 40
+MAX_PAGES = 30
+
 
 def _parse_date(text: str) -> str:
     """Convert 'YYYY-MM-DD' into ISO format used in data."""
@@ -33,173 +44,153 @@ def _parse_date(text: str) -> str:
         return text
 
 
-def _scrape_team(driver: webdriver.Chrome, code: str) -> list:
-    wait = WebDriverWait(driver, 10)
-    try:
-        # Wait for the team dropdown to be present before interacting
-        wait.until(
-            EC.presence_of_element_located(
-                (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
-            )
-        )
-        select = Select(
-            driver.find_element(By.ID, "cphContents_cphContents_cphContents_ddlTeam")
-        )
-        select.select_by_value(code)
-        time.sleep(3)  # 팀 선택 후 충분히 대기
-        # Wait for the table to load after selecting the team
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
-    except Exception as e:
-        print(f"[ERROR] {TEAM_CODES.get(code, code)} 드롭다운/테이블 로딩 실패: {e}")
-        return []
-    players = []
+def _hidden_fields(soup: BeautifulSoup) -> dict:
+    return {
+        i["name"]: i.get("value", "")
+        for i in soup.select("input[type=hidden]")
+        if i.get("name")
+    }
 
-    # Determine event target prefix for pagination buttons
-    try:
-        first_btn = driver.find_element(
-            By.ID, "cphContents_cphContents_cphContents_ucPager_btnNo1"
-        )
-        href = first_btn.get_attribute("href")
-        prefix_match = re.search(r"__doPostBack\('([^']*btnNo)1','", href)
-        prefix = (
-            prefix_match.group(1)
-            if prefix_match
-            else "ctl00$ctl00$ctl00$cphContents$cphContents$cphContents$ucPager$btnNo"
-        )
-    except Exception as e:
-        print(f"[ERROR] {TEAM_CODES.get(code, code)} 페이지네이션 버튼 파싱 실패: {e}")
-        return []
 
-    # Find the last page number using the "last" button if available
-    last_page = 1
-    last_elems = driver.find_elements(
-        By.ID, "cphContents_cphContents_cphContents_ucPager_btnLast"
-    )
-    if last_elems:
-        last_href = last_elems[0].get_attribute("href")
-        m = re.search(r"btnNo(\d+)", last_href)
-        if m:
-            last_page = int(m.group(1))
-    else:
-        # 페이지 번호 버튼 중 가장 큰 번호를 찾음 (맨끝 버튼이 없을 때)
-        page_btns = driver.find_elements(By.CSS_SELECTOR, "a[id^='cphContents_cphContents_cphContents_ucPager_btnNo']")
-        page_nums = []
-        for btn in page_btns:
-            m = re.search(r"btnNo(\d+)", btn.get_attribute("id"))
-            if m:
-                page_nums.append(int(m.group(1)))
-        if page_nums:
-            last_page = max(page_nums)
+class RosterClient:
+    def __init__(self):
+        self.session = requests.Session()
+        self.session.headers.update({
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+            ),
+            "Accept-Language": "ko-KR,ko;q=0.9",
+        })
 
-    page_num = 1
-    while page_num <= 5:
-        try:
-            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
-            soup = BeautifulSoup(driver.page_source, "html.parser")
-            table = soup.find("table", class_="tEx")
-            if not table:
-                print(f"[ERROR] {TEAM_CODES.get(code, code)}: 테이블 없음 (페이지 {page_num})")
-                break
-            # 실제 페이지 번호 추출 (페이지네이션에서 bold 처리된 번호)
-            current_page = None
-            for strong in soup.select(".pagenation strong"):  # 실제 클래스명은 사이트 구조에 맞게 조정 필요
-                try:
-                    current_page = int(strong.text.strip())
-                except:
-                    pass
-            rows = table.find("tbody").find_all("tr")
-            for row in rows:
-                cols = [c.get_text(strip=True) for c in row.find_all("td")]
-                if len(cols) < 7:
-                    continue
-                if len(cols) == 7:
-                    number, name, team, position, birth, body, school = cols
-                    throwbat = ""
-                else:
-                    number, name, team, position, throwbat, birth, body, school = cols[:8]
-
-                player_id = ""
-                link = row.find("a", href=True)
-                if link and "playerId=" in link["href"]:
-                    m = re.search(r"playerId=(\d+)", link["href"])
-                    if m:
-                        player_id = m.group(1)
-
-                player = {
-                    "teamCode": code,
-                    "teamName": TEAM_CODES.get(code, ""),
-                    "number": number,
-                    "playerName": name,
-                    "position": position,
-                    "throwBat": throwbat,
-                    "birth": _parse_date(birth),
-                    "body": body,
-                    "school": school,
-                    "playerId": player_id,
-                }
-                players.append(player)
-            print(f"{TEAM_CODES.get(code, code)}: {len(players)}명 (페이지 {page_num} 이동, 실제 페이지: {current_page})")
-            if page_num >= 5:
-                break
-            page_num += 1
-            # 페이지 번호 버튼 클릭
-            btn_id = f"cphContents_cphContents_cphContents_ucPager_btnNo{page_num}"
+    def _request(self, method: str, **kwargs) -> BeautifulSoup:
+        last_error = None
+        for attempt in range(1, 4):
             try:
-                btn = driver.find_element(By.ID, btn_id)
-                btn.click()
-                time.sleep(2.5)
-                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "table.tEx")))
-            except Exception as e:
-                print(f"[ERROR] {TEAM_CODES.get(code, code)}: 페이지 {page_num} 버튼 클릭 실패: {e}")
+                resp = self.session.request(method, URL, timeout=30, **kwargs)
+                resp.raise_for_status()
+                return BeautifulSoup(resp.text, "html.parser")
+            except requests.RequestException as e:
+                last_error = e
+                time.sleep(2 * attempt)
+        raise RuntimeError(f"KBO 선수 조회 요청 실패: {last_error}")
+
+    def _postback(self, soup: BeautifulSoup, target: str, team: str, page: str = "") -> BeautifulSoup:
+        data = _hidden_fields(soup)
+        data.update({
+            "__EVENTTARGET": target,
+            "__EVENTARGUMENT": "",
+            PREFIX + "ddlTeam": team,
+            PREFIX + "ddlPosition": "",
+            PREFIX + "txtSearchPlayerName": "",
+            PREFIX + "hfPage": page,
+        })
+        return self._request("POST", data=data)
+
+    @staticmethod
+    def _parse_rows(soup: BeautifulSoup, code: str) -> list:
+        players = []
+        for row in soup.select("table.tEx tbody tr"):
+            tds = row.find_all("td")
+            cols = [c.get_text(strip=True) for c in tds]
+            if len(cols) < 7:
+                continue
+            if len(cols) == 7:
+                number, name, _team, position, birth, body, school = cols
+                throwbat = ""
+            else:
+                number, name, _team, position, throwbat, birth, body, school = cols[:8]
+
+            player_id = ""
+            link = row.find("a", href=True)
+            if link:
+                m = re.search(r"playerId=(\d+)", link["href"])
+                if m:
+                    player_id = m.group(1)
+
+            players.append({
+                "teamCode": code,
+                "teamName": TEAM_CODES.get(code, ""),
+                "number": number,
+                "playerName": name,
+                "position": position,
+                "throwBat": throwbat,
+                "birth": _parse_date(birth),
+                "body": body,
+                "school": school,
+                "playerId": player_id,
+            })
+        return players
+
+    @staticmethod
+    def _next_page_target(soup: BeautifulSoup, next_page: int):
+        """다음 페이지 링크의 postback target. 페이저는 5개 단위 블록이라 번호 텍스트로 찾고, 없으면 '다음' 버튼."""
+        anchors = soup.select("a[id*='ucPager_btn']")
+        candidates = [a for a in anchors if a.get_text(strip=True) == str(next_page)]
+        if not candidates:
+            candidates = [a for a in anchors if (a.get("id") or "").endswith("ucPager_btnNext")]
+        for a in candidates:
+            m = re.search(r"__doPostBack\('([^']+)'", a.get("href") or "")
+            if m:
+                return m.group(1)
+        return None
+
+    def scrape_team(self, code: str) -> list:
+        soup = self._request("GET")
+        soup = self._postback(soup, PREFIX + "ddlTeam", code)
+
+        players, seen = [], set()
+        page = 1
+        while page <= MAX_PAGES:
+            rows = self._parse_rows(soup, code)
+            new_rows = [p for p in rows if (p["playerId"] or p["playerName"] + p["number"]) not in seen]
+            if not new_rows:
                 break
-        except Exception as e:
-            print(f"[ERROR] {TEAM_CODES.get(code, code)}: 페이지 {page_num} 처리 중 오류: {e}")
-            break
-    print(f"{TEAM_CODES.get(code, code)} 최종: {len(players)}명 크롤링 완료")
-    return players
+            for p in new_rows:
+                seen.add(p["playerId"] or p["playerName"] + p["number"])
+            players.extend(new_rows)
+
+            target = self._next_page_target(soup, page + 1)
+            if not target:
+                break
+            page += 1
+            soup = self._postback(soup, target, code, str(page))
+            time.sleep(0.5)
+
+        print(f"{TEAM_CODES[code]}: {len(players)}명 ({page}페이지)")
+        return players
 
 
 def crawl_players() -> list:
-    options = Options()
-    options.add_argument("--headless=new")  # headless 모드로 다시 실행
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument(
-        "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    )
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=options
-    )
-    driver.get("https://www.koreabaseball.com/Player/Search.aspx")
-    wait = WebDriverWait(driver, 10)
-    wait.until(
-        EC.presence_of_element_located(
-            (By.ID, "cphContents_cphContents_cphContents_ddlTeam")
-        )
-    )
-
+    client = RosterClient()
     all_players = []
-    team_counts = {}
     for code in TEAM_CODES:
-        team_players = _scrape_team(driver, code)
+        team_players = client.scrape_team(code)
+        if len(team_players) < MIN_PLAYERS_PER_TEAM:
+            raise RuntimeError(
+                f"{TEAM_CODES[code]} 선수가 {len(team_players)}명뿐입니다. 사이트 구조 변경 가능성 — 기존 데이터를 유지합니다."
+            )
         all_players.extend(team_players)
-        team_counts[TEAM_CODES.get(code, code)] = len(team_players)
-
-    driver.quit()
-    print("\n===== 팀별 선수 수 요약 =====")
-    for team, count in team_counts.items():
-        print(f"{team}: {count}명")
     print(f"전체 합계: {len(all_players)}명")
     return all_players
 
 
 def save_players(players: list, path: str = "public/data/kboPlayers.json") -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(players, f, ensure_ascii=False, indent=2)
 
 
-if __name__ == "__main__":
+def main() -> int:
+    parser = argparse.ArgumentParser(description="KBO roster crawler")
+    parser.add_argument("--output", default="public/data/kboPlayers.json")
+    args = parser.parse_args()
+
     players = crawl_players()
-    save_players(players)
-    print(f"Saved {len(players)} players")
+    save_players(players, args.output)
+    print(f"Saved {len(players)} players to {args.output}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

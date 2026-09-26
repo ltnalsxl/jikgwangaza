@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-lineup-index": "node scripts/generateLineupIndex.js",
-    "update-song-mapping": "node scripts/updatePlayerSongTeams.js",
+    "sync-songs": "python3 scripts/sync_player_songs.py",
     "build-allstar-songs": "node scripts/generateAllStarSongs.js"
   },
   "eslintConfig": {

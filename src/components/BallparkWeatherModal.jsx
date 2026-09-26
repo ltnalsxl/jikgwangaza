@@ -38,6 +38,7 @@ const BallparkWeatherModal = ({ forecast, updatedAt, onClose }) => {
         {updatedAt && (
           <p className="text-right text-xs text-gray-500 dark:text-gray-400 mb-2">
             {formatUpdatedAt(updatedAt)} 기준
+            {forecast.source ? ` · ${forecast.source.startsWith('kma') ? '기상청' : 'Open-Meteo'}` : ''}
           </p>
         )}
         <div className="overflow-y-auto max-h-[70vh]">
