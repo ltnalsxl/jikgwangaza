@@ -42,23 +42,28 @@ const LineupTab = ({
     return r ? `${r.rank}위` : '';
   };
 
-  const isWeatherToday =
-    ballparkForecast?.updatedAt &&
-    new Date(ballparkForecast.updatedAt).toDateString() ===
-      new Date().toDateString();
-
-  const isSelectedDateToday =
-    new Date(selectedDate).toDateString() === new Date().toDateString();
-
-  const forecast =
-    currentGame &&
-    ballparkForecast?.data &&
-    isWeatherToday &&
-    isSelectedDateToday
+  const gameDateKey = (selectedDate || '').replace(/-/g, '');
+  const parkForecast =
+    currentGame && Array.isArray(ballparkForecast?.data)
       ? ballparkForecast.data.find((f) =>
           f.team.includes(getTeamInfo(currentGame.home).fullNameEn)
         )
       : null;
+
+  // forecastsByDate(날짜별)를 우선 사용하고, 구버전 파일은 오늘 경기일 때만 forecasts를 사용한다.
+  let forecast = null;
+  if (parkForecast) {
+    const dayForecasts = parkForecast.forecastsByDate?.[gameDateKey];
+    if (dayForecasts && Object.keys(dayForecasts).length > 0) {
+      forecast = { ...parkForecast, forecasts: dayForecasts };
+    } else if (!parkForecast.forecastsByDate) {
+      const isWeatherToday =
+        new Date(ballparkForecast.updatedAt).toDateString() === new Date().toDateString();
+      const isSelectedDateToday =
+        new Date(selectedDate).toDateString() === new Date().toDateString();
+      if (isWeatherToday && isSelectedDateToday) forecast = parkForecast;
+    }
+  }
 
   const renderAllStarSection = (title, items) => (
     <div className="mb-4">

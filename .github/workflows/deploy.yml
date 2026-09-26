@@ -1,22 +1,41 @@
 name: Deploy
 
+# 데이터 크롤링 워크플로는 GITHUB_TOKEN으로 push하기 때문에 push 이벤트가 발생하지 않는다.
+# 그래서 예전에는 크롤링 결과가 사이트에 한 번도 배포되지 않았다(2026-06-16 이후 배포 0회).
+# 이제 각 크롤링 워크플로가 데이터가 바뀌었을 때 이 워크플로를 workflow_call로 직접 호출한다.
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+  workflow_call:
+  schedule:
+    - cron: '41 21 * * *' # 06:41 KST 안전망: 하루 한 번은 무조건 최신 main을 배포
+
+concurrency:
+  group: firebase-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
+          cache: npm
       - run: npm ci
       - run: CI=false npm run build
+      - name: Verify data bundle is present
+        run: |
+          test -s build/data/kbo_crawler_data/seasons.json
+          test -s build/data/teamRank.json
       - run: npm install -g firebase-tools@12
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --project jikgwangaza --only hosting
+        run: firebase deploy --project jikgwangaza --only hosting --message "${GITHUB_WORKFLOW} ${GITHUB_SHA::7}"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

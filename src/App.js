@@ -223,6 +223,16 @@ const JikgwanGaja = () => {
     ballparkForecast,
   } = useKboData();
   const [currentLineup, setCurrentLineup] = useState([]);
+  // 순위 이후에 끝난 경기가 있는지로 순위 데이터 지연 여부를 판단한다(월요일·비시즌에는 경고하지 않음).
+  const latestFinishedGameDate = useMemo(() => {
+    let latest = '';
+    gameLineups.forEach((game) => {
+      const date = game.id.split('_')[0];
+      if (game.gameStatus === '종료' && date > latest) latest = date;
+    });
+    return latest;
+  }, [gameLineups]);
+
   const gameDatesForTeam = useMemo(
     () =>
       new Set(
@@ -1014,7 +1024,12 @@ const getSortedChants = () => {
             />
             )}
             {activeTab === 'ranking' && (
-              <RankingTab teamRanks={teamRanks} rankUpdatedAt={teamRankTime} />
+              <RankingTab
+                teamRanks={teamRanks}
+                rankUpdatedAt={teamRankTime}
+                latestFinishedGameDate={latestFinishedGameDate}
+                gameLineups={gameLineups}
+              />
             )}
             {activeTab === 'schedule' && (
               <ScheduleTab

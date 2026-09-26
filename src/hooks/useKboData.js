@@ -116,7 +116,7 @@ const useKboData = () => {
     try {
       const base = process.env.PUBLIC_URL || '';
 
-      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, allStar, ballparkForecastData] = await Promise.all([
+      const [songsData, lineupIndex, teamChantsData, kboPlayersData, fallbackLineups, teamRankData, allStar, ballparkForecastData, seasonList] = await Promise.all([
         fetchSafeJson(`${base}/data/playerSongs.json`, []),
         fetchSafeJson(`${base}/data/kbo_crawler_data/index.json`, null),
         fetchSafeJson(`${base}/data/teamChants.json`, []),
@@ -125,6 +125,7 @@ const useKboData = () => {
         fetchSafeJson(`${base}/data/teamRank.json`, { results: [] }),
         fetchSafeJson(`${base}/data/allStar2025.json`, null),
         fetchSafeJson(`${base}/data/kboBallparkForecast.json`, null),
+        fetchSafeJson(`${base}/data/kbo_crawler_data/seasons.json`, null),
       ]);
 
       console.log('로드된 데이터:', {
@@ -148,10 +149,16 @@ const useKboData = () => {
         const teamName = normalizeTeamName(player.teamName);
         let matchedSongs = [];
         if (Array.isArray(songsData)) {
+          // 현재 팀 응원가만 매칭한다(이적 선수에게 예전 팀 응원가를 붙이지 않음).
+          // playerId가 있으면 동명이인을 구분하기 위해 우선 사용한다.
+          const pid = String(player.playerId || '');
           matchedSongs = songsData.filter(
             (song) =>
+              !song.unavailable &&
               normalizeTeamName(song.team) === teamName &&
-              song.playerName === player.playerName
+              (song.playerId
+                ? String(song.playerId) === pid
+                : song.playerName === player.playerName)
           );
         }
 
@@ -173,6 +180,7 @@ const useKboData = () => {
             youtubeId: song.youtubeId || '',
             type: type,
             lyrics: song.lyrics || '',
+            songSource: song.source || '',
             position: normalizePosition(player.position || ''),
             number: player.number || '',
             throwBat: player.throwBat || '',
@@ -200,7 +208,7 @@ const useKboData = () => {
       // 로스터에 없는 선수 응원가 추가
       if (Array.isArray(songsData)) {
         songsData.forEach((song, index) => {
-          if (!existingPlayerNames.has(song.playerName)) {
+          if (!song.unavailable && !existingPlayerNames.has(song.playerName)) {
             const teamName = normalizeTeamName(song.team || '');
             console.warn(
               `로스터 미등록 선수 응원가 추가: ${song.playerName} (${teamName})`
@@ -233,18 +241,30 @@ const useKboData = () => {
         });
       }
 
-      // 라인업 파일들 병렬 로드
-      const lineupFiles = Array.isArray(lineupIndex) && lineupIndex.length > 0
-        ? await Promise.allSettled(
-            lineupIndex.map(async (file) => {
-              const data = await fetchSafeJson(
-                `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`,
-                null
-              );
-              return data ? { file, data } : null;
-            })
+      // 시즌 묶음 파일(season-YYYY.json)을 우선 사용하고, 없을 때만 경기 파일을 개별로 불러온다.
+      let lineupFiles = [];
+      if (Array.isArray(seasonList) && seasonList.length > 0) {
+        const bundles = await Promise.all(
+          seasonList.map((file) =>
+            fetchSafeJson(`${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`, null)
           )
-        : [];
+        );
+        lineupFiles = bundles
+          .filter(Array.isArray)
+          .flat()
+          .map((game) => ({ status: 'fulfilled', value: { file: game.game_code, data: game } }));
+      }
+      if (lineupFiles.length === 0 && Array.isArray(lineupIndex) && lineupIndex.length > 0) {
+        lineupFiles = await Promise.allSettled(
+          lineupIndex.map(async (file) => {
+            const data = await fetchSafeJson(
+              `${base}/data/kbo_crawler_data/${encodeURIComponent(file)}`,
+              null
+            );
+            return data ? { file, data } : null;
+          })
+        );
+      }
 
       console.log('라인업 파일 로드 결과:', {
         total: lineupFiles.length,
@@ -275,7 +295,7 @@ const useKboData = () => {
             );
             const dateStr = normalizeDate(game.date);
             const location =
-              game.location || getTeamInfo(homeTeam).stadium || '미정';
+              game.location || game.stadium || getTeamInfo(homeTeam).stadium || '미정';
             const gameTime = game.game_time
               ? game.game_time.replace('경기 시간', '').trim()
               : '미정';
@@ -326,34 +346,47 @@ const useKboData = () => {
               ? buildLineupData(game.starting_lineups.team_2, team2Name)
               : { pitcher: null, batters: [] };
 
+            // 예고 선발: 확정 라인업의 선발투수 → 일정 API의 예고 선발 순으로 사용
+            const awayTeamEntry = game.teams?.find((t) => !t.is_home);
+            const homeTeamEntry = game.teams?.find((t) => t.is_home);
+            const team1IsAway = team1Name === awayTeam;
+            const awayStarter =
+              (team1IsAway ? lineupData1.pitcher : lineupData2.pitcher)?.playerName ||
+              game.away_starter_name ||
+              '';
+            const homeStarter =
+              (team1IsAway ? lineupData2.pitcher : lineupData1.pitcher)?.playerName ||
+              game.home_starter_name ||
+              '';
+            const common = {
+              gameCode: game.game_code,
+              date: dateStr,
+              home: homeTeam,
+              away: awayTeam,
+              location: location,
+              gameTime: gameTime,
+              canceled: isCanceled,
+              gameStatus: game.game_status,
+              awayStarter,
+              homeStarter,
+              awayScore: awayTeamEntry?.score ?? '',
+              homeScore: homeTeamEntry?.score ?? '',
+            };
+
             return [
               {
+                ...common,
                 id: `${dateStr}_${game.game_code}_${team1Name}`,
-                gameCode: game.game_code,
-                date: dateStr,
                 team: team1Name,
-                home: homeTeam,
-                away: awayTeam,
-                location: location,
-                gameTime: gameTime,
                 lineup: lineupData1.batters,
                 startingPitcher: lineupData1.pitcher,
-                canceled: isCanceled,
-                gameStatus: game.game_status,
               },
               {
+                ...common,
                 id: `${dateStr}_${game.game_code}_${team2Name}`,
-                gameCode: game.game_code,
-                date: dateStr,
                 team: team2Name,
-                home: homeTeam,
-                away: awayTeam,
-                location: location,
-                gameTime: gameTime,
                 lineup: lineupData2.batters,
                 startingPitcher: lineupData2.pitcher,
-                canceled: isCanceled,
-                gameStatus: game.game_status,
               },
             ];
           } catch (error) {

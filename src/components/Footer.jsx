@@ -6,7 +6,7 @@ const Footer = () => (
     <br />
     Created and maintained by Sumin Lee.
     <br />
-    Weather data © Korea Meteorological Administration.
+    Weather data © Korea Meteorological Administration · Open-Meteo.
     <br />
     <a
       href="mailto:jikgwangaza@gmail.com?subject=Bug%20Report"
