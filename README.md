@@ -47,6 +47,7 @@ python public/kbo_team_rank_crawler.py
 python public/kbo_players_crawler.py
 python fetch_short_term_weather.py
 python scripts/sync_player_songs.py --dry-run   # see what would change
+python scripts/fetch_chant_lyrics.py --dry-run  # lyrics for chants without them
 npm run build-lineup-index                       # index.json + season-YYYY.json bundles
 python -m unittest discover -s tests -p 'test_*.py'
 ```
@@ -63,6 +64,12 @@ Naver publishes the next day's probable starters (선발 예고) in the evening;
 pitcher with the longest rest among each team's last five distinct starters.
 Tapping a game shows both teams' recent starts with dates and rest days
 (`src/utils/rotation.js`).
+
+Upcoming games also show where to buy tickets, based on the **home** team:
+티켓링크 (KIA·삼성·LG·KT·한화), NOL 티켓 (두산·키움), or the club's own site
+(SSG·롯데·NC). The detail view shows the usual general-sale opening rule and an
+estimated opening time. Links and rules live in `src/utils/ticketing.js`;
+re-check them each season.
 
 ### Player chants (응원가)
 
@@ -83,6 +90,14 @@ Tapping a game shows both teams' recent starts with dates and rest days
 Search state is stored in `scripts/data/songSearchState.json` so each player is
 re-searched at most weekly (every 2 days for moved players). To fix a chant by
 hand, edit its entry and set `"verified": true`.
+
+Lyrics: `scripts/fetch_chant_lyrics.py` runs right after the sync and fills
+**empty** lyrics only (curated lyrics are never overwritten). It reads one
+namu.wiki page per team (`{팀}/응원가/선수`), finds the player's section, and
+takes the first lyrics block mentioning the player, skipping walk-up songs
+(등장곡), song credits and footnotes. Filled entries get
+`"lyricsSource": "namu.wiki"` and the app shows a 나무위키 (CC BY-NC-SA 2.0 KR)
+credit under those lyrics.
 
 ## Generating English player names
 

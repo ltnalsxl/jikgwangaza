@@ -1,7 +1,14 @@
 import React, { useMemo, useState } from 'react';
-import { MapPin, ChevronRight, ChevronDown } from 'lucide-react';
+import { MapPin, ChevronRight, ChevronDown, Ticket, ExternalLink } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
 import { toLocalDateStr, getRecentStarts, projectStarters } from '../utils/rotation';
+import {
+  getTicketing,
+  estimateOpenAt,
+  describeOpenRule,
+  formatOpenAt,
+  PLATFORM_STYLE,
+} from '../utils/ticketing';
 
 const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -145,6 +152,7 @@ const ScheduleTab = ({
       : starterInfo(game, opponent);
     const anyAnnounced = myStarter.announced || oppStarter.announced;
     const showStarters = myStarter.pitcher || oppStarter.pitcher;
+    const ticketing = getTicketing(game.home);
 
     return (
       <div key={game.id}>
@@ -252,6 +260,19 @@ const ScheduleTab = ({
                 : '종료'}
             </span>
           ) : null}
+          {!isPast && ticketing && (
+            <a
+              href={ticketing.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              title={`${ticketing.platform}에서 예매`}
+              className={`flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[10px] font-medium whitespace-nowrap ${PLATFORM_STYLE[ticketing.kind]}`}
+            >
+              <Ticket size={10} />
+              {ticketing.platform}
+            </a>
+          )}
           {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
         </div>
       </div>
@@ -292,6 +313,36 @@ const ScheduleTab = ({
     );
   };
 
+  const renderTicketing = (game) => {
+    const info = getTicketing(game.home);
+    if (!info) return null;
+    const openAt = estimateOpenAt(game.home, game.date);
+    const isOpen = openAt && openAt <= new Date();
+    return (
+      <div>
+        <p className="text-[11px] text-gray-400 mb-1">예매 ({game.home} 홈경기)</p>
+        <a
+          href={info.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm ${PLATFORM_STYLE[info.kind]}`}
+        >
+          <span className="flex items-center gap-1.5 font-semibold">
+            <Ticket size={14} />
+            {info.platform}
+          </span>
+          <span className="flex items-center gap-1 text-[11px]">
+            {openAt ? (isOpen ? '일반 예매 오픈됨 (예상)' : `오픈 예상 ${formatOpenAt(openAt)}`) : '예매 페이지'}
+            <ExternalLink size={11} />
+          </span>
+        </a>
+        <p className="text-[10px] text-gray-400 mt-1">
+          일반 예매 {describeOpenRule(game.home)} · 선예매·변경은 구단 공지를 확인하세요
+        </p>
+      </div>
+    );
+  };
+
   const renderDetail = (game, opponent, myStarter, oppStarter, isPast) => {
     const label = (s) =>
       !s.pitcher ? '미정' : isPast || s.announced ? s.pitcher : `${s.pitcher} (예상)`;
@@ -318,6 +369,7 @@ const ScheduleTab = ({
             {renderRotation(opponent, game.date)}
           </div>
         </div>
+        {!isPast && renderTicketing(game)}
         <button
           onClick={() => {
             if (setSelectedDate) setSelectedDate(game.date);
