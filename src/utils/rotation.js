@@ -86,3 +86,34 @@ export const projectStarters = (gameLineups, team, fromDate) => {
   }
   return result;
 };
+
+const isScore = (v) => /^\d+$/.test(String(v ?? ''));
+
+/**
+ * 팀의 최근 종료 경기 결과(최신순). 점수가 없는 경기(취소 등)는 제외한다.
+ * gameLineups는 경기마다 팀별로 두 번 들어 있으므로 gameCode로 중복을 제거한다.
+ */
+export function getRecentResults(gameLineups, team, limit = 10) {
+  const seen = new Set();
+  const games = [];
+  (gameLineups || []).forEach((g) => {
+    if (!g || seen.has(g.gameCode)) return;
+    if (g.home !== team && g.away !== team) return;
+    if (g.gameStatus !== '종료' || !isScore(g.homeScore) || !isScore(g.awayScore)) return;
+    seen.add(g.gameCode);
+    const isHome = g.home === team;
+    const my = Number(isHome ? g.homeScore : g.awayScore);
+    const opp = Number(isHome ? g.awayScore : g.homeScore);
+    games.push({
+      gameCode: g.gameCode,
+      date: g.date,
+      opponent: isHome ? g.away : g.home,
+      isHome,
+      myScore: my,
+      oppScore: opp,
+      result: my > opp ? 'W' : my < opp ? 'L' : 'D',
+    });
+  });
+  games.sort((a, b) => b.date.localeCompare(a.date) || b.gameCode.localeCompare(a.gameCode));
+  return games.slice(0, limit);
+}

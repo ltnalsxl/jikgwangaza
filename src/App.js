@@ -1028,6 +1028,7 @@ const getSortedChants = () => {
                 teamRanks={teamRanks}
                 rankUpdatedAt={teamRankTime}
                 latestFinishedGameDate={latestFinishedGameDate}
+                gameLineups={gameLineups}
               />
             )}
             {activeTab === 'schedule' && (
