@@ -332,7 +332,8 @@ def main():
         if stype.startswith("응원가"):
             add_target(player, f"이적 ({song['team']} → {player['teamName']})", True)
     by_key = {(p["playerName"], p["teamName"]): p for p in players}
-    for s in broken:
+    # 이번에 새로 깨진 것뿐 아니라, 예전에 교체에 실패한 unavailable 곡도 매번 다시 찾는다.
+    for s in [x for x in songs if x.get("unavailable")]:
         p = by_key.get((s.get("playerName"), s.get("team")))
         if p and (s.get("type") or "응원가").startswith("응원가"):
             add_target(p, "기존 영상 삭제/임베드 불가", song_type=s.get("type") or "응원가", replace=s)
@@ -348,7 +349,7 @@ def main():
         p = t["player"]
         pid = str(p.get("playerId"))
         entry = state.get(pid, {})
-        wait = 2 if t["moved"] else args.recheck_days
+        wait = 2 if (t["moved"] or t["replace"] is not None) else args.recheck_days
         last = entry.get("lastSearched")
         if last and (today - datetime.strptime(last, "%Y-%m-%d").date()) < timedelta(days=wait):
             if entry.get("best"):

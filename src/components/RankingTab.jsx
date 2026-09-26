@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTeamInfo } from '../utils/team';
 
-const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
+const RankingTab = ({ teamRanks, rankUpdatedAt, latestFinishedGameDate }) => {
   if (!Array.isArray(teamRanks) || teamRanks.length === 0) {
     return (
       <p className="text-center text-gray-500 dark:text-gray-400">순위 데이터를 불러올 수 없습니다.</p>
@@ -23,8 +23,16 @@ const RankingTab = ({ teamRanks, rankUpdatedAt }) => {
     }
   };
 
+  // 크롤러는 순위가 바뀔 때만 파일을 쓰므로, "마지막 종료 경기 다음날 새벽"까지 반영되지 않았을 때만 지연으로 본다.
   const updatedMs = rankUpdatedAt ? new Date(rankUpdatedAt).getTime() : NaN;
-  const isStale = !isNaN(updatedMs) && Date.now() - updatedMs > 36 * 60 * 60 * 1000;
+  const lastGameMs = latestFinishedGameDate
+    ? new Date(`${latestFinishedGameDate}T23:59:00+09:00`).getTime()
+    : NaN;
+  const isStale =
+    !isNaN(updatedMs) &&
+    !isNaN(lastGameMs) &&
+    updatedMs < lastGameMs - 3 * 60 * 60 * 1000 &&
+    Date.now() > lastGameMs + 6 * 60 * 60 * 1000;
 
   const renderLast5 = (last5) => {
     if (!last5) return null;
