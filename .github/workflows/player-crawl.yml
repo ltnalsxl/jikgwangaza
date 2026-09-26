@@ -3,6 +3,7 @@ name: KBO roster & chant sync
 # 1) KBO 공식 선수 명단(전 페이지)을 받아 kboPlayers.json을 갱신하고
 # 2) 이적/신규 주전 선수의 응원가를 YouTube에서 찾아 playerSongs.json에 반영한다.
 #    확신이 낮은 후보는 실행 요약(Step Summary)에 표로 남긴다.
+# 3) 가사가 비어 있는 응원가는 나무위키 팀별 '응원가/선수' 문서에서 채운다.
 on:
   schedule:
     - cron: '37 0 * * *'  # 09:37 KST
@@ -49,6 +50,10 @@ jobs:
           # 매주 월요일 또는 수동 요청 시 기존 링크 전체 점검
           if [ "$(date +%u)" = "1" ] || [ "${{ inputs.check_links }}" = "true" ]; then ARGS="--check-links"; fi
           python scripts/sync_player_songs.py $ARGS
+
+      - name: Fill empty chant lyrics (namu.wiki)
+        continue-on-error: true
+        run: python scripts/fetch_chant_lyrics.py
 
       - name: Commit and push
         id: commit
