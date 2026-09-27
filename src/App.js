@@ -54,6 +54,14 @@ const debugLog = (...args) => {
 
 const WIDE_QUERY = '(min-width: 768px)';
 
+const NAV_TABS = [
+  { id: 'lineup', label: '라인업', Icon: Users },
+  { id: 'teamChants', label: '팀응원가', Icon: Trophy },
+  { id: 'explore', label: '탐색', Icon: Search },
+  { id: 'ranking', label: '순위', Icon: Trophy },
+  { id: 'schedule', label: '일정', Icon: Calendar },
+];
+
 const JikgwanGaja = () => {
   
   const [exploreTeamFilter, setExploreTeamFilter] = useState('전체');
@@ -137,7 +145,15 @@ const JikgwanGaja = () => {
     };
     updateHeaderHeight();
     window.addEventListener('resize', updateHeaderHeight);
-    return () => window.removeEventListener('resize', updateHeaderHeight);
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateHeaderHeight) : null;
+    if (ro) {
+      if (headerRef.current) ro.observe(headerRef.current);
+      if (tabsRef.current) ro.observe(tabsRef.current);
+    }
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight);
+      if (ro) ro.disconnect();
+    };
   }, []);
 
   // 태블릿·PC(768px 이상)에서는 목록 옆에 플레이어를 띄운다.
@@ -809,6 +825,43 @@ const getSortedChants = () => {
 
   const splitView = isWide && (activeTab === 'lineup' || activeTab === 'explore');
   const stickyTop = headerHeight + tabsHeight + 16;
+  const openTab = (id) => {
+    setActiveTab(id);
+    setShowPlayer(false);
+  };
+  const isTabActive = (id) => activeTab === id && (!showPlayer || splitView);
+  const firstPlayableIndex = currentLineup.findIndex(
+    (p) => getPositionKorean(p.position) !== '투수'
+  );
+  const keyActions = useRef({});
+  keyActions.current = { playPrev, playNext, close: () => setShowPlayer(false) };
+  useEffect(() => {
+    if (!splitView || !showPlayer) return undefined;
+    const onKey = (e) => {
+      const tag = (e.target && e.target.tagName) || '';
+      if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|TEXTAREA|SELECT/.test(tag)) return;
+      if (e.key === 'ArrowRight') keyActions.current.playNext();
+      else if (e.key === 'ArrowLeft') keyActions.current.playPrev();
+      else if (e.key === 'Escape') keyActions.current.close();
+      else return;
+      e.preventDefault();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [splitView, showPlayer]);
+
+  const startLineupFrom = (index) => {
+    const player = currentLineup[index];
+    if (!player) return;
+    const songIndex = playerSongs.findIndex(
+      (song) => song.playerName === player.playerName && song.team === selectedTeam
+    );
+    setCurrentPlayer(songIndex === -1 ? 0 : songIndex);
+    setCurrentLineupIndex(index);
+    setPlaySource('lineup');
+    setCurrentPlayerName(player.playerName);
+    setShowPlayer(true);
+  };
 
   const playerTab = (
           <PlayerTab
@@ -920,13 +973,13 @@ const getSortedChants = () => {
   );
 
  return (
-  <div className="max-w-md md:max-w-5xl mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
+  <div className="max-w-md md:max-w-6xl mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
      {/* 헤더 */}
-    <div ref={headerRef} className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
+    <div ref={headerRef} className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 md:py-3 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible md:flex md:flex-wrap lg:flex-nowrap md:items-center md:gap-x-4 md:gap-y-2">
+      <div className="flex items-center justify-between md:contents">
+        <div className="flex items-center gap-3 md:order-1 md:shrink-0">
         <div 
-          className="w-12 h-12 rounded-full border-3 bg-white flex items-center justify-center overflow-hidden"
+          className="w-12 h-12 md:w-10 md:h-10 rounded-full border-3 bg-white flex items-center justify-center overflow-hidden"
           style={{ borderColor: getTeamInfo(selectedTeam).color }}
         >
           {getTeamInfo(selectedTeam).logo ? (
@@ -950,13 +1003,13 @@ const getSortedChants = () => {
         </div>
                           
         <div>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">직관가자</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-300">
+          <h1 className="text-xl md:text-lg font-bold text-gray-900 dark:text-gray-100">직관가자</h1>
+          <p className="text-sm md:text-xs text-gray-500 dark:text-gray-300">
             {getTeamInfo(selectedTeam).fullName} • {formatDateKorean(selectedDate)}
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 md:gap-1 md:order-3 lg:order-4 md:ml-auto lg:ml-0 md:shrink-0">
         <button
           onClick={() => {
             const today = new Date();
@@ -984,7 +1037,7 @@ const getSortedChants = () => {
        </div>
 
        {/* 날짜/팀 선택 */}
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-4 md:mt-0 flex items-center gap-3 md:gap-2 md:order-2 md:shrink-0">
           <CalendarDropdown
             value={selectedDate}
             onChange={setSelectedDate}
@@ -1003,90 +1056,50 @@ const getSortedChants = () => {
             }}
           />
         </div>
+        <nav className="hidden md:flex md:order-4 lg:order-3 md:basis-full lg:basis-auto lg:flex-1 lg:justify-center gap-1 -mx-1 lg:mx-0" aria-label="메뉴">
+          {NAV_TABS.map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              onClick={() => openTab(id)}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+                isTabActive(id)
+                  ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300'
+                  : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {label}
+            </button>
+          ))}
+        </nav>
      </div>
 
-     {/* 탭 네비게이션 */}
+     {/* 탭 네비게이션 (휴대폰) — 태블릿·PC에서는 헤더 안에 있다 */}
       <div
         ref={tabsRef}
-        className="sticky z-20 flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700"
+        className="sticky z-20 flex md:hidden bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700"
         style={{ top: headerHeight }}
       >
-        <button
-          onClick={() => {
-            setActiveTab('lineup');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'lineup' && (!showPlayer || splitView)
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
-              : 'text-gray-600 dark:text-gray-300'
-          }`}
-        >
-          <Users className="w-6 h-6" />
-          <span className="text-xs">라인업</span>
-        </button>
-        <button
-          onClick={() => {
-            setActiveTab('teamChants');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'teamChants' && (!showPlayer || splitView)
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
-              : 'text-gray-600 dark:text-gray-300'
-          }`}
-        >
-          <Trophy className="w-6 h-6" />
-          <span className="text-xs">팀응원가</span>
-        </button>
-        <button
-          onClick={() => {
-            setActiveTab('explore');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'explore' && (!showPlayer || splitView)
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
-              : 'text-gray-600 dark:text-gray-300'
-          }`}
-        >
-          <Search className="w-6 h-6" />
-          <span className="text-xs">탐색</span>
-        </button>
-        <button
-          onClick={() => {
-            setActiveTab('ranking');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'ranking' && (!showPlayer || splitView)
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
-              : 'text-gray-600 dark:text-gray-300'
-          }`}
-        >
-          <Trophy className="w-6 h-6" />
-          <span className="text-xs">순위</span>
-        </button>
-        <button
-          onClick={() => {
-            setActiveTab('schedule');
-            setShowPlayer(false);
-          }}
-          className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'schedule' && (!showPlayer || splitView)
-              ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
-              : 'text-gray-600 dark:text-gray-300'
-          }`}
-        >
-          <Calendar className="w-6 h-6" />
-          <span className="text-xs">일정</span>
-        </button>
+        {NAV_TABS.map(({ id, label, Icon }) => (
+          <button
+            key={id}
+            onClick={() => openTab(id)}
+            className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
+              isTabActive(id)
+                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
+                : 'text-gray-600 dark:text-gray-300'
+            }`}
+          >
+            <Icon className="w-6 h-6" />
+            <span className="text-xs">{label}</span>
+          </button>
+        ))}
       </div>
 
      {/* 메인 콘텐츠 */}
       <div className="p-4">
         {splitView ? (
-          <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-6 items-start">
+          <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-6 items-start">
             <div className="min-w-0">{tabContent}</div>
             <div
               className="sticky min-w-0 overflow-y-auto overscroll-contain"
@@ -1106,10 +1119,20 @@ const getSortedChants = () => {
                   {playerTab}
                 </div>
               ) : (
-                <div className="rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700 p-8 text-center text-gray-500 dark:text-gray-400">
-                  <Music className="w-8 h-8 mx-auto mb-3 opacity-60" />
-                  <p className="font-medium">선수를 누르면 여기에서 응원가 영상과 가사가 나와요</p>
-                  <p className="text-xs mt-1">이전·다음 버튼으로 타순대로 넘길 수 있어요</p>
+                <div className="rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700 p-10 text-center text-gray-500 dark:text-gray-400">
+                  <Music className="w-10 h-10 mx-auto mb-3 opacity-60" />
+                  <p className="font-medium">왼쪽에서 선수를 누르면 여기에서 응원가 영상과 가사가 나와요</p>
+                  {activeTab === 'lineup' && firstPlayableIndex !== -1 && (
+                    <button
+                      onClick={() => startLineupFrom(firstPlayableIndex)}
+                      className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
+                    >
+                      <Music className="w-4 h-4" />
+                      {currentLineup[firstPlayableIndex].order || firstPlayableIndex + 1}번{' '}
+                      {getDisplayName(currentLineup[firstPlayableIndex].playerName)}부터 듣기
+                    </button>
+                  )}
+                  <p className="text-xs mt-4">키보드 ← → 로 이전·다음 선수, Esc로 닫기</p>
                 </div>
               )}
             </div>

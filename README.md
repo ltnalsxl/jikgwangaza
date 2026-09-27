@@ -209,6 +209,14 @@ The list stays on the left, and the selected player's chant video, lyrics and
 prev/next controls stay pinned on the right while you scroll. Other tabs are
 centered at a readable width. Phones keep the single-column layout.
 
+- The header is a single row with the tabs inline, so the whole lineup (1–9 plus
+  the starter) fits on one laptop screen. Between 768px and 1023px (iPad portrait),
+  the tabs wrap to a second header row.
+- Before you pick a player, the right panel has a "1번 ○○○부터 듣기" button that
+  starts the lineup from the leadoff hitter.
+- While a player is open, ← and → move to the previous or next player, and Esc
+  closes the panel.
+
 ## Favorite team selection
 
 On first visit the site asks you to choose your favorite team. The choice is saved

@@ -134,8 +134,8 @@ const LineupTab = ({
   }
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between mb-6">
+    <div className="space-y-3 md:space-y-1.5">
+      <div className="flex items-center justify-between mb-6 md:mb-3">
         <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">오늘의 라인업</h2>
         <div className="flex items-center gap-2">
           <button
@@ -186,7 +186,7 @@ const LineupTab = ({
         </div>
       ) : currentGame ? (
         <>
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 shadow-sm">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-3 mb-4 md:mb-2 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">

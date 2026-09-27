@@ -40,7 +40,7 @@ const PlayerCard = ({
   return (
     <div
       onClick={openPlayer}
-      className={`p-4 rounded-xl border-2 transition-all cursor-pointer bg-white dark:bg-gray-800 ${
+      className={`p-4 md:px-3 md:py-1.5 rounded-xl md:rounded-lg border-2 transition-all cursor-pointer bg-white dark:bg-gray-800 ${
         isActive
           ? 'border-blue-500 ring-2 ring-blue-200 dark:ring-blue-900'
           : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
@@ -49,14 +49,14 @@ const PlayerCard = ({
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <span className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+            <span className="bg-blue-500 text-white rounded-full w-10 h-10 md:w-8 md:h-8 flex items-center justify-center font-bold text-lg md:text-base shrink-0">
               {player.order || index + 1}
             </span>
-            <div>
-              <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
+            <div className="md:flex md:items-baseline md:gap-2">
+              <h3 className="font-bold text-lg md:text-base text-gray-900 dark:text-gray-100">
                 {getDisplayName ? getDisplayName(player.playerName) : player.playerName}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm md:text-xs">
                 {player.position}
               </p>
             </div>
@@ -69,7 +69,7 @@ const PlayerCard = ({
                 e.stopPropagation();
                 openPlayer();
               }}
-              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+              className="bg-blue-500 text-white p-2 md:p-1.5 rounded-full hover:bg-blue-600 transition-colors"
               aria-label={`${getDisplayName ? getDisplayName(player.playerName) : player.playerName} 응원가 재생`}
             >
               <Play className="w-4 h-4" />
