@@ -32,6 +32,7 @@ const LineupTab = ({
   getDisplayName,
   allStarData,
   ballparkForecast,
+  activeLineupIndex = null,
 }) => {
   const currentGame = getCurrentGame();
   const [allStarTeam, setAllStarTeam] = useState('dream');
@@ -272,7 +273,7 @@ const LineupTab = ({
                   key={player.id || index}
                   player={player}
                   index={index}
-                  isActive={currentPlayer === index}
+                  isActive={activeLineupIndex === index}
                   playerSongs={playerSongs}
                   selectedTeam={selectedTeam}
                   setCurrentPlayer={setCurrentPlayer}

@@ -19,7 +19,8 @@ import {
   Sun,
   AlertCircle,
   Trophy,
-  Calendar
+  Calendar,
+  X
 } from 'lucide-react';
 import ChantCard from './components/ChantCard';
 import LyricsSection from './components/LyricsSection';
@@ -50,6 +51,8 @@ const debugLog = (...args) => {
 
 
 
+
+const WIDE_QUERY = '(min-width: 768px)';
 
 const JikgwanGaja = () => {
   
@@ -119,17 +122,35 @@ const JikgwanGaja = () => {
   const searchRef = useRef('');
   const playerRef = useRef(null);
   const headerRef = useRef(null);
+  const tabsRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [tabsHeight, setTabsHeight] = useState(0);
 
   useEffect(() => {
     const updateHeaderHeight = () => {
       if (headerRef.current) {
         setHeaderHeight(headerRef.current.offsetHeight);
       }
+      if (tabsRef.current) {
+        setTabsHeight(tabsRef.current.offsetHeight);
+      }
     };
     updateHeaderHeight();
     window.addEventListener('resize', updateHeaderHeight);
     return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
+
+  // 태블릿·PC(768px 이상)에서는 목록 옆에 플레이어를 띄운다.
+  const [isWide, setIsWide] = useState(
+    () => typeof window !== 'undefined' && !!window.matchMedia?.(WIDE_QUERY).matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia?.(WIDE_QUERY);
+    if (!mq) return undefined;
+    const onChange = (e) => setIsWide(e.matches);
+    setIsWide(mq.matches);
+    mq.addEventListener?.('change', onChange);
+    return () => mq.removeEventListener?.('change', onChange);
   }, []);
 
   // URL과 상태를 동기화한다
@@ -786,8 +807,120 @@ const getSortedChants = () => {
 
 
 
+  const splitView = isWide && (activeTab === 'lineup' || activeTab === 'explore');
+  const stickyTop = headerHeight + tabsHeight + 16;
+
+  const playerTab = (
+          <PlayerTab
+            playerSongs={playerSongs}
+            currentPlayer={currentPlayer}
+            playSource={playSource}
+            currentLineup={currentLineup}
+            currentLineupIndex={currentLineupIndex}
+            selectedTeam={selectedTeam}
+            playPrev={playPrev}
+            playNext={playNext}
+            handleShare={handleShare}
+            getDisplayName={getDisplayName}
+          />
+  );
+
+  const tabContent = (
+    <>
+            {activeTab === 'lineup' && (
+              <LineupTab
+                currentLineup={currentLineup}
+                currentPlayer={currentPlayer}
+                playerSongs={playerSongs}
+                selectedTeam={selectedTeam}
+                selectedDate={selectedDate}
+                selectedGameCode={selectedGameCode}
+                setSelectedGameCode={setSelectedGameCode}
+                availableGames={getTodayGames()}
+                fetchJsonData={fetchJsonData}
+                loading={loading}
+                error={error}
+                getCurrentGame={getCurrentGame}
+                formatDateKorean={formatDateKorean}
+                setCurrentPlayer={setCurrentPlayer}
+                setCurrentLineupIndex={setCurrentLineupIndex}
+                setPlaySource={setPlaySource}
+                setShowPlayer={setShowPlayer}
+                setCurrentPlayerName={setCurrentPlayerName}
+                gameLineups={gameLineups}
+                setSelectedDate={setSelectedDate}
+                handleShareLineup={handleShareLineup}
+                teamRanks={teamRanks}
+                getDisplayName={getDisplayName}
+                allStarData={allStarData}
+                ballparkForecast={ballparkForecast}
+                activeLineupIndex={showPlayer && playSource === 'lineup' ? currentLineupIndex : null}
+              />
+            )}
+            {activeTab === 'teamChants' && (
+              <TeamChantsTab
+                teamChants={teamChants}
+                selectedTeam={selectedTeam}
+                setSelectedDate={setSelectedDate}
+                fetchJsonData={fetchJsonData}
+                loading={loading}
+              />
+            )}
+            {activeTab === 'explore' && (
+              <ExploreTab
+                searchQuery={searchQuery}
+                handleChange={handleChange}
+                handleCompositionStart={handleCompositionStart}
+                handleCompositionEnd={handleCompositionEnd}
+                exploreTeamFilter={exploreTeamFilter}
+                setExploreTeamFilter={setExploreTeamFilter}
+                hasSongOnly={hasSongOnly}
+                setHasSongOnly={setHasSongOnly}
+                hasBatterOnly={hasBatterOnly}
+                setHasBatterOnly={setHasBatterOnly}
+                activeOnly={activeOnly}
+                setActiveOnly={setActiveOnly}
+                rosterIndex={rosterIndex}
+                playerSongs={playerSongs}
+                kboPlayers={kboPlayers}
+                rawSongs={rawSongs}
+                filteredChants={filteredChants}
+                error={error}
+                setSelectedDate={setSelectedDate}
+                fetchJsonData={fetchJsonData}
+                setCurrentPlayer={setCurrentPlayer}
+                setPlaySource={setPlaySource}
+                setShowPlayer={setShowPlayer}
+                handleShare={handleShare}
+                setSearchQuery={setSearchQuery}
+                isComposing={isComposing}
+              setCurrentPlayerName={setCurrentPlayerName}
+              getDisplayName={getDisplayName}
+            />
+            )}
+            {activeTab === 'ranking' && (
+              <RankingTab
+                teamRanks={teamRanks}
+                rankUpdatedAt={teamRankTime}
+                latestFinishedGameDate={latestFinishedGameDate}
+                gameLineups={gameLineups}
+              />
+            )}
+            {activeTab === 'schedule' && (
+              <ScheduleTab
+                selectedTeam={selectedTeam}
+                gameLineups={gameLineups}
+                formatDateKorean={formatDateKorean}
+                setSelectedDate={setSelectedDate}
+                setActiveTab={setActiveTab}
+                teamRanks={teamRanks}
+              />
+            )}
+    </>
+  );
+
  return (
-  <div className="max-w-md mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
+  <div className="max-w-md md:max-w-5xl mx-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 min-h-screen flex flex-col dark:text-gray-100">
      {/* 헤더 */}
     <div ref={headerRef} className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b shadow-sm text-gray-900 p-4 border-gray-100 dark:bg-gray-800/90 dark:text-gray-100 dark:border-gray-700 overflow-visible">
       <div className="flex items-center justify-between">
@@ -874,6 +1007,7 @@ const getSortedChants = () => {
 
      {/* 탭 네비게이션 */}
       <div
+        ref={tabsRef}
         className="sticky z-20 flex bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700"
         style={{ top: headerHeight }}
       >
@@ -883,7 +1017,7 @@ const getSortedChants = () => {
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'lineup' && !showPlayer
+            activeTab === 'lineup' && (!showPlayer || splitView)
               ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
@@ -897,7 +1031,7 @@ const getSortedChants = () => {
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'teamChants' && !showPlayer
+            activeTab === 'teamChants' && (!showPlayer || splitView)
               ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
@@ -911,7 +1045,7 @@ const getSortedChants = () => {
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'explore' && !showPlayer
+            activeTab === 'explore' && (!showPlayer || splitView)
               ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
@@ -925,7 +1059,7 @@ const getSortedChants = () => {
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'ranking' && !showPlayer
+            activeTab === 'ranking' && (!showPlayer || splitView)
               ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
@@ -939,7 +1073,7 @@ const getSortedChants = () => {
             setShowPlayer(false);
           }}
           className={`flex-1 py-3 px-2 text-center font-medium transition-colors flex flex-col items-center space-y-2 ${
-            activeTab === 'schedule' && !showPlayer
+            activeTab === 'schedule' && (!showPlayer || splitView)
               ? 'text-blue-600 dark:text-blue-400 border-b-2 border-[#005BAC] bg-white dark:bg-gray-900'
               : 'text-gray-600 dark:text-gray-300'
           }`}
@@ -951,8 +1085,37 @@ const getSortedChants = () => {
 
      {/* 메인 콘텐츠 */}
       <div className="p-4">
-        {showPlayer ? (
-          <div className="space-y-4">
+        {splitView ? (
+          <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-6 items-start">
+            <div className="min-w-0">{tabContent}</div>
+            <div
+              className="sticky min-w-0 overflow-y-auto overscroll-contain"
+              style={{ top: stickyTop, maxHeight: `calc(100vh - ${stickyTop + 16}px)` }}
+            >
+              {showPlayer ? (
+                <div className="space-y-2">
+                  <div className="flex justify-end">
+                    <button
+                      onClick={() => setShowPlayer(false)}
+                      className="p-1.5 rounded-full text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700"
+                      aria-label="플레이어 닫기"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                  {playerTab}
+                </div>
+              ) : (
+                <div className="rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700 p-8 text-center text-gray-500 dark:text-gray-400">
+                  <Music className="w-8 h-8 mx-auto mb-3 opacity-60" />
+                  <p className="font-medium">선수를 누르면 여기에서 응원가 영상과 가사가 나와요</p>
+                  <p className="text-xs mt-1">이전·다음 버튼으로 타순대로 넘길 수 있어요</p>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : showPlayer ? (
+          <div className="space-y-4 md:max-w-2xl md:mx-auto">
             <button
               onClick={() => setShowPlayer(false)}
               className="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
@@ -960,110 +1123,10 @@ const getSortedChants = () => {
               <SkipBack className="w-5 h-5" />
               <span className="sr-only">라인업으로 돌아가기</span>
             </button>
-              <PlayerTab
-                playerSongs={playerSongs}
-                currentPlayer={currentPlayer}
-                playSource={playSource}
-                currentLineup={currentLineup}
-                currentLineupIndex={currentLineupIndex}
-                selectedTeam={selectedTeam}
-                playPrev={playPrev}
-                playNext={playNext}
-                handleShare={handleShare}
-                getDisplayName={getDisplayName}
-              />
+            {playerTab}
           </div>
         ) : (
-          <>
-            {activeTab === 'lineup' && (
-              <LineupTab
-                currentLineup={currentLineup}
-                currentPlayer={currentPlayer}
-                playerSongs={playerSongs}
-                selectedTeam={selectedTeam}
-                selectedDate={selectedDate}
-                selectedGameCode={selectedGameCode}
-                setSelectedGameCode={setSelectedGameCode}
-                availableGames={getTodayGames()}
-                fetchJsonData={fetchJsonData}
-                loading={loading}
-                error={error}
-                getCurrentGame={getCurrentGame}
-                formatDateKorean={formatDateKorean}
-                setCurrentPlayer={setCurrentPlayer}
-                setCurrentLineupIndex={setCurrentLineupIndex}
-                setPlaySource={setPlaySource}
-                setShowPlayer={setShowPlayer}
-                setCurrentPlayerName={setCurrentPlayerName}
-                gameLineups={gameLineups}
-                setSelectedDate={setSelectedDate}
-                handleShareLineup={handleShareLineup}
-                teamRanks={teamRanks}
-                getDisplayName={getDisplayName}
-                allStarData={allStarData}
-                ballparkForecast={ballparkForecast}
-              />
-            )}
-            {activeTab === 'teamChants' && (
-              <TeamChantsTab
-                teamChants={teamChants}
-                selectedTeam={selectedTeam}
-                setSelectedDate={setSelectedDate}
-                fetchJsonData={fetchJsonData}
-                loading={loading}
-              />
-            )}
-            {activeTab === 'explore' && (
-              <ExploreTab
-                searchQuery={searchQuery}
-                handleChange={handleChange}
-                handleCompositionStart={handleCompositionStart}
-                handleCompositionEnd={handleCompositionEnd}
-                exploreTeamFilter={exploreTeamFilter}
-                setExploreTeamFilter={setExploreTeamFilter}
-                hasSongOnly={hasSongOnly}
-                setHasSongOnly={setHasSongOnly}
-                hasBatterOnly={hasBatterOnly}
-                setHasBatterOnly={setHasBatterOnly}
-                activeOnly={activeOnly}
-                setActiveOnly={setActiveOnly}
-                rosterIndex={rosterIndex}
-                playerSongs={playerSongs}
-                kboPlayers={kboPlayers}
-                rawSongs={rawSongs}
-                filteredChants={filteredChants}
-                error={error}
-                setSelectedDate={setSelectedDate}
-                fetchJsonData={fetchJsonData}
-                setCurrentPlayer={setCurrentPlayer}
-                setPlaySource={setPlaySource}
-                setShowPlayer={setShowPlayer}
-                handleShare={handleShare}
-                setSearchQuery={setSearchQuery}
-                isComposing={isComposing}
-              setCurrentPlayerName={setCurrentPlayerName}
-              getDisplayName={getDisplayName}
-            />
-            )}
-            {activeTab === 'ranking' && (
-              <RankingTab
-                teamRanks={teamRanks}
-                rankUpdatedAt={teamRankTime}
-                latestFinishedGameDate={latestFinishedGameDate}
-                gameLineups={gameLineups}
-              />
-            )}
-            {activeTab === 'schedule' && (
-              <ScheduleTab
-                selectedTeam={selectedTeam}
-                gameLineups={gameLineups}
-                formatDateKorean={formatDateKorean}
-                setSelectedDate={setSelectedDate}
-                setActiveTab={setActiveTab}
-                teamRanks={teamRanks}
-              />
-            )}
-          </>
+          <div className="md:max-w-3xl md:mx-auto">{tabContent}</div>
         )}
       </div>
       <Footer />

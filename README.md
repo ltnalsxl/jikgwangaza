@@ -202,6 +202,13 @@ path – additional songs can be added as separate records in
 
 Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the current team's lineup.
 
+## Tablet and desktop layout
+
+At 768px and wider (iPad and PC), the 라인업 and 탐색 tabs split into two columns.
+The list stays on the left, and the selected player's chant video, lyrics and
+prev/next controls stay pinned on the right while you scroll. Other tabs are
+centered at a readable width. Phones keep the single-column layout.
+
 ## Favorite team selection
 
 On first visit the site asks you to choose your favorite team. The choice is saved
