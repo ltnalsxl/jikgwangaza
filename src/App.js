@@ -34,6 +34,7 @@ import RankingTab from './components/RankingTab';
 import CalendarDropdown from './components/CalendarDropdown';
 import TeamDropdown from './components/TeamDropdown';
 import useKboData from './hooks/useKboData';
+import { buildRosterIndex, isActive } from './utils/activeRoster';
 import Footer from './components/Footer';
 // import AddToHomePopup from './components/AddToHomePopup';
 import TeamSelectModal from './components/TeamSelectModal';
@@ -56,6 +57,20 @@ const JikgwanGaja = () => {
   const [hasSongOnly, setHasSongOnly] = useState(false);
   // 기본적으로 투수를 제외하고 타자만 표시한다
   const [hasBatterOnly, setHasBatterOnly] = useState(true);
+  // 1군 등록 선수만 보기 (2군 선수 응원가도 있으므로 기본은 전체)
+  const [activeOnly, setActiveOnly] = useState(false);
+  const [activeRosterData, setActiveRosterData] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    fetch(`${process.env.PUBLIC_URL || ''}/data/kboActiveRoster.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => alive && setActiveRosterData(d))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const rosterIndex = useMemo(() => buildRosterIndex(activeRosterData), [activeRosterData]);
 
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [activeTab, setActiveTab] = useState('lineup');
@@ -612,6 +627,10 @@ const getSortedChants = () => {
       return false;
     }
 
+    if (activeOnly && rosterIndex && !isActive(rosterIndex, chant.team, chant.playerName)) {
+      return false;
+    }
+
     if (['코치', '감독'].includes(posKor) && !chant.youtubeId) {
       return false;
     }
@@ -1006,6 +1025,9 @@ const getSortedChants = () => {
                 setHasSongOnly={setHasSongOnly}
                 hasBatterOnly={hasBatterOnly}
                 setHasBatterOnly={setHasBatterOnly}
+                activeOnly={activeOnly}
+                setActiveOnly={setActiveOnly}
+                rosterIndex={rosterIndex}
                 playerSongs={playerSongs}
                 kboPlayers={kboPlayers}
                 rawSongs={rawSongs}

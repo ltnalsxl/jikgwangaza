@@ -70,5 +70,38 @@ class RegisterRemovedTests(unittest.TestCase):
         self.assertEqual(reg.compute_removed(days), {"KIA": {"황동하": "2026-09-21"}})
 
 
+class TeamNewsTaggingTests(unittest.TestCase):
+    def test_tags_both_teams_in_matchup_preview(self):
+        self.assertEqual(news.teams_in("[27일 프리뷰] LG 3경기차 원위치? KIA 1경기차 추격?"), ["KIA", "LG"])
+
+    def test_lowercase_team_code_and_no_false_latin_match(self):
+        self.assertEqual(news.teams_in("MVP 경쟁 태풍의 눈 떠오른 kt 힐리어드"), ["KT"])
+        self.assertEqual(news.teams_in("NCAA 출신 유망주"), [])
+
+    def test_unique_player_name_tags_team(self):
+        unique = news.unique_player_teams({"KIA": {"김호령"}, "LG": {"고우석"}})
+        title = "LG 고우석 승부수 실패...김호령은 어떻게 몸쪽 직구 공략했나"
+        self.assertEqual(sorted(news.teams_in(title, unique)), ["KIA", "LG"])
+
+    def test_national_team_articles_skipped_but_ag_mention_kept(self):
+        self.assertTrue(news.is_national("[아시안게임] KIA 김도영 \"고교 후배가 중국 대표팀에\""))
+        self.assertFalse(news.is_national("김도영이 돌아온다, AG 이후 '장타실종'"))
+
+
+class ActiveRosterMoveTests(unittest.TestCase):
+    def test_moves_across_positions(self):
+        days = {"2026-09-21": {"KIA": ["네일", "황동하"]}, "2026-09-22": {"KIA": ["네일"]}}
+        others = {
+            "2026-09-21": {"KIA": {"포수": ["한준수"], "내야수": ["박종혁"], "외야수": []}},
+            "2026-09-22": {"KIA": {"포수": ["한준수"], "내야수": ["박민"], "외야수": []}},
+        }
+        moves = reg.compute_moves(days, others, "2026-09-01")
+        self.assertEqual(
+            [(m["name"], m["type"], m["position"]) for m in moves],
+            [("박민", "up", "내야수"), ("박종혁", "down", "내야수"), ("황동하", "down", "투수")],
+        )
+        self.assertEqual(moves[1]["returnOn"], "2026-10-02")
+
+
 if __name__ == "__main__":
     unittest.main()

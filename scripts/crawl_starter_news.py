@@ -11,6 +11,10 @@ rule-based signal:
 The app shows these as evidence next to projections; only fresh "out" signals lower
 the confidence of a projection. Nothing here overrides the official roster data.
 
+It also keeps each team's latest general headlines (`news`), tagged with every team
+named in the title, so a game's detail view can show head-to-head articles
+(previews, reviews) first and then each team's own news.
+
 Output: public/data/starterNews.json
 """
 from __future__ import annotations
@@ -36,6 +40,24 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/
 
 TEAMS = ["KIA", "삼성", "LG", "두산", "KT", "SSG", "롯데", "한화", "NC", "키움"]
 QUERY_NAMES = {"KIA": "KIA 타이거즈", "KT": "KT 위즈", "NC": "NC 다이노스", "SSG": "SSG 랜더스"}
+FULL_NAMES = {
+    "KIA": "KIA 타이거즈", "삼성": "삼성 라이온즈", "LG": "LG 트윈스", "두산": "두산 베어스",
+    "KT": "KT 위즈", "SSG": "SSG 랜더스", "롯데": "롯데 자이언츠", "한화": "한화 이글스",
+    "NC": "NC 다이노스", "키움": "키움 히어로즈",
+}
+_LATIN = lambda w: rf"(?<![A-Za-z]){w}(?![A-Za-z])"  # noqa: E731
+TEAM_ALIASES = {
+    "KIA": re.compile(rf"{_LATIN('KIA')}|기아|타이거즈", re.I),
+    "삼성": re.compile(r"삼성|라이온즈", re.I),
+    "LG": re.compile(rf"{_LATIN('LG')}|트윈스", re.I),
+    "두산": re.compile(r"두산|베어스", re.I),
+    "KT": re.compile(rf"{_LATIN('KT')}|위즈", re.I),
+    "SSG": re.compile(rf"{_LATIN('SSG')}|랜더스", re.I),
+    "롯데": re.compile(r"롯데|자이언츠", re.I),
+    "한화": re.compile(r"한화|이글스", re.I),
+    "NC": re.compile(rf"{_LATIN('NC')}|다이노스", re.I),
+    "키움": re.compile(r"키움|히어로즈", re.I),
+}
 
 TRUSTED_SOURCES = [
     "스포츠조선", "스포츠서울", "일간스포츠", "스포츠동아", "스포츠경향", "스포츠월드", "스포츠한국",
@@ -56,7 +78,10 @@ START_WORDS = ["선발 예고", "선발예고", "예고", "등판 예정", "출�
 REVIEW_RE = re.compile(r"(?<!프)리뷰|강판|호투|완벽투|역투|승리|패전|QS|무실점|KKK|실점|교체")
 SKIP_WORDS = ["AI프리뷰", "[AI", "사진]", "[포토", "포토]", "화보", "영상]", "오늘의 Pick"]
 # 국가대표 경기 기사는 소속팀 로테이션과 무관
-NATIONAL_RE = re.compile(r"(?<![A-Za-z])AG(?![A-Za-z])|아시안게임|대표팀|국대|한일전|일본전|중국전|대만전|슈퍼라운드|나고야|도요하시|류지현호")
+NATIONAL_WORDS = r"아시안게임|대표팀|국대|한일전|일본전|중국전|대만전|슈퍼라운드|나고야|도요하시|류지현호"
+NATIONAL_RE = re.compile(rf"(?<![A-Za-z])AG(?![A-Za-z])|{NATIONAL_WORDS}")
+# 팀 기사에서는 'AG 이후 장타 실종'처럼 복귀 후 소속팀 얘기는 남기고 대표팀 경기 기사만 뺀다
+NATIONAL_STRONG_RE = re.compile(NATIONAL_WORDS)
 SIGNAL_ORDER = {"out": 0, "return": 1, "start": 2, "mention": 3}
 CLAUSE_SPLIT = re.compile(r"[,…!?\[\]'\"“”‘’()|;:]|\.\.\.|→|↔")
 
@@ -186,6 +211,45 @@ def mentions(title: str, name: str) -> bool:
     return re.search(rf"(?<![가-힣]){re.escape(name)}(?:{particles})?(?![가-힣])", title) is not None
 
 
+def teams_in(title: str, unique_players: dict[str, str] | None = None) -> list[str]:
+    """제목에 나온 팀. 팀명이 없어도 한 팀에만 있는 선수 이름이 나오면 그 팀으로 본다."""
+    found = [t for t in TEAMS if TEAM_ALIASES[t].search(title)]
+    for name, team in (unique_players or {}).items():
+        if team not in found and mentions(title, name):
+            found.append(team)
+    return found
+
+
+def unique_player_teams(players: dict[str, set[str]]) -> dict[str, str]:
+    owners: dict[str, set[str]] = {}
+    for team, names in players.items():
+        for n in names:
+            owners.setdefault(n, set()).add(team)
+    return {n: next(iter(ts)) for n, ts in owners.items() if len(ts) == 1}
+
+
+def is_national(title: str) -> bool:
+    """대표팀 경기 기사. '[AG] …' 말머리나 아시안게임·대표팀 등 (제목 속 'AG 이후' 같은 언급은 유지)."""
+    m = re.match(r"\s*\[([^\]]+)\]", title)
+    return bool(m and NATIONAL_RE.search(m.group(1))) or NATIONAL_STRONG_RE.search(title) is not None
+
+
+def load_team_players(pitchers: dict[str, set[str]]) -> dict[str, set[str]]:
+    """팀별 선수 이름 (kboPlayers.json 등록 선수 + 최근 투수). 팀명 없는 제목의 관련성 판단용."""
+    players = {t: set(pitchers.get(t, ())) for t in TEAMS}
+    path = DATA / "kboPlayers.json"
+    if path.exists():
+        for p in json.loads(path.read_text(encoding="utf-8")):
+            name = (p.get("playerName") or "").strip()
+            if p.get("teamName") in players and len(name) >= 2:
+                players[p["teamName"]].add(name)
+    return players
+
+
+def dedupe_key(title: str) -> str:
+    return re.sub(r"\W", "", title)[:40]
+
+
 def fetch_rss(query: str) -> list[dict]:
     url = "https://news.google.com/rss/search?" + urllib.parse.urlencode(
         {"q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko"}
@@ -217,7 +281,7 @@ def fetch_rss(query: str) -> list[dict]:
     return items
 
 
-def collect(days: int, per_team: int) -> dict:
+def collect(days: int, per_team: int, news_per_team: int = 15) -> dict:
     pitchers = load_pitchers()
     since = datetime.now(KST) - timedelta(days=days)
     teams: dict[str, list[dict]] = {}
@@ -228,7 +292,7 @@ def collect(days: int, per_team: int) -> dict:
         for query in (f"{q} 선발 when:{days}d", f"{q} 투수 말소 OR 부상 OR 복귀 OR 로테이션 when:{days}d"):
             for item in fetch_rss(query):
                 title = item["title"]
-                key = re.sub(r"\W", "", title)[:40]
+                key = dedupe_key(title)
                 if key in seen or not is_trusted(item["source"]):
                     continue
                 if any(w in title for w in SKIP_WORDS) or NATIONAL_RE.search(title):
@@ -252,27 +316,60 @@ def collect(days: int, per_team: int) -> dict:
         keep = sorted(rows, key=lambda r: SIGNAL_ORDER[r["signal"]])[:per_team]
         teams[team] = sorted(keep, key=lambda r: r["publishedAt"], reverse=True)
         print(f"📰 {team}: {len(rows)}건 중 {len(teams[team])}건")
+    players = load_team_players(pitchers)
+    unique = unique_player_teams(players)
+    news = {team: collect_team_news(team, days, news_per_team, players[team], unique) for team in TEAMS}
     return {
         "updatedAt": datetime.now(KST).isoformat(timespec="seconds"),
         "source": "Google News RSS (주요 언론사만)",
         "teams": teams,
+        "news": news,
     }
+
+
+def collect_team_news(
+    team: str, days: int, limit: int, players: set[str], unique_players: dict[str, str]
+) -> list[dict]:
+    """팀 이름으로 검색한 최신 기사 중 제목에 그 팀이나 소속 선수가 나오는 것.
+    제목에 나온 팀들을 teams로 붙여 앱이 맞대결 기사를 골라낼 수 있게 한다."""
+    since = datetime.now(KST) - timedelta(days=days)
+    seen: set[str] = set()
+    rows: list[dict] = []
+    for item in fetch_rss(f"{FULL_NAMES[team]} when:{days}d"):
+        title = item["title"]
+        key = dedupe_key(title)
+        if key in seen or not is_trusted(item["source"]):
+            continue
+        if any(w in title for w in SKIP_WORDS) or is_national(title):
+            continue
+        if datetime.fromisoformat(item["publishedAt"]) < since:
+            continue
+        tagged = teams_in(title, unique_players)
+        if team not in tagged and not any(mentions(title, n) for n in players):
+            continue
+        seen.add(key)
+        rows.append({**item, "teams": [team] + [t for t in tagged if t != team]})
+    time.sleep(0.5)
+    rows.sort(key=lambda r: r["publishedAt"], reverse=True)
+    print(f"🗞️ {team}: 팀 기사 {len(rows)}건 중 {min(len(rows), limit)}건")
+    return rows[:limit]
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--days", type=int, default=4)
     parser.add_argument("--per-team", type=int, default=8)
+    parser.add_argument("--news-per-team", type=int, default=15, help="general team headlines to keep")
     parser.add_argument("--out", default=str(OUT))
     args = parser.parse_args()
-    result = collect(args.days, args.per_team)
-    if not any(result["teams"].values()):
+    result = collect(args.days, args.per_team, args.news_per_team)
+    if not any(result["teams"].values()) and not any(result["news"].values()):
         print("⚠️ 기사를 하나도 못 가져와 기존 파일을 유지합니다")
         return 0
     out = Path(args.out)
     if out.exists():
         old = json.loads(out.read_text(encoding="utf-8"))
-        if old.get("teams") == result["teams"]:
+        if old.get("teams") == result["teams"] and old.get("news") == result["news"]:
             print("⏸️ 변경 없음")
             return 0
     out.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

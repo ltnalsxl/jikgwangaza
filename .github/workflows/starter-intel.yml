@@ -1,10 +1,11 @@
 name: Starter intel (1군 entry & news)
 
-# 선발 예측 보강용: KBO 1군 투수 엔트리(등록/말소)와 주요 언론 선발 관련 기사.
-# 엔트리 변동은 오후에 발표되고 다음 날 선발 기사는 저녁에 몰리므로 하루 세 번 돈다.
+# KBO 1군 엔트리(등록/말소, 선발 예측·탐색 탭 1군 필터)와 주요 언론 기사(선발 신호·경기/팀 기사).
+# 엔트리 변동은 오후에 공시되고 다음 날 선발 기사는 저녁에 몰리므로 하루 네 번 돈다.
 on:
   schedule:
     - cron: '33 2,8,13 * * *'  # 11:33, 17:33, 22:33 KST
+    - cron: '3 7 * * *'        # 16:03 KST (당일 등록·말소 공시 직후)
   workflow_dispatch:
 
 concurrency:
@@ -31,19 +32,19 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements-crawler.txt
 
-      - name: Crawl 1군 pitcher entries (last 21 days)
+      - name: Crawl 1군 entries (last 21 days)
         continue-on-error: true
         run: python scripts/crawl_kbo_register.py --keep-days 21
 
-      - name: Collect starter news (Google News RSS)
+      - name: Collect starter & team news (Google News RSS)
         continue-on-error: true
         run: python scripts/crawl_starter_news.py
 
       - name: Commit and push
         id: commit
         run: >-
-          scripts/ci/commit-and-push.sh "Update pitcher entries & starter news"
-          public/data/kboPitcherRoster.json public/data/starterNews.json
+          scripts/ci/commit-and-push.sh "Update 1군 entries & news"
+          public/data/kboPitcherRoster.json public/data/kboActiveRoster.json public/data/starterNews.json
 
   deploy:
     needs: crawl
