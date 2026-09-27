@@ -1,9 +1,12 @@
 {
-  "crawl_time": "2026-09-26T17:00:17.296077",
+  "crawl_time": "2026-09-27T17:59:25+09:00",
+  "season": 2026,
+  "source": "naver_statistics_api",
   "results": [
     {
       "rank": "1",
       "team": "KT",
+      "team_code": "KT",
       "win_rate": "0.620",
       "gb": "0.0",
       "games": "133",
@@ -13,12 +16,13 @@
       "streak": "1패",
       "batting_avg": "0.281",
       "era": "4.28",
-      "last_5": "",
+      "last_5": "WWLWL",
       "next_game": "vs 두산"
     },
     {
       "rank": "2",
       "team": "삼성",
+      "team_code": "SS",
       "win_rate": "0.600",
       "gb": "2.5",
       "games": "133",
@@ -28,12 +32,13 @@
       "streak": "2승",
       "batting_avg": "0.277",
       "era": "4.22",
-      "last_5": "",
+      "last_5": "WLLWW",
       "next_game": "vs 한화"
     },
     {
       "rank": "3",
       "team": "LG",
+      "team_code": "LG",
       "win_rate": "0.568",
       "gb": "6.5",
       "games": "133",
@@ -43,12 +48,13 @@
       "streak": "2패",
       "batting_avg": "0.267",
       "era": "4.83",
-      "last_5": "",
+      "last_5": "WWWLL",
       "next_game": "vs KIA"
     },
     {
       "rank": "4",
       "team": "KIA",
+      "team_code": "HT",
       "win_rate": "0.554",
       "gb": "8.5",
       "games": "132",
@@ -58,12 +64,13 @@
       "streak": "1승",
       "batting_avg": "0.272",
       "era": "4.26",
-      "last_5": "",
+      "last_5": "WWWLW",
       "next_game": "vs LG"
     },
     {
       "rank": "5",
       "team": "두산",
+      "team_code": "OB",
       "win_rate": "0.519",
       "gb": "13.0",
       "games": "134",
@@ -73,12 +80,13 @@
       "streak": "2승",
       "batting_avg": "0.265",
       "era": "3.77",
-      "last_5": "",
+      "last_5": "DLLWW",
       "next_game": "vs KT"
     },
     {
       "rank": "6",
       "team": "NC",
+      "team_code": "NC",
       "win_rate": "0.473",
       "gb": "19.0",
       "games": "133",
@@ -88,12 +96,13 @@
       "streak": "2승",
       "batting_avg": "0.269",
       "era": "4.67",
-      "last_5": "",
+      "last_5": "LWLWW",
       "next_game": "vs 키움"
     },
     {
       "rank": "7",
       "team": "롯데",
+      "team_code": "LT",
       "win_rate": "0.454",
       "gb": "21.5",
       "games": "132",
@@ -103,12 +112,13 @@
       "streak": "6승",
       "batting_avg": "0.273",
       "era": "4.79",
-      "last_5": "",
+      "last_5": "WWWWW",
       "next_game": "vs 한화"
     },
     {
       "rank": "8",
       "team": "SSG",
+      "team_code": "SK",
       "win_rate": "0.450",
       "gb": "22.0",
       "games": "134",
@@ -118,12 +128,13 @@
       "streak": "2패",
       "batting_avg": "0.258",
       "era": "5.20",
-      "last_5": "",
+      "last_5": "WWWLL",
       "next_game": "vs LG"
     },
     {
       "rank": "9",
       "team": "한화",
+      "team_code": "HH",
       "win_rate": "0.415",
       "gb": "26.5",
       "games": "134",
@@ -133,12 +144,13 @@
       "streak": "11패",
       "batting_avg": "0.273",
       "era": "5.26",
-      "last_5": "",
+      "last_5": "LLLLL",
       "next_game": "vs 롯데"
     },
     {
       "rank": "10",
       "team": "키움",
+      "team_code": "WO",
       "win_rate": "0.348",
       "gb": "35.5",
       "games": "136",
@@ -148,7 +160,7 @@
       "streak": "1승",
       "batting_avg": "0.243",
       "era": "5.29",
-      "last_5": "",
+      "last_5": "LDLLW",
       "next_game": "vs NC"
     }
   ]
