@@ -1,13 +1,14 @@
 name: KBO team rank crawl
 
+# 경기일 순위는 game-watch.yml / lineup-crawl.yml이 경기 결과와 함께 갱신한다.
+# 이 워크플로는 하루 한 번 안전망이다.
 on:
   schedule:
-    - cron: '17 13,14,15 * * *'  # 22:17, 23:17, 00:17 KST (경기 종료 후)
     - cron: '17 1 * * *'         # 10:17 KST 안전망
   workflow_dispatch:
 
 concurrency:
-  group: kbo-rank
+  group: kbo-lineup-data
   cancel-in-progress: false
 
 jobs:

@@ -19,16 +19,24 @@ then calls `deploy.yml` directly (commits pushed with `GITHUB_TOKEN` do not fire
 
 | Workflow | When (KST) | Source | Output |
 |---|---|---|---|
-| `lineup-crawl.yml` | every 20 min 12:07–23:47, plus 01:17 / 07:17 | Naver Sports API | yesterday·today·tomorrow games: lineups, results, **probable starters** |
+| `game-watch.yml` | starts 13:13 / 17:43 / 21:43, then loops every 3–12 min until today's games are final | Naver Sports API + statistics API | today·tomorrow games and `teamRank.json`, deployed right away |
+| `lineup-crawl.yml` | every 20 min 12:07–23:47, plus 01:17 / 07:17 (skipped while `game-watch` runs) | Naver Sports API | yesterday·today·tomorrow games: lineups, results, **probable starters**, ranks |
 | `schedule-crawl.yml` | 09:53, 18:53 | Naver Sports API | next 30 days of games (rainout reschedules, announced starters) |
-| `rank-crawl.yml` | 22:17, 23:17, 00:17, 10:17 | Naver statistics API | `teamRank.json` (incl. last 5 games) |
+| `rank-crawl.yml` | 10:17 (safety net) | Naver statistics API | `teamRank.json` |
 | `weather-crawl.yml` | xx:23 after each KMA release (02·05·…·23시) | KMA short-term forecast, Open-Meteo fallback | `kboBallparkForecast.json` (`forecastsByDate`) |
 | `starter-intel.yml` | 11:33, 16:03, 17:33, 22:33 | koreabaseball.com 1군 등록 현황 + Google News RSS | `kboPitcherRoster.json`, `kboActiveRoster.json`, `starterNews.json` |
 | `player-crawl.yml` | 09:37 (link check on Mondays) | koreabaseball.com + YouTube | `kboPlayers.json`, `playerSongs.json` |
 | `deploy.yml` | called by the above, on push, and 06:41 daily | – | Firebase Hosting |
 
 GitHub's cron is best-effort and runs are often delayed by 1–3 hours at busy
-times, which is why schedules use odd minutes and overlap. If exact timing
+times, which is why schedules use odd minutes and overlap. For game results this
+isn't good enough, so `game-watch.yml` only needs to *start* once: it then polls
+by itself (every 12 min until games can plausibly end, every 3 min after),
+commits whatever changed and dispatches `deploy.yml`. After the last game ends
+it keeps polling for ~10 minutes because Naver's standings lag, and if games
+are still running after 5½ hours it re-dispatches itself (jobs are capped at
+6 hours). Results and ranks typically reach the site 5–10 minutes after the
+final out. If exact timing
 matters, trigger `workflow_dispatch` from an external scheduler (e.g. cron-job.org).
 
 Crawlers exit non-zero on failure (the previous data is kept), so a red run in

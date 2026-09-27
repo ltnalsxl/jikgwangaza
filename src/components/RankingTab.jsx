@@ -17,6 +17,27 @@ const summarize = (games) => {
   return `${w}승${d ? ` ${d}무` : ''} ${l}패`;
 };
 
+const KST_OFFSET_MS = 9 * 60 * 60 * 1000;
+
+// 예전 크롤러는 시간대 없는 UTC 문자열("2026-09-26T17:00:17")을 썼다. 오프셋이 없으면 UTC로 읽는다.
+export const parseCrawlTime = (iso) => {
+  if (!iso || typeof iso !== 'string') return NaN;
+  const hasZone = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso.trim());
+  return new Date(hasZone ? iso : `${iso}Z`).getTime();
+};
+
+export const latestFinishedStartMs = (gameLineups, fallbackDate) => {
+  let best = NaN;
+  (gameLineups || []).forEach((g) => {
+    if (!g || g.gameStatus !== '종료' || !g.date) return;
+    const time = /^\d{1,2}:\d{2}$/.test(g.gameTime || '') ? g.gameTime.padStart(5, '0') : '18:30';
+    const ms = new Date(`${g.date}T${time}:00+09:00`).getTime();
+    if (!isNaN(ms) && !(ms <= best)) best = ms;
+  });
+  if (isNaN(best) && fallbackDate) best = new Date(`${fallbackDate}T18:30:00+09:00`).getTime();
+  return best;
+};
+
 const RankingTab = ({ teamRanks, rankUpdatedAt, latestFinishedGameDate, gameLineups }) => {
   const [openTeam, setOpenTeam] = useState(null);
   const recentByTeam = useMemo(() => {
@@ -33,41 +54,33 @@ const RankingTab = ({ teamRanks, rankUpdatedAt, latestFinishedGameDate, gameLine
     );
   }
 
-  const formatUpdatedAt = (iso) => {
-    try {
-      const d = new Date(iso);
-      if (isNaN(d)) return '';
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      const h = String(d.getHours()).padStart(2, '0');
-      const min = String(d.getMinutes()).padStart(2, '0');
-      return `${y}년 ${m}월 ${day}일 ${h}시 ${min}분`;
-    } catch (e) {
-      return '';
-    }
+  const updatedMs = parseCrawlTime(rankUpdatedAt);
+
+  const formatUpdatedAt = (ms) => {
+    if (isNaN(ms)) return '';
+    const kst = new Date(ms + KST_OFFSET_MS);
+    const m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(kst.getUTCDate()).padStart(2, '0');
+    const h = String(kst.getUTCHours()).padStart(2, '0');
+    const min = String(kst.getUTCMinutes()).padStart(2, '0');
+    return `${kst.getUTCFullYear()}년 ${m}월 ${day}일 ${h}시 ${min}분`;
   };
 
-  // 크롤러는 순위가 바뀔 때만 파일을 쓰므로, "마지막 종료 경기 다음날 새벽"까지 반영되지 않았을 때만 지연으로 본다.
-  const updatedMs = rankUpdatedAt ? new Date(rankUpdatedAt).getTime() : NaN;
-  const lastGameMs = latestFinishedGameDate
-    ? new Date(`${latestFinishedGameDate}T23:59:00+09:00`).getTime()
-    : NaN;
-  const isStale =
-    !isNaN(updatedMs) &&
-    !isNaN(lastGameMs) &&
-    updatedMs < lastGameMs - 3 * 60 * 60 * 1000 &&
-    Date.now() > lastGameMs + 6 * 60 * 60 * 1000;
+  // 순위 파일은 순위가 바뀔 때만 다시 쓰인다. 마지막으로 끝난 경기가 시작된 뒤에 쓰인 파일이면 그 결과가 반영된 것이다.
+  const lastStartMs = latestFinishedStartMs(gameLineups, latestFinishedGameDate);
+  const pending = !isNaN(updatedMs) && !isNaN(lastStartMs) && updatedMs < lastStartMs;
+  const isStale = pending && Date.now() > lastStartMs + 5 * 60 * 60 * 1000;
 
   return (
     <div className="space-y-2">
-      {rankUpdatedAt && (
+      {!isNaN(updatedMs) && (
         <p
           className={`text-right text-xs ${
             isStale ? 'text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400'
           }`}
         >
-          {formatUpdatedAt(rankUpdatedAt)} 기준{isStale ? ' · 업데이트 지연 중' : ''}
+          {formatUpdatedAt(updatedMs)} 기준
+          {isStale ? ' · 업데이트 지연 중' : pending ? ' · 최근 경기 반영 중' : ''}
         </p>
       )}
       <div className="flex justify-center">

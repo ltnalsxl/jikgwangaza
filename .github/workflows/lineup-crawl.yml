@@ -1,7 +1,8 @@
 name: KBO lineup & probable starter crawl
 
-# 어제(최종 결과) ~ 오늘(라인업) ~ 내일(예고 선발)을 12:00~24:00 KST 동안 20분마다 수집한다.
-# GitHub cron은 정각/30분에 몰려 수 시간씩 지연·누락되므로 일부러 7/27/47분에 돌린다.
+# 어제(최종 결과) ~ 오늘(라인업) ~ 내일(예고 선발)을 12:00~24:00 KST 동안 20분마다 수집하고
+# 순위도 같이 갱신한다. GitHub cron은 정각/30분에 몰려 수 시간씩 지연·누락되므로 일부러
+# 7/27/47분에 돌린다. game-watch.yml이 도는 동안에는 그쪽이 몇 분 간격으로 같은 일을 하므로 건너뛴다.
 on:
   schedule:
     - cron: '7,27,47 3-14 * * *'  # 12:07 ~ 23:47 KST
@@ -13,7 +14,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow game-watch.yml --status in_progress --json databaseId --jq length || echo 0)
+          echo "live watcher runs: $n"
+          if [ "${n:-0}" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
+
   crawl:
+    needs: gate
+    if: needs.gate.outputs.skip != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -58,9 +76,12 @@ jobs:
       - name: Rebuild lineup index & season bundles
         run: node scripts/generateLineupIndex.js
 
+      - name: Update team ranks
+        run: python public/kbo_team_rank_crawler.py || echo "::warning::rank crawl failed"
+
       - name: Commit and push
         id: commit
-        run: scripts/ci/commit-and-push.sh "Update lineups & probable starters" public/data/kbo_crawler_data
+        run: scripts/ci/commit-and-push.sh "Update lineups & probable starters" public/data/kbo_crawler_data public/data/teamRank.json
 
   deploy:
     needs: crawl
