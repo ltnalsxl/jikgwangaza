@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from 'react';
-import { MapPin, ChevronRight, ChevronDown, Ticket, ExternalLink } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { MapPin, ChevronRight, ChevronDown, Ticket, ExternalLink, Newspaper } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
-import { toLocalDateStr, getRecentStarts, projectStarters } from '../utils/rotation';
+import { toLocalDateStr, getRecentStarts, projectStarters, rosterStatus } from '../utils/rotation';
 import {
   getTicketing,
   estimateOpenAt,
@@ -51,6 +51,23 @@ const ScheduleTab = ({
 
   const [selectedStadium, setSelectedStadium] = useState(null); // null = 전체
   const [expandedGame, setExpandedGame] = useState(null);
+  // 1군 투수 엔트리(말소 반영)와 선발 관련 기사 — 일정 탭에서만 쓰므로 여기서 불러온다
+  const [pitcherRoster, setPitcherRoster] = useState(null);
+  const [starterNews, setStarterNews] = useState(null);
+  useEffect(() => {
+    const base = process.env.PUBLIC_URL || '';
+    let alive = true;
+    const load = (file, set) =>
+      fetch(`${base}/data/${file}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => alive && set(d))
+        .catch(() => {});
+    load('kboPitcherRoster.json', setPitcherRoster);
+    load('starterNews.json', setStarterNews);
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const getRank = (team) => {
     const r = teamRanks?.find((t) => t.team === team);
@@ -67,10 +84,11 @@ const ScheduleTab = ({
       }
     });
     teams.forEach((t) => {
-      byTeam[t] = projectStarters(gameLineups, t, todayStr);
+      const roster = pitcherRoster ? rosterStatus(pitcherRoster, t, todayStr) : undefined;
+      byTeam[t] = projectStarters(gameLineups, t, todayStr, { roster, news: starterNews?.teams?.[t] });
     });
     return byTeam;
-  }, [gameLineups, selectedTeam, todayStr]);
+  }, [gameLineups, selectedTeam, todayStr, pitcherRoster, starterNews]);
 
   const starterInfo = (game, team) =>
     projections[team]?.[game.gameCode || game.id] || { pitcher: '', announced: false };
@@ -131,6 +149,15 @@ const ScheduleTab = ({
         .reverse(),
     [withStadium, todayStr, selectedStadium]
   );
+
+  // 확신이 낮은 예상은 두 명(유력/대안)을 같이 보여 준다
+  const cardName = (s) => {
+    if (!s.pitcher) return '?';
+    const alt = s.alternates?.[0];
+    return !s.announced && s.source === 'model' && s.confidence !== 'high' && alt
+      ? `${s.pitcher}/${alt}`
+      : s.pitcher;
+  };
 
   const renderCard = (game, isPast) => {
     const d = new Date(game.date + 'T00:00:00');
@@ -237,10 +264,10 @@ const ScheduleTab = ({
                 <span className={anyAnnounced ? 'text-emerald-600 dark:text-emerald-400 font-medium' : 'text-gray-400'}>
                   {isPast ? '선발' : anyAnnounced ? '예고' : '예상'}
                 </span>{' '}
-                {myStarter.pitcher || '?'}
+                {isPast ? myStarter.pitcher || '?' : cardName(myStarter)}
                 {!isPast && myStarter.pitcher && !myStarter.announced && anyAnnounced ? '(예상)' : ''}
                 {' vs '}
-                {oppStarter.pitcher || '?'}
+                {isPast ? oppStarter.pitcher || '?' : cardName(oppStarter)}
                 {!isPast && oppStarter.pitcher && !oppStarter.announced && anyAnnounced ? '(예상)' : ''}
               </div>
             )}
@@ -343,6 +370,90 @@ const ScheduleTab = ({
     );
   };
 
+  const CONFIDENCE_LABEL = { high: '유력', mid: '보통', low: '낮음' };
+  const SIGNAL_BADGE = {
+    out: { text: '이탈', cls: 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-300' },
+    return: { text: '복귀', cls: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-300' },
+    start: { text: '등판 계획', cls: 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300' },
+    mention: { text: '언급', cls: 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-300' },
+  };
+  const shortDate = (iso) => (iso ? `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}` : '');
+
+  const renderProjection = (team, s) => {
+    if (s.announced || !s.pitcher) return null;
+    const why =
+      s.source === 'news'
+        ? `기사 반영: ${s.article?.source || ''} ${shortDate(s.article?.publishedAt)}`
+        : s.fillIn
+        ? `${typeof s.fillIn === 'string' ? `${s.fillIn} 차례지만 이탈 → ` : ''}대체 선발 자리 · 콜업 투수 가능성`
+        : s.returning
+        ? '말소 후 재등록 가능 · 복귀 후보'
+        : `${s.restDays ?? '?'}일 휴식 · 최근 로테이션 순서`;
+    return (
+      <div className="text-[11px] text-gray-500 dark:text-gray-400 space-y-0.5">
+        <div>
+          <span className="font-medium text-gray-700 dark:text-gray-200">{team}</span> 유력 {s.pitcher}
+          {s.alternates?.[0] ? ` · 대안 ${s.alternates[0]}` : ''} · 신뢰도 {CONFIDENCE_LABEL[s.confidence] || '-'}
+        </div>
+        <div className="text-gray-400">{why}</div>
+        {s.excluded?.length > 0 && (
+          <div className="text-gray-400">
+            제외:{' '}
+            {s.excluded
+              .map((x) =>
+                x.reason === 'news'
+                  ? `${x.pitcher}(이탈 기사 ${shortDate(x.article?.publishedAt)})`
+                  : `${x.pitcher}(1군 말소${x.since ? ` ${shortDate(x.since)}` : ''})`
+              )
+              .join(', ')}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderNews = (teams) => {
+    const rows = teams
+      .flatMap((t) => (starterNews?.teams?.[t] || []).map((a) => ({ ...a, team: t })))
+      .sort(
+        (a, b) =>
+          (a.signal === 'mention') - (b.signal === 'mention') ||
+          (b.publishedAt || '').localeCompare(a.publishedAt || '')
+      )
+      .slice(0, 5);
+    if (!rows.length) return null;
+    return (
+      <div>
+        <p className="text-[11px] text-gray-400 mb-1 flex items-center gap-1">
+          <Newspaper size={11} /> 선발 관련 기사 (주요 언론 · 매일 수집)
+        </p>
+        <ul className="space-y-1">
+          {rows.map((a) => {
+            const badge = SIGNAL_BADGE[a.signal] || SIGNAL_BADGE.mention;
+            return (
+              <li key={a.link}>
+                <a
+                  href={a.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-1.5 text-[11px] leading-snug"
+                >
+                  <span className={`shrink-0 rounded px-1 py-px text-[10px] font-medium ${badge.cls}`}>
+                    {badge.text}
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-200 line-clamp-2">{a.title}</span>
+                  <span className="shrink-0 text-gray-400">
+                    {a.source} {shortDate(a.publishedAt)}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  };
+
   const renderDetail = (game, opponent, myStarter, oppStarter, isPast) => {
     const label = (s) =>
       !s.pitcher ? '미정' : isPast || s.announced ? s.pitcher : `${s.pitcher} (예상)`;
@@ -350,7 +461,7 @@ const ScheduleTab = ({
       <div className="mt-1 mb-2 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 space-y-3">
         <div>
           <p className="text-[11px] text-gray-400 mb-1">
-            {isPast ? '선발 투수' : '선발 투수 (예고 발표 전에는 최근 로테이션 기준 예상)'}
+            {isPast ? '선발 투수' : '선발 투수 (예고 발표 전에는 로테이션·1군 엔트리·기사 기준 예상)'}
           </p>
           <div className="flex items-center justify-between text-sm">
             <span className="font-semibold text-gray-800 dark:text-gray-100">
@@ -361,6 +472,12 @@ const ScheduleTab = ({
               {label(oppStarter)} · {opponent}
             </span>
           </div>
+          {!isPast && (
+            <div className="mt-1.5 space-y-1">
+              {renderProjection(selectedTeam, myStarter)}
+              {renderProjection(opponent, oppStarter)}
+            </div>
+          )}
         </div>
         <div>
           <p className="text-[11px] text-gray-400 mb-1">최근 선발 로테이션 (휴식일은 이 경기 기준)</p>
@@ -369,6 +486,7 @@ const ScheduleTab = ({
             {renderRotation(opponent, game.date)}
           </div>
         </div>
+        {!isPast && renderNews([selectedTeam, opponent])}
         {!isPast && renderTicketing(game)}
         <button
           onClick={() => {

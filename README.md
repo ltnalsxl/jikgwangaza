@@ -23,6 +23,7 @@ then calls `deploy.yml` directly (commits pushed with `GITHUB_TOKEN` do not fire
 | `schedule-crawl.yml` | 09:53, 18:53 | Naver Sports API | next 30 days of games (rainout reschedules, announced starters) |
 | `rank-crawl.yml` | 22:17, 23:17, 00:17, 10:17 | Naver statistics API | `teamRank.json` (incl. last 5 games) |
 | `weather-crawl.yml` | xx:23 after each KMA release (02·05·…·23시) | KMA short-term forecast, Open-Meteo fallback | `kboBallparkForecast.json` (`forecastsByDate`) |
+| `starter-intel.yml` | 11:33, 17:33, 22:33 | koreabaseball.com 1군 등록 현황 + Google News RSS | `kboPitcherRoster.json`, `starterNews.json` |
 | `player-crawl.yml` | 09:37 (link check on Mondays) | koreabaseball.com + YouTube | `kboPlayers.json`, `playerSongs.json` |
 | `deploy.yml` | called by the above, on push, and 06:41 daily | – | Firebase Hosting |
 
@@ -48,6 +49,8 @@ python public/kbo_players_crawler.py
 python fetch_short_term_weather.py
 python scripts/sync_player_songs.py --dry-run   # see what would change
 python scripts/fetch_chant_lyrics.py --dry-run  # lyrics for chants without them
+python scripts/crawl_kbo_register.py --keep-days 21  # 1군 pitchers per team/day
+python scripts/crawl_starter_news.py              # starter-related news signals
 npm run build-lineup-index                       # index.json + season-YYYY.json bundles
 python -m unittest discover -s tests -p 'test_*.py'
 ```
@@ -60,10 +63,33 @@ skips files whose content did not change. The app loads the compact
 
 Naver publishes the next day's probable starters (선발 예고) in the evening; the
 20-minute lineup crawl picks them up for **tomorrow** as well. The 일정 tab shows
-`예고` (announced) starters, or `예상` (projected) ones for later games: the
-pitcher with the longest rest among each team's last five distinct starters.
+`예고` (announced) starters, or `예상` (projected) ones for later games.
 Tapping a game shows both teams' recent starts with dates and rest days
 (`src/utils/rotation.js`).
+
+How projections work (announced starters always win; they are the only certain source):
+
+1. **Rotation model.** Candidates are the last five distinct starters with 4+ days
+   of rest. Rest is capped at 5 days (5, 6 or 10 days count the same), ties go
+   to the pitcher with more starts in the last 30 days, then to longer rest.
+2. **1군 roster** (`kboPitcherRoster.json`, `scripts/crawl_kbo_register.py`,
+   koreabaseball.com 선수 등록 현황). A pitcher confirmed removed (말소) is skipped
+   until he can be re-registered (removal + 10 days). His turn is kept as a
+   "대체 선발" slot so the rest of the rotation doesn't shift by one.
+   Pitchers eligible to return are shown only as the alternate.
+3. **News** (`starterNews.json`, `scripts/crawl_starter_news.py`). Google News RSS
+   filtered to major outlets (스포츠조선, OSEN, 연합뉴스, …). An article that
+   names a date (e.g. "나균안 27일 한화전 선발") sets that game's starter. An
+   injury or removal article excludes the pitcher for 10 days unless he has
+   started since. Other articles are listed as context only.
+4. When confidence isn't high, the card shows two names (`유력/대안`).
+
+Backtest (`node scripts/backtestRotation.mjs --season 2026 [--roster file]`):
+the top pick is right about 57–58% of the time over the next six games, and the
+top pick or the alternate about 69–70% of the time (58.4% / 70.4% with roster
+data; game-by-game accuracy falls from ~63% for the next game to ~45% six games
+out). `starter-intel.yml` refreshes the roster and news at 11:33, 17:33 and
+22:33 KST.
 
 Upcoming games also show where to buy tickets, based on the **home** team:
 티켓링크 (KIA·삼성·LG·KT·한화), NOL 티켓 (두산·키움), or the club's own site
