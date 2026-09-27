@@ -2,7 +2,8 @@
   "date": "2026-09-26",
   "game_code": "20260926HHNC02026",
   "game_time": "17:00",
-  "game_status": "9회초",
+  "game_status": "종료",
+  "status_code": "RESULT",
   "teams": [
     {
       "name": "한화",
@@ -23,7 +24,7 @@
   "stadium": "창원",
   "away_starter_name": "황준서",
   "home_starter_name": "토다",
-  "broadcast_channel": "KBS N SPORTS^SPOTV2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "한화",
@@ -198,5 +199,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-27T08:49:24.781927"
+  "crawl_time": "2026-09-27T23:40:36.859939+09:00"
 }
