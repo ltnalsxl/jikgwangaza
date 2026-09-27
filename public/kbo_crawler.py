@@ -14,9 +14,38 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import os
+import sys
 import argparse
 import logging
 import subprocess
+from zoneinfo import ZoneInfo
+
+# GitHub Actions 러너는 UTC이므로 날짜 계산은 항상 KST 기준으로 한다.
+KST = ZoneInfo("Asia/Seoul")
+
+# 네이버 API statusCode → 앱에서 쓰는 한글 상태
+STATUS_CODE_LABELS = {
+    'BEFORE': '경기전',
+    'READY': '경기전',
+    'RESULT': '종료',
+    'CANCEL': '경기취소',
+    'SUSPENDED': '서스펜디드',
+}
+
+
+def normalize_game_status(game):
+    """statusInfo는 종료 후에도 '9회초' 같은 마지막 이닝을 담고 있으므로 statusCode를 우선한다."""
+    if not isinstance(game, dict):
+        return ""
+    status_code = (game.get("statusCode") or "").upper()
+    status_info = game.get("statusInfo") or ""
+    if game.get("cancel") or status_code == 'CANCEL':
+        return '경기취소'
+    if game.get("suspended") and status_code != 'RESULT':
+        return '서스펜디드'
+    if status_code in STATUS_CODE_LABELS:
+        return STATUS_CODE_LABELS[status_code]
+    return status_info or status_code
 
 # 로깅 설정
 logging.basicConfig(
@@ -38,6 +67,7 @@ class NaverKBOAllLineupCrawler:
         self.wait = None
         self.driver_setup_attempted = not use_selenium
         self.all_data = []
+        self.api_schedule_ok_dates = set()
         self.session = requests.Session()
         self.session.headers.update({
             "User-Agent": (
@@ -348,7 +378,8 @@ class NaverKBOAllLineupCrawler:
             'date': date,
             'game_code': game.get("gameId", ""),
             'game_time': game_time,
-            'game_status': game.get("statusInfo") or game.get("statusCode") or "",
+            'game_status': normalize_game_status(game),
+            'status_code': game.get("statusCode") or "",
             'teams': [away_team, home_team],
             'lineup_url': f"{self.base_url}/game/{game.get('gameId', '')}/lineup",
             'stadium': game.get("stadium", ""),
@@ -364,6 +395,8 @@ class NaverKBOAllLineupCrawler:
         )
         result = self._api_get_json(query)
         games = result.get("games") or []
+        # API가 정상 응답했음을 기록해 두면, 일정에서 사라진 경기 파일을 안전하게 정리할 수 있다.
+        self.api_schedule_ok_dates.add(date)
         return [
             self._map_today_game_from_api(date, game)
             for game in games
@@ -398,10 +431,10 @@ class NaverKBOAllLineupCrawler:
             if away_team.get("name") and home_team.get("name"):
                 enriched['teams'] = [away_team, home_team]
             enriched['game_status'] = (
-                game_info.get("statusInfo")
-                or game_info.get("statusCode")
+                normalize_game_status(game_info)
                 or enriched.get('game_status', '')
             )
+            enriched['status_code'] = game_info.get("statusCode") or enriched.get('status_code', '')
             enriched['game_time'] = game_info.get("gameTime") or game_info.get("gtime") or enriched.get('game_time', '')
             enriched['stadium'] = game_info.get("stadium") or enriched.get('stadium', '')
             enriched['away_starter_name'] = game_info.get("awayStarterName") or enriched.get('away_starter_name', '')
@@ -471,7 +504,7 @@ class NaverKBOAllLineupCrawler:
                 'starting_lineups': starting_lineups,
                 'lineup_status': 'confirmed',
                 'lineup_source': 'naver_api_preview',
-                'crawl_time': datetime.now().isoformat()
+                'crawl_time': datetime.now(KST).isoformat()
             }
 
         if preview_data:
@@ -482,7 +515,7 @@ class NaverKBOAllLineupCrawler:
                 'starting_lineups': starting_lineups,
                 'lineup_status': 'not_confirmed',
                 'lineup_source': 'naver_api_preview',
-                'crawl_time': datetime.now().isoformat(),
+                'crawl_time': datetime.now(KST).isoformat(),
                 'error': 'API preview did not include full batting orders'
             }
 
@@ -549,7 +582,7 @@ class NaverKBOAllLineupCrawler:
             'starting_lineups': starting_lineups,
             'lineup_status': 'confirmed',
             'lineup_source': 'naver_api_record',
-            'crawl_time': datetime.now().isoformat()
+            'crawl_time': datetime.now(KST).isoformat()
         }
         
     def get_daily_games(self, date):
@@ -788,7 +821,7 @@ class NaverKBOAllLineupCrawler:
                         **game_data,
                         'starting_lineups': {},
                         'lineup_status': 'not_confirmed',
-                        'crawl_time': datetime.now().isoformat()
+                        'crawl_time': datetime.now(KST).isoformat()
                     }
             except TimeoutException:
                 pass
@@ -830,7 +863,7 @@ class NaverKBOAllLineupCrawler:
                     'starting_lineups': {},
                     'lineup_status': 'error',
                     'error': str(e),
-                    'crawl_time': datetime.now().isoformat()
+                    'crawl_time': datetime.now(KST).isoformat()
                 }
             
             if not self._is_lineup_parse_successful(starting_lineups):
@@ -840,7 +873,7 @@ class NaverKBOAllLineupCrawler:
                     'lineup_status': 'error',
                     'lineup_source': 'naver_dom',
                     'error': 'Parsed lineup data was incomplete',
-                    'crawl_time': datetime.now().isoformat()
+                    'crawl_time': datetime.now(KST).isoformat()
                 }
 
             return {
@@ -848,7 +881,7 @@ class NaverKBOAllLineupCrawler:
                 'starting_lineups': starting_lineups,
                 'lineup_status': 'confirmed',
                 'lineup_source': 'naver_dom',
-                'crawl_time': datetime.now().isoformat()
+                'crawl_time': datetime.now(KST).isoformat()
             }
             
         except Exception as e:
@@ -858,7 +891,7 @@ class NaverKBOAllLineupCrawler:
                 'lineup_status': 'error',
                 'lineup_source': 'naver_dom',
                 'error': str(e),
-                'crawl_time': datetime.now().isoformat()
+                'crawl_time': datetime.now(KST).isoformat()
             }
 
     def get_lineup_info(self, game_data):
@@ -883,7 +916,7 @@ class NaverKBOAllLineupCrawler:
                 'lineup_status': 'error',
                 'lineup_source': 'naver_api',
                 'error': 'Driver unavailable and API lineup data was insufficient',
-                'crawl_time': datetime.now().isoformat()
+                'crawl_time': datetime.now(KST).isoformat()
             }
 
         dom_lineup = self.get_lineup_info_via_dom(enriched_game_data)
@@ -1069,7 +1102,7 @@ class NaverKBOAllLineupCrawler:
     def crawl_all_season_lineups(self, start_date='2025-03-25', end_date=None):
         """시즌 전체 기간의 모든 선발 라인업 크롤링"""
         if end_date is None:
-            end_date = datetime.now().strftime('%Y-%m-%d')
+            end_date = datetime.now(KST).strftime('%Y-%m-%d')
         
         print(f"🚀 === KBO 시즌 전체 선발 라인업 크롤링 시작 ===")
         print(f"📅 기간: {start_date} ~ {end_date}")
@@ -1153,13 +1186,13 @@ class NaverKBOAllLineupCrawler:
             print("❌ 저장할 데이터가 없습니다.")
             return
         
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        timestamp = datetime.now(KST).strftime('%Y%m%d_%H%M%S')
         
         # JSON 저장
         json_filename = os.path.join(self.save_dir, f'kbo_all_starting_lineups_{timestamp}.json')
         save_data = {
             'crawl_info': {
-                'crawl_time': datetime.now().isoformat(),
+                'crawl_time': datetime.now(KST).isoformat(),
                 'total_games': len(data),
                 'type': 'all_season_starting_lineups'
             },
@@ -1296,8 +1329,7 @@ class NaverKBOAllLineupCrawler:
                 self.wait = None
         self.session.close()
 
-    def save_game_to_json(self, game_data):
-        """경기별로 JSON 파일로 저장"""
+    def _game_filename(self, game_data):
         date = game_data.get('date', '')
         game_code = game_data.get('game_code', '')
         teams = game_data.get('teams', [])
@@ -1308,12 +1340,68 @@ class NaverKBOAllLineupCrawler:
             team1 = 'team1'
             team2 = 'team2'
         filename = f"{date}_{game_code}_{team1}-{team2}.json"
-        filename = filename.replace(' ', '').replace(':', '').replace('/', '-')
+        return filename.replace(' ', '').replace(':', '').replace('/', '-')
+
+    @staticmethod
+    def _without_volatile_fields(data):
+        return {k: v for k, v in (data or {}).items() if k != 'crawl_time'}
+
+    def save_game_to_json(self, game_data):
+        """경기별로 JSON 파일로 저장.
+
+        - 이미 확정 라인업이 저장돼 있는데 이번 크롤링이 실패/미확정이면 라인업은 기존 것을 유지한다.
+        - crawl_time 외에 바뀐 내용이 없으면 파일을 다시 쓰지 않는다(불필요한 커밋/배포 방지).
+        """
+        filename = self._game_filename(game_data)
         save_path = os.path.join(self.save_dir, filename)
+
+        existing = None
+        if os.path.exists(save_path):
+            try:
+                with open(save_path, encoding='utf-8') as f:
+                    existing = json.load(f)
+            except (OSError, ValueError):
+                existing = None
+
+        if (
+            existing
+            and existing.get('lineup_status') == 'confirmed'
+            and game_data.get('lineup_status') != 'confirmed'
+        ):
+            preserved = {
+                k: existing[k]
+                for k in ('starting_lineups', 'lineup_status', 'lineup_source')
+                if k in existing
+            }
+            game_data = {**game_data, **preserved}
+            game_data.pop('error', None)
+
+        if existing and self._without_volatile_fields(existing) == self._without_volatile_fields(game_data):
+            print(f"⏸️ 변경 없음: {save_path}")
+            return save_path
+
         with open(save_path, 'w', encoding='utf-8') as f:
             json.dump(game_data, f, ensure_ascii=False, indent=2)
         print(f"💾 경기 저장: {save_path}")
         return save_path
+
+    def prune_removed_games(self, date, games):
+        """일정 API가 정상 응답한 날짜에 한해, 더 이상 존재하지 않는 경기(우천 재편성 등) 파일을 삭제한다."""
+        if date not in self.api_schedule_ok_dates:
+            return 0
+        valid_codes = {g.get('game_code') for g in games if g.get('game_code')}
+        removed = 0
+        prefix = f"{date}_"
+        for filename in os.listdir(self.save_dir):
+            if not filename.startswith(prefix) or not filename.endswith('.json'):
+                continue
+            parts = filename.split('_')
+            game_code = parts[1] if len(parts) > 2 else ''
+            if game_code and game_code not in valid_codes:
+                os.remove(os.path.join(self.save_dir, filename))
+                print(f"🗑️ 일정에서 사라진 경기 파일 삭제: {filename}")
+                removed += 1
+        return removed
 
     def has_saved_game_for_date(self, date):
         prefix = f"{date}_"
@@ -1352,6 +1440,9 @@ class NaverKBOAllLineupCrawler:
 
             print(f"\n🗓️ {date} 크롤링 시작...")
             games = self.get_daily_games(date)
+            # 과거 기록은 절대 지우지 않고, 오늘 이후 일정만 정리한다.
+            if date >= datetime.now(KST).strftime('%Y-%m-%d'):
+                self.prune_removed_games(date, games)
             date_summary = {
                 'date': date,
                 'games': len(games),
@@ -1450,7 +1541,7 @@ if __name__ == "__main__":
         if args.mode == 'full':
             # 전체 시즌 날짜 리스트 생성
             start_date = '2025-03-25'
-            end_date = datetime.now().strftime('%Y-%m-%d')
+            end_date = datetime.now(KST).strftime('%Y-%m-%d')
             start = datetime.strptime(start_date, '%Y-%m-%d')
             end = datetime.strptime(end_date, '%Y-%m-%d')
             date_list = [(start + timedelta(days=i)).strftime('%Y-%m-%d') for i in range((end-start).days+1)]
@@ -1464,7 +1555,7 @@ if __name__ == "__main__":
             date_list = [(start + timedelta(days=i)).strftime('%Y-%m-%d') for i in range((end-start).days+1)]
         else:
             # 최근 N일 날짜 리스트 생성
-            end = datetime.now()
+            end = datetime.now(KST)
             date_list = [(end - timedelta(days=i)).strftime('%Y-%m-%d') for i in range(args.days)]
             date_list.reverse()
         print(f"\n🚀 크롤링 날짜: {date_list}")
@@ -1487,5 +1578,9 @@ if __name__ == "__main__":
             print(f"❌ 라인업 인덱스 갱신 실패: {e}")
     except Exception as e:
         print(f"❌ 오류 발생: {e}")
+        exit_code = 1
+    else:
+        exit_code = 0
     finally:
         crawler.close()
+    sys.exit(exit_code)

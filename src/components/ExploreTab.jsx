@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   Filter,
@@ -9,6 +9,7 @@ import {
 import ChantCard from './ChantCard';
 import PlayerSongsCard from './PlayerSongsCard';
 import { getTeamInfo } from '../utils/team';
+import { RECENT_MOVE_DAYS, shortDate } from '../utils/activeRoster';
 const ExploreTab = ({
   searchQuery,
   handleChange,
@@ -21,6 +22,9 @@ const ExploreTab = ({
   setHasSongOnly,
   hasBatterOnly,
   setHasBatterOnly,
+  activeOnly,
+  setActiveOnly,
+  rosterIndex,
   playerSongs,
   kboPlayers,
   rawSongs,
@@ -49,6 +53,12 @@ const ExploreTab = ({
     'NC',
     'KT',
   ];
+  const [showAllMoves, setShowAllMoves] = useState(false);
+  const moves = (rosterIndex?.recentMoves || []).filter(
+    (m) => exploreTeamFilter === '전체' || m.team === exploreTeamFilter
+  );
+  const moveDates = [...new Set(moves.map((m) => m.date))];
+  const visibleDates = showAllMoves ? moveDates : moveDates.slice(0, 2);
   const totalPlayers = Array.isArray(kboPlayers) ? kboPlayers.length : 0;
   const totalChants = Array.isArray(rawSongs)
     ? rawSongs.filter((song) => song.type === '응원가').length
@@ -105,7 +115,7 @@ const ExploreTab = ({
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-2 pt-2">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 pt-2">
           <input
             id="songOnly"
             type="checkbox"
@@ -126,9 +136,72 @@ const ExploreTab = ({
           <label htmlFor="batterOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
             타자만
           </label>
+          {rosterIndex && (
+            <>
+              <input
+                id="activeOnly"
+                type="checkbox"
+                checked={activeOnly}
+                onChange={(e) => setActiveOnly(e.target.checked)}
+                className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded ml-4"
+              />
+              <label htmlFor="activeOnly" className="text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                1군 등록 선수만
+              </label>
+            </>
+          )}
         </div>
       </div>
     </div>
+    {/* 최근 1군 등록·말소 */}
+    {moveDates.length > 0 && (
+      <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
+            최근 1군 등록·말소{exploreTeamFilter !== '전체' ? ` · ${exploreTeamFilter}` : ''}
+          </p>
+          <span className="text-[11px] text-gray-400">
+            KBO 등록 현황 · {shortDate(rosterIndex.date)} 기준 최근 {RECENT_MOVE_DAYS}일
+          </span>
+        </div>
+        <div className="space-y-1.5">
+          {visibleDates.map((d) => (
+            <div key={d} className="flex gap-2 text-xs">
+              <span className="w-9 shrink-0 text-gray-400 pt-0.5">{shortDate(d)}</span>
+              <div className="flex flex-wrap gap-1">
+                {moves
+                  .filter((m) => m.date === d)
+                  .map((m) => (
+                    <button
+                      key={`${m.type}-${m.team}-${m.name}`}
+                      onClick={() => setSearchQuery(m.name)}
+                      title={m.type === 'down' && m.returnOn ? `${shortDate(m.returnOn)}부터 재등록 가능` : undefined}
+                      className={`rounded-full px-2 py-0.5 ${
+                        m.type === 'up'
+                          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'
+                          : 'bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
+                      }`}
+                    >
+                      {m.type === 'up' ? '↑' : '↓'} {exploreTeamFilter === '전체' ? `${m.team} ` : ''}
+                      {m.name}
+                      <span className="opacity-60"> {m.position}</span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        {moveDates.length > 2 && (
+          <button
+            onClick={() => setShowAllMoves((v) => !v)}
+            className="mt-2 text-[11px] text-[#0ea5e9]"
+          >
+            {showAllMoves ? '접기' : `더 보기 (${moveDates.length - 2}일)`}
+          </button>
+        )}
+        <p className="mt-1 text-[10px] text-gray-400">↑ 등록(콜업) · ↓ 말소 (말소 후 10일 뒤 재등록 가능) · 이름을 누르면 검색</p>
+      </div>
+    )}
     {/* 통계 카드 */}
     <div className="grid grid-cols-3 gap-3 mb-4">
       <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 rounded-xl p-3 text-white shadow">
@@ -200,6 +273,7 @@ const ExploreTab = ({
             handleShare={handleShare}
             setCurrentPlayerName={setCurrentPlayerName}
             getDisplayName={getDisplayName}
+            rosterIndex={rosterIndex}
           />
         ));
       })()}

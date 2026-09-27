@@ -10,56 +10,136 @@ Edit the JSON files directly inside `public/data/` or generate new lineup files 
 npm run build-lineup-index
 ```
 
-## Crawling lineups
+## Data pipeline (자동 갱신)
 
-The crawler script `public/kbo_crawler.py` fetches lineups from Naver Sports. It requires Python along with `requests`, `beautifulsoup4`, `pandas` and `selenium`, and a local Chrome/Chromedriver installation.
+All data comes from public JSON endpoints and is committed to `public/data/`.
+Each GitHub Actions workflow commits **only when the data actually changed** and
+then calls `deploy.yml` directly (commits pushed with `GITHUB_TOKEN` do not fire
+`push` events, which is why the live site used to stay stale for months).
 
-Run a **full** crawl to download every game from the 2025 season onward:
+| Workflow | When (KST) | Source | Output |
+|---|---|---|---|
+| `game-watch.yml` | starts 13:13 / 17:43 / 21:43, then loops every 3–12 min until today's games are final | Naver Sports API + statistics API | today·tomorrow games and `teamRank.json`, deployed right away |
+| `lineup-crawl.yml` | every 20 min 12:07–23:47, plus 01:17 / 07:17 (skipped while `game-watch` runs) | Naver Sports API | yesterday·today·tomorrow games: lineups, results, **probable starters**, ranks |
+| `schedule-crawl.yml` | 09:53, 18:53 | Naver Sports API | next 30 days of games (rainout reschedules, announced starters) |
+| `rank-crawl.yml` | 10:17 (safety net) | Naver statistics API | `teamRank.json` |
+| `weather-crawl.yml` | xx:23 after each KMA release (02·05·…·23시) | KMA short-term forecast, Open-Meteo fallback | `kboBallparkForecast.json` (`forecastsByDate`) |
+| `starter-intel.yml` | 11:33, 16:03, 17:33, 22:33 | koreabaseball.com 1군 등록 현황 + Google News RSS | `kboPitcherRoster.json`, `kboActiveRoster.json`, `starterNews.json` |
+| `player-crawl.yml` | 09:37 (link check on Mondays) | koreabaseball.com + YouTube | `kboPlayers.json`, `playerSongs.json` |
+| `deploy.yml` | called by the above, on push, and 06:41 daily | – | Firebase Hosting |
 
-```bash
-python public/kbo_crawler.py --mode full --save_dir public/data/kbo_crawler_data
-```
+GitHub's cron is best-effort and runs are often delayed by 1–3 hours at busy
+times, which is why schedules use odd minutes and overlap. For game results this
+isn't good enough, so `game-watch.yml` only needs to *start* once: it then polls
+by itself (every 12 min until games can plausibly end, every 3 min after),
+commits whatever changed and dispatches `deploy.yml`. After the last game ends
+it keeps polling for ~10 minutes because Naver's standings lag, and if games
+are still running after 5½ hours it re-dispatches itself (jobs are capped at
+6 hours). Results and ranks typically reach the site 5–10 minutes after the
+final out. If exact timing
+matters, trigger `workflow_dispatch` from an external scheduler (e.g. cron-job.org).
 
-For an **incremental** update of the last N days (3 by default):
+Crawlers exit non-zero on failure (the previous data is kept), so a red run in
+the Actions tab means something really broke.
 
-```bash
-python public/kbo_crawler.py --mode incremental --days 3 --save_dir public/data/kbo_crawler_data
-```
+Secrets: `FIREBASE_TOKEN` (required), `GOKR_WEATHER_API_KEY` (optional; KMA key,
+otherwise Open-Meteo is used), `YOUTUBE_API_KEY` (optional; otherwise the
+YouTube search page is parsed).
 
-
-
-The crawler saves each game's lineup JSON files and then rebuilds the index automatically.
-
-## Crawling team rankings
-
-`public/kbo_team_rank_crawler.py` collects the daily league standings and
-writes them to `public/data/teamRank.json`.
-
-Run it manually:
-
-```bash
-python public/kbo_team_rank_crawler.py --output public/data/teamRank.json
-```
-
-This output file is overwritten each run so historical rankings are **not**
-accumulated. Use version control if you wish to keep old snapshots.
-
-The crawler also runs automatically each day via GitHub Actions.
-
-## Crawling player info
-
-`public/kbo_players_crawler.py` scrapes basic player details from the KBO web site.
-It starts at [https://www.koreabaseball.com/Player/Search.aspx](https://www.koreabaseball.com/Player/Search.aspx)
-and iterates through each team. The script requires Selenium with Chrome and writes
-the results to `public/data/kboPlayers.json`.
-The crawler records each player's school instead of the `updatedAt` timestamp found in
-older data files.
-
-Run the crawler:
+### Running the crawlers locally
 
 ```bash
+pip install -r requirements-crawler.txt
+# games in a date range (API only, no Chrome needed)
+python public/kbo_crawler.py --mode range --start-date 2026-09-26 --end-date 2026-09-27 --no-selenium
+python public/kbo_team_rank_crawler.py
 python public/kbo_players_crawler.py
+python fetch_short_term_weather.py
+python scripts/sync_player_songs.py --dry-run   # see what would change
+python scripts/fetch_chant_lyrics.py --dry-run  # lyrics for chants without them
+python scripts/crawl_kbo_register.py --keep-days 21  # 1군 pitchers per team/day
+python scripts/crawl_starter_news.py              # starter-related news signals
+npm run build-lineup-index                       # index.json + season-YYYY.json bundles
+python -m unittest discover -s tests -p 'test_*.py'
 ```
+
+`kbo_crawler.py` never overwrites a confirmed lineup with an unconfirmed one and
+skips files whose content did not change. The app loads the compact
+`season-YYYY.json` bundles (listed in `seasons.json`) instead of ~1,600 files.
+
+### Probable starters and rotations
+
+Naver publishes the next day's probable starters (선발 예고) in the evening; the
+20-minute lineup crawl picks them up for **tomorrow** as well. The 일정 tab shows
+`예고` (announced) starters, or `예상` (projected) ones for later games.
+Tapping a game shows both teams' recent starts with dates and rest days
+(`src/utils/rotation.js`).
+
+How projections work (announced starters always win; they are the only certain source):
+
+1. **Rotation model.** Candidates are the last five distinct starters with 4+ days
+   of rest. Rest is capped at 5 days (5, 6 or 10 days count the same), ties go
+   to the pitcher with more starts in the last 30 days, then to longer rest.
+2. **1군 roster** (`kboPitcherRoster.json`, `scripts/crawl_kbo_register.py`,
+   koreabaseball.com 선수 등록 현황). A pitcher confirmed removed (말소) is skipped
+   until he can be re-registered (removal + 10 days). His turn is kept as a
+   "대체 선발" slot so the rest of the rotation doesn't shift by one.
+   Pitchers eligible to return are shown only as the alternate.
+   The same crawl writes `kboActiveRoster.json` (today's full 1군 roster plus
+   14 days of 등록/말소). The 탐색 tab uses it for a "1군 등록 선수만" filter,
+   콜업/말소 badges on player cards and a recent-moves panel. 2군 players keep
+   their chants and are shown by default.
+3. **News** (`starterNews.json`, `scripts/crawl_starter_news.py`). Google News RSS
+   filtered to major outlets (스포츠조선, OSEN, 연합뉴스, …). An article that
+   names a date (e.g. "나균안 27일 한화전 선발") sets that game's starter. An
+   injury or removal article excludes the pitcher for 10 days unless he has
+   started since. Other articles are listed as context only.
+   The same crawl keeps each team's latest headlines, tagged with every team (or
+   team-unique player) named in the title. A game's detail view lists articles
+   naming both teams from the last three days first (previews, the previous
+   meeting), then each team's news, with 이탈/복귀/등판 계획 badges.
+4. When confidence isn't high, the card shows two names (`유력/대안`).
+
+Backtest (`node scripts/backtestRotation.mjs --season 2026 [--roster file]`):
+the top pick is right about 57–58% of the time over the next six games, and the
+top pick or the alternate about 69–70% of the time (58.4% / 70.4% with roster
+data; game-by-game accuracy falls from ~63% for the next game to ~45% six games
+out). `starter-intel.yml` refreshes the roster and news at 11:33, 16:03, 17:33
+and 22:33 KST.
+
+Upcoming games also show where to buy tickets, based on the **home** team:
+티켓링크 (KIA·삼성·LG·KT·한화), NOL 티켓 (두산·키움), or the club's own site
+(SSG·롯데·NC). The detail view shows the usual general-sale opening rule and an
+estimated opening time. Links and rules live in `src/utils/ticketing.js`;
+re-check them each season.
+
+### Player chants (응원가)
+
+`scripts/sync_player_songs.py` keeps `playerSongs.json` in sync with the roster:
+
+- attaches `playerId` to songs (to tell same-name players apart);
+- detects players who changed teams; the old team's chant is kept for history,
+  but the app only matches chants of the player's **current** team;
+- searches YouTube for moved players and regular starters without a chant, and
+  scores results (player name, "응원가", team name, trusted channels such as
+  야쏭 or official team channels; penalties for AI, fan-made, compilations,
+  other teams, and old uploads);
+- adds matches scoring ≥ 8 with `"source": "youtube-auto", "verified": false`,
+  and lists weaker candidates in the run summary for manual review;
+- with `--check-links`, marks deleted or non-embeddable videos as
+  `unavailable` and searches for a replacement (the lyrics are kept).
+
+Search state is stored in `scripts/data/songSearchState.json` so each player is
+re-searched at most weekly (every 2 days for moved players). To fix a chant by
+hand, edit its entry and set `"verified": true`.
+
+Lyrics: `scripts/fetch_chant_lyrics.py` runs right after the sync and fills
+**empty** lyrics only (curated lyrics are never overwritten). It reads one
+namu.wiki page per team (`{팀}/응원가/선수`), finds the player's section, and
+takes the first lyrics block mentioning the player, skipping walk-up songs
+(등장곡), song credits and footnotes. Filled entries get
+`"lyricsSource": "namu.wiki"` and the app shows a 나무위키 (CC BY-NC-SA 2.0 KR)
+credit under those lyrics.
 
 ## Generating English player names
 
@@ -98,34 +178,6 @@ Run it manually:
 python public/kbo_players_en_crawler.py
 ```
 
-## Crawling schedules
-
-`public/kbo_schedule_crawler.py` reuses the lineup crawler's Selenium logic to
-collect basic game schedule information such as time, status and scores. The
-results are written to `public/data/kboSchedule.json`.
-
-Run it for a specific date range:
-
-```bash
-python public/kbo_schedule_crawler.py --start 2025-03-25 --end 2025-03-30 --output public/data/kboSchedule.json
-```
-
-## Automated daily crawl
-
-Five GitHub Actions workflows keep the data updated:
-
-- `.github/workflows/lineup-crawl.yml` fetches new lineups several times each day and rebuilds `public/data/kbo_crawler_data/index.json`.
-- `.github/workflows/player-crawl.yml` updates `public/data/kboPlayers.json` daily at 00:00 UTC.
-- `.github/workflows/team-rank-crawl.yml` refreshes `public/data/teamRank.json` once per day.
-- `.github/workflows/schedule-crawl.yml` updates `public/data/kboSchedule.json` once per day.
-- `.github/workflows/weather-crawl.yml` refreshes `public/data/kboBallparkForecast.json` hourly.
-
-All workflows commit any changes back to the repository automatically.
-
-Any push to the `main` branch – including updates from these workflows –
-automatically triggers `.github/workflows/deploy.yml` to build the app and
-deploy it to Firebase.
-
 ## Basic npm commands
 
 ```bash
@@ -149,6 +201,21 @@ path – additional songs can be added as separate records in
 ## Sharing lineups
 
 Use the "오늘의 라인업 공유하기" button in the lineup tab to share or copy the current team's lineup.
+
+## Tablet and desktop layout
+
+At 768px and wider (iPad and PC), the 라인업 and 탐색 tabs split into two columns.
+The list stays on the left, and the selected player's chant video, lyrics and
+prev/next controls stay pinned on the right while you scroll. Other tabs are
+centered at a readable width. Phones keep the single-column layout.
+
+- The header is a single row with the tabs inline, so the whole lineup (1–9 plus
+  the starter) fits on one laptop screen. Between 768px and 1023px (iPad portrait),
+  the tabs wrap to a second header row.
+- Before you pick a player, the right panel has a "1번 ○○○부터 듣기" button that
+  starts the lineup from the leadoff hitter.
+- While a player is open, ← and → move to the previous or next player, and Esc
+  closes the panel.
 
 ## Favorite team selection
 

@@ -90,10 +90,10 @@ const PlayerTab = ({
       ? currentLineup[currentLineupIndex + 1]?.playerName
       : playerSongs[currentPlayer + 1]?.playerName;
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 md:space-y-3">
       {/* 선수 상세 정보 카드 */}
       <div className="bg-white dark:bg-gray-800 rounded-xl px-4 py-3 border border-gray-200 dark:border-gray-700 shadow-sm">
-        <div className="mb-4">
+        <div className="mb-4 md:mb-1">
           {/* 타순 정보 (라인업 모드에서만) */}
           {playSource === 'lineup' &&
             getBattingOrder(currentChant.order, getDisplayPosition()) && (
@@ -102,7 +102,7 @@ const PlayerTab = ({
               </p>
             )}
           {/* 선수명 */}
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+          <h2 className="text-3xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 md:mb-2">
             {getDisplayName ? getDisplayName(currentChant.playerName) : currentChant.playerName}
           </h2>
           {!hasPlayerData && (
@@ -119,7 +119,7 @@ const PlayerTab = ({
             </div>
           )}
           {/* 기본 정보 한줄 */}
-          <div className="flex flex-wrap items-center gap-2 mb-4 text-sm text-gray-800 dark:text-gray-100">
+          <div className="flex flex-wrap items-center gap-2 mb-4 md:mb-2 text-sm text-gray-800 dark:text-gray-100">
             <div className="flex items-center gap-2">
               {getTeamInfo(getDisplayTeam()).logo && (
                 <img

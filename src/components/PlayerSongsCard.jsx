@@ -1,6 +1,7 @@
 import React from 'react';
 import { Play, Share2 } from 'lucide-react';
 import { getTeamInfo, getPositionKorean } from '../utils/team';
+import { rosterBadge } from '../utils/activeRoster';
 
 const PlayerSongsCard = ({
   chants,
@@ -11,11 +12,13 @@ const PlayerSongsCard = ({
   handleShare,
   setCurrentPlayerName,
   getDisplayName,
+  rosterIndex,
 }) => {
   if (!chants || chants.length === 0) return null;
   const first = chants[0];
 
   const isPitcher = getPositionKorean(first.position) === '투수';
+  const badge = rosterBadge(rosterIndex, first.team, first.playerName);
 
   const openPlayer = () => {
     const idx = playerSongs.findIndex(
@@ -63,6 +66,9 @@ const PlayerSongsCard = ({
                   {getPositionKorean(first.position)}
                 </span>
               </>
+            )}
+            {badge && (
+              <span className={`px-2 py-1 rounded-full text-xs font-medium ${badge.cls}`}>{badge.text}</span>
             )}
           </div>
         </div>

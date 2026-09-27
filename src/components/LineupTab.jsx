@@ -32,6 +32,7 @@ const LineupTab = ({
   getDisplayName,
   allStarData,
   ballparkForecast,
+  activeLineupIndex = null,
 }) => {
   const currentGame = getCurrentGame();
   const [allStarTeam, setAllStarTeam] = useState('dream');
@@ -42,23 +43,28 @@ const LineupTab = ({
     return r ? `${r.rank}위` : '';
   };
 
-  const isWeatherToday =
-    ballparkForecast?.updatedAt &&
-    new Date(ballparkForecast.updatedAt).toDateString() ===
-      new Date().toDateString();
-
-  const isSelectedDateToday =
-    new Date(selectedDate).toDateString() === new Date().toDateString();
-
-  const forecast =
-    currentGame &&
-    ballparkForecast?.data &&
-    isWeatherToday &&
-    isSelectedDateToday
+  const gameDateKey = (selectedDate || '').replace(/-/g, '');
+  const parkForecast =
+    currentGame && Array.isArray(ballparkForecast?.data)
       ? ballparkForecast.data.find((f) =>
           f.team.includes(getTeamInfo(currentGame.home).fullNameEn)
         )
       : null;
+
+  // forecastsByDate(날짜별)를 우선 사용하고, 구버전 파일은 오늘 경기일 때만 forecasts를 사용한다.
+  let forecast = null;
+  if (parkForecast) {
+    const dayForecasts = parkForecast.forecastsByDate?.[gameDateKey];
+    if (dayForecasts && Object.keys(dayForecasts).length > 0) {
+      forecast = { ...parkForecast, forecasts: dayForecasts };
+    } else if (!parkForecast.forecastsByDate) {
+      const isWeatherToday =
+        new Date(ballparkForecast.updatedAt).toDateString() === new Date().toDateString();
+      const isSelectedDateToday =
+        new Date(selectedDate).toDateString() === new Date().toDateString();
+      if (isWeatherToday && isSelectedDateToday) forecast = parkForecast;
+    }
+  }
 
   const renderAllStarSection = (title, items) => (
     <div className="mb-4">
@@ -128,8 +134,8 @@ const LineupTab = ({
   }
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between mb-6">
+    <div className="space-y-3 md:space-y-1.5">
+      <div className="flex items-center justify-between mb-6 md:mb-3">
         <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">오늘의 라인업</h2>
         <div className="flex items-center gap-2">
           <button
@@ -180,7 +186,7 @@ const LineupTab = ({
         </div>
       ) : currentGame ? (
         <>
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 shadow-sm">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-3 mb-4 md:mb-2 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -267,7 +273,7 @@ const LineupTab = ({
                   key={player.id || index}
                   player={player}
                   index={index}
-                  isActive={currentPlayer === index}
+                  isActive={activeLineupIndex === index}
                   playerSongs={playerSongs}
                   selectedTeam={selectedTeam}
                   setCurrentPlayer={setCurrentPlayer}

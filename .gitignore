@@ -41,3 +41,7 @@ yarn-error.log*
 # crawler log and data
 kbo_crawler.log
 kbo_data.db
+
+# Python
+__pycache__/
+*.pyc

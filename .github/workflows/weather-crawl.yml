@@ -1,29 +1,35 @@
-name: Daily KBO ballpark weather
+name: KBO ballpark weather
 
+# 기상청 단기예보는 02·05·08·11·14·17·20·23시(KST)에 발표되고 약 10분 뒤 제공된다.
+# UTC 기준 같은 시각 집합(9시간 차이 = 3의 배수)이므로 그대로 23분에 수집한다.
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '23 2,5,8,11,14,17,20,23 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: kbo-weather
+  cancel-in-progress: false
 
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-crawler.txt
 
       - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests python-dotenv
+        run: pip install -r requirements-crawler.txt
 
       - name: Fetch short-term weather
         env:
@@ -31,10 +37,11 @@ jobs:
         run: python fetch_short_term_weather.py
 
       - name: Commit and push
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git add public/data/kboBallparkForecast.json
-          git commit -m "Daily weather update" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push origin main
+        id: commit
+        run: scripts/ci/commit-and-push.sh "Update ballpark weather" public/data/kboBallparkForecast.json
+
+  deploy:
+    needs: crawl
+    if: needs.crawl.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
