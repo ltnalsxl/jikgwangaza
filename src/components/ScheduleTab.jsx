@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { MapPin, ChevronRight, ChevronDown, Ticket, ExternalLink, Newspaper } from 'lucide-react';
 import { getTeamInfo } from '../utils/team';
-import { toLocalDateStr, getRecentStarts, projectStarters, rosterStatus } from '../utils/rotation';
+import { toLocalDateStr, getRecentStarts, projectStarters, rosterStatus, addDays } from '../utils/rotation';
 import {
   getTicketing,
   estimateOpenAt,
@@ -412,44 +412,92 @@ const ScheduleTab = ({
     );
   };
 
-  const renderNews = (teams) => {
-    const rows = teams
-      .flatMap((t) => (starterNews?.teams?.[t] || []).map((a) => ({ ...a, team: t })))
-      .sort(
-        (a, b) =>
-          (a.signal === 'mention') - (b.signal === 'mention') ||
-          (b.publishedAt || '').localeCompare(a.publishedAt || '')
-      )
-      .slice(0, 5);
-    if (!rows.length) return null;
+  // 경기 상세의 기사: 두 팀이 함께 나온 최근 기사(프리뷰·지난 맞대결)를 먼저, 그다음 팀별 소식.
+  // 선발 신호(이탈/복귀/등판 계획)가 잡힌 기사는 배지로 표시하고 팀 소식에서 우선한다.
+  const renderNews = (game, teams) => {
+    const signalByLink = new Map();
+    const pool = {};
+    teams.forEach((t) => {
+      const seen = new Set();
+      pool[t] = [];
+      (starterNews?.teams?.[t] || []).forEach((a) => signalByLink.set(a.link, a.signal));
+      [...(starterNews?.news?.[t] || []), ...(starterNews?.teams?.[t] || [])].forEach((a) => {
+        if (seen.has(a.link)) return;
+        seen.add(a.link);
+        pool[t].push({ ...a, teams: a.teams || [t] });
+      });
+    });
+    const withSignal = (a) => ({ ...a, signal: signalByLink.get(a.link) || a.signal });
+    const byNewest = (x, y) => (y.publishedAt || '').localeCompare(x.publishedAt || '');
+    const from = addDays(game.date, -3);
+    const matchupLinks = new Set();
+    const matchup = [...pool[teams[0]], ...pool[teams[1]]]
+      .filter((a) => {
+        const day = (a.publishedAt || '').slice(0, 10);
+        const both = teams.every((t) => a.teams.includes(t));
+        if (!both || day < from || day > game.date || matchupLinks.has(a.link)) return false;
+        matchupLinks.add(a.link);
+        return true;
+      })
+      .sort(byNewest)
+      .slice(0, 4)
+      .map(withSignal);
+    const shown = new Set(matchup.map((a) => a.link));
+    const teamRows = teams.map((t) => ({
+      team: t,
+      rows: pool[t]
+        .filter((a) => !shown.has(a.link))
+        .map(withSignal)
+        .sort((x, y) => (x.signal && x.signal !== 'mention' ? 0 : 1) - (y.signal && y.signal !== 'mention' ? 0 : 1) || byNewest(x, y))
+        .slice(0, 3)
+        .map((a) => {
+          shown.add(a.link);
+          return a;
+        }),
+    }));
+    if (!matchup.length && teamRows.every((g) => !g.rows.length)) return null;
+    const item = (a) => {
+      const badge = a.signal && a.signal !== 'mention' ? SIGNAL_BADGE[a.signal] : null;
+      return (
+        <li key={a.link}>
+          <a
+            href={a.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-1.5 text-[11px] leading-snug"
+          >
+            {badge && (
+              <span className={`shrink-0 rounded px-1 py-px text-[10px] font-medium ${badge.cls}`}>{badge.text}</span>
+            )}
+            <span className="text-gray-700 dark:text-gray-200 line-clamp-2">{a.title}</span>
+            <span className="shrink-0 text-gray-400">
+              {a.source} {shortDate(a.publishedAt)}
+            </span>
+          </a>
+        </li>
+      );
+    };
     return (
-      <div>
-        <p className="text-[11px] text-gray-400 mb-1 flex items-center gap-1">
-          <Newspaper size={11} /> 선발 관련 기사 (주요 언론 · 매일 수집)
+      <div className="space-y-2">
+        <p className="text-[11px] text-gray-400 flex items-center gap-1">
+          <Newspaper size={11} /> 이 경기 관련 기사 (주요 언론 · 하루 4번 수집)
         </p>
-        <ul className="space-y-1">
-          {rows.map((a) => {
-            const badge = SIGNAL_BADGE[a.signal] || SIGNAL_BADGE.mention;
-            return (
-              <li key={a.link}>
-                <a
-                  href={a.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-1.5 text-[11px] leading-snug"
-                >
-                  <span className={`shrink-0 rounded px-1 py-px text-[10px] font-medium ${badge.cls}`}>
-                    {badge.text}
-                  </span>
-                  <span className="text-gray-700 dark:text-gray-200 line-clamp-2">{a.title}</span>
-                  <span className="shrink-0 text-gray-400">
-                    {a.source} {shortDate(a.publishedAt)}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        {matchup.length > 0 && (
+          <div>
+            <p className="text-[11px] font-medium text-gray-600 dark:text-gray-300 mb-1">
+              {teams[0]} vs {teams[1]}
+            </p>
+            <ul className="space-y-1">{matchup.map(item)}</ul>
+          </div>
+        )}
+        {teamRows
+          .filter((g) => g.rows.length)
+          .map((g) => (
+            <div key={g.team}>
+              <p className="text-[11px] font-medium text-gray-600 dark:text-gray-300 mb-1">{g.team} 소식</p>
+              <ul className="space-y-1">{g.rows.map(item)}</ul>
+            </div>
+          ))}
       </div>
     );
   };
@@ -486,7 +534,7 @@ const ScheduleTab = ({
             {renderRotation(opponent, game.date)}
           </div>
         </div>
-        {!isPast && renderNews([selectedTeam, opponent])}
+        {!isPast && renderNews(game, [selectedTeam, opponent])}
         {!isPast && renderTicketing(game)}
         <button
           onClick={() => {

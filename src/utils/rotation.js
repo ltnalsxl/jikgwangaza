@@ -51,7 +51,7 @@ export const getRecentStarts = (gameLineups, team, beforeDate, limit = 6) => {
     .map((s) => ({ ...s, restDays: daysBetween(s.date, beforeDate) - 1 }));
 };
 
-const addDays = (dateStr, n) => {
+export const addDays = (dateStr, n) => {
   const d = new Date(`${dateStr}T00:00:00`);
   d.setDate(d.getDate() + n);
   return toLocalDateStr(d);

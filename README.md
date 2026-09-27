@@ -23,7 +23,7 @@ then calls `deploy.yml` directly (commits pushed with `GITHUB_TOKEN` do not fire
 | `schedule-crawl.yml` | 09:53, 18:53 | Naver Sports API | next 30 days of games (rainout reschedules, announced starters) |
 | `rank-crawl.yml` | 22:17, 23:17, 00:17, 10:17 | Naver statistics API | `teamRank.json` (incl. last 5 games) |
 | `weather-crawl.yml` | xx:23 after each KMA release (02·05·…·23시) | KMA short-term forecast, Open-Meteo fallback | `kboBallparkForecast.json` (`forecastsByDate`) |
-| `starter-intel.yml` | 11:33, 17:33, 22:33 | koreabaseball.com 1군 등록 현황 + Google News RSS | `kboPitcherRoster.json`, `starterNews.json` |
+| `starter-intel.yml` | 11:33, 16:03, 17:33, 22:33 | koreabaseball.com 1군 등록 현황 + Google News RSS | `kboPitcherRoster.json`, `kboActiveRoster.json`, `starterNews.json` |
 | `player-crawl.yml` | 09:37 (link check on Mondays) | koreabaseball.com + YouTube | `kboPlayers.json`, `playerSongs.json` |
 | `deploy.yml` | called by the above, on push, and 06:41 daily | – | Firebase Hosting |
 
@@ -77,19 +77,27 @@ How projections work (announced starters always win; they are the only certain s
    until he can be re-registered (removal + 10 days). His turn is kept as a
    "대체 선발" slot so the rest of the rotation doesn't shift by one.
    Pitchers eligible to return are shown only as the alternate.
+   The same crawl writes `kboActiveRoster.json` (today's full 1군 roster plus
+   14 days of 등록/말소). The 탐색 tab uses it for a "1군 등록 선수만" filter,
+   콜업/말소 badges on player cards and a recent-moves panel. 2군 players keep
+   their chants and are shown by default.
 3. **News** (`starterNews.json`, `scripts/crawl_starter_news.py`). Google News RSS
    filtered to major outlets (스포츠조선, OSEN, 연합뉴스, …). An article that
    names a date (e.g. "나균안 27일 한화전 선발") sets that game's starter. An
    injury or removal article excludes the pitcher for 10 days unless he has
    started since. Other articles are listed as context only.
+   The same crawl keeps each team's latest headlines, tagged with every team (or
+   team-unique player) named in the title. A game's detail view lists articles
+   naming both teams from the last three days first (previews, the previous
+   meeting), then each team's news, with 이탈/복귀/등판 계획 badges.
 4. When confidence isn't high, the card shows two names (`유력/대안`).
 
 Backtest (`node scripts/backtestRotation.mjs --season 2026 [--roster file]`):
 the top pick is right about 57–58% of the time over the next six games, and the
 top pick or the alternate about 69–70% of the time (58.4% / 70.4% with roster
 data; game-by-game accuracy falls from ~63% for the next game to ~45% six games
-out). `starter-intel.yml` refreshes the roster and news at 11:33, 17:33 and
-22:33 KST.
+out). `starter-intel.yml` refreshes the roster and news at 11:33, 16:03, 17:33
+and 22:33 KST.
 
 Upcoming games also show where to buy tickets, based on the **home** team:
 티켓링크 (KIA·삼성·LG·KT·한화), NOL 티켓 (두산·키움), or the club's own site
