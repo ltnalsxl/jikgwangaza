@@ -2,14 +2,14 @@
   "date": "2026-09-27",
   "game_code": "20260927LGHT02026",
   "game_time": "17:00",
-  "game_status": "1회초",
-  "status_code": "STARTED",
+  "game_status": "경기취소",
+  "status_code": "BEFORE",
   "teams": [
     {
       "name": "LG",
       "full_name": "LG 트윈스",
       "code": "LG",
-      "score": "2",
+      "score": "0",
       "is_home": false
     },
     {
@@ -199,5 +199,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-27T19:43:13.460389+09:00"
+  "crawl_time": "2026-09-27T19:49:42.761599+09:00"
 }
