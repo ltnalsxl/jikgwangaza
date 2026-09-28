@@ -22,25 +22,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20260929NCOB02026/lineup",
   "stadium": "잠실",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "이재학",
+  "home_starter_name": "벤자민",
   "broadcast_channel": "SPOTV2",
   "starting_lineups": {
     "team_1": {
       "team_name": "NC",
       "team_code": "NC",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "60263",
+        "name": "이재학",
+        "throwing_hand": "우언",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "두산",
       "team_code": "OB",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "52043",
+        "name": "벤자민",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-27T23:50:41.175326+09:00",
+  "crawl_time": "2026-09-28T18:40:20.335848+09:00",
   "error": "API preview did not include full batting orders"
 }
