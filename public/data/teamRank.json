@@ -1,5 +1,5 @@
 {
-  "crawl_time": "2026-09-29T21:13:28+09:00",
+  "crawl_time": "2026-09-29T21:38:53+09:00",
   "season": 2026,
   "source": "naver_statistics_api",
   "results": [
@@ -101,6 +101,22 @@
     },
     {
       "rank": "7",
+      "team": "롯데",
+      "team_code": "LT",
+      "win_rate": "0.455",
+      "gb": "22.0",
+      "games": "134",
+      "wins": "60",
+      "losses": "72",
+      "draws": "2",
+      "streak": "1승",
+      "batting_avg": "0.272",
+      "era": "4.77",
+      "last_5": "WWWLW",
+      "next_game": "vs 키움"
+    },
+    {
+      "rank": "8",
       "team": "SSG",
       "team_code": "SK",
       "win_rate": "0.454",
@@ -114,22 +130,6 @@
       "era": "5.17",
       "last_5": "WWLLW",
       "next_game": "vs LG"
-    },
-    {
-      "rank": "8",
-      "team": "롯데",
-      "team_code": "LT",
-      "win_rate": "0.450",
-      "gb": "22.5",
-      "games": "133",
-      "wins": "59",
-      "losses": "72",
-      "draws": "2",
-      "streak": "1패",
-      "batting_avg": "0.272",
-      "era": "4.79",
-      "last_5": "WWWWL",
-      "next_game": "vs 키움"
     },
     {
       "rank": "9",
@@ -151,16 +151,16 @@
       "rank": "10",
       "team": "키움",
       "team_code": "WO",
-      "win_rate": "0.353",
-      "gb": "35.5",
-      "games": "137",
+      "win_rate": "0.351",
+      "gb": "36.0",
+      "games": "138",
       "wins": "47",
-      "losses": "86",
+      "losses": "87",
       "draws": "4",
-      "streak": "2승",
-      "batting_avg": "0.244",
-      "era": "5.29",
-      "last_5": "DLLWW",
+      "streak": "1패",
+      "batting_avg": "0.243",
+      "era": "5.27",
+      "last_5": "LLWWL",
       "next_game": "vs 롯데"
     }
   ]
