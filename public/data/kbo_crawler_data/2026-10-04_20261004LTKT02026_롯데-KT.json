@@ -29,18 +29,30 @@
     "team_1": {
       "team_name": "롯데",
       "team_code": "LT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "67539",
+        "name": "나균안",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KT",
       "team_code": "KT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "65516",
+        "name": "배제성",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-09-27T23:51:48.513682+09:00",
+  "crawl_time": "2026-10-03T16:39:46.132785+09:00",
   "error": "API preview did not include full batting orders"
 }
