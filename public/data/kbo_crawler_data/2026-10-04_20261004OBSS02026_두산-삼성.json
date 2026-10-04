@@ -23,7 +23,7 @@
   "lineup_url": "https://m.sports.naver.com/game/20261004OBSS02026/lineup",
   "stadium": "대구",
   "away_starter_name": "벤자민",
-  "home_starter_name": "페덱",
+  "home_starter_name": "이승현",
   "broadcast_channel": "KBS N SPORTS",
   "starting_lineups": {
     "team_1": {
@@ -42,9 +42,9 @@
       "team_name": "삼성",
       "team_code": "SS",
       "starting_pitcher": {
-        "player_id": "56459",
-        "name": "페덱",
-        "throwing_hand": "우투",
+        "player_id": "51454",
+        "name": "이승현",
+        "throwing_hand": "좌투",
         "position": "투수",
         "role": "선발투수"
       },
@@ -53,6 +53,6 @@
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-03T17:23:18.399017+09:00",
+  "crawl_time": "2026-10-04T12:52:02.036648+09:00",
   "error": "API preview did not include full batting orders"
 }
