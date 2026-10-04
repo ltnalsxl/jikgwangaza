@@ -2,14 +2,14 @@
   "date": "2026-10-04",
   "game_code": "20261004WOHH02026",
   "game_time": "14:00",
-  "game_status": "경기전",
-  "status_code": "READY",
+  "game_status": "1회초",
+  "status_code": "STARTED",
   "teams": [
     {
       "name": "키움",
       "full_name": "키움 히어로즈",
       "code": "WO",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
@@ -199,5 +199,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-04T13:17:24.916590+09:00"
+  "crawl_time": "2026-10-04T14:07:55.317051+09:00"
 }
