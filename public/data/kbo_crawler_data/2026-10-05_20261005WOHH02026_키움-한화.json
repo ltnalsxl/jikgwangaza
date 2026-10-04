@@ -22,25 +22,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20261005WOHH02026/lineup",
   "stadium": "대전",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "전준표",
+  "home_starter_name": "강건우",
   "broadcast_channel": "MBC SPORTS+",
   "starting_lineups": {
     "team_1": {
       "team_name": "키움",
       "team_code": "WO",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54362",
+        "name": "전준표",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "한화",
       "team_code": "HH",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "56769",
+        "name": "강건우",
+        "throwing_hand": "좌투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-03T00:59:20.601977+09:00",
+  "crawl_time": "2026-10-04T17:51:42.787144+09:00",
   "error": "API preview did not include full batting orders"
 }
