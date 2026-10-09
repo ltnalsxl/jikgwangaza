@@ -2,21 +2,21 @@
   "date": "2026-10-09",
   "game_code": "20261009HTNC02026",
   "game_time": "14:00",
-  "game_status": "1회초",
+  "game_status": "2회초",
   "status_code": "STARTED",
   "teams": [
     {
       "name": "KIA",
       "full_name": "KIA 타이거즈",
       "code": "HT",
-      "score": "0",
+      "score": "1",
       "is_home": false
     },
     {
       "name": "NC",
       "full_name": "NC 다이노스",
       "code": "NC",
-      "score": "0",
+      "score": "2",
       "is_home": true
     }
   ],
@@ -199,5 +199,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-09T14:08:42.702671+09:00"
+  "crawl_time": "2026-10-09T14:21:11.048694+09:00"
 }
