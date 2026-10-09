@@ -22,25 +22,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/20261010SKHT02026/lineup",
   "stadium": "광주",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "최민준",
+  "home_starter_name": "시라카와",
   "broadcast_channel": "SPOTV",
   "starting_lineups": {
     "team_1": {
       "team_name": "SSG",
       "team_code": "SK",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "68856",
+        "name": "최민준",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "54843",
+        "name": "시라카와",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-03T01:00:15.491509+09:00",
+  "crawl_time": "2026-10-09T17:01:50.649943+09:00",
   "error": "API preview did not include full batting orders"
 }
