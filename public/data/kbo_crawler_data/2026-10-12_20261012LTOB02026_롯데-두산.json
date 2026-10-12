@@ -2,14 +2,14 @@
   "date": "2026-10-12",
   "game_code": "20261012LTOB02026",
   "game_time": "18:30",
-  "game_status": "경기전",
-  "status_code": "READY",
+  "game_status": "1회말",
+  "status_code": "STARTED",
   "teams": [
     {
       "name": "롯데",
       "full_name": "롯데 자이언츠",
       "code": "LT",
-      "score": "0",
+      "score": "2",
       "is_home": false
     },
     {
@@ -199,5 +199,5 @@
   },
   "lineup_status": "confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-12T17:51:43.208270+09:00"
+  "crawl_time": "2026-10-12T18:40:38.810323+09:00"
 }
