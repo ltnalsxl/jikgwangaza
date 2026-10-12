@@ -1,5 +1,5 @@
 {
-  "crawl_time": "2026-10-12T22:05:43+09:00",
+  "crawl_time": "2026-10-12T22:12:12+09:00",
   "season": 2026,
   "source": "naver_statistics_api",
   "results": [
@@ -65,23 +65,23 @@
       "batting_avg": "0.264",
       "era": "4.81",
       "last_5": "WWLWL",
-      "next_game": ""
+      "next_game": "vs 두산"
     },
     {
       "rank": "5",
       "team": "두산",
       "team_code": "OB",
-      "win_rate": "0.529",
-      "gb": "16.5",
-      "games": "143",
+      "win_rate": "0.525",
+      "gb": "17.0",
+      "games": "144",
       "wins": "73",
-      "losses": "65",
+      "losses": "66",
       "draws": "5",
-      "streak": "1패",
+      "streak": "2패",
       "batting_avg": "0.267",
-      "era": "3.84",
-      "last_5": "LWWWL",
-      "next_game": ""
+      "era": "3.86",
+      "last_5": "WWWLL",
+      "next_game": "vs LG"
     },
     {
       "rank": "6",
@@ -101,6 +101,22 @@
     },
     {
       "rank": "7",
+      "team": "롯데",
+      "team_code": "LT",
+      "win_rate": "0.454",
+      "gb": "27.0",
+      "games": "144",
+      "wins": "64",
+      "losses": "77",
+      "draws": "3",
+      "streak": "2승",
+      "batting_avg": "0.272",
+      "era": "4.72",
+      "last_5": "LWLWW",
+      "next_game": ""
+    },
+    {
+      "rank": "8",
       "team": "NC",
       "team_code": "NC",
       "win_rate": "0.451",
@@ -113,22 +129,6 @@
       "batting_avg": "0.270",
       "era": "4.79",
       "last_5": "LLLLW",
-      "next_game": ""
-    },
-    {
-      "rank": "8",
-      "team": "롯데",
-      "team_code": "LT",
-      "win_rate": "0.450",
-      "gb": "27.5",
-      "games": "143",
-      "wins": "63",
-      "losses": "77",
-      "draws": "3",
-      "streak": "1승",
-      "batting_avg": "0.271",
-      "era": "4.74",
-      "last_5": "LLWLW",
       "next_game": ""
     },
     {
