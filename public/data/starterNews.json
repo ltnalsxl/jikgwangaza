@@ -1,8 +1,21 @@
 {
- "updatedAt": "2026-10-16T21:05:27+09:00",
+ "updatedAt": "2026-10-16T22:31:00+09:00",
  "source": "Google News RSS (주요 언론사만)",
  "teams": {
   "KIA": [
+   {
+    "title": "‘70.6% 확률 잡아라!’ KIA 네일 vs LG 톨허스트, 준PO 1차전 선발",
+    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTUdEUmZKWmFOSUM5T1dsNnY2RmZsZ2tvZmJtVFlqVzR1aTNZaG5KSmtqMU1FZmVobEVHZUppRXEtTGtaajNESFdoQ3RyMjNpQ2hsckpkSk1IQkJGeUJmbFV2Vm9SUWh4cFpsb2pra1FQOEZ2WkhnRmw0V19EOEc2Y29JQVpuOWgyXzIwd3FKTkhZcDYtNFFkUnRobVVfWWRGYnU0emtRQVg4MWV5MFFYRDJQTGY1NFI1MkdxQ19zSmNvemFkODdVQWNQbFd4bEl6aTNpeVZZUQ?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-10-16T21:12+09:00",
+    "pitchers": [
+     "네일"
+    ],
+    "signals": {
+     "네일": "mention"
+    },
+    "signal": "mention"
+   },
    {
     "title": "[스경x현장] 1차전 선발, KIA는 고민 안 했다…“큰 게임엔 네일, KS 1차전을 던졌으니까”",
     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1PNUhVR09MeEZ5NDhHeW81c1o4alpFVVZHVEZXRlBkQnd2MllvUld1ZGhyM090c2FSX1YyZWEwbjItUlcyNDFRdGVna1pMaDAzNFhUcVFWWjdDY1NzQmZKaG5wd9IBY0FVX3lxTE1PNUhVR09MeEZ5NDhHeW81c1o4alpFVVZHVEZXRlBkQnd2MllvUld1ZGhyM090c2FSX1YyZWEwbjItUlcyNDFRdGVna1pMaDAzNFhUcVFWWjdDY1NzQmZKaG5wdw?oc=5",
@@ -69,19 +82,6 @@
     "signal": "start"
    },
    {
-    "title": "네일 앞세운 KIA, 70.6% 확률 잡을까…LG는 톨허스트로 맞불 [준PO]",
-    "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFB3SkRJWHVmS0xxdU83R0Jhc18xMlBUWVh3REtZc0ctVThNLVlJMUFCRFpVb0gyc1NDLXhnVTFnbTNlNmNrVVE?oc=5",
-    "source": "매일경제",
-    "publishedAt": "2026-10-16T11:59+09:00",
-    "pitchers": [
-     "네일"
-    ],
-    "signals": {
-     "네일": "mention"
-    },
-    "signal": "mention"
-   },
-   {
     "title": "[오피셜] 준PO 1차전 선발 떴다! LG 톨허스트-KIA 네일 출격, 70.6% 확률 누가 잡을까",
     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9mSWotNGtmOVNySnUyRS1tRks5M0dTVEJ6bFJZVmVwdWZzQ2ZnZlBjbjJJZ2xsellCcmN0dFZ3cUgzNUdvb2ZmRWJTTnR0M09XNjhNc3J2UVJIcXg0QVYwd041SmY0eHhPZWxuTDBpOWE?oc=5",
     "source": "SPOTV NEWS",
@@ -138,8 +138,34 @@
   ],
   "LG": [
    {
+    "title": "1차전 이겨야 70.6%인데 하필 톨허스트가 선발이라니... KIA전 ERA 6.20 악몽, LG는 왜 다른 선택 못 했나",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE16YjFYNWszbldCTUlJUXVSdGZoa29IRFd1TEJVbk4xN19mZFNiLVdrRTdqNVoxX0xMRDFuSV92T0U2bWZ1N2ZKcjJtc2RJMUFKMnhfMXF0RFlBbEhkRHdGRVhwWHBKVlllNWlQM0xBU2xFcS1WMkE?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-10-16T21:14+09:00",
+    "pitchers": [
+     "톨허스트"
+    ],
+    "signals": {
+     "톨허스트": "mention"
+    },
+    "signal": "mention"
+   },
+   {
+    "title": "‘70.6% 확률 잡아라!’ KIA 네일 vs LG 톨허스트, 준PO 1차전 선발",
+    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTUdEUmZKWmFOSUM5T1dsNnY2RmZsZ2tvZmJtVFlqVzR1aTNZaG5KSmtqMU1FZmVobEVHZUppRXEtTGtaajNESFdoQ3RyMjNpQ2hsckpkSk1IQkJGeUJmbFV2Vm9SUWh4cFpsb2pra1FQOEZ2WkhnRmw0V19EOEc2Y29JQVpuOWgyXzIwd3FKTkhZcDYtNFFkUnRobVVfWWRGYnU0emtRQVg4MWV5MFFYRDJQTGY1NFI1MkdxQ19zSmNvemFkODdVQWNQbFd4bEl6aTNpeVZZUQ?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-10-16T21:12+09:00",
+    "pitchers": [
+     "톨허스트"
+    ],
+    "signals": {
+     "톨허스트": "mention"
+    },
+    "signal": "mention"
+   },
+   {
     "title": "‘LG 희소식!’ 손주영, 목 부상 털어내고 복귀한다…신민재도 엔트리 등록 [준PO]",
-    "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5na2tBdTIzb0R4elR6WjJpaFJxT0UzZjI4RkZKemxWUEw3ZjdSbmhxQ1cxV2liUWE0NnJnbWh4RDJHeF9Cc1E?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1VS1ZXWldXQk5zcl9qdE95cFdpN2lpdGVoSUs2aWpmWGhkRVhmWG1JSEs4UkhxYWxZbGkybTFoamhqQ0NlS3Q3LWczOURfMW13MTBr?oc=5",
     "source": "매일경제",
     "publishedAt": "2026-10-16T18:40+09:00",
     "pitchers": [
@@ -164,32 +190,6 @@
     "signal": "return"
    },
    {
-    "title": "'LG 대호재' 클로저 결국 돌아왔다! 신민재도 정상 합류…톨허스트-네일 격돌 [공식발표]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeWJiZ0VucWZaMjhDenExejlaZjZ6ZFZ6bWVtSkQ5TEVpamZYZVVhb2N0MUxmdUhaanRYeTgzLWhNMUdhNFI1Q0ZoZUxFMTlYOEJ1ZnlxdjFhRnhEZnhuZTlvSjdEa1IwVGdFZUxMWEU0UVFGTy1rTHh5SGZtNjRmcVJFSQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-10-16T16:47+09:00",
-    "pitchers": [
-     "톨허스트"
-    ],
-    "signals": {
-     "톨허스트": "mention"
-    },
-    "signal": "mention"
-   },
-   {
-    "title": "[오피셜] '언더독 LG 총력전' 31SV 손주영 준PO 전격 합류! '부상 투혼' 오지환·신민재도 생존... KIA는 김범수 포함 투수 14명 총출동",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBudk5uY25WMWlCekd6S2NuNXUzbWhIX1FmYTk4U1lTdGhUYVczU25QY055TWk0cmYwclhvQ2ZBZ2xfZzAzcVY2MTlUWENBQ3dXU0ZRUDdsT3NxNUV5cHp6LTBrY3V4cEdsZl9Ic3BxTkVpMVZMSlE?oc=5",
-    "source": "스타뉴스",
-    "publishedAt": "2026-10-16T16:21+09:00",
-    "pitchers": [
-     "손주영"
-    ],
-    "signals": {
-     "손주영": "mention"
-    },
-    "signal": "mention"
-   },
-   {
     "title": "LG, 엔트리에 손주영 복귀·신민재 포함 '호재'…KIA 포수 3명[준PO]",
     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBZR0tiVUFoQ294WGdES0Rzc1lyUUgzZm5kZ2VpQXpoSkxkZEhDSUozeWRoZ29FUy1POFZ1ZDdLX0ZEZ0pmUXhWQnFERjh4S2FvbTVMLVVBcmFYRmpxRG9ac0RPLXhLaGktdXIxaWlzSVBjakNwYTBnQ9IBeEFVX3lxTFBZR0tiVUFoQ294WGdES0Rzc1lyUUgzZm5kZ2VpQXpoSkxkZEhDSUozeWRoZ29FUy1POFZ1ZDdLX0ZEZ0pmUXhWQnFERjh4S2FvbTVMLVVBcmFYRmpxRG9ac0RPLXhLaGktdXIxaWlzSVBjakNwYTBnQw?oc=5",
     "source": "뉴시스",
@@ -204,9 +204,9 @@
    },
    {
     "title": "'10년 만에 가을야구 격돌!' LG 톨허스트-KIA 네일, 준PO 1차전 출격...호남선시리즈 기대만발 [준PO]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9FWUExNHlBUjVDN3F4OTJacndSUWZUdjh6d21CRmpNWU1fYzM0VzJXeTRWVDZDenZVRG12UW5TcU9QeFE5cFB5YVdUbUNnb3NFZWN5ZVVzUmh6VnEzekJsYjR1bGNPanBWVzVwbUZjMNIBb0FVX3lxTE9FWUExNHlBUjVDN3F4OTJacndSUWZUdjh6d21CRmpNWU1fYzM0VzJXeTRWVDZDenZVRG12UW5TcU9QeFE5cFB5YVdUbUNnb3NFZWN5ZVVzUmh6VnEzekJsYjR1bGNPanBWVzVwbUZjMA?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-10-16T12:00+09:00",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPalU4djI4Umd6ejJKQ0RpNm9yWVBkam0wQ285YmwwVDl6QXl6ZUVLcDlGckVrVlNTb0hZY1dVdHBOckhnQ1BiS3R4b0NTVkprelUwSDA1cDlRVFhkWjdZX1QxR1JvUm96M21PYmdlbU5iT0ZEY0hsVGRIZm1qU24xby1xZw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-10-16T12:01+09:00",
     "pitchers": [
      "톨허스트"
     ],
@@ -363,6 +363,19 @@
     "signal": "mention"
    },
    {
+    "title": "'5경기 QS' 고영표·'57안타' 최원준, 정규 1위 이끈 KT 투·타 핵심, 9~10월 쉘힐릭스플레이어 선정",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4tNDBBdFJPal9TdWtVdi1neWpnZHFyaHZOLXdJOXFZYW1ZSXZ5M1hzd3NwZ2p1TXEwVG51TzdPaUtEa1ZOUElMUmoydlBKLXZYXzJZa290eTY2UkJWMzdIWWdjOVpKUFNTa1BVbkhRWdIBb0FVX3lxTE4tNDBBdFJPal9TdWtVdi1neWpnZHFyaHZOLXdJOXFZYW1ZSXZ5M1hzd3NwZ2p1TXEwVG51TzdPaUtEa1ZOUElMUmoydlBKLXZYXzJZa290eTY2UkJWMzdIWWdjOVpKUFNTa1BVbkhRWQ?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-10-16T17:13+09:00",
+    "pitchers": [
+     "고영표"
+    ],
+    "signals": {
+     "고영표": "mention"
+    },
+    "signal": "mention"
+   },
+   {
     "title": "‘완봉승 고영표+타율 .413 최원준’ KT 듀오, 9~10월 쉘힐릭스플레이어 싹쓸이",
     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBQYm56di1TemJEMXNJU0tVMzRiVHhINURCRHl6MVQ1QTBlMlhSMlgtWHllVzA2SU9OY25UbkZHZ0ljazNxZ3JMcHNFSE1XQk9Wcm5ndTU1NF9CY093QTZSV1J3?oc=5",
     "source": "미주중앙일보",
@@ -393,19 +406,6 @@
     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9JVTFIWHlkNHY1ZG5LOXY3RGlFTU1DYTg4UXBxbWsyenJoQTA4R0dTbDI4LU5ZWDhLakpReWwtRHJsWTRqZVNidXpzM1E1RlE0R2o2Q00xZ3JLVzhQYzlJX2tR?oc=5",
     "source": "미주중앙일보",
     "publishedAt": "2026-10-13T06:00+09:00",
-    "pitchers": [
-     "소형준"
-    ],
-    "signals": {
-     "소형준": "mention"
-    },
-    "signal": "mention"
-   },
-   {
-    "title": "‘3안타 몰아쳐도 안타왕 좌절’ 최원준 최다 안타 2위…KT는 10연승, 소형준 승률왕 등극 [대구 리뷰]",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBXeUo3N252ZllJRkp5RVZvN0t2ZkI2ZEZJNVg4ZzNLMHNxcVUwREpTVXdoZkgxWV9mT1NibXAxb3g1VDZxMUNMVmhla0pvQk1pbl9jUFR6ZW5IU3UxaVBiTGVR?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-10-12T21:36+09:00",
     "pitchers": [
      "소형준"
     ],
@@ -735,9 +735,39 @@
  "news": {
   "KIA": [
    {
+    "title": "한승택은 떠났는데 왜 KIA가 포수 3인체제일까…좌완에 강한 좌타자 한준수, 꽃범호 비밀병기 급부상",
+    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9EbXdjTkVxSmM2Q1FsaXlLaHZjYlFSTHhvQk1kRzk5eUNGalRyWmlYdm5sR0xlMURHV3d4YTVVR0VWaVJNemRTRU9ySW96OE5mclprSWp4WWNqLVY0cmRKTEJqdUNtUQ?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-10-16T22:00+09:00",
+    "teams": [
+     "KIA",
+     "KT"
+    ]
+   },
+   {
+    "title": "1차전 이겨야 70.6%인데 하필 톨허스트가 선발이라니... KIA전 ERA 6.20 악몽, LG는 왜 다른 선택 못 했나",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5FQXVjaHNDZWpjc01NMUlIYWRRM3ZtUEJsRGV5aGJjdmJkOF80cDh2ZW8xQng0enpEallDYnN3Sjl3cC02V0lILS1BNnpPcUxOcXNuMWY2OG0ydFMxaF9lTk5yRFVMOFpzMmfSAW9BVV95cUxQNlUyQkV0UmNnTVJkZTk0SzJqcENycUxLck1yRDVhTXFHajBrdy1zZnFjV3o5WS1hYllBRGg0dXVvTkZmSk9zWWJFRm9MblV5Sk11Q0YxQ3Z5QUpzNDNPemgxSldGUG5tRk5BdlY1VFE?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-10-16T21:14+09:00",
+    "teams": [
+     "KIA",
+     "LG"
+    ]
+   },
+   {
+    "title": "‘70.6% 확률 잡아라!’ KIA 네일 vs LG 톨허스트, 준PO 1차전 선발",
+    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTUdEUmZKWmFOSUM5T1dsNnY2RmZsZ2tvZmJtVFlqVzR1aTNZaG5KSmtqMU1FZmVobEVHZUppRXEtTGtaajNESFdoQ3RyMjNpQ2hsckpkSk1IQkJGeUJmbFV2Vm9SUWh4cFpsb2pra1FQOEZ2WkhnRmw0V19EOEc2Y29JQVpuOWgyXzIwd3FKTkhZcDYtNFFkUnRobVVfWWRGYnU0emtRQVg4MWV5MFFYRDJQTGY1NFI1MkdxQ19zSmNvemFkODdVQWNQbFd4bEl6aTNpeVZZUQ?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-10-16T21:12+09:00",
+    "teams": [
+     "KIA",
+     "LG"
+    ]
+   },
+   {
     "title": "70.6% 잡아라…KIA·LG 첫판부터 총력전 예고",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE84cXN6NWFNcS1qcmRpVnFFTE0wQ0RSakxtNk53V1RSc3pWQ3Rhc2VTdllZRWdTNDRWdlllcVdsdXFMUWtpQXlUTXJob0J4b1dqTGZaVXh5ZE4tY2NTeG83bjFnbVpGWGM?oc=5",
-    "source": "연합뉴스TV",
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9tSGNvUXM2U0VCYmpGT2ZNaWQ2SzBRVmNjWnFUc2praHlndlFjVl9QUlpqeDlxRVhEbDNpZVNOR3BBTUI0dDBVendHUkQ5d1BtUERMS3JQelE1WHPSAWBBVV95cUxNMmcycVh3aGx4ZV9FV1ZQa1JsaW5PVkQ5ME4tMGVyNmV1ZzFXVjJmTUtJWjU4bG9BTXZ4WjRrd2VwVGxPVngtY3Z6aUJnY3NsQ2xOV1BmN0hkUWNTOTJES2k?oc=5",
+    "source": "연합뉴스",
     "publishedAt": "2026-10-16T20:12+09:00",
     "teams": [
      "KIA",
@@ -764,9 +794,9 @@
    },
    {
     "title": "\"첫 판 무조건 잡는다\"…LG·KIA, 준PO 마지막 담금질",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1yV2R5WkNVZTZhTW96b0NsQ2NWX0lwRWZqb0R0T1pQdkZLQzFvT1d4QlpmUzRaQVNJWjh6a2xSaVVZdl9heEJzb0NrVzRXblhkOXR0R0FKZWR6UnBQbzN4QmxVbWQ1b2c?oc=5",
-    "source": "연합뉴스TV",
-    "publishedAt": "2026-10-16T18:18+09:00",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE15NVhRNWtPVWhIWFd4SGNqOE1HWUwyVFBWQTByUE52eVBWekFlT1dnRlJIOGUxQWdFbkNna3lSVHQxRTc0NFZrb1prYkx1NnA2bE9kcWJxd2pTU2tMb2ZxT9IBYEFVX3lxTE15NVhRNWtPVWhIWFd4SGNqOE1HWUwyVFBWQTByUE52eVBWekFlT1dnRlJIOGUxQWdFbkNna3lSVHQxRTc0NFZrb1prYkx1NnA2bE9kcWJxd2pTU2tMb2ZxTw?oc=5",
+    "source": "연합뉴스",
+    "publishedAt": "2026-10-16T18:19+09:00",
     "teams": [
      "KIA",
      "LG"
@@ -777,16 +807,6 @@
     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB0R1hST1JLTmgwWVhxNjhmS1NQS09SNjlyMEduczIwWUxOb1R5Y0ZDMzJmTC1GZUlaMzc1cjdXRU9zYzh3Rm5JTmwxM1ctS0hBMEUxMlhB?oc=5",
     "source": "중앙일보",
     "publishedAt": "2026-10-16T18:13+09:00",
-    "teams": [
-     "KIA",
-     "LG"
-    ]
-   },
-   {
-    "title": "[공식발표] `LG 천군만마` 손주영-신민재 엔트리 승선, KIA 3포수 체제... 준PO 30인 엔트리 공개",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9aZFJIZ1NtZEFJeUI2aU9mMHdqdms1d3RMdEFUTzdjVEU3cjhoTUx1SU9zN1FuNTlzek5nejhtbkRuMk9mQ0FNT1dDU1pjYlZ3ejV0TG9pWUV0Nm1kV3B3N0s3WTFadw?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-10-16T18:00+09:00",
     "teams": [
      "KIA",
      "LG"
@@ -804,7 +824,7 @@
    },
    {
     "title": "[스경x현장] 1차전 선발, KIA는 고민 안 했다…“큰 게임엔 네일, KS 1차전을 던졌으니까”",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5ZeHYybjZMN213VElDV2dndTljU2x5WFdRdGJDWmlGZmxRMHZyUER4bC1WSnR0ZmFxV1VsdHA0a0ZIVnpiSHdBV2xfMDk5NW1RZ19IcUFkbzhBblJQV1HSAWNBVV95cUxNTzVIVUdPTHhGeTQ4R3lvNXNaOGpaRVVWR1RGV0ZQZEJ3djJZb1JXdWRocjNPdHNhUl9WMmVhMG4yLVJXMjQxUXRlZ2taTGgwMzRYVHFRVlo3Q2NTc0JmSmhucHc?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1PNUhVR09MeEZ5NDhHeW81c1o4alpFVVZHVEZXRlBkQnd2MllvUld1ZGhyM090c2FSX1YyZWEwbjItUlcyNDFRdGVna1pMaDAzNFhUcVFWWjdDY1NzQmZKaG5wd9IBY0FVX3lxTE1PNUhVR09MeEZ5NDhHeW81c1o4alpFVVZHVEZXRlBkQnd2MllvUld1ZGhyM090c2FSX1YyZWEwbjItUlcyNDFRdGVna1pMaDAzNFhUcVFWWjdDY1NzQmZKaG5wdw?oc=5",
     "source": "스포츠경향",
     "publishedAt": "2026-10-16T17:25+09:00",
     "teams": [
@@ -832,7 +852,7 @@
    },
    {
     "title": "[스경x인터뷰] 김도영, 다시 평화의 소녀상 앞으로…“오늘은 감사 인사 하고 싶다”",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8wdlltWXRWMndVWHExYWFpMHJUYmVhdVI2UEpFTjJmZFJCaHc2Z24tak9yOC15eHhWclIzS2VfaHpGdlU4XzlTZzJoZnU2YmdCTnEyNmJnUW55dmNva1HSAWNBVV95cUxQbDZ6VkpiaXJ5MUxHOVluMU5Ca3hodmU1WF96bEdZY0U2amYtZFJSUjF0d2NRamhhVGRlemVCZ1BBMEpPRXFNZnRLS0pwMm1UQThHTE9fVUFnT2xZVHFqU09EWVE?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBsNnpWSmJpcnkxTEc5WW4xTkJreGh2ZTVYX3psR1ljRTZqZi1kUlJSMXR3Y1FqaGFUZGV6ZUJnUEEwSk9FcU1mdEtLSnAybVRBOEdMT19VQWdPbFlUcWpTT0RZUdIBY0FVX3lxTFBsNnpWSmJpcnkxTEc5WW4xTkJreGh2ZTVYX3psR1ljRTZqZi1kUlJSMXR3Y1FqaGFUZGV6ZUJnUEEwSk9FcU1mdEtLSnAybVRBOEdMT19VQWdPbFlUcWpTT0RZUQ?oc=5",
     "source": "스포츠경향",
     "publishedAt": "2026-10-16T16:53+09:00",
     "teams": [
@@ -853,25 +873,6 @@
     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1RclBkaWpwTXBEMlhSaGdfOVRFazl0OHZnSTNSWHBBd3Juc3hIazhIelhqN3RhVHdjUE80RU4tVExfSWVudTdhR0dvNm5rQjBGVlhCWVBlZktoYmE3cG1tMWc0ZFZnaFJjYWlpc2YwbklLMHJCMHRIMdIBeEFVX3lxTE1RclBkaWpwTXBEMlhSaGdfOVRFazl0OHZnSTNSWHBBd3Juc3hIazhIelhqN3RhVHdjUE80RU4tVExfSWVudTdhR0dvNm5rQjBGVlhCWVBlZktoYmE3cG1tMWc0ZFZnaFJjYWlpc2YwbklLMHJCMHRIMQ?oc=5",
     "source": "뉴시스",
     "publishedAt": "2026-10-16T16:42+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "이범호 \"네일 6이닝 이상 기대\"…나성범·김도영 \"LG 잡고 PO 간다\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE03d1VuUTVtZjBuN3d6aWRDblI4X0RLeWp6djE0UXotQUM5c21xQmt4bUU2Tk10M2U3T2N4Q0FydllQV2lzbU9JdmYwSzdRR2ZyNXFwMjlLSHNGMVFTZUJjcNIBeEFVX3lxTE1KQUQ3cWwteWZ3LTNxNTZxLVJqUlFKcnUzVnVzNEpidW1JWnNjS3BPZmU1WmNUMHlCWTRuMXFKakxDX05nUHd1cnJXbmtuYlJCN2kxRjdRMzRfRHp1UGRnMTdHbGltNm9XR0xOLVBZRTZKWXloN1dJeg?oc=5",
-    "source": "뉴시스",
-    "publishedAt": "2026-10-16T16:32+09:00",
-    "teams": [
-     "KIA",
-     "LG"
-    ]
-   },
-   {
-    "title": "KIA '찐팬' DAY6 원필·김의성, 준PO 1~2차전 승리기원 시구",
-    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBYY2N3aVBvSE1XdXhTOHlMZWxlS2FxWDl5QVdrNjZIcXFnbVIwS25LNVltcmFyR0NobXdsTFB6TXJqQ00xWXRLYmpjblNMZ2xiMFhiTFN3bw?oc=5",
-    "source": "뉴스1",
-    "publishedAt": "2026-10-16T16:22+09:00",
     "teams": [
      "KIA"
     ]
@@ -978,6 +979,15 @@
     ]
    },
    {
+    "title": "삼성 초대형 호재! 구자욱 오늘(15일)부터 타격 훈련 재개…남은 시간 열흘, 관건은 `주루`",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1pMTZ5Wm9nMUktZmZ0X3c5R2Exb3NJWW1NS0hnZ0ROUzlDcmNsUmhyUVEtQzRhYTZac25UNGhXdDF4MnF5Ym10LXIyRnZvZVlKS1hXOU12R2sxdl92ZEJWWA?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-10-15T14:01+09:00",
+    "teams": [
+     "삼성"
+    ]
+   },
+   {
     "title": "삼성 구자욱, 허벅지 부상 호전…PO 출전 여부는 미지수",
     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE14LUc4eXBEdWh0ZDVkR2I5NUlvX2REbzdCamtDLVpvU1dib1owUEVNZDVFVElxRW5BNktoRXFmUEk0T0VZcWp0UFdXb2x4YTB4dW5FdTJseDB6alpLN3N4YkNUdFB6QWg5ekVBUlQwMTNFdlBNeHdiTHFQMNIBf0FVX3lxTE1FSUhnbTRDQ3NuOTNXNm9FZEtnUXJVRUFTazdBUDdJU1JkVXpyUVV4bDFQV01CREZoem5XdHgzbE5zQmlCbmFYTVp1UFQwNm5FQ0FHZWliOUVFRFhRUkJlZjNpLXBZeVZsRjhmTU02OGtWdkFkT3VEMDB0VTBGdjQ?oc=5",
     "source": "데일리스포츠한국",
@@ -1007,22 +1017,33 @@
      "KIA",
      "LG"
     ]
-   },
-   {
-    "title": "’햄스트링 부상’ 삼성 구자욱, 오늘부터 타격 훈련…PO 앞둔 삼성에 ’희소식’",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9IS0k2a2xtRXc3MWlQcFNCeFJCM2J2dnVRM2huMklJMFl2N2stYUhndHZMZTZjUVhPdjFsZjljTExUR05zeUt6YldydjRuRkJtRENuMENSejNPellScGhpUlVWcHROMFU?oc=5",
-    "source": "연합뉴스TV",
-    "publishedAt": "2026-10-15T11:43+09:00",
-    "teams": [
-     "삼성"
-    ]
    }
   ],
   "LG": [
    {
+    "title": "1차전 이겨야 70.6%인데 하필 톨허스트가 선발이라니... KIA전 ERA 6.20 악몽, LG는 왜 다른 선택 못 했나",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE16YjFYNWszbldCTUlJUXVSdGZoa29IRFd1TEJVbk4xN19mZFNiLVdrRTdqNVoxX0xMRDFuSV92T0U2bWZ1N2ZKcjJtc2RJMUFKMnhfMXF0RFlBbEhkRHdGRVhwWHBKVlllNWlQM0xBU2xFcS1WMkE?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-10-16T21:14+09:00",
+    "teams": [
+     "LG",
+     "KIA"
+    ]
+   },
+   {
+    "title": "‘70.6% 확률 잡아라!’ KIA 네일 vs LG 톨허스트, 준PO 1차전 선발",
+    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTUdEUmZKWmFOSUM5T1dsNnY2RmZsZ2tvZmJtVFlqVzR1aTNZaG5KSmtqMU1FZmVobEVHZUppRXEtTGtaajNESFdoQ3RyMjNpQ2hsckpkSk1IQkJGeUJmbFV2Vm9SUWh4cFpsb2pra1FQOEZ2WkhnRmw0V19EOEc2Y29JQVpuOWgyXzIwd3FKTkhZcDYtNFFkUnRobVVfWWRGYnU0emtRQVg4MWV5MFFYRDJQTGY1NFI1MkdxQ19zSmNvemFkODdVQWNQbFd4bEl6aTNpeVZZUQ?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-10-16T21:12+09:00",
+    "teams": [
+     "LG",
+     "KIA"
+    ]
+   },
+   {
     "title": "70.6% 잡아라…KIA·LG 첫판부터 총력전 예고",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE84cXN6NWFNcS1qcmRpVnFFTE0wQ0RSakxtNk53V1RSc3pWQ3Rhc2VTdllZRWdTNDRWdlllcVdsdXFMUWtpQXlUTXJob0J4b1dqTGZaVXh5ZE4tY2NTeG83bjFnbVpGWGM?oc=5",
-    "source": "연합뉴스TV",
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9tSGNvUXM2U0VCYmpGT2ZNaWQ2SzBRVmNjWnFUc2praHlndlFjVl9QUlpqeDlxRVhEbDNpZVNOR3BBTUI0dDBVendHUkQ5d1BtUERMS3JQelE1WHPSAWBBVV95cUxNMmcycVh3aGx4ZV9FV1ZQa1JsaW5PVkQ5ME4tMGVyNmV1ZzFXVjJmTUtJWjU4bG9BTXZ4WjRrd2VwVGxPVngtY3Z6aUJnY3NsQ2xOV1BmN0hkUWNTOTJES2k?oc=5",
+    "source": "연합뉴스",
     "publishedAt": "2026-10-16T20:12+09:00",
     "teams": [
      "LG",
@@ -1031,7 +1052,7 @@
    },
    {
     "title": "‘한숨 돌린 LG’ 손주영·신민재, 준PO 엔트리 합류",
-    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBPelpMRTE0NnZXdkN5RHFpdTJ4WXBpYWxHbTVBVFFCWHBWQ0JlakZnczYtcXEzcEJDVVpNMEo0QkVIOG9JcVNKMzJsY2tuNXlBOUxr?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOY0FNTTlOaFZJMGlGN0RDMEgzS3lLWllmRDdadUVlLUZnT0gxYVRKMlRHRDFGVzgwYy1Fbm5EVTkxOUJXejdtWDdQaGtabWlQcW1iM012dHRIamxlaG1SWWkzT1Vub1luV080V0JvX1JmRDNlVFdDYjIzVVk5VzZHV0djV0VsY0pNMjNZQlhIeVI2WjlGcTNKTXd3MXF6NnpOQkkzRnFlMXZnTkRuaF9ZbkxaR09yM3ZYR0E3Q0N3TVZVcXF2aXVMWG93ZXBaak5maVAwakVfOU04UTZxUEpYZWxpQUZqR1V5VkdVUGtDcjRDRWZpMm12alFZTHJlcU5mU2tv?oc=5",
     "source": "데일리안",
     "publishedAt": "2026-10-16T19:05+09:00",
     "teams": [
@@ -1049,9 +1070,9 @@
    },
    {
     "title": "\"첫 판 무조건 잡는다\"…LG·KIA, 준PO 마지막 담금질",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1yV2R5WkNVZTZhTW96b0NsQ2NWX0lwRWZqb0R0T1pQdkZLQzFvT1d4QlpmUzRaQVNJWjh6a2xSaVVZdl9heEJzb0NrVzRXblhkOXR0R0FKZWR6UnBQbzN4QmxVbWQ1b2c?oc=5",
-    "source": "연합뉴스TV",
-    "publishedAt": "2026-10-16T18:18+09:00",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE15NVhRNWtPVWhIWFd4SGNqOE1HWUwyVFBWQTByUE52eVBWekFlT1dnRlJIOGUxQWdFbkNna3lSVHQxRTc0NFZrb1prYkx1NnA2bE9kcWJxd2pTU2tMb2ZxT9IBYEFVX3lxTE15NVhRNWtPVWhIWFd4SGNqOE1HWUwyVFBWQTByUE52eVBWekFlT1dnRlJIOGUxQWdFbkNna3lSVHQxRTc0NFZrb1prYkx1NnA2bE9kcWJxd2pTU2tMb2ZxTw?oc=5",
+    "source": "연합뉴스",
+    "publishedAt": "2026-10-16T18:19+09:00",
     "teams": [
      "LG",
      "KIA"
@@ -1116,6 +1137,15 @@
     ]
    },
    {
+    "title": "‘생일 선물로 내가 쏜다’ 과자 봉지로 들어간 와카 MVP 오스틴[지형준의 Behind]",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9kN2I4SnJ0R1VNbFB6dFZnVzNNSWU3c2RZbHFsTlhQMFRhaVJGNTBxcllJdGV2STE3cDJsbmJLWlhuUmh3M09feHAtcHd2Y2IxTGtYdGJKNnBjZnpIMjRPNVRR?oc=5",
+    "source": "미주중앙일보",
+    "publishedAt": "2026-10-16T16:47+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
     "title": "'LG 대호재' 클로저 결국 돌아왔다! 신민재도 정상 합류…톨허스트-네일 격돌 [공식발표]",
     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeWJiZ0VucWZaMjhDenExejlaZjZ6ZFZ6bWVtSkQ5TEVpamZYZVVhb2N0MUxmdUhaanRYeTgzLWhNMUdhNFI1Q0ZoZUxFMTlYOEJ1ZnlxdjFhRnhEZnhuZTlvSjdEa1IwVGdFZUxMWEU0UVFGTy1rTHh5SGZtNjRmcVJFSQ?oc=5",
     "source": "조선일보",
@@ -1126,38 +1156,10 @@
     ]
    },
    {
-    "title": "‘생일 선물로 내가 쏜다’ 과자 봉지로 들어간 와카 MVP 오스틴[지형준의 Behind]",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9kN2I4SnJ0R1VNbFB6dFZnVzNNSWU3c2RZbHFsTlhQMFRhaVJGNTBxcllJdGV2STE3cDJsbmJLWlhuUmh3M09feHAtcHd2Y2IxTGtYdGJKNnBjZnpIMjRPNVRR?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-10-16T16:47+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
     "title": "등판 가능 시점은?…LG 손주영, 불펜 투구 없이 준PO 합류",
     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9KVXFWdlhvMzRKLVgwUkRPZE52a05FcmdQMk9uWW93M2ZQSVU1aFQxZGlxZ0xEMnRzSXpwR1h4WVpZMUFMSndycndCenRUcWEyeUE?oc=5",
     "source": "노컷뉴스",
     "publishedAt": "2026-10-16T16:45+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "이범호 \"네일 6이닝 이상 기대\"…나성범·김도영 \"LG 잡고 PO 간다\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE03d1VuUTVtZjBuN3d6aWRDblI4X0RLeWp6djE0UXotQUM5c21xQmt4bUU2Tk10M2U3T2N4Q0FydllQV2lzbU9JdmYwSzdRR2ZyNXFwMjlLSHNGMVFTZUJjcNIBeEFVX3lxTE1KQUQ3cWwteWZ3LTNxNTZxLVJqUlFKcnUzVnVzNEpidW1JWnNjS3BPZmU1WmNUMHlCWTRuMXFKakxDX05nUHd1cnJXbmtuYlJCN2kxRjdRMzRfRHp1UGRnMTdHbGltNm9XR0xOLVBZRTZKWXloN1dJeg?oc=5",
-    "source": "뉴시스",
-    "publishedAt": "2026-10-16T16:32+09:00",
-    "teams": [
-     "LG",
-     "KIA"
-    ]
-   },
-   {
-    "title": "LG의 가을야구, 손주영은 언제 마운드에 오를까…준PO 엔트리 일단 합류",
-    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5pLU84WnFFRGtNdURFNTNWYkRQOG91OGpOV0pENVd3b1ZtZ1M3TzRWMjZNdnh1N0F1Y0EyMkpSUERyTUp2QjlzNGczZWhtWGJuVTM1UTFlMHByMnJBdk1QMjJWRdIBY0FVX3lxTE5pLU84WnFFRGtNdURFNTNWYkRQOG91OGpOV0pENVd3b1ZtZ1M3TzRWMjZNdnh1N0F1Y0EyMkpSUERyTUp2QjlzNGczZWhtWGJuVTM1UTFlMHByMnJBdk1QMjJWRQ?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-10-16T16:23+09:00",
     "teams": [
      "LG"
     ]
@@ -1166,7 +1168,7 @@
   "두산": [
    {
     "title": "역전 위기 막은 두산 김민석, 9~10월 최고 호수비 선정",
-    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1fVFhOTllWajhlQUl2X1ZFN3RYVGJGTm5ibzdZNTVtSGgxcHZmTzNMTElkdzdHREZQdFBpQ1RfQ2ZxcV9zMXNTenNaSm1nNEhwUWtGbTJHLXZHTVFveDlqZ0xYb0JQN2RSREx1YnM0ZmtBdlhlaE1BdNIBeEFVX3lxTE1fVFhOTllWajhlQUl2X1ZFN3RYVGJGTm5ibzdZNTVtSGgxcHZmTzNMTElkdzdHREZQdFBpQ1RfQ2ZxcV9zMXNTenNaSm1nNEhwUWtGbTJHLXZHTVFveDlqZ0xYb0JQN2RSREx1YnM0ZmtBdlhlaE1BdA?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBodXJ6WUMxdzBVM1JtUlVSVzhzMzBtOXVRa2RIZFlBMmVKajVaOGpDTXl1Wm9nZlhsVVpHZklmRmFTLUVJM2RSSi1LLVNyZVBpWjVXaHNqcm00aFFqRmF2S9IBeEFVX3lxTE1fVFhOTllWajhlQUl2X1ZFN3RYVGJGTm5ibzdZNTVtSGgxcHZmTzNMTElkdzdHREZQdFBpQ1RfQ2ZxcV9zMXNTenNaSm1nNEhwUWtGbTJHLXZHTVFveDlqZ0xYb0JQN2RSREx1YnM0ZmtBdlhlaE1BdA?oc=5",
     "source": "뉴시스",
     "publishedAt": "2026-10-16T20:02+09:00",
     "teams": [
@@ -1458,6 +1460,15 @@
     ]
    },
    {
+    "title": "'14경기 9승·평균자책점 1.44' 아빌라, SSG와 최대 2년 재계약",
+    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1rdHZQd25nOVNZRXV1R2RFaUMzSVhKNUUtcEgwYXBwaVVYVDBJQldLYXpqb1UtbHJ6djhxVWt3RGZJaHota0I5dE00OVNpbEVhSWc?oc=5",
+    "source": "노컷뉴스",
+    "publishedAt": "2026-10-16T14:28+09:00",
+    "teams": [
+     "SSG"
+    ]
+   },
+   {
     "title": "SSG ‘최광야구’ 티켓 오픈 당일 매진…결과만큼이나 눈길 사로잡은 팬 중심의 ‘과정’",
     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBwejU5ZGxXSmhwblZ3WlBDMVVCWXF4clZZdC1HR185N3lpNklzbmFrOWVLbENUNjEwOEQ4Mml5VkVXMkVqWE4yVng3UUxBOFFtZnF2UmhQaHBObDNYejdEYmg0ZEF5TUhhcUl1OGdoWUpPZw?oc=5",
     "source": "스포츠동아",
@@ -1574,22 +1585,13 @@
     "teams": [
      "SSG"
     ]
-   },
-   {
-    "title": "[공식] 누가 ‘쓱’ 잔류하게? ‘ERA 1.44’ 아빌라, SSG와 최대 2년 재계약 합의…“2027시즌엔 우승할 수 있도록”",
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAydUMyN0pEbXpwNFZaMlBjYlRWaVROQUhpOEFYY1VPa0xSdHFCVEFodVRmQmZXd1dVSWs3RUF0UE9pa0lSdTM0NGlOZnB0dG9Nckx2Nkg4LXY?oc=5",
-    "source": "스포츠서울",
-    "publishedAt": "2026-10-16T11:34+09:00",
-    "teams": [
-     "SSG"
-    ]
    }
   ],
   "롯데": [
    {
     "title": "'감독·단장 거취는 안갯속인데' 롯데는 벌써 2027년 준비, 1군 멤버도 미국 간다! 전민재·고승민 등 8명 파견",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9ESTJNUGlOZ1o0REFEQ182SVlSYlUtTmtaMzU5ZHlnUEhLaW8wQkdxWmdwU1pkOWJTS1dsLWM4dDV3WG9vazFjazZOMUVRVk1tWkJncWZTamxEMnBkcmE1Q21hVDJSSUdIalg5bHRUaDlublU5ZlE?oc=5",
-    "source": "스타뉴스",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9zc3M1ZktJc0xvOVc4MXppNTlLd1hHZW5QX0ZXRTB5bXlTY0hEaFY1cFd0VjNKR2ZFM0drRUstLVhDVWRTZ0JNZk43Ym1vUzQzS01MWHloM3dkSDZmaWF5SjdXa2loWDl5R0I5a0hNSdIBb0FVX3lxTE9zc3M1ZktJc0xvOVc4MXppNTlLd1hHZW5QX0ZXRTB5bXlTY0hEaFY1cFd0VjNKR2ZFM0drRUstLVhDVWRTZ0JNZk43Ym1vUzQzS01MWHloM3dkSDZmaWF5SjdXa2loWDl5R0I5a0hNSQ?oc=5",
+    "source": "머니투데이",
     "publishedAt": "2026-10-16T18:41+09:00",
     "teams": [
      "롯데"
@@ -1636,15 +1638,6 @@
     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9aamZadlJsZzdIY3hhTnZmVHFvSEhsWk9nWVpxTGctcVY4OW5PUjN0UXBiOFVwOFBqQVg5TXFPZkoycTA4NFRrV0Nnd1IzSkV0SzUxd0dyNjhtdXF2SmlUd2JGTVNZYkJPME5GOUdCWmFRM0drWExlWdIBeEFVX3lxTE9aamZadlJsZzdIY3hhTnZmVHFvSEhsWk9nWVpxTGctcVY4OW5PUjN0UXBiOFVwOFBqQVg5TXFPZkoycTA4NFRrV0Nnd1IzSkV0SzUxd0dyNjhtdXF2SmlUd2JGTVNZYkJPME5GOUdCWmFRM0drWExlWQ?oc=5",
     "source": "뉴시스",
     "publishedAt": "2026-10-16T11:40+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
-    "title": "유망주로 효과 본 롯데…고승민·전민재 등 주전도 미국 연수",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rTHVzY2dmbXJoODZ0SkVYTkFXemxkNmJmd1hPQzFmbHd5X3NMMHozSF8zWXh6bmZhWXJkMktzUjVRNWgyTVFCQ0J5X2Q5eFJJLU9laFNuWWJTS19DamlsWndENGFWZw?oc=5",
-    "source": "news.sbs.co.kr",
-    "publishedAt": "2026-10-16T11:16+09:00",
     "teams": [
      "롯데"
     ]
@@ -1704,15 +1697,6 @@
     ]
    },
    {
-    "title": "롯데의 2027시즌 벌써 시작, '주전 유격수' 전민재-'無병살타' 고승민 등 美 연수 떠난다",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBxSWEzaWQ0OXpoMVpBMmx2WHFiRTdybElKNHcwMDNSM0FxbnZlVl9vLUdzOHpoOWRkcjUwNkctWElhZmpuNndtN0J5WTBSUGJxejN6WjBCWGk4OFlGSExIMVd4MjVUVVU0ZDNaX0gxY9IBb0FVX3lxTFBxSWEzaWQ0OXpoMVpBMmx2WHFiRTdybElKNHcwMDNSM0FxbnZlVl9vLUdzOHpoOWRkcjUwNkctWElhZmpuNndtN0J5WTBSUGJxejN6WjBCWGk4OFlGSExIMVd4MjVUVVU0ZDNaX0gxYw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-10-16T10:06+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
     "title": "10승-10홀드 아쉽게 불발됐지만…'태극마크' 달았다! 롯데 실패한 시즌? 확실한 믿을맨 찾은 소중한 한 해",
     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5qYWRQckNqRnhYOTF4UENMQXJOOV9wRmJ1V3hHNG9LQndXRW1rQnNtNjN2cTROajMxRzJQbWV5ZVNTSTNOTVktY3kyS0dPYWxaZUxQeGtwOXMxYTQyTDlwR0U1SzNyTHljUWZvMVo0TXA?oc=5",
     "source": "SPOTV NEWS",
@@ -1720,9 +1704,47 @@
     "teams": [
      "롯데"
     ]
+   },
+   {
+    "title": "'7년 연속 KS' 승부사 데려다 리빌딩만 3년... '7위·7위·7위' 롯데, 김태형 감독만 바꾼다고 달라질까",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4xMktBdmt3Z0s3b09sejZCQUxhVlE2R2g3eHlGRzQtVjMyQjI0WkJ6ZVVWc2NSWGZFRGxWaUFmSjRVMTRXVV94d09pRW1wVTRHNEszcDF5Z1VERmtxQlp5S2VVZm90Q21TODFqNEhRc9IBb0FVX3lxTE4xMktBdmt3Z0s3b09sejZCQUxhVlE2R2g3eHlGRzQtVjMyQjI0WkJ6ZVVWc2NSWGZFRGxWaUFmSjRVMTRXVV94d09pRW1wVTRHNEszcDF5Z1VERmtxQlp5S2VVZm90Q21TODFqNEhRcw?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-10-16T06:01+09:00",
+    "teams": [
+     "롯데",
+     "KIA"
+    ]
+   },
+   {
+    "title": "“(박)해민이는 딱 날아갔을 때 딱” 김태형도 깜놀, 황성빈 발은 빠른데 그게 중요해…롯데 중견수 미래가 궁금해",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1ub0swaXZmbkQ4WWlGWHFTZ19qQnRuNTJ6U3FLbkJoSjQ0V2VZRThpZmczNEZCTGttaVNZVE1IQ1g0U2U3THpuMjBFeGtaRlZVSXdSQ1lMOTFPaXJGa0JaQg?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-10-15T17:30+09:00",
+    "teams": [
+     "롯데",
+     "KIA"
+    ]
    }
   ],
   "한화": [
+   {
+    "title": "한화의 반격은 지금부터…류지현 시대 개막",
+    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBmTjR1T0JkMm1Ob1BkTVAzRXBEa1QzSVRKcFY1LUxaa2tEcW45ZG1iaVIyQTZNajJ3UFZYQzI4eHBCc001N1JvQVgwU1I4U1FZNGZqZGRYeVNNOTVJTjZqNUZweUlYdw?oc=5",
+    "source": "KBS 뉴스",
+    "publishedAt": "2026-10-16T21:56+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "경찰 간부, 한화 ‘스카이박스’ 공짜 관람에 대기발령",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZDNkZGJnMGNsRjgtUEQtdzJuelRnOXlWS1BrYjB0aVp3ejh3QTZISDBuT1RIX0VJU1RQeS1IWHFTa3lTbXo5LTJjQ0lxbUdBQkFGbnhiQnFhZ0RTNEYwUzhNcEZhVnRkbzhJWVNNUUx2UjNuVnhRVDlhWXBFLTJVSG1UVXJOZw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-10-16T18:24+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
    {
     "title": "대전 경찰 간부, 한화이글스 스카이박스 이용권 무상 수수 의혹",
     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5yZ3B4bFJoRWkxYnhHdFcxRVhKR1FWZHhkVzJwR1lwZlNIVE5hUnFnWlUyZ2M4WWltMnVhSFQ0dUxmWmhodXBxR2tQMVl2SmhoZWc?oc=5",
@@ -1736,16 +1758,6 @@
     "title": "\"LG서 달던 번호 가져오는 건 적절치 않아\" 류지현 감독, 한화 이글스에서 76번 다는 이유 [오!쎈 대전]",
     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBBRi02ZWhhOGRjS21YZFpTSGNfVzRURzVneHZNVWU5NXRZUV8tbGdWTjRxVzJ3cFdlaEZVSFNZNkZiQWVsTWx4NG9iY01LUmw4Nm1aMjk2MmtWM05kaUNnbFNFbThzdDAtdDdkclFDY9IBb0FVX3lxTFBBRi02ZWhhOGRjS21YZFpTSGNfVzRURzVneHZNVWU5NXRZUV8tbGdWTjRxVzJ3cFdlaEZVSFNZNkZiQWVsTWx4NG9iY01LUmw4Nm1aMjk2MmtWM05kaUNnbFNFbThzdDAtdDdkclFDYw?oc=5",
     "source": "머니투데이",
-    "publishedAt": "2026-10-16T17:41+09:00",
-    "teams": [
-     "한화",
-     "LG"
-    ]
-   },
-   {
-    "title": "'29년 LG맨' 류지현은 왜 한화 제안을 수락했나…\"한화는 나와 궁합 잘 맞겠다\" 20억 대전행 막전막후 전격 공개 [MD대전]",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE8ydVJTaW9lMVdUcGhCNGxkT0wtYTNNSkNpcG5YeW1jVmtQNmM4Z1U0Zzg1dmQ0bkZrOGh6YVdXOGVjRGpSYVd4aDNTOFNrak5MWEo2Yk9FVXFoaGllQW92N295UkZxQQ?oc=5",
-    "source": "마이데일리",
     "publishedAt": "2026-10-16T17:41+09:00",
     "teams": [
      "한화",
@@ -1850,18 +1862,18 @@
     "teams": [
      "한화"
     ]
-   },
-   {
-    "title": "[일문일답] 류지현 신임 감독 \"자부심 갖고 '최강 한화' 외치도록\"",
-    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE00dlpOUXJ0UTJVU2VJVjNXTkppYVl3SDIydGwydmhoQV9Xc0J0enZMai05U3lIZGRHbElZRnMzVWMtVDBfRjVnWlVtcC0xRE1MUFBKUmI2VQ?oc=5",
-    "source": "뉴스1",
-    "publishedAt": "2026-10-16T15:10+09:00",
-    "teams": [
-     "한화"
-    ]
    }
   ],
   "NC": [
+   {
+    "title": "'PS 좌절' NC의 2027시즌은 시작됐다…구창모 김형준 김휘집 등 주전 포함 CAMP1 진행",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQd0pRbzJVa01LZVpvTGdTa2w1LUJua29uMHY4TFpjaUpWOHlsS2RsUi1jTnd5ODdRNmRONldPZHdlUVZWZFNpb08wdm5OSmhwUnNzaFZoWmthQjBSY05TYW05d2tWV0tRRWxEb3JRbnRtWmJ6b3BfX2w0eWdsYnhNRjVfTQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-10-16T22:19+09:00",
+    "teams": [
+     "NC"
+    ]
+   },
    {
     "title": "'쉴 틈도 없다, 벌써 2027년 준비' NC 이호준 감독의 승부수…창원 찍고 오키나와 간다",
     "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1WUUdGYzl5Ukp5M055SDF2d0RlaXNzRk5WRjUxS3lMY3JmUzFHRzZVbGI4OEc5NFFVODZMRkNJazVPYmt6MVdDOEpqTUNTcEZ0SW1qUw?oc=5",
@@ -1986,15 +1998,6 @@
     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9IX2ZUR0lxSVdMYUlSVnkyMkNiTklHTGNiMnFubUY4OGEtdWY3X20zSW5IcTRudVZvZEh3OUVfYTBpN2lYR2RqM1VXX2QzX1N6UDdPN185WVlEQmFBTjZkWjQ0MUNfT2E2R2wwdlZHTdIBb0FVX3lxTE9IX2ZUR0lxSVdMYUlSVnkyMkNiTklHTGNiMnFubUY4OGEtdWY3X20zSW5IcTRudVZvZEh3OUVfYTBpN2lYR2RqM1VXX2QzX1N6UDdPN185WVlEQmFBTjZkWjQ0MUNfT2E2R2wwdlZHTQ?oc=5",
     "source": "머니투데이",
     "publishedAt": "2026-10-13T13:00+09:00",
-    "teams": [
-     "NC"
-    ]
-   },
-   {
-    "title": "[오피셜] NC도 신인 계약 마쳤다! 1R 박보승 옵션 포함 총액 3억원에 도장 \"가족이 된 선수들 환영\"",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lOWJNdzRPbTdPbjNlR2hGUDBkLXozbDRsZW1PeWs2MExrNTlGN2hTckVXSlhRWC1iR21wb3VLQ3k4WWpBMEZPdjFCS0RVYnI3NDJYUUxuY0FfM3FYdHVnRnJTVnZJb3dpMl9MbEk3X3A?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-10-13T12:00+09:00",
     "teams": [
      "NC"
     ]
