@@ -22,25 +22,37 @@
   ],
   "lineup_url": "https://m.sports.naver.com/game/33331018LGHT02026/lineup",
   "stadium": "광주",
-  "away_starter_name": "",
-  "home_starter_name": "",
+  "away_starter_name": "임찬규",
+  "home_starter_name": "올러",
   "broadcast_channel": "SBS",
   "starting_lineups": {
     "team_1": {
       "team_name": "LG",
       "team_code": "LG",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "61101",
+        "name": "임찬규",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     },
     "team_2": {
       "team_name": "KIA",
       "team_code": "HT",
-      "starting_pitcher": null,
+      "starting_pitcher": {
+        "player_id": "55633",
+        "name": "올러",
+        "throwing_hand": "우투",
+        "position": "투수",
+        "role": "선발투수"
+      },
       "starting_batters": []
     }
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-16T23:20:37.076917+09:00",
+  "crawl_time": "2026-10-17T17:18:28.842179+09:00",
   "error": "API preview did not include full batting orders"
 }
