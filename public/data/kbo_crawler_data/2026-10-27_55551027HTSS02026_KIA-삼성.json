@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-31",
-  "game_code": "55551031HTSS02026",
-  "game_time": "14:00",
+  "date": "2026-10-27",
+  "game_code": "55551027HTSS02026",
+  "game_time": "18:30",
   "game_status": "경기전",
   "status_code": "BEFORE",
   "teams": [
@@ -20,11 +20,11 @@
       "is_home": true
     }
   ],
-  "lineup_url": "https://m.sports.naver.com/game/55551031HTSS02026/lineup",
+  "lineup_url": "https://m.sports.naver.com/game/55551027HTSS02026/lineup",
   "stadium": "대구",
   "away_starter_name": "",
   "home_starter_name": "",
-  "broadcast_channel": "KBS2",
+  "broadcast_channel": "",
   "starting_lineups": {
     "team_1": {
       "team_name": "KIA",
@@ -41,6 +41,6 @@
   },
   "lineup_status": "not_confirmed",
   "lineup_source": "naver_api_preview",
-  "crawl_time": "2026-10-22T23:42:55.771888+09:00",
+  "crawl_time": "2026-10-25T14:23:03.787753+09:00",
   "error": "API preview did not include full batting orders"
 }
