@@ -1,9 +1,24 @@
 {
- "updatedAt": "2026-11-17T08:03:21+09:00",
+ "updatedAt": "2026-11-17T20:06:51+09:00",
  "source": "Google News RSS (주요 언론사만)",
  "teams": {
   "KIA": [],
   "삼성": [
+   {
+    "title": "‘460만달러’ 삼성, 페덱-후라도-디아즈 ‘재계약’ 방침…‘협상’의 영역→‘황금 분할’ 어떻게 [SS시선집중]",
+    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBDZng5cFd2dnJaOFpPY1BTYXFVcUNPbTRNZjIzbkhwdE1PM1lzX1c2cnFJdEtpM0VnX1hZQlV4ckVFc21oSXhWRTJfN09xY1c1Rl9vOHd3V0k?oc=5",
+    "source": "스포츠서울",
+    "publishedAt": "2026-11-17T08:15+09:00",
+    "pitchers": [
+     "페덱",
+     "후라도"
+    ],
+    "signals": {
+     "페덱": "mention",
+     "후라도": "mention"
+    },
+    "signal": "mention"
+   },
    {
     "title": "\"에이전트 선임을 해놓은 상태\" 원태인도 해외 생각이 있다…KS가 쇼케이스였나? 美 평가 \"선발보단 불펜 적합\"",
     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1HRGxNNHpTSWc1UlZ4S0E1STBsam1BemJaT1RvWkFseWh5cHdnOGFiUjFVdkdBOWprWjJlZkt5ZXFTNUU1N1VzT0ZKa0hFd1AyTTVaSVFmZ1pHeU43T01oXw?oc=5",
@@ -94,19 +109,6 @@
      "장찬희": "mention"
     },
     "signal": "mention"
-   },
-   {
-    "title": "‘저비용 반등 자원’ 다시 ML 관심, 현실적인 삼성 잔류 선택지까지···페덱을 둘러싼 스토브리그 변수들",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5UZXlGTWFfYmtKQnFOTnNFQ19TY25vbzltckstOUJ6Vy1URklTWGQ1bVhCRjU1WWJVemk4UWhBTnVHU2JiT0RoR0FKUW1jeXczRi00VWt3QWhzVWFqMVHSAWNBVV95cUxPeTJjRU9KOVVGdFFGUklVQ0tIVkU0YXNfYXhrWVN3ZU44ZzV6NXhEbWl5Q1lwcDBIUkJjTWQxTnlDVnVNRnlKXzBiMy1zSlc5WnNxREZId3Z4MUJwWGxoR1IxOEU?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-14T09:50+09:00",
-    "pitchers": [
-     "페덱"
-    ],
-    "signals": {
-     "페덱": "mention"
-    },
-    "signal": "mention"
    }
   ],
   "LG": [],
@@ -167,7 +169,7 @@
    },
    {
     "title": "김건우, APBC 결승서 일본 상대 선발 중책…APBC 결승서 다카하시와 격돌",
-    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE83eW9zdDBhcUx2RmdLYllVNWUtWmhtWXFvQVdCTkdvN0hTRnFnZWktcTNjdFA2M1NTRFNKeHVUQ1pDZFJNeW1GdjNoY0h2U2NsRUpOc0NTd1paZlZDRHM5M083MlFSVzNOLTlTOXBHQ3hLU0Nxb3UtdNIBeEFVX3lxTE83eW9zdDBhcUx2RmdLYllVNWUtWmhtWXFvQVdCTkdvN0hTRnFnZWktcTNjdFA2M1NTRFNKeHVUQ1pDZFJNeW1GdjNoY0h2U2NsRUpOc0NTd1paZlZDRHM5M083MlFSVzNOLTlTOXBHQ3hLU0Nxb3UtdA?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5SOHF5cjItdzBGWjZJYnp2TkJpQzlpQ01YRV94NmNQWW9zSmJzeEZWYm1kR1hwM2lvVzhZbG4xUUVyOTA3REtCR1FfeExXcTFxWmxGNHRaRFJIUVhCTUR0YtIBeEFVX3lxTE83eW9zdDBhcUx2RmdLYllVNWUtWmhtWXFvQVdCTkdvN0hTRnFnZWktcTNjdFA2M1NTRFNKeHVUQ1pDZFJNeW1GdjNoY0h2U2NsRUpOc0NTd1paZlZDRHM5M083MlFSVzNOLTlTOXBHQ3hLU0Nxb3UtdA?oc=5",
     "source": "뉴시스",
     "publishedAt": "2026-11-15T12:25+09:00",
     "pitchers": [
@@ -220,6 +222,19 @@
   ],
   "롯데": [
    {
+    "title": "원래 결승전 선발 투수였다···국제대회 경쟁력 증명한 김진욱 “올해 경험 살려 내년엔 더 잘하겠다.”",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zZVIwaE15cEJJbjdsUmZEVkd2cUF3S3hnY1ZKUXRMV25hY0hrQ0N4Yk85YmNUcGtRRjZBVG8zaUMyNUdHNXhGSTBGZzhwdFVoZ2xWWkRGZUE1dVJHM3pUM0FoZ9IBY0FVX3lxTE0zZVIwaE15cEJJbjdsUmZEVkd2cUF3S3hnY1ZKUXRMV25hY0hrQ0N4Yk85YmNUcGtRRjZBVG8zaUMyNUdHNXhGSTBGZzhwdFVoZ2xWWkRGZUE1dVJHM3pUM0FoZw?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T14:53+09:00",
+    "pitchers": [
+     "김진욱"
+    ],
+    "signals": {
+     "김진욱": "mention"
+    },
+    "signal": "mention"
+   },
+   {
     "title": "“국제 대회 중압감과 각국 선수와 대결 모두 큰 영향” 한동희·최준용·김진욱·박정민 성장 기대하는 롯데 [SD 미야자키 리포트]",
     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5IaWFfOHRjcDQyM0pHcTlTVENaaFM3a0pRdHBPR3RrajhoblY3NEhEdFRqZkJuWm9zNlFYd3B3SXFWcVlMelJWTTQ0NDZ5SXJnR25FQmVRRnI3akpSWXUteHVwanBtekhKcjN1SmVFeEpRZw?oc=5",
     "source": "스포츠동아",
@@ -262,8 +277,8 @@
    },
    {
     "title": "'1루수 나승엽-유격수 한태양' 이동욱 비공식 데뷔전 & 수비강화캠프 중간고사, \"선수들의 스마트함 보겠다\"…한화 정우주 선발 출격 [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE44SmFRRzloZmtTUUxzdndYeWdTN3JLQWVpYVJVZWxKNjlESWdUMnRRNEpHcmVKdUV1VXNlZEdMNUJKdmlHbzNwY1Vwb0prRmNRVllqdQ?oc=5",
-    "source": "OSEN",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE94d2ZPdjdDN0VXUlhlMmwzaXVObW5vcUlaUUp1NTFxMFVidjdXNjRSN2ZBaDNQR0Q2WTlVNi1sNFg1TWtaN2JWYTdtSkFuY3k2ZEE1OUc5ckZXVWVfajE1VnQ1S2UwQVB5S3BtalRRd9IBb0FVX3lxTE94d2ZPdjdDN0VXUlhlMmwzaXVObW5vcUlaUUp1NTFxMFVidjdXNjRSN2ZBaDNQR0Q2WTlVNi1sNFg1TWtaN2JWYTdtSkFuY3k2ZEE1OUc5ckZXVWVfajE1VnQ1S2UwQVB5S3BtalRRdw?oc=5",
+    "source": "머니투데이",
     "publishedAt": "2026-11-16T11:09+09:00",
     "pitchers": [
      "정우주"
@@ -280,6 +295,71 @@
  "news": {
   "KIA": [
    {
+    "title": "이제는 대체불가, KIA 예비FA 뉴클로저 마음도 잡아야 한다...연봉 크게 올리고 다년계약 추진하나",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE80Y1BER0dRWlowMHNpOW9BVmE1Um1IdjRZQ1VYTEJmSjI0Q1RrV2Z5Y0NBSW5nZjNES2hXYzNKelloVU9YeHVmTG9ZNk1aUDFVdXRTcWRhOGt6Uy16N0VINVRUdXVfT0xUbUHSAW9BVV95cUxOQnRNSmJQU0ZqdkZ4elBzTTM2c3hRdDBaWkFaZnNVMnFlcF81UzJYLW5TcmJsbFBqWklEcFRiU011SXZvZVFXRGtjdUNYSUpaS0tPb2ZLdmVlbmlBTHdQZU50eVZOOVJGd3FNSE5ralk?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T17:40+09:00",
+    "teams": [
+     "KIA"
+    ]
+   },
+   {
+    "title": "막 오른 ‘쩐의 전쟁’, 구·원만 있나…C등급 알짜 김호령·전병우에 베테랑 포수 셋",
+    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2U24zM0Nla1ZiNUVFR0VqUlVWSmVOOGVvOEhJM2dWOUE0ZVFWNzNXOGJBRDhmOVN3UVJnQWN3LUQ0a0tEbVRYYmpKQUQzelU2M2tJaU5GOUpJVnhzUk1UMTAxMWM0NUU?oc=5",
+    "source": "한겨레",
+    "publishedAt": "2026-11-17T15:39+09:00",
+    "teams": [
+     "KIA",
+     "삼성"
+    ]
+   },
+   {
+    "title": "양의지 잔류에 더 뜨거워진 '안방 전쟁'…LG·KIA·한화 '집토끼 단속' 비상",
+    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9jNFlnck5PemFGM3lOR3VvMkYwUFBNbmt3VG1EQXZMTWo4QzFNblVYZWtGcng4a2lLLXF1WjQxTjhQd2laNi0tOW1WZFhVLWNreXc?oc=5",
+    "source": "노컷뉴스",
+    "publishedAt": "2026-11-17T13:19+09:00",
+    "teams": [
+     "KIA",
+     "LG",
+     "한화",
+     "두산"
+    ]
+   },
+   {
+    "title": "최지훈 ‘그림의 떡’-정수빈도 ‘글쎄’…‘C등급’ 김호령이 뜨겁고 또 뜨겁다 [SS시선집중]",
+    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5qVTRwOGRackVjeVZJeF9SY0NoWUVCY1VsUEdCc19Hd1VGVFJ4bndfVjgtM2JBWXRpb0RKdWxpdHRLTVVPdzBtMGI3aUV6LTdHZnA4bG1MeWo?oc=5",
+    "source": "스포츠서울",
+    "publishedAt": "2026-11-17T12:45+09:00",
+    "teams": [
+     "KIA",
+     "두산",
+     "SSG"
+    ]
+   },
+   {
+    "title": "\"최형우·박찬호도 보냈는데 과연 김호령은?\"... C등급 몸값 폭등 조짐, KIA의 최종 선택이 궁금하다",
+    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnQmNJeXBrdmc4NXBnSHlNRVAteXFrd21hQjlxX1NSMmZNZFpkUExMZ1c3N2xMckVaUDQyb1pqODBoTk5RTWJLWll5eFBsR3NJa19rT1EtN3BCQQ?oc=5",
+    "source": "파이낸셜뉴스",
+    "publishedAt": "2026-11-17T11:00+09:00",
+    "teams": [
+     "KIA",
+     "삼성",
+     "두산"
+    ]
+   },
+   {
+    "title": "양의지 잔류→'FA 포수 최대어' 박동원 어디로 향하나! 야구계 초미의 관심사, 김태군·최재훈 거취에도 영향",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5MaFh0SnlsXzYtZXBDd2tjYk5qUS12UDY3OW5SRi1xWGQwdUJTSU1TaE93eFcwU2E4Q2pxNW9xU1FhaGFONkZZdTBRZ3V5RDBBTkZlbEVSd21WTkM0cFFjQXctcGxrZTRqbnVGMWc3YS1pcEczY3c?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-11-17T10:17+09:00",
+    "teams": [
+     "KIA",
+     "LG",
+     "두산",
+     "한화"
+    ]
+   },
+   {
     "title": "'1R 특급' KIA 기대주 깨운 이범호 감독의 일침…\"도영이 형은 어릴 때부터 준비돼 있었어\"[인터뷰]",
     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9jd0xPV1pJSHV4V0h5ZUpXZWx2MWs2LUcyTVNfMDZlSDduWWJvY3dEdmliaUdLUDZyQ2RxbDFNUnJtSERvYmNaeE9SaXZsQnlLdTA4RXF6TFBTMDg4Z2RJcWZZRWl1QzNudmtZbWV4czBaNTFnZzU3eWhIUWdBUQ?oc=5",
     "source": "스포츠조선",
@@ -293,24 +373,6 @@
     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9Pemt2RmluTHV0eDZUYWZnbVJJTlNBNzNDb3pYQ0IyQ3hzZW9UMm5SNFE5djhVQ2JENVhwZGtDQ3VGNTJUSHlNSEhNM1pSU1JlNFdOd3k0XzFqNmQyRjhKLVpneXY5aFFyZ08wWFJtRmxHZUdtZWpYSzRJWWhyZw?oc=5",
     "source": "스포츠조선",
     "publishedAt": "2026-11-17T01:22+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "멀리서 보면 김도영이다...18세 신인이 벌써 홈런 펑펑, 슈퍼스타와 너무 닮았네 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNDhKT0VKc0IyTTRocXlkZGFXSDRRNW41aFJXbU9icG5VcnEtNWdzcEI3eWhsbzNtQ1R5ZVF0WG1YM25uUFNmQ1hNZ0NDRGJuLVEwTFAyT3JkRFRleE1ldTE2cVlKcE9OUkhRc2FLNmc2bzVTM29pTHpCeTFMQXBjZ3JkZw?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-17T01:17+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "'이럴수가' 양키스 광주까지 왔는데, 日 김도영 영입설 나왔다…\"대형 영입될 것\" 美 전망",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82c3Z6THpCUTZ4dVhaazF0OGdTa2xKb2NDakJqbnFJdUx1T2RLenlXXzVBQ19haXVEYy03MVJ5Nkt1cS1Wd0pCWlpzTERxTUl5MzVLcVg3TDZzYnkwaEJKbjF2eF8taGN1LTBNdThzWHlPaEt3cHpCbFkxb21sUQ?oc=5",
-    "source": "스포츠조선",
-    "publishedAt": "2026-11-17T00:44+09:00",
     "teams": [
      "KIA"
     ]
@@ -334,24 +396,6 @@
     ]
    },
    {
-    "title": "\"日 투수들 나이까지 검색했다\" KBO 45홈런에도 벽 느꼈다, 김도영 솔직 고백 \"아직 많이 부족하다... 나부터 성장해야\" [김포공항 현장]",
-    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBWTkdYRlRGc1d4aklpNnRKTThnbFN2SDdjbkp4TFdPb2xJVkRGdm01RG4yczhXU3VTNlJkUzNLN0V0NkJEVmZjcDZ5eHVPMm12X21aMlRheDI0bkZTeksxMHJqZnRKd3dLSGfSAW9BVV95cUxNOG9abWpQT3pCaHlxUzNfZjJldklXbU1KOGw2ZjNuNFhzZkNkNDVBYklyVFJSS3ZTREtpLU80MWFNamtDZUUzVnNzVDkwdVVWV0d4MDQ1SEZOX2ZEY0d4Wk5OVE9tZ3JnSUtZU3BhTDQ?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T19:11+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "또 한 번 부족함 느낀 김도영 \"日 정말 강한 팀…투수들 검색도 해 봤다\"",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9MQVhWMUtDTGZ5dUNZUDI0QmtISFFyWE1vM3NjYWw3ZkJ6NUtfdUtEdE1oejZ4MXB1QnNyTW03UkhFejdDdzJ0V195STZlUTctVmh5YTJOd3ZJdw?oc=5",
-    "source": "파이낸셜뉴스",
-    "publishedAt": "2026-11-16T17:49+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
     "title": "김호령 없이 2024 우승했지만 그때는 대안 존재...C등급 호령존 진짜 시장 나왔다, KIA 유출 플랜 B도 고민이다",
     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBaQ1lhR1oxSGhEQjhSbmZsVHM4aXJ6SXZ0eVRuM1doOHFjYU1NSC1lYTJ1dGlKTUdaTWZwSFdNSTlCeHU5NlRkNGVpeF9ZQm1WdTlLQmFnVzkyYV9jME9Ea003Xy1WU0lnOVJta1JVZ9IBb0FVX3lxTFBaQ1lhR1oxSGhEQjhSbmZsVHM4aXJ6SXZ0eVRuM1doOHFjYU1NSC1lYTJ1dGlKTUdaTWZwSFdNSTlCeHU5NlRkNGVpeF9ZQm1WdTlLQmFnVzkyYV9jME9Ea003Xy1WU0lnOVJta1JVZw?oc=5",
     "source": "머니투데이",
@@ -365,15 +409,6 @@
     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9PNnlsdFEzb3JVemh0MDYxTjdJVDhwVXRCbGF6S0ZIQjBPcVZNQlVIdDlyaUNpWF9jd1ZtVXJoSEFVVms4MmktRVNXeWRnQmFhY2c?oc=5",
     "source": "노컷뉴스",
     "publishedAt": "2026-11-16T15:24+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "'다년계약 거절' 25억 밥값 충분했다, KIA 차기 안방마님 위해서도 필요한 존재다",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5vNnJfaHd2NUlvWGt0aFRhNUN1NEo5TzU1OFFNY3djSzE2Z1VrZDhxS21uVE01SmJkZElpbTc5NjhIQm5kcDNKRWpFR1ktTHktakc3NmJXOGNjb3ZlUnJmNHZramUtSkpyVU01dzlNLWMxdU0wTVhIRENiZlZjUQ?oc=5",
-    "source": "스포츠조선",
-    "publishedAt": "2026-11-16T12:44+09:00",
     "teams": [
      "KIA"
     ]
@@ -398,18 +433,9 @@
    },
    {
     "title": "무조건 잘해야 하는 23살 슈퍼스타의 숙명, APBC가 김도영에게 던진 묵직한 메시지 '끊임없이 진화하라'",
-    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1lOWF0QzJybFZXYWduNWdTVl9HWTdnejZCQzZqaXV6WlBPTXJWM3VlUE5lRlNzTURpN2JobTBnSlpxWmdOT3dkOVdZM0lZTWR6UDUxaXEtSGZ1TGFOeHpON1JYUk03VmZUeVHSAW9BVV95cUxQd3JCc3d6TWpaYlB4bk5GNDlQaTItOERmNDlYb3M4czhIWjh1Zl8tektSczYwOVJId2hKeTBCcFp2UDNxdVFfUVJwbkk3b0ljTEUwLVdtYnFSQ0dYRHJCenVUaC1fejdWZy1TcUUwWEU?oc=5",
-    "source": "머니투데이",
+    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4zRlctbVo4bHdKeHlQaFNLVUxwUGw4V3JjSXprMUREaExvbUJYTFZCdkpxQmVrUW1YRzJpZHhDeDhuUGNtTTVkUEZXOWZGMUNfbmN5Vg?oc=5",
+    "source": "OSEN",
     "publishedAt": "2026-11-16T10:20+09:00",
-    "teams": [
-     "KIA"
-    ]
-   },
-   {
-    "title": "'첫 태극마크' KIA 막내, 도쿄돔 마운드 밟지도 못 하다니 \"당연히 나가고 싶었는데…자극 받았다\" [오!쎈 도쿄]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1SeUNuT3hSWkVQUzhobnhtREdHX0ZkdElZbGdaMmRxUkFiUE1obkViOXhpcUdDS1Z0MmozcS1GZ1pRa29uVXFyRTg3UjJGVHFJMlJOMXBvaVpHWkFZQTU0Y3VLMG9IQjIwQ2tkdFk3Z9IBb0FVX3lxTE1SeUNuT3hSWkVQUzhobnhtREdHX0ZkdElZbGdaMmRxUkFiUE1obkViOXhpcUdDS1Z0MmozcS1GZ1pRa29uVXFyRTg3UjJGVHFJMlJOMXBvaVpHWkFZQTU0Y3VLMG9IQjIwQ2tkdFk3Zw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T10:10+09:00",
     "teams": [
      "KIA"
     ]
@@ -417,427 +443,429 @@
   ],
   "삼성": [
    {
-    "title": "FA시장 본격 개장···복잡한 삼성라이온즈, 이번에도 '돌아온 연어 효과'?",
-    "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1aRmhIRE1XRzd6cDRLUWJCYTFabVFJTXZEcDl2ZmFVXzNZVWNnNzJUX1hLQjZsazNKUFBlVThDaFRPdG5UTEVuT1p3Nlg?oc=5",
-    "source": "대구MBC",
-    "publishedAt": "2026-11-17T06:46+09:00",
+    "title": "2년 전 강민호의 약속이 현실로…삼성, 에버랜드에서 팬들과 우승 공약 지켰다 “내년에도 다시 우승을!”",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1XUnFfSkVocHZ6ZlphZ2JHTk83SDZwOEY1WlJ0UU5WTldkbTFsVHh2X0ZnV05mV0xUVVk3d3Z5QlF0VzY0WmctY01QOVlHbFlKT0lqQ2xFSjUzdHVGUEHSAWNBVV95cUxPT1N2OVRtdmVISmU4ZG45Y2lBcHZHR1Y1UGNKU2ZZRDNVd2hza2thNFB6ajBNR0pQbnNiQTFSRkZBdVV3QU9tdjJJZnBTVW5qS1pwa3RrTU5ITXBUU096NE8tN1U?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T20:00+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "\"끝나고 말하면 안 될까요\" 삼성 선수 얼마나 힘들었으면…하지만 어쩌나, 김지찬 너무 잘하는데",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5DSVBMa1ExbnlwOVdtbmFRLU1vaGZ0dWhWSm5pOXVOQzJKWGdEdGNfQ2Y4eHZmOXY4OGZzbG01dVpMa21xTVVKY0FKY3lCSmZuV3NnbXdWYklLMkdOU1lBbi04WVdvZHU1LVAydDJoU0k?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-17T06:32+09:00",
+    "title": "우승 공약 지키러 에버랜드 갔는데…강민호에게 닥친 뜻밖의 시련(?)",
+    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQQW9XYV9sZ0tZOVlaNDBDS3hqRmxDUGlzNlRoM1pFT0xrM2hmbW9OWmVRV3p4WS10b0VDd3phT3luRThaaEtZVzNfOTJuaE9PdlZjQ2tLU2FkTk1FaTMzclNrMTlIU0xUbC1KdDdiUWNxdGxOR3VMd2dmeU9jeXBHWWM3M2Roa05VVDU2M1dZY9IBZkFVX3lxTFBNeGRVNkpyR0hzbDFHblZ5UldXV3BJRW91eTlfOVBGNEtxakZVc01iZHZqZGtKNElaX3MzbDFlTHd4VGh5NlVXbzBhb0xtMGxycU5rLWYzSTJsU051bGdELUE0dWFudw?oc=5",
+    "source": "SBS 뉴스",
+    "publishedAt": "2026-11-17T19:33+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "초비상! '샐러리캡 꽉찬' 삼성, 구자욱·원태인 동반 이탈 징조?→향후 2년간 이런 대어 없는데 \"이러다 왕조 시작부터 공중분해?\" 발칵",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBTWTU3OUhEeVliVlBLaW9rZGNCYWtJamJhTU5EOUVOLTVnRXlNR1l5U2NBeUFBdDh2OEcySE9pZFlfNldPOTV6NzVOXzNBbDBkaGozaXlrQ2xWNTdGNTFEM05NUS1Pd1NYVThfWlljN203NDg5MWlIYXBUTWVDQQ?oc=5",
-    "source": "스포츠조선",
-    "publishedAt": "2026-11-17T05:45+09:00",
+    "title": "약속 지킨 강민호, 내년에 한번 더?…공약은 에버랜드, 도전은 네버엔딩",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tUUV3UFV5aERKQ2lZZlRDS1BtWXJxQWU5Z1U5NHhQUFVaY3FOdXY3NlVuak5WRzRDaDdIVl94QW9HWDBjdDdpRmd5Q0RtNmlFVW4zQ1h6TzkwbkZpbnfSAWNBVV95cUxORTJJeU9uM3FidjljVlVWdHI1VU00OWFPeGZoN0JnTi1IcU82cGVUZjY0WEU4T0Q0bXVxYjRBSXpIYmxjNjJzUUtXdWJ2cFNlYy1HN3NzNDdpMkRmZTlFSldnV0E?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T19:12+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "삼성 벌써 지갑 열었다! 규모는 상상 초월…12년 만 KS 우승→선수단 4박5일 일본 여행 보내준다",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4yZERzazk3TkxNbnZ2VDZDRXhhZXJmNWMycy1WN0JsbXFodmxQa01IUUdrN3FyMjZ6ZDN5ZExTUC0xMWhkczRlWlFtWFcydWpOLXpWclE1c0Z6aHRSMGtpMFlXY1NTaDkySkZjbUdpaUo?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-17T01:23+09:00",
+    "title": "드디어 입 연 'FA' 원태인, 이것만 강조했다! \"해외 진출? 무모한 도전은 안 한다\"",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA0WnRHUjk3QnhpUHZKamNCb3JuWFVVak8zNzhUd0VnMmNiazJTV3BES3BoS3BGQkJGT3pMdUlwZ3RPcUp5TlN4TmpXRWZGOUpwWTZoYllLSVdxMkkyZ3ZPX1pDRDJlSW1yck54SnB4WXZQcE9NUmc?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-11-17T19:04+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "\"에이전트 선임을 해놓은 상태\" 원태인도 해외 생각이 있다…KS가 쇼케이스였나? 美 평가 \"선발보단 불펜 적합\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1HRGxNNHpTSWc1UlZ4S0E1STBsam1BemJaT1RvWkFseWh5cHdnOGFiUjFVdkdBOWprWjJlZkt5ZXFTNUU1N1VzT0ZKa0hFd1AyTTVaSVFmZ1pHeU43T01oXw?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-17T00:41+09:00",
+    "title": "\"일일 남친 되겠다\"…구자욱, 에버랜드서 포착 '무슨 일?' [덕질경제학]",
+    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA0bkJTc1JGdTdFU204ekNiZVAyS01IWGxSRFp3XzVHOXpYSHhibXJSdXZvYkxxU1gyVGNPR2Z5N2xLOHBlMXNZVG1RdFF6Uy0zSnEwY1RxUlhTUQ?oc=5",
+    "source": "한국경제",
+    "publishedAt": "2026-11-17T19:02+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "“1~2년 안에 이런 FA 선수 없다”…구자욱·원태인 쟁탈전 시작",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9MbW9TVWFjclpsaGlEUDBMb0NDZmN0Z1ltUHlpR2FLd3M3Tl9DUlN0anFnbGxvOHBlS01GamxjTVpjREpJMndnVl80NHVEMzVtZ0hvUVdDaUdBalpwWEhvVTFUZXlXMzQ?oc=5",
-    "source": "한겨레",
-    "publishedAt": "2026-11-16T19:55+09:00",
-    "teams": [
-     "삼성"
-    ]
-   },
-   {
-    "title": "삼성 26세 포수 `V9` 효과 제대로 누린다, 강민호 왜 부러워했나…\"나는 21년 걸렸다\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9sUHdVNFFkV2lMYjZ6dklKRkEzMHoyaGotY3lSeDFFcExLdVJXUzhncFNhOUNGV0t3eVFhRkZIbmI2Z2pZdjhZRG1vR1l2LVZ4dE14c1hXRXdkc0VlcDZlTA?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T14:01+09:00",
-    "teams": [
-     "삼성"
-    ]
-   },
-   {
-    "title": "김현수 떠난 LG의 아쉬움, 삼성도 생각해 볼 문제…구자욱의 가치는 기록이 전부가 아니다",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBvRkQ1QmZ2ZWgtZ1h6WkVxLXpoWTBsWVJNTHlubW5MUnVMaFVucjBYeTNfV1d2TmNhTnhmRm1qN2FsSVRSUE5Gb0Y2T0xKWllqOU9seWlDeXluNDhQdElBLVVR?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-11-16T13:40+09:00",
-    "teams": [
-     "삼성",
-     "LG"
-    ]
-   },
-   {
-    "title": "구자욱·원태인 등 FA 승인 선수 22명 공시…17일부터 협상",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9OZGI2Y3lwNThHWExFeU0telBYbmMydzNkNnhnUmNkZk9IZ0dDWkRRbXdHLTBXYm0ycnRtYzRhalR1N3R2eGh6ZEpCSEk1LUVZMF80N0FNRTZQSUZOUDRRWdIBeEFVX3lxTE82c0VpZjdZNnNxMkdqeXBUZUZ2VVpxWnVMc0hGSjEtcXR1dEVmd3BOcFZkaFBFTllXNFRGNkd2U3BRT2xfUnFGU1hnRjlrblQ4SjZOc0RQTHB3RVByYTlLNDhyQlN0SUc0YnotMnZuRGNkeWdkY0RwaQ?oc=5",
-    "source": "뉴시스",
-    "publishedAt": "2026-11-16T11:59+09:00",
-    "teams": [
-     "삼성"
-    ]
-   },
-   {
-    "title": "삼성웰스토리, 삼성 원태인이 픽한 막창타코 에버랜드서 선봬",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE50LUZ5S0R5LWxweEtGYnIzUnhqeVdWSkVJdHlBZDFmb3hyeFpkVkNsM3RUNjFYbGtzTE51ZW9hSHNPZU16UnphYTZ4eXI2QklHV3lFODI5QkdteGZOcHJQNtIBeEFVX3lxTFAwX3FFaENOQXdxa1I4Ukd6RV82RGRGRXVkUXh1T1M0RWxLYmdTZ0Y0ZlhtaUlqT1lEZlRLRFlsZGJjOW40S250R3RSQXRzWmVYM0toTElhcy12c05BZEgyLVlZVHEwRUdlcFdlRUZHcjk5MUhIVnJyeg?oc=5",
-    "source": "뉴시스",
-    "publishedAt": "2026-11-16T11:27+09:00",
-    "teams": [
-     "삼성"
-    ]
-   },
-   {
-    "title": "삼성라이온즈 라팍 '원태인 막창타코', 에버랜드 간다",
-    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPaUt5eE8wUkVEYUFwQ3RWbnc5TEd6blZTNDVlZlFXTEYzbU9aM0UxbEY5NlducmlSNW1pYVFfVXJIVFllengtblZwRy1ZZlRrQ2NkbTZIRnkxSVdRcnRWdDc5bTJyQkp2Q2M0TVJuMUM3c0JZYTNFbzN2SzZGaEpfNw?oc=5",
-    "source": "이데일리",
-    "publishedAt": "2026-11-16T10:13+09:00",
-    "teams": [
-     "삼성"
-    ]
-   },
-   {
-    "title": "삼성웰스토리, 라팍 인기 메뉴 에버랜드서 선봬.. 야구 우승 기념",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4yOW1EX3lNY1hETVRhLWoxbC1yNFU3VG1pejhrNk9SS0ExeDZHYlBBS3NkRjRyU3lpZnkyVFRBRDAwY1FyYkx0dm5pdE01QURUQzdEOTMzMzVsQQ?oc=5",
+    "title": "\"1000명 약속? 2000명 불렀다\" 에버랜드 통째로 빌린 삼성, 'FA' 구자욱·원태인 뜬 역대급 V9 파티",
+    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE56eUNtRmxJZkhQSkVORXd5NUNRVkpaQVYxdUU1UnE4akFJb3NVaFZYSEZfUE1sWkRhNzh6QTVISlo3c3I3TUxJaVBydTlYSENEenJVMHpJWjVFUQ?oc=5",
     "source": "파이낸셜뉴스",
-    "publishedAt": "2026-11-16T09:16+09:00",
+    "publishedAt": "2026-11-17T19:01+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "삼성웰스토리, 라이온즈 우승 기념 '라팍' 인기 메뉴 에버랜드 판매",
-    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBWN1M1d3Fwc1hHVHBXb2huZ0s3RmpJd0h2bGFxMUNIS2NaRTdVSndKSXItaHNKblhfMVhtQXZvUGdlNkkzMVNzN21US0VxcmFiY3FkdlhtUFpUWlpBUTNR?oc=5",
+    "title": "구자욱 삼성 vs 두산 vs SSG 3파전? ML 변수까지…200억원 진짜 넘어가면 단숨에 최정·양의지·김현수 추월",
+    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9aUkZjVFVVMmpXeG5mTTc0YVVDdVFCODZQaDFGb3JieVNZb2dwOWlJZnZ5T0N5VkdVOU40ZWozcFlWeEt0SFFuTkJzQWR6UUY3WkhzT3F0QjhMR1BHS2NWV090WnpOUQ?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-11-17T18:48+09:00",
+    "teams": [
+     "삼성",
+     "두산",
+     "SSG"
+    ]
+   },
+   {
+    "title": "'12년 만에 정상' 삼성, 에버랜드서 팬들과 우승 기념",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zaEtUaEM2M2o5MEhLb2ZwREJhOXpLMElNSUdoQmRkUmJVaEFHRWQxd3BtS2JkTGdYc3oyWm8yck9GSEV6MmtFQTFSUFV3TTlkR3M4b1ZSS0QyNkM0SGFIQ9IBeEFVX3lxTE9reUlkVFBPYXo3Q3cyTHJDbDhOdGJBclR1Vl9WLTluVFU0Z2RhUS14M0FtSVRWWDIyZHdnM2t3X1cyVm5jODdOUTcta29zWW8wRlZhbVVNY0dhcHhyZXN6cnJ6VWpMcXhOTm55M2hYZlJFVk1GckY3UA?oc=5",
+    "source": "뉴시스",
+    "publishedAt": "2026-11-17T17:57+09:00",
+    "teams": [
+     "삼성"
+    ]
+   },
+   {
+    "title": "삼성, 한국시리즈 우승 공약 지켰다…팬 2000명과 에버랜드 데이트",
+    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5saU95UmZHUkF6V2h2ejAxQXZHQTRCbTVuVHNidXY3ZUl1YUZTd1FNa0FlOXREUktpamppYkJPOF9aeVdPNkh3Z2oydTRfWXdYQzBvMzVOcw?oc=5",
     "source": "뉴스1",
-    "publishedAt": "2026-11-16T08:54+09:00",
+    "publishedAt": "2026-11-17T17:52+09:00",
     "teams": [
      "삼성"
     ]
    },
    {
-    "title": "삼성 라이온즈 우승 기념… ‘롯데’, 삼성 가전 할인행사",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5NS216ZENMUGlQdGd6cXAtbkl4MFN5bWpFTDZaQnRVRElSRjJvU1QzcUdCd2I4RkVEM05wYXFESEx1YkMwYThmMDZEN1YtbmRjMjlkWnVrTlQ1dzJpTW5mYzhVV2NNQdIBZkFVX3lxTE5NS216ZENMUGlQdGd6cXAtbkl4MFN5bWpFTDZaQnRVRElSRjJvU1QzcUdCd2I4RkVEM05wYXFESEx1YkMwYThmMDZEN1YtbmRjMjlkWnVrTlQ1dzJpTW5mYzhVV2NNQQ?oc=5",
-    "source": "동아일보",
-    "publishedAt": "2026-11-16T00:30+09:00",
+    "title": "\"삼성이 잡고자 하는 선수 놓친 적 있었던가\" 'FA 최대어' 구자욱·원태인 동반 잔류 희망가…정작 두 후배에겐 \"비밀사진 푼다\" 협박(?) 메시지[용인 현장]",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1fbWNia1pZdUZ6VkFhZ1lHSGFBU013MzREYkJkdzQ3VkFEZVF0LVdqbFg3eV8yMTR4cC1BbmpsamxFU0dpczJFay0wbTVpd1RwOWhkWVN1NFM1Ry1YMnhFWkZDYnhvUFd5R3Z0VzJ4S0ctMEM3NE85YlVZMnRMUQ?oc=5",
+    "source": "스포츠조선",
+    "publishedAt": "2026-11-17T17:43+09:00",
     "teams": [
-     "삼성",
-     "롯데"
+     "삼성"
     ]
    },
    {
-    "title": "삼성 라이온즈 우승에 가전도 '세일 홈런'…롯데하이마트 할인전",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1iNmgtMTR4V0llOWhGZzJPZ2dJeFRWT2FqRV9rRTdfVV9XSzBPX1AyTXpUNGlENHQ1R2dwQUl2aWRwYVNoY241UWtHMjJsQ1RXcG82a3E0N1l6eGptNFRlSUZPVGE2ZlZvZlU3WXU5NNIBb0FVX3lxTE1iNmgtMTR4V0llOWhGZzJPZ2dJeFRWT2FqRV9rRTdfVV9XSzBPX1AyTXpUNGlENHQ1R2dwQUl2aWRwYVNoY241UWtHMjJsQ1RXcG82a3E0N1l6eGptNFRlSUZPVGE2ZlZvZlU3WXU5NA?oc=5",
+    "title": "\"구자욱 선수, 남아주세요!\" 삼성 팬의 외침→선수는 할 수 있는 말이 없다 [용인 현장]",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LLWNDQkllN2M1YWM1Nkh2WHVXMThOQ2tHOXRCZWxxS0loQWg1STQ1UjBLUDdQOVNpdUZOSy1XVXllNmFkWkk4M0RIYnAzZ0lWaE5GNnlKWExGdFM5bGVVcVJUNVFqZ1VLZEHSAW9BVV95cUxPaUhhTExHNlB6VVJFQlNzYlFXZlpFWEN6RHo0LWN4SXdpUFRaTzVndFhFNWh0QW9hUFpXZVhscnZNYTZsYjRzYWZOUUlCZDNESXVaQlhnOGdTTHRxZUZaZ29hZGlhNXdHVEF0NnpjMW8?oc=5",
     "source": "머니투데이",
-    "publishedAt": "2026-11-15T10:14+09:00",
+    "publishedAt": "2026-11-17T17:13+09:00",
     "teams": [
-     "삼성",
-     "롯데"
+     "삼성"
+    ]
+   },
+   {
+    "title": "2년 전 강민호 공약 현실로···12년 만에 ‘정상 탈환’ 삼성, 팬 2000여 명과 우승 파티 ‘감동’",
+    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNSnhYUVVMYkw5OFlzTWh2VkwtUXVnZGlUSDY5YVVoUTljVVRxZ3FmeXhTRDNyYUZjdTRHa1BFN2xxekFoX014RE05SkFkaUZtS2dWUVRnVWlrWXlCQm5GY0REcFA4dE1WTHpxMWVhVDVCOE9Pa1BUUzdlSVRKLUc5c1VkeGZtT21pT1pLRURDMW9lMlB0YU9qdUhwdTJNTUprYzM1NzR3ZFRLOHfSAV9BVV95cUxQRnVHWlBRU29BazV6MV9ZWmpwaGVvd1FMbGdoTjUwdy1YeUZCdFZVLThXdmN0UDZfXzN6YmMwN2hzZGpQVzQ3cW5LQXE2NVlMV24wZEVOWG9vb0JhRWJfOA?oc=5",
+    "source": "경향신문",
+    "publishedAt": "2026-11-17T17:11+09:00",
+    "teams": [
+     "삼성"
+    ]
+   },
+   {
+    "title": "프로야구 삼성, 우승 공약 지켰다…에버랜드서 팬 2천명과 축제",
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE81WGo4MlBWSm1ZMWZZcHRIVEtJelR6SW05cldBREhIVnlNVnkwZEtad1IyX0txaHlaa21Cd253TDFPZ082WjdoY1VRY04zVVU2VXI4OVpTU0czQ3PSAWBBVV95cUxPT1ktdmN2dDIyNlZob2IxOWNrSDVjUVhlZjlqZWFaQXpza0lwM0dUUDF4UUFwUElYMFpfYVRrRmFDelBXREFPaHZMSHNmN0FWeEV0NXlubUEyREgyS190Ynk?oc=5",
+    "source": "연합뉴스",
+    "publishedAt": "2026-11-17T16:56+09:00",
+    "teams": [
+     "삼성"
+    ]
+   },
+   {
+    "title": "삼성라이온즈, 에버랜드서 팬들과 'KS 우승' 축하행사",
+    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFAtU3lxSS1LSDlmRjNMZE5lM2h2Nm9QNnNOZWdOVlNHQ1k1Ymp1RXA5ZXN1T2YxQTI2aUN0OTVkcEpYUlptZXNWOER5aw?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T16:03+09:00",
+    "teams": [
+     "삼성"
+    ]
+   },
+   {
+    "title": "삼성라이온즈 우승 기념 퍼레이드",
+    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9XZmdyN3FwV2hXNzRrYV9zbXpKUEY5Ym1EVGs4NXhZWU1kZ3JUbEFIbTIxTDlvTnYxWFJHWmg3ektfTVNZYWo3WDdLaw?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T16:01+09:00",
+    "teams": [
+     "삼성"
     ]
    }
   ],
   "LG": [
    {
-    "title": "\"10년 암흑기 끝낸 기억 뿐\" 마지막 순간 떠올린 잠실의 추억, 정성훈 \" LG 후배들 너무 잘해 해줄 말 없다\"",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA1dEZ5WjhQZWtoWFZiWGptdUFzWE5SZ2thZ2dwR2dmY2pjR09GZU5NVjMwN1hYNGhILVBCbGVTZ1hZVW1scE1pb1dNU1VPaFlNSEdXbllOX2k5M2w2UzZBenkwSXh5LVBPbTV2SlpYONIBb0FVX3lxTFA1dEZ5WjhQZWtoWFZiWGptdUFzWE5SZ2thZ2dwR2dmY2pjR09GZU5NVjMwN1hYNGhILVBCbGVTZ1hZVW1scE1pb1dNU1VPaFlNSEdXbllOX2k5M2w2UzZBenkwSXh5LVBPbTV2SlpYOA?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-17T01:01+09:00",
+    "title": "日 주니치 마무리 캠프에 다녀온 LG 신예 삼총사가 말한 소득...이천 캠프 합류",
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5XekdVeEp6Y0gwdV9tRzNNOUlYSHp5NlAyTUN3OWtyamNMdGpvNnpaZlBFUmVhRnFUODhhdVFWbjJzajB3T3hIeVBkZFFJWTJDdnBTZlM2NnFjWlU?oc=5",
+    "source": "일간스포츠",
+    "publishedAt": "2026-11-17T18:03+09:00",
     "teams": [
      "LG"
     ]
    },
    {
-    "title": "“불펜이 엉망인데도 기회가 없었다” LG 새 외인 벡 향한 美 매체의 뼈아픈 평가",
-    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBHSUhZRDM4elhwQ0I5SElqOUItckF2R0tPcWd5VlVHQk1NdFhQU0o5T3FDTUR3QUd2OVB1N3p4VmxDTld0WU90S2VNaVBGWUVUeWx1VQ?oc=5",
-    "source": "OSEN",
-    "publishedAt": "2026-11-16T18:40+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "LG, 투수 총괄 코치로 손혁 전 한화 단장 영입",
-    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9VN05oNnFvQ1MydUlIdlZ3SHV6cEkwdkE2N1VST25XT1ZJXzl2ajBqQTFwVnpUTXFPOXk3YVNpU3BSNjRSOTdZa0lPamVMMmlONWFz?oc=5",
-    "source": "데일리안",
-    "publishedAt": "2026-11-16T17:10+09:00",
-    "teams": [
-     "LG",
-     "한화"
-    ]
-   },
-   {
-    "title": "`홍창기 또는 김호령 잡을까` 롯데, FA 시장서 외야 전력 보강 여부에 관심",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE91b21WUm1oYzR5WF96MVFUOW41MlVMOWFBWUVEYnFnTlVmVkpWQ0JwVWVMalY1R3E3Zk95Vm5oQ25zNG1FTm83OXFfTjFFYk04Y0tqbFVHN1hMSThIb1FBMQ?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T16:05+09:00",
-    "teams": [
-     "LG",
-     "롯데",
-     "KIA"
-    ]
-   },
-   {
-    "title": "“롤모델과 첫 후배, 이제는 경쟁자” LG 양우진·윤예성, 1군 티켓은 단 한 장",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBmTy1TeXhCNFZxeFNOeVZITDRVNE1DVjM3Zm1rd3VEVjlhdXRpU0FUWnNFaGlKdHBFeW9IOGdTYTI4RTBNT053VXRURXZFU1c4QmxxMTVCRVhoWVdoTnfSAWNBVV95cUxNdnFmSzBOa1Y2VEJNakktRVNYVXo0Njl1OHdnVEMwa09tbTV4MnpUbUdwV29LeFZva1lFemxqbzRZUnRGanZ2dkxrNjRjMlc5Q0VoOVVKV0p3YXdZUldtc3lTbTg?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-16T14:52+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "김현수 떠난 LG의 아쉬움, 삼성도 생각해 볼 문제…구자욱의 가치는 기록이 전부가 아니다",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBvRkQ1QmZ2ZWgtZ1h6WkVxLXpoWTBsWVJNTHlubW5MUnVMaFVucjBYeTNfV1d2TmNhTnhmRm1qN2FsSVRSUE5Gb0Y2T0xKWllqOU9seWlDeXluNDhQdElBLVVR?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-11-16T13:40+09:00",
-    "teams": [
-     "LG",
-     "삼성"
-    ]
-   },
-   {
-    "title": "LG는 한화로, 한화는 LG로...절묘한 코칭스태프 스와핑의 의미",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Pekd4clpOeXRZaFppanRWUTVZRUl6V3A4VzdvaVpvbEl6NnNGczlBaENfTE1SWDEyV2NNSjFNa3J0akpSRy1MdVczdXBQVjczTnRZNWtIRXA3ak5scGNlckp4SU1GNTVqZ3JJaQ?oc=5",
-    "source": "서울신문",
-    "publishedAt": "2026-11-16T12:52+09:00",
-    "teams": [
-     "LG",
-     "한화"
-    ]
-   },
-   {
-    "title": "김진욱,이의리,김서현 고친 명의. LG엔 양우진이다. \"포크볼, 슬라이더 새로 배웠다\"",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1Pa0NVNGdNR1EzeXBTQWVNd1h4Z3Y4UllHTWN1LTAyaHI1UEdoNXNpUHBBcVducS1QLVl6Q1hUWHZxa1lMV29hSEFfYWxicXVMblBaNGQzaFY0LTBIWHZ3a1A4akhSSlQyaHE0bkh5dk1IOHdSbEJkTXZwV1RQUQ?oc=5",
+    "title": "주니치 2군에서 맞대결→1년만에 APBC 결승전서 진짜 만나다니. 문정빈VS다카하시 APBC라 가능했다[무로이칼럼]",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE80U01GcXBlUVA3bVhjeE9LVFZnaUNxQVBKQ2ZZUWk4V3RRbVVGREt6TEM1NTM0enFLVFYzbThnUlZuNlhqWHRGWEFJVHBQc0VNNWVlZWtib1dUbWdUZWZLWHVuSGI1dEhFRG56ZTRkd01FYVByMERaekE0V0xLQQ?oc=5",
     "source": "스포츠조선",
-    "publishedAt": "2026-11-16T08:01+09:00",
+    "publishedAt": "2026-11-17T18:02+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "LG 트윈스 우강훈, 포크볼 연마해 진화한다…\"좌타자 약점 극복\"",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1sUF96SlQ2NkRDaVpCQVE3OTJ4dlNncHFCRjFGSWc3Y2Zxd2tkenJEbTZlWFRSQlJKMGt3ZXRobktPZ19KOWo1Um5SYkdnX3FMMlhOUFdlTC15ZkVvVE9tbdIBYEFVX3lxTE1sUF96SlQ2NkRDaVpCQVE3OTJ4dlNncHFCRjFGSWc3Y2Zxd2tkenJEbTZlWFRSQlJKMGt3ZXRobktPZ19KOWo1Um5SYkdnX3FMMlhOUFdlTC15ZkVvVE9tbQ?oc=5",
+    "source": "연합뉴스",
+    "publishedAt": "2026-11-17T16:45+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "LG 이영빈·손용준·이주헌, 日 주니치 마무리캠프서 담금질",
+    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9MbkhBbmNrelRQSC1TLS1EZjNKc09SZU9yRWdnZHdzWjg4ZHdCM0FYRnV2UVhfS1hoT0RRNlRVMEM5cnBYdUNvU216WUJ5aGZuUUJhbDFhaw?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T16:36+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "염경엽 LG 감독 \"김범석, 나는 포기하지 않았다\"",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBaeDhpT1VXcjN2T1h0OGgxcV9LUHI3U2lRaU1fYkxzaW9WWmU3ejlvUklYT25OX2VtbEZ0cjdQVXlIVXhxYkljWnNNOHUxYVZ2dzMzb0dTSXc2UkVBcFNSb9IBYEFVX3lxTFBaeDhpT1VXcjN2T1h0OGgxcV9LUHI3U2lRaU1fYkxzaW9WWmU3ejlvUklYT25OX2VtbEZ0cjdQVXlIVXhxYkljWnNNOHUxYVZ2dzMzb0dTSXc2UkVBcFNSbw?oc=5",
+    "source": "연합뉴스",
+    "publishedAt": "2026-11-17T16:19+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "“박동원이 우선, 다른 포수 관심 없다” 4년 전 포수 연쇄 대이동, 올해는 다르다?",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9MRkVQMDhDUXdZTmROb1lObWxWd0lReWNjSVB4WUducU1NTEJHbnJlLUFyZmswdHd5cmJIeExLT2xiYnhGeGpIankteUJ6V3djbGxCOTdmWGV0MUF5dnfSAWNBVV95cUxQWWZDXzNhV2I0TFh2QmphU3BrOGthSDFBLWRETFd6N2J6akdGOHpjOE9jRWNXUDhud1BjMnlDMGRqeVJ0alRIaUJ1RWdLZ3hrN2I5SlhtRkh0U1AtUVNSWFU1ZnM?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T15:51+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "단장서 코치로 이례적 이직…손혁, LG 마운드 재건 특명",
+    "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOWVFUY09VaXNXNFNLaHIxSzN4ekFOUW5yTmU3T2txdFBKeVFLLWlfQTFNRjBDV0hRdVI5NG0tSV9PRS1fMTFnYXJoZ01OX2xBQ00tdmpKSVNuSk5fWXJic0JRcS1DTDJ4LWkyZldrc25mQ1huQVgtT3NfTXN2RU53QWE0TEV2V2Q3QXFhZzlJZjk4MWxuSG02R0NCR2RSNFJnZHNRbi1PU2Z3ZS1aX2FzeE41RDk5MHVPMkpJYlYyNDhvR1EwUEc5UXFZSEw0TlNRVThJeUdwZkhuYkRTZWtxVkZsS1NrWFZHNGZ6Ujk2N01VUVNoZU1DNzBxc09sRGl0dUE?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-11-17T15:27+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "감독·단장 거쳐 LG 코치로 돌아온 손혁 \"투수 몸 관리가 우선\"",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRTBsZ0NEQkx5X0tLX19fQ0NxOHpfeTJaRXVvTmtpb2JpQnRsNGE4TUJWMEEtbjVNMm93NEUwdzR2VGtDZkdVbmJ6enR1aUw4MHRCbWxaSDI5VGZWdHdKSy1SZTBaMHBrdzU3RDlXbzZiNHlSaDBuTjdEeWNJb1dONmNFM0FPdw?oc=5",
+    "source": "news.sbs.co.kr",
+    "publishedAt": "2026-11-17T14:52+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "LG 유망주들 일본에서 17일간 뭘 배웠나 \"수비 자신감 붙었다, 내년 업그레이드 기대해\"",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9iRUExQldTNU9vQmlFc1BKeE03clBVVGRPTEpLQnZCdndwUFhrWjN4MUdYMDlZOWRpV0pxYUVnbmZOSGlnWkxrWEd1Qk9TWlN1NHVuZFMyR1dvTTBNTGtJVlEySWpZSXMwM0puWldrdXI?oc=5",
+    "source": "SPOTV NEWS",
+    "publishedAt": "2026-11-17T14:18+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "'우승 도울 유망주' 이영빈 손용준 이주헌 주니치 캠프 마치고 귀국. \"강도높은 훈련, 수비 자신감 생겼다\"",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBjR2doVnlLS0wyQ3lEcXM4U05KTUMzak9PUkdzekcxeU9TaTIwTHJydV9XV1NqMm5qZTdJT1hCSVdCdjYzbGNJQ1hsX2xEMTVLVlItVmVfMnZ0akJNcFhPR0ZmdmJfVzY4VVdXT201a3M3M2ZwSTFSY3hYVHFoQQ?oc=5",
+    "source": "스포츠조선",
+    "publishedAt": "2026-11-17T14:11+09:00",
+    "teams": [
+     "LG"
+    ]
+   },
+   {
+    "title": "양의지 잔류에 더 뜨거워진 '안방 전쟁'…LG·KIA·한화 '집토끼 단속' 비상",
+    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9jNFlnck5PemFGM3lOR3VvMkYwUFBNbmt3VG1EQXZMTWo4QzFNblVYZWtGcng4a2lLLXF1WjQxTjhQd2laNi0tOW1WZFhVLWNreXc?oc=5",
+    "source": "노컷뉴스",
+    "publishedAt": "2026-11-17T13:19+09:00",
     "teams": [
      "LG",
      "KIA",
-     "롯데",
-     "한화"
+     "한화",
+     "두산"
     ]
    },
    {
-    "title": "‘넥센→SK→LG’ 염경엽과 손혁의 3번째 호흡…‘가을야구’는 기본이었다, 우승 함께 만들까",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBiUmY3aGk4UWw2T2t1aFFwOEFSd0hZXzVIRTc3SWUxbFd3NHBqbVdCWEhOT2VGOUtSUG1tcGZkOXdxTDZBdnJNd21WcDNKX2Z4Z2VLQVNCZS1TbEIzQ2xxMDhOMjQwZmt6Z2t1S05iZ9IBb0FVX3lxTFBiUmY3aGk4UWw2T2t1aFFwOEFSd0hZXzVIRTc3SWUxbFd3NHBqbVdCWEhOT2VGOUtSUG1tcGZkOXdxTDZBdnJNd21WcDNKX2Z4Z2VLQVNCZS1TbEIzQ2xxMDhOMjQwZmt6Z2t1S05iZw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T07:11+09:00",
+    "title": "다시 상대가 ‘가장 까다로워하는 팀’으로···LG, 회생을 위한 주제어는 ‘수비와 디테일’",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5UWUlmcGxsNFVUUktZOE9zWjFWM2JCY3dIVkdZTWxzRUl3ZnBzWXdUZ3FjMjBRSC1BNVpuRmQ3by1aRmJqT3lkWDNxU3U4eEJiTm50VGswdm1OQWEzN1RKelpoc9IBY0FVX3lxTE5UWUlmcGxsNFVUUktZOE9zWjFWM2JCY3dIVkdZTWxzRUl3ZnBzWXdUZ3FjMjBRSC1BNVpuRmQ3by1aRmJqT3lkWDNxU3U4eEJiTm50VGswdm1OQWEzN1RKelpocw?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T12:37+09:00",
     "teams": [
      "LG"
     ]
    },
    {
-    "title": "7년 만에 재회한 염경엽-손혁…무너진 LG 마운드 재건할까",
-    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1rbWdoU3U5eVhsay1zSjdaeHZTT1drV0RmVGVtRGNJUVZ3aGJ2di02c1pQaVlrSEpRM3AxVzY2VVJLVkNCYi00UXdsVFRmZUtPWmFJMnRDOA?oc=5",
-    "source": "뉴스1",
-    "publishedAt": "2026-11-16T06:30+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "‘호주 유니폼’ 한국인…아버지는 전 LG 야구선수",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBGV3F0TGR0WXdvT1hpTDZUblp2ZW5EcVdfalg5X2djMDhZcXlqbGowYmZRZ05kZnNMejc3VDZBczJQZWpBbF83NUJWZkxtVHdZSS1GZEJNRmlvRkdBSDljUnBB?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-11-16T05:27+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "충격 퇴진 다음날 \"LG 와라, 등번호 몇번 필요해\"...전례 없던 단장에서 코치 변신, 그 막전막후",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORzRHYmQxZXVnVUVQQXBvRmRZTmc5ZUhuRmZ3eTE1VU40Mk9OcHl3dlE0aDJabHN0NTZILUJuOWN6ekY5eDZudmFUSHpZVGo5RkJQVWMwbkoxZVd5dHBSNTdwd0ZxUzI2d09hcEh3VF9jNnM2YUlnR19mZ3lRRmczcFc2WQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T01:18+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "감독-단장 지낸 손혁, 왜 '한화 보장 연봉' 포기하고 LG 코치로 돌아올까 [IS 포커스]",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5Td1pVSTQxMi0xdF9WMFlaekJuZ1U2cVFYQXBvVmR1VW0wazAzZTdhRkJfNnA5X1BXUEZtUHk5NWw3NkdjME5oSDctTHZvSl94T25ScTFWZF9qeFk?oc=5",
-    "source": "일간스포츠",
-    "publishedAt": "2026-11-15T17:43+09:00",
+    "title": "양의지 잔류→'FA 포수 최대어' 박동원 어디로 향하나! 야구계 초미의 관심사, 김태군·최재훈 거취에도 영향",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5MaFh0SnlsXzYtZXBDd2tjYk5qUS12UDY3OW5SRi1xWGQwdUJTSU1TaE93eFcwU2E4Q2pxNW9xU1FhaGFONkZZdTBRZ3V5RDBBTkZlbEVSd21WTkM0cFFjQXctcGxrZTRqbnVGMWc3YS1pcEczY3c?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-11-17T10:17+09:00",
     "teams": [
      "LG",
+     "KIA",
+     "두산",
      "한화"
     ]
    },
    {
-    "title": "“오스틴 강타자지만 수비 제한적, ML 복귀 어렵다” 美매체 냉정한 평가…200만 달러 계약은 WIN-WIN",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4zLTNRSk54VnBhcHdSS3VjRlZnRGQwazlVRlJPdFJCbWNKMEtKMTJVd0NuMXg0LXFra2FFdTVLcXczWE9GRkYxUG5PNXdwTV9xMHllWUNmSWs1b1RHNHQyYkdETVVfMzFnUXFxVVdiZ9IBb0FVX3lxTE4zLTNRSk54VnBhcHdSS3VjRlZnRGQwazlVRlJPdFJCbWNKMEtKMTJVd0NuMXg0LXFra2FFdTVLcXczWE9GRkYxUG5PNXdwTV9xMHllWUNmSWs1b1RHNHQyYkdETVVfMzFnUXFxVVdiZw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-15T14:40+09:00",
-    "teams": [
-     "LG"
-    ]
-   },
-   {
-    "title": "LG, QC 겸 투수총괄 코치로 손혁 전 한화 단장 영입…염경엽 감독과 3번째 호흡",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE16QnhFa2VLV0ZKc3RrZDNkLWszUm5FVFhlM2trQkFnZDF3UzNoeTBDZXBtUFRRSS1IcVBKUEQ3ZExOZ0RCRWx6SlJ5c0xkWFlxRGg2V2xFdUJRd3RLelBXWU9hdXBISk5YSzZfcWh4MGo4UQ?oc=5",
+    "title": "고우석과 만남 불발된 LG 윤예성 “회전에 대해 물어보고 싶어요”",
+    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5wVEdCcUV0UVUyeHF0UDNISVJZeDdzT1AxZGJ6aThVQVVOeEFHbUJzcWpxY054RVdSLU03Z09xMEYyWFI0ZlhFMExZUUNGNXdRS1ZCcmhObWNSRnhQeTY0SDh3OHBXdjBpTE5zUDFtOWJIdw?oc=5",
     "source": "스포츠동아",
-    "publishedAt": "2026-11-15T14:37+09:00",
+    "publishedAt": "2026-11-17T09:43+09:00",
     "teams": [
-     "LG",
-     "한화"
+     "LG"
+    ]
+   },
+   {
+    "title": "\"3개 다 할 줄 알아야, 구본혁 형 반만이라도\"…누가 한계 정했나, '내야의 태양' 슈퍼 유틸리티로 도약 준비 [오!쎈 미야자키]",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBxRWdKWVpTOXFxRlVXa1dLU1Vvdk0zX3RlNU5SZUxmRGdwQTZWQ2daSlRHVXNLRVRMQmNmUnJDb09rdnRZRmN3b1locXNCc2I2bU9VZkVUYWo3Um00MlZUMzBXeloyVERPSUHSAW9BVV95cUxNTDJVMi1iQ1VlNkZQbWlFSHdGcWw5RTBucjNqNm55X1cyb1JGUFRlbHVLODM3S21rb3d3bEt4Z2VvUGgzZ2ttdXdEWW9XeUFCbU9DUDYtNkZnNTRERUR5SUZvV3R4S3p2cnJ6dGNyOWM?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T09:39+09:00",
+    "teams": [
+     "LG"
     ]
    }
   ],
   "두산": [
    {
-    "title": "‘무늬만 FA’ 최지훈이냐 ‘42억원+α’ 양의지냐…또 다른 깜짝 계약? 2027 FA 1호 계약 주인공 관심 폭발",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0ta0hBYVl4OEhJNGo2OWtNaVNjeDdQM1lRQVRsbVZKRUtqZGYyTi02aUxQY0g0X2V0ZmhoeExwX0xyQXBTOGRFLXVJQWFGa25BTWl3SkJqZWFMZENDandXbFM5bFNRZw?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-17T07:00+09:00",
-    "teams": [
-     "두산",
-     "SSG"
-    ]
-   },
-   {
-    "title": "‘42억 포기 결단’ 양의지 왜 FA 신청했을까…의리 지킨 대체불가 포수→김원형 반색 “너무 중요한 선수, 내년 기대한다” [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1FVXpnYUxHRkpndUF0dkZYRF83eFJmMWhITmp5TFVhaEMtZmRDS2hfYzFuQldxME1wVzhHdGlEdVQzM3NwWFlHaWZOYlRSc21IakRHVDZ5WXpVNHFOZ19oUmNvVWVQUnM5bTVoZldsMNIBb0FVX3lxTE1FVXpnYUxHRkpndUF0dkZYRF83eFJmMWhITmp5TFVhaEMtZmRDS2hfYzFuQldxME1wVzhHdGlEdVQzM3NwWFlHaWZOYlRSc21IakRHVDZ5WXpVNHFOZ19oUmNvVWVQUnM5bTVoZldsMA?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-17T00:10+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "'두산 박찬호' 열흘 만에 터졌는데…올해는 누가 먼저 도장 찍을까, 첫날부터 '오피셜' 나올까",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VRFJ2UkVvTTczTjN2czBaZnItRzFxNnFBLUFoQVV2Mjd1MXdSdEFfcV83YUpjanBndGNrOTlBVGhBZFpXRFRZR29qaXFKR01lR29FaEFrVE5vLW92cWdfMjQ3ZTNQazN4NTJzSlh0OC0?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-17T00:05+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "두산 남겠다는 의지…삼성은 구원받을까",
-    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9tVlQtWDMxWUZxWXBqR2t2ZmhqeklScGlVR0pxLVVkVUJsX1lwQ0Q3RWlzNENTaUpPOElLWWNRUF9zZnNKaThjWTV3YVpxZFg4YW1NNWZxYWdpWW05T1JUQnpxa9IBY0FVX3lxTE9tVlQtWDMxWUZxWXBqR2t2ZmhqeklScGlVR0pxLVVkVUJsX1lwQ0Q3RWlzNENTaUpPOElLWWNRUF9zZnNKaThjWTV3YVpxZFg4YW1NNWZxYWdpWW05T1JUQnpxaw?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-16T22:00+09:00",
-    "teams": [
-     "두산",
-     "삼성"
-    ]
-   },
-   {
-    "title": "FA 선언했는데 이게 잔류 시그널이라고? 두산은 다 계획이 있다… 외부 FA도 참전? 윈나우 기조 확실",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5zcmhXUENhRmxCdmxBU0NTVzRWOHJwdU04aldBOGtxTGJrbTJQbmtGc1RHLVRQYktucGw5V083Zjg3emJzR3oxYUd1NDB1UXZCczBJN0ZLSzZnck13Yzk5U2ZBS3huQTV4bWUxWmJkZXk?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-16T17:56+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "FA 양의지·자유계약 김민식, 베테랑 포수는 여전히 귀하다",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBhZ205QlVtbXl3aGxJVmJLSVZIei1TcnlEOW5mZzhXd1FYWTJ5TmkzR1RCTU0yRHczU1dSckVaM2dkYng0eUxhbVg0aDlkQ2VzVGxUX2JXZ3Z5cVBQcDhWZU1fbVhPalI2amo1aGdFWHdkQQ?oc=5",
-    "source": "스포츠동아",
-    "publishedAt": "2026-11-16T17:12+09:00",
-    "teams": [
-     "두산",
-     "SSG"
-    ]
-   },
-   {
-    "title": "'떠나면 어쩌려고' 양의지가 FA 신청을 했는데, 김원형 감독은 왜 안도했나 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNMVo5blMxLTRVd0pzX0RWNFk2ZHV4VmhRcWNKbDJoTFpnZ1FjOEJ1cWxKWGNiTE1QaDI4S3A4ZzV5TDFXVFItVEplNmFwX3Zsejc0ek1RZi1DZ1FxRzl5WmJacy10bHZTb2N0U1N4bUJzaXpNVDN0TXRiUzZBNW1oN0xoWQ?oc=5",
+    "title": "\"NC 잠시 다녀왔지만...\" 양의지는 두산에서 끝맺음을 해야하는 운명이었나 [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNa3J0SC0zVFdVanM0SUxxT1dWdHM4V3NKdnA4UkotdTJaaGdhOEFxV1gtc0JXcGtmM2J3WHhHQ3Zrc0VYOUI3bEJxcW14YU9sb0RtdUx2cVdwR0R5TEVKTTFkNU93YXU0X1Rsd3JVUlBuT2hlOHJ0VUVCYlN2Z1ZUSFJ2RQ?oc=5",
     "source": "조선일보",
-    "publishedAt": "2026-11-16T16:24+09:00",
+    "publishedAt": "2026-11-17T19:19+09:00",
+    "teams": [
+     "두산",
+     "NC"
+    ]
+   },
+   {
+    "title": "구자욱 삼성 vs 두산 vs SSG 3파전? ML 변수까지…200억원 진짜 넘어가면 단숨에 최정·양의지·김현수 추월",
+    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9aUkZjVFVVMmpXeG5mTTc0YVVDdVFCODZQaDFGb3JieVNZb2dwOWlJZnZ5T0N5VkdVOU40ZWozcFlWeEt0SFFuTkJzQWR6UUY3WkhzT3F0QjhMR1BHS2NWV090WnpOUQ?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-11-17T18:48+09:00",
+    "teams": [
+     "두산",
+     "삼성",
+     "SSG"
+    ]
+   },
+   {
+    "title": "양의지, 두산과 2년 최대 55억 계약… FA 계약으로만 290억 ‘야구 부자’",
+    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1hc2ZlcmtyNDlUQmZBTXNFeHlpeGhhQ0M0UE4xV0tPbHJ2d2dBaDEzODVPMC1URUx2c05Ha0FyOVNJNUg5U0lqQVFiNmcyN2s5TDZVemdSa1VVZkxZd0lfazBldzVaaEdsMDJzNHlWbVJ0SzNF0gFmQVVfeXFMT0hBa0FfTVRSMjN1eFVQVGZ1N0dwVlZON0dFaXZ0T0tDZXlhYzl1R0ZWTjR3NHRpNkFraFpPNF84WVdEbmdDR05KWXBVRWN6WnVVNGo3cVRjcEhCX2NfMTVFZ1JqWEdn?oc=5",
+    "source": "동아일보",
+    "publishedAt": "2026-11-17T18:37+09:00",
     "teams": [
      "두산"
     ]
    },
    {
-    "title": "‘와’ 두산 파격! 카메론+세베리노 악몽→새 외인타자 조건 떴다 “포지션+좌우 상관 NO, 잘 치기만 하면 된다” [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA1TF9qRVdkNUJLc3BGclRhQUFmWmVraFB2WnhkRVktazlCR3JTT25la1hoNTdBdWtKNFpCZnp5STlQSDFwLUF3TVBWS09OYTQtMllTQnlpZndsVTZ0LXZXcU5R?oc=5",
+    "title": "양의지, 내년에도 두산 안방 지킨다⋯오태곤도 SSG 잔류",
+    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE00ZDRsRmV2S0hPc185NUF6VFkwSHBWaHBRcDZhZVNUWG45VHNUcFdPZ3BabzM1QkNOZy1kV19kMDZwdjY1QmZNUnFITHBuWWJIZDdBU1VrcHU?oc=5",
+    "source": "국민일보",
+    "publishedAt": "2026-11-17T17:20+09:00",
+    "teams": [
+     "두산",
+     "SSG"
+    ]
+   },
+   {
+    "title": "‘42억 포기→55억 계약’ 41살까지 두산맨 보장, 어떻게 가능했나…안도한 사령탑 “꼭 필요한 선수가 남아서 좋다” [오!쎈 미야자키]",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE81Q3NOMmoxTTNkdmlzbUE1XzVGdXVhR2VSM3RYRXRkS3NIckVzRXdQT3FCcDNia19hRmJBdEpHZnh2bGpIZVlhTFRzeWFLSmN3ZGJINTZVUUlDV2NKTEw5Nk5SUmdBNVZXSWthZkg0RdIBb0FVX3lxTE81Q3NOMmoxTTNkdmlzbUE1XzVGdXVhR2VSM3RYRXRkS3NIckVzRXdQT3FCcDNia19hRmJBdEpHZnh2bGpIZVlhTFRzeWFLSmN3ZGJINTZVUUlDV2NKTEw5Nk5SUmdBNVZXSWthZkg0RQ?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T16:11+09:00",
+    "teams": [
+     "두산"
+    ]
+   },
+   {
+    "title": "양의지 FA 계약총액 290억원 미쳤다…그런데 2위인지 3위인지 몰라? 노시환 307억원 계약서는 어디로",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1TR2xBem8xaTlnS1pmVTZwdHVGTnhJdFRPWVdLY3RNMS00ZVE0S2JxT3oxOEhRNWZsRFAwRnBQUm9DT3hrczlLRkRjNzdBTmR1bW9nVGNUVG4xRnIzdU1hRg?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-11-17T15:00+09:00",
+    "teams": [
+     "두산",
+     "한화"
+    ]
+   },
+   {
+    "title": "FA 1호 계약은 양의지, 두산 잔류 확정…오태곤도 SSG와 연장 계약",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5tNERFa0lablN0SmJlRFlTTkozMXNVck1CbU5fNWp3SEhHOE92NnpHdmhKc0xVb0RTV0J6ejZVSEFUemlMcmxSQjBJbmxmMGQ2aktNRXJWOGZubnQ0ZGhsQnRB?oc=5",
     "source": "미주중앙일보",
-    "publishedAt": "2026-11-16T14:50+09:00",
+    "publishedAt": "2026-11-17T14:38+09:00",
     "teams": [
-     "두산"
+     "두산",
+     "SSG"
     ]
    },
    {
-    "title": "두산 양의지, FA 신청으로 두산 잔류 가닥…옵트아웃 대신 재협상 선택",
-    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1CdkNXaEltaFo1SVM5bUI4MzREVzhFRzBodi1BVUtrQXZsNXExX25uUGlISG1iY1pDVUhVSFpmdHFwUUJYVWRGRnN2ZkNkSTAwcVZzLWVwQzQxVXNFZ2pYTEdtakE1Uk9DRjd2TWY5eWFXTHU4VzZwWE84QdIBf0FVX3lxTE5EajJxaEljYlM1OHZqeW5EVmhwdWsyblA2b0lrMWNvVUZUY2h5SV9NME5XZlp0c21oMURSTWhneGNwQVpEalBvclBNVi1MYnpSaVoxbGtNS3VYajY1QmVrd09kcWRGYzhRbnpWWEdnYTVtOFRLSkYzWlJQU2JKUUU?oc=5",
-    "source": "데일리스포츠한국",
-    "publishedAt": "2026-11-16T11:35+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "[공식 발표] 양의지 진짜 FA 시장 나왔다! KBO, FA 승인 선수 명단 22명 공시…최대어 구자욱·원태인",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9JZllmY3E0Rkd5anVkdU11anc1a1NKSTA1c2lnUEtMTGZMMmRQaWVGWUd0Z0NzckZ2TjVodUtsMXY2SGVHRU1wMTYzSTNCcXplVlg3aTk5NGdVbHhvVFlzXw?oc=5",
+    "title": "양의지와 오태곤의 때아닌 ‘1호 계약’ 경쟁…두산과 SSG 이것은 몸 풀기, 진짜는 FA 최대어 구자욱",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE00SVZIaHJUUzBPbjhtSWozMU5kTDdLX3hXS3g4RnlVTzcyU2RnRW9RTFBwa2hvYTA4TjZydFR6ZFJrSmd6cVZsYjEzMHo1Z1hVX0hod3VzUnZIczNPMlMzcQ?oc=5",
     "source": "마이데일리",
-    "publishedAt": "2026-11-16T11:16+09:00",
+    "publishedAt": "2026-11-17T13:23+09:00",
+    "teams": [
+     "두산",
+     "SSG",
+     "삼성"
+    ]
+   },
+   {
+    "title": "“베어스 유니폼 입은 채 은퇴하고 싶었다”…양의지, 2년 최대 55억 원에 두산 잔류 [공식발표]",
+    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBGQUJ1RHg2SkdXeEo2b0tGcnhkUUUzczZLcmc0bVpMMUVJUjliamx2SWE2VzBxdXJZRTJPbE03a2ZiX202eFljS0ItM3c3YnNTMldN?oc=5",
+    "source": "매일경제",
+    "publishedAt": "2026-11-17T13:14+09:00",
+    "teams": [
+     "두산"
+    ]
+   },
+   {
+    "title": "두산 김주오 “타격에 확신 들어…내년 신인왕 꼭 하고 싶다”",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ydnlFQUNSZ3J2UGd5djd0azVFX3AtQTZfNWx3cVJtQ0p0LVdLandlU3ZLVlZGa1VqVVNiUVlrOWtUV095WWNGeUdzQ3BQVTFKVzBJV3ZDRVRZanhydGfSAWNBVV95cUxOUGgyem14MFFycFdzUk4wNktpNlRqd0pHV1dfUDhjSWtsbFlPMC11cmgyYjZJc0JjZ3VWWGxLd0dlRlhOazZLSVJLaFo1bUtwQjMza0RYQ2I5ZnNNUkhQUHRkVnM?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T13:10+09:00",
+    "teams": [
+     "두산"
+    ]
+   },
+   {
+    "title": "\"이어질 FA 시장에서도 최선\" 두산의 의례적, 의미심장 메시지...타깃은 구자욱인가",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPbGtGN2JxTXlpVnN4ckQ3TTBhYUdXNWRzM3JNSlZYdWRNckJVanpqczB0eWY0RzJZbTc0ZFI0c1hDaGhoQmlHQXFxUHNQcXpmS1RrWjRJNzd2ejZwajZwVjVaWFkxODVGNzRHY2NOdTJScC1zM3k4TnNVUHFWTk5VRzN0Yw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T12:43+09:00",
     "teams": [
      "두산",
      "삼성"
     ]
    },
    {
-    "title": "두산 아쿼 타카다 “내년은 선발로, 두 자리 승수 올리고 싶다”",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBHZDFJcjQ5UllSN3ktYWRWc19mMzlidWQyMm9MQk51V1RLUWZPa1Nwd2NWNkhMb1ZoX21MUGpXWnJCbVZHdGFuMXNwT09UcVV4cHA5U3RiWXdIUG1BbFHSAWNBVV95cUxOeDNkVl82VXlOVlpEa3p5VTVaV2RHQnR2NzdJSmNLWjhIM3NRUlJpUy1taWZOOVk2ZnVhUWxOQmFqUUFrQzZRMDBNODRiUTlPM09TUWd3anlPcnpEVUdlc2lOR3M?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-16T10:49+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "42억 받으면 간단한데...'미스터리' 양의지는 왜, 두산에 남겠다며 FA 신청을 했나",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPSUNpQjBIVk54NUlUbG8wWGdmeWNnOXFWeEVseFUtZ0ZrLXhXUDE4WVZhWFUtUGtESzRRYndiaXdFVDBic09mb2hHRmxEcTBIMk00ZndWd3J3T2NHQkYyVVFmajZuTHRTeUhTQnpPelEtdExWaFFTZlk1UnpnZF96Y1JhUQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T10:34+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "'초대박' 52억에 두산 잔류 확정→FA 선배들 향해 외쳤다 “양의지-정수빈 형 없으면 우승 힘들어, 박치국은…” [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1GWFM4cFk4WlhqSU5rTGtvSXVHTThLbU5yUEdzaC10c1MtdlhyaFBXZUhXZlRCYWQzNjM4T0N0SWpNX1F0NHZ2ME1ONlhQUnVFMDgzU1o5dDgxOVhWM0dyMlczMWdrMHFfZWg1VmVxONIBb0FVX3lxTE1GWFM4cFk4WlhqSU5rTGtvSXVHTThLbU5yUEdzaC10c1MtdlhyaFBXZUhXZlRCYWQzNjM4T0N0SWpNX1F0NHZ2ME1ONlhQUnVFMDgzU1o5dDgxOVhWM0dyMlczMWdrMHFfZWg1VmVxOA?oc=5",
+    "title": "‘1호 FA 경쟁부터 후끈’ 양의지 55억-오태곤 11억, FA 첫 날부터 66억 터졌다…역대급 스토브리그 예고편",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9WRVMtS0dBUlZ2ZmhPRlBYY0JPTks5aXNoTFNQck0teDhkcHdWMC1XaERTX2VYMG0xMzhfQzUxM0tTel9JMEZ1QjlhdERMdWZsWWNRZFdzRWxDbWFrNVMxdm5pYXMzMTNEa3fSAW9BVV95cUxNdlNCaFVIU2txeVN3U29QRGR3STRzZV9wX2pETWcxeGxTMzJVd0NPZjlxbVoyS080ejdVbDQtMUN4cGFtczQ3N1hDZlRxNGNnVWE5djg5aDVCYkVtNk1Kb3ppUzFKc05vQjlPQ2lwWlU?oc=5",
     "source": "머니투데이",
-    "publishedAt": "2026-11-16T08:14+09:00",
+    "publishedAt": "2026-11-17T12:40+09:00",
+    "teams": [
+     "두산",
+     "SSG"
+    ]
+   },
+   {
+    "title": "박성한 대박 만들었던 그 뚝심, 두산에서도 작품 만들까… 색칠은 선수에 달렸다",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE42Y0JBbVpQSlV1ZnZTX1pVVmh5LXExR0ZIUWw0WGdDTlJDMlBlTlBiYVJIenBuSFZPSmtmN1dZMFpSY3dEWUhWbC1FaGR0MXpudTdDR2FLdzgySG1CQ0ZGSFdnMlhibUJYeXNTTTBxcWI?oc=5",
+    "source": "SPOTV NEWS",
+    "publishedAt": "2026-11-17T12:30+09:00",
+    "teams": [
+     "두산",
+     "SSG"
+    ]
+   },
+   {
+    "title": "'2년 55억 잔류' 양의지 FA 선언에 숨겨진 의미…보호선수 슬롯 확보, 두산 FA 시장 본격 뛰어드나",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE41SEE2ZzZjcVBOT1RiaTFyN0dWZEphcjdOVlNJcUhNRGIyXzNvRTVQSkVJVG9zQ19OYWh2RTRrak1FRXJhbFhFd1lUV24xTExGT2Q0Q1psUEJwRXdueXAyRVJZd3R2T0Z5UTdWVmFKOWg?oc=5",
+    "source": "SPOTV NEWS",
+    "publishedAt": "2026-11-17T12:24+09:00",
     "teams": [
      "두산"
     ]
    },
    {
-    "title": "'ERA 1위' 안 그래도 강한 두산 마운드 더 강해지나 \"일품이네\" 극찬! 벌써 존재감 뽐냈다",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1tMHJ4VFZYQ3B4ZjRSbVFYTWdJSzFNYzJ2OWdpWW9YRy12VTU2YjNLSFd5OW5RVEtIN2E4N3MzSVFyd0NQSjNwNzlxMC0zOTVtOThYZFFRbkVMaEcySmNtUXltYUxaZ3hNTUhON1g5d9IBb0FVX3lxTE1tMHJ4VFZYQ3B4ZjRSbVFYTWdJSzFNYzJ2OWdpWW9YRy12VTU2YjNLSFd5OW5RVEtIN2E4N3MzSVFyd0NQSjNwNzlxMC0zOTVtOThYZFFRbkVMaEcySmNtUXltYUxaZ3hNTUhON1g5dw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T06:29+09:00",
-    "teams": [
-     "두산"
-    ]
-   },
-   {
-    "title": "\"50경기는 나가야 밥줄이…\" 선발 수업? '손아섭 트레이드' 군필 좌완, 배수진 제대로 쳤다 [인터뷰]",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5TN3UtcVJ2aGREN1RyWWRnQzNLQ3BZbUxPUmQ3ZTVkQU1Sd19mTHdqbHhFQkhVZEhUU3dCMnltT1cyenNmTlp3dndnX3VQVHFpSURZZnBBcmtHNHhCWE9NTzNLd3NRSmdLZ1NRbVY5WlJCWFlVQ25JR1gxR05PUQ?oc=5",
+    "title": "'계약금만 84억' 두산, 레전드 특급 대우 해줬다…양의지가 쏜 신호탄, 포수 FA 시장 흔들까",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9jQ0dpc1BCRDRkYW54azFnSkhyS3JFVWpBNUhaZ1FLdXhfcGNPVDBMZmdGdE9vTThwVl92YW5NSWdmUHMtYmtPQUpYT3kzMDFXOEtYVW5FZlFWR2s3ZEdZLW5fRzRISVJWNUh4N25TZUtVTWpQUHJXTG96TjhQQQ?oc=5",
     "source": "스포츠조선",
-    "publishedAt": "2026-11-16T01:18+09:00",
+    "publishedAt": "2026-11-17T12:13+09:00",
     "teams": [
      "두산"
     ]
@@ -845,14 +873,57 @@
   ],
   "KT": [
    {
-    "title": "김현수 떠난 LG의 아쉬움, 삼성도 생각해 볼 문제…구자욱의 가치는 기록이 전부가 아니다",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9jWDNuSmZuZW9MWDhiWFplcW5oNm9jeVpsejVfbzdyUjhzYUo3dTdtWEJEUGtGYXdaak9IVUVlNmcxNmZ1RTFXNlJJUEZqX3hQblRxeC12cnBuREMyVFJyVXg2d0p4ejdOcXFXcHc3c9IBb0FVX3lxTE9jWDNuSmZuZW9MWDhiWFplcW5oNm9jeVpsejVfbzdyUjhzYUo3dTdtWEJEUGtGYXdaak9IVUVlNmcxNmZ1RTFXNlJJUEZqX3hQblRxeC12cnBuREMyVFJyVXg2d0p4ejdOcXFXcHc3cw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T13:40+09:00",
+    "title": "울산 HD·KT 위즈, '2026 스포츠진흥대상' 프로스포츠 브랜드 대상 수상",
+    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1RLWJNcHRpcjkzdDVhdDVMLUxNWEZaOHZHTm41M1FnMDNoaG9HdU0xbW9XOE83NlJvM1N2Q0xPWXFkd1FvcHdqMDRIZmFwai1pR2dGRmp3cngxdENxbVFUTTBDMV84NldUTERqR0FIVHhUWm1XU3hvVtIBeEFVX3lxTE1RLWJNcHRpcjkzdDVhdDVMLUxNWEZaOHZHTm41M1FnMDNoaG9HdU0xbW9XOE83NlJvM1N2Q0xPWXFkd1FvcHdqMDRIZmFwai1pR2dGRmp3cngxdENxbVFUTTBDMV84NldUTERqR0FIVHhUWm1XU3hvVg?oc=5",
+    "source": "뉴시스",
+    "publishedAt": "2026-11-17T17:42+09:00",
     "teams": [
-     "KT",
-     "삼성",
-     "LG"
+     "KT"
+    ]
+   },
+   {
+    "title": "KT 위즈·울산 HD, 2026 코리아 스포츠진흥대상 '브랜드 대상'",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1LdUd4UlRWazYyX3pIRzFqbUVDOXdMOTlBYzdmUU0tYlFtcWFXSm1aZzg3OEVaRlA4MjVEbTNPZU9HMTFZblVLMEh1aGltUnRkQ0tLcS16djhhMmh4T2c?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T17:14+09:00",
+    "teams": [
+     "KT"
+    ]
+   },
+   {
+    "title": "‘가을의 아쉬움 뒤로하고’ KT, 팬 페스티벌로 시즌 마침표",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1NekpBNWU4d3JnWlBNTF9zeFlTTHpuZmt4NnBZY0tpMEo0MzY1YzZMblp1cVNnTU1hcHFDLTJUcEdBaTBlcDJaS095MEw3ckE5aEJwaW5YbmNZQUd1YVcwMDl3?oc=5",
+    "source": "스포츠월드",
+    "publishedAt": "2026-11-17T15:00+09:00",
+    "teams": [
+     "KT"
+    ]
+   },
+   {
+    "title": "KS 업셋 아쉬움은 잊어주세요! KT, 21일 ‘2026 팬 페스티벌’로 시즌 피날레",
+    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBWTTVlci1lMklJWHhvTEczRHptS3NBaFBaekp0bGpRa19BV0dYWFEzTnhYdzAzQ2dNQ3JveGRzLVdCbnF5MmdpU3BZRTAweHU2clJjLS0zNzE?oc=5",
+    "source": "스포츠서울",
+    "publishedAt": "2026-11-17T14:05+09:00",
+    "teams": [
+     "KT"
+    ]
+   },
+   {
+    "title": "KT, 21일 2026 팬 페스티벌 개최…운도현 밴드·이상훈 밴드 축하 공연",
+    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9uV1pJQjZKSkFxZFpMR05LNnBVSEs1ajFGMmhaLVEtcmZ1X2JyMFFJUW0wLTFTb052STdOWmRkNWVBSDhyZk02WTRIZUlPSGFabml0V2lhb0ZzUmVtY21sMUhUM3ZiOVZiblYzUUZyWdIBb0FVX3lxTE9uV1pJQjZKSkFxZFpMR05LNnBVSEs1ajFGMmhaLVEtcmZ1X2JyMFFJUW0wLTFTb052STdOWmRkNWVBSDhyZk02WTRIZUlPSGFabml0V2lhb0ZzUmVtY21sMUhUM3ZiOVZiblYzUUZyWQ?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T14:00+09:00",
+    "teams": [
+     "KT"
+    ]
+   },
+   {
+    "title": "프로야구 KT, 21일 팬 페스티벌로 2026시즌 피날레",
+    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5BV3gxcmx1Z3VYRTJmenM5VE9JRS13YjJqQ19aTl9VNEdqVE9sa2Y5TGxmcWp1VGhNX1BJM2pxU2ZuMUF4NHJFZkRaNUNMOC1ReTI1VFdVcw?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T13:52+09:00",
+    "teams": [
+     "KT"
     ]
    },
    {
@@ -874,15 +945,6 @@
     ]
    },
    {
-    "title": "\"수비 안좋다\" 처절한 약점 → 코시 악몽 재현! 어이없는 '만세' 실책이라니, 안현민을 어찌하오 [SC포커스]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeVV4ZHh5OTJQMmRFb2pkSE4xXzRPTUowM19rR2RPTW95cFY0UkV1bXZvZzR5Y1UtbmNiWnJqV1pfRk5qZWFkWEthOHlxcWhsSWFQRk4xS3RGdjZ0RGpSaGlZTFo0QWk4T2pFR1g4RktUU0NWbk1ZMnoydFpFLTl3Z0I5VQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-14T21:08+09:00",
-    "teams": [
-     "KT"
-    ]
-   },
-   {
     "title": "안현민 충격의 만세 엿새만에 또…韓 붙박이 외야수? 수비 연습 많이 해야 되겠다, 친구 김도영을 보라",
     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBxY2dQMFNwSV91Wk9GM19mbFhlQlJJQkZFMm05V3ZneFp0bi1zVVZ2S3JWdjk0ZUF1cVN5RktIZF9ieDZaS3RsSDJIWmw1d0VGMWczVE9lSkFuaGhER1NXYg?oc=5",
     "source": "마이데일리",
@@ -891,157 +953,250 @@
      "KT",
      "KIA"
     ]
-   },
-   {
-    "title": "[단독] ‘KT 큰 아들’ 유한준, 2군 감독 됐다…1군 타격 코치는 박경수 확정",
-    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5iOEljMTZSTktsOUtwSUluRlBoQ1dvMTZWSHBxY3RvODNIVzB6TTBfbzViZHoySHZjS01rRzVoWFhraTFDQy1aZGFrY1duZV9pLWRWMWJ4OTRsQmlaN0hKN0tQTdIBY0FVX3lxTE5iOEljMTZSTktsOUtwSUluRlBoQ1dvMTZWSHBxY3RvODNIVzB6TTBfbzViZHoySHZjS01rRzVoWFhraTFDQy1aZGFrY1duZV9pLWRWMWJ4OTRsQmlaN0hKN0tQTQ?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-13T11:28+09:00",
-    "teams": [
-     "KT"
-    ]
    }
   ],
   "SSG": [
    {
-    "title": "‘무늬만 FA’ 최지훈이냐 ‘42억원+α’ 양의지냐…또 다른 깜짝 계약? 2027 FA 1호 계약 주인공 관심 폭발",
-    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0ta0hBYVl4OEhJNGo2OWtNaVNjeDdQM1lRQVRsbVZKRUtqZGYyTi02aUxQY0g0X2V0ZmhoeExwX0xyQXBTOGRFLXVJQWFGa25BTWl3SkJqZWFMZENDandXbFM5bFNRZw?oc=5",
+    "title": "구자욱 삼성 vs 두산 vs SSG 3파전? ML 변수까지…200억원 진짜 넘어가면 단숨에 최정·양의지·김현수 추월",
+    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9aUkZjVFVVMmpXeG5mTTc0YVVDdVFCODZQaDFGb3JieVNZb2dwOWlJZnZ5T0N5VkdVOU40ZWozcFlWeEt0SFFuTkJzQWR6UUY3WkhzT3F0QjhMR1BHS2NWV090WnpOUQ?oc=5",
     "source": "마이데일리",
-    "publishedAt": "2026-11-17T07:00+09:00",
+    "publishedAt": "2026-11-17T18:48+09:00",
     "teams": [
      "SSG",
+     "삼성",
      "두산"
     ]
    },
    {
-    "title": "'투혼의 141구' 김건우 \"몸 상태 문제 없어…부족한 점 보완해야\"",
-    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE82UEp6WFZiOXltbGdPSDlzVTFhZVdZVThwQ3hhTUp0dWxyUEhRRzlGSkQwelBqeGFVUnZ0S2JPM0NnaUZhY0owQTgyTzJqTUs1VTVEMUxYOA?oc=5",
-    "source": "뉴스1",
-    "publishedAt": "2026-11-17T06:10+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "\"홈런보다 그 전에...\" 日 결승포 맞은 김건우 뼈아픈 후회, 50구→이틀 휴식→91구 역투에도 \"몸 상태 문제없었다\"",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9Qa2xZWHc3QWRaRHAxMlA2bkFYeW9IRl9aSk90RUM3VW45d0RZTUpCN2xwZGxwTU9FVU84alRnRVB5Y0NFS0dvZWdmQVctQWlXQWozRmNMLVdoUFJXUkJoUXh3elM1bklhQUoyekVMdGpuaGlWanc?oc=5",
-    "source": "스타뉴스",
-    "publishedAt": "2026-11-17T05:09+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "'대만에 9K 압도' 33홀드→ERA 6.31 추락했던 SSG 22세 영건, 국제무대 선발 경쟁력 입증 \"내년도 선발 준비할 것 같다\" [김포공항 현장]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA3VWIyUWU3aWdDa0wxRzFTNnFhc0JSbVNCd0tZUWxXaVJVVmk0c3NlR1g0RUQ3TUJma0xIUVc0N1JiWURsa3lGZm9OVWhIUTFiTFRoaVR6M2xVVy1BRTgxZWViVTlseHU0RDhIZmo1Z9IBb0FVX3lxTFA3VWIyUWU3aWdDa0wxRzFTNnFhc0JSbVNCd0tZUWxXaVJVVmk0c3NlR1g0RUQ3TUJma0xIUVc0N1JiWURsa3lGZm9OVWhIUTFiTFRoaVR6M2xVVy1BRTgxZWViVTlseHU0RDhIZmo1Zw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T20:21+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "SSG 亞쿼터의 통렬한 지적, 한국은 왜 일본에 13연패를 당했나…\"한국 타자에게 맞지 않는 상황 자연스럽게 나와\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBJcEFDUmN6R1dxSFRMUDk4WkJHQVg5enVKY2JZdGExZk0tcmhoOVR4eWpQeExqc3YyU1pBQjNwUTViZ05wOC1rd1pFeXY2d3dvTi0zelNuSW9WbjNpakoxdg?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T20:01+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "FA 양의지·자유계약 김민식, 베테랑 포수는 여전히 귀하다",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBhZ205QlVtbXl3aGxJVmJLSVZIei1TcnlEOW5mZzhXd1FYWTJ5TmkzR1RCTU0yRHczU1dSckVaM2dkYng0eUxhbVg0aDlkQ2VzVGxUX2JXZ3Z5cVBQcDhWZU1fbVhPalI2amo1aGdFWHdkQQ?oc=5",
-    "source": "스포츠동아",
-    "publishedAt": "2026-11-16T17:12+09:00",
+    "title": "다시 보는 롯데, SSG 마운드...2027시즌 희망 밝혔다",
+    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5GRmY0anN5WmthcjJ3WnRpb0F2UjVlQ0FZNzN0VFRzSzVwYVV0Vnh0Wk1Ra3NHRFBDX2l1OElGVmJjdGY2a1VGZHRzbHdfb25JY1VvZk5ZOFg4Ul9PeHVaaFZJNEFOYksyOXFFNQ?oc=5",
+    "source": "서울신문",
+    "publishedAt": "2026-11-17T18:03+09:00",
     "teams": [
      "SSG",
-     "두산"
+     "롯데"
     ]
    },
    {
-    "title": "“어깨 빨리 열리는 문제 집중 교정” 20홈런 넘보는 SSG 전의산, 가고시마 1대1 지도에 눈이 열렸다",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ZZG9ROVU5T1Y1eGdZNS1PSVBUdmkybXlWUEFTMTdiT3lzVFRUNmhMUGgxLVlZUzdWeUg0V0FkUU5HSWxNa3QzTzhhVjQyLWNxVEpCamliY1lPNi1ycmJZOFJ0WGdpYzBsSWdyX0d1Q0k4QQ?oc=5",
-    "source": "스포츠동아",
-    "publishedAt": "2026-11-16T15:59+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "김건우도 있는데 이로운도 있네? ‘근자감 아닙니다’ 감독님이 그러셨거든요! “내년엔 우릴 두렵게 보지 않을까요?” [SS시선집중]",
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1kSjZ5Vzl1Y2Ixc2paMV9uTDFldFJ5d0VGMzFzTE5MZVdIbHQ2SERNT1hpNkVtXzljUTRuZTVEZlg4Y242ZGE4T0kwdXVHNkFtREtQTUR6VS0?oc=5",
-    "source": "스포츠서울",
-    "publishedAt": "2026-11-16T14:49+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "“SSG 외부 대형 FA 영입하나요? 누가 3루수인가요?” 팬들이 물었다, SSG가 답했다",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE43cy0tOVVBV1NTaTJIY2FlX1I3NFAtc3dRRi02bnlUWk9mMnNwZHBBRnRCN0VMeFl6NVZNS005UlVZaWluVTJxZzAweUJHX0hya0dDM0h1ZzJhSjhkZzMyUnRZUV9hdDFYVzJIeGlRVXI?oc=5",
+    "title": "SSG가 더 오래 품고 있었던 알들… 더 커져서 부화한다, 청라를 지킬 새들의 날갯짓 시작됐다",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9wYWFlNTJ0T21HVVEtc2xxQUIwczRNTWMxQjhrN0V1ODhndDFvc0tZMnAtMEFRV0p3ZHRKMGxKeVhkY29IV1RVUjh6TGNOcDVuZ0Ewc3J1WF9tQWFmM21uTDJGN0Nqd2VpOU1jS3lvdmI?oc=5",
     "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-16T14:28+09:00",
+    "publishedAt": "2026-11-17T17:32+09:00",
     "teams": [
      "SSG"
     ]
    },
    {
-    "title": "\"프로 와서 처음이 아니라 살면서 처음\" 태극마크 달고 97구 QS 역투…이로운의 진화, SSG 선발진 기대감 커진다 [오!쎈 도쿄]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBSNnRiLWhlQlliNVliZnFVcHZtdUNSN1pUTzh3aXpVZFloMVZ5UERTd3RQMDduTW92eDQyRUp2VVlNOG9IY2JLTmltZ3dWdTRMTUFmWFNKaUFMZWdXN1BFY1dtRGxQMF9Hb2t3eTRPY9IBb0FVX3lxTFBSNnRiLWhlQlliNVliZnFVcHZtdUNSN1pUTzh3aXpVZFloMVZ5UERTd3RQMDduTW92eDQyRUp2VVlNOG9IY2JLTmltZ3dWdTRMTUFmWFNKaUFMZWdXN1BFY1dtRGxQMF9Hb2t3eTRPYw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T12:10+09:00",
+    "title": "'충격 반전' 재계약하는데 오히려 아빌라가 눈물흘렸다?…\"이전에 있던 곳, 힘든 시간 보냈었다\"",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9adExNUER2VHRndVlGTnlqaVRwZ2g0UW5qTEF5eVBvMk9TOXV6bXVqMm90c2pHY0stcGZFaFZ3VHZ5bmltWWtJMWNKaTNsRWp6ZlJoOTZReldzaWpFTzlZSVhTZEZqM2FtWkliTlM2MkdEc25JVmVfRURRTmRMdw?oc=5",
+    "source": "스포츠조선",
+    "publishedAt": "2026-11-17T17:07+09:00",
     "teams": [
      "SSG"
     ]
    },
    {
-    "title": "'불혹에 전성기' SSG 노경은, 자서전 '투수라는 직업에게 경례' 출간",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5CUmItS3pKaVl5Q3dBUXBtRC1DX3RWSDRrV3d6OWhDR0JWWktQalp0SkZJT0M2cmtmRVl4SVhXWHlkTm5EX0RJMU9HWUVZSFhLZjEyOTA1T0x1Z28?oc=5",
-    "source": "일간스포츠",
-    "publishedAt": "2026-11-16T11:00+09:00",
+    "title": "벌써부터 칭찬 쓱쓱? ‘거포의 꿈’ 가보자고! SSG 오시후 “1군서 100경기 뛰고 싶다” [SS시선집중]",
+    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFB0WDYyM0ZBc01QRzl2VUtZY0Z4MG1TZW50cTRwNklrVkJBcExEOGxQNm4yOXB2aFdubGxrbmRlZnBzYy1KUE1QbXlrQ25pd3ktMzBtel9MYXk?oc=5",
+    "source": "스포츠서울",
+    "publishedAt": "2026-11-17T15:21+09:00",
     "teams": [
      "SSG"
     ]
    },
    {
-    "title": "나이 40에 전성기 SSG 노경은 자서전…'투수라는 직업에게 경례'",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CbldEVWlHQUd6MjdGeWZpYWlUVVV2bkpoanZZeGlZaWZ5U2lYSHdrcmVQLVNuVjRGXzNxNTVOTXprX3o1SERQM1d4RHN2RnhZT08tSmR4U20yYkxta3Nzb9IBYEFVX3lxTE9CbldEVWlHQUd6MjdGeWZpYWlUVVV2bkpoanZZeGlZaWZ5U2lYSHdrcmVQLVNuVjRGXzNxNTVOTXprX3o1SERQM1d4RHN2RnhZT08tSmR4U20yYkxta3Nzbw?oc=5",
-    "source": "연합뉴스",
-    "publishedAt": "2026-11-16T10:35+09:00",
+    "title": "FA 1호 계약은 양의지, 두산 잔류 확정…오태곤도 SSG와 연장 계약",
+    "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1KSC1DZmZBTWx0YzM0YTM0VUZNamo0VF9LNi15UncyNWN1aVRETl93VW1zYVB0SFJhNmswbW5kUFVLSHdkWWVhUjFnby1pNVJDZUU1REtR?oc=5",
+    "source": "중앙일보",
+    "publishedAt": "2026-11-17T14:38+09:00",
+    "teams": [
+     "SSG",
+     "두산"
+    ]
+   },
+   {
+    "title": "“내게 정말 특별한 팀”…오태곤, 3년 총 11억 원에 SSG 잔류 [공식발표]",
+    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBkcWwtUkZ3OEx1S2YxbW93LWZlMGxWdHhKV05WbldwN2ZyNi1tSnFBVGlDUUVwWDhMVnN2Y2tnTzBZcjlBQ2pPQnR6OU5ONE5WaWhR?oc=5",
+    "source": "매일경제",
+    "publishedAt": "2026-11-17T13:40+09:00",
     "teams": [
      "SSG"
     ]
    },
    {
-    "title": "[APBC] 85구에도 교체 없었다…김건우 피홈런 2개 포함 4이닝 5실점 강판",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5GS0RvWUNIZEJGVV9pMGhtUS1FeXl3TU5HS3BHNVI1c1RJc19hV2lWYUMwT2RKM3U2QTRSelZMNXFtdG5UTy1IZjZJRW5pNEctUnJnR05CNVdWX2M?oc=5",
-    "source": "일간스포츠",
-    "publishedAt": "2026-11-15T21:01+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "'141구 실화냐' 김건우 던지고 또 던졌다…호주전 50구→이틀 쉬고 91구 역투, 4이닝 KKKKK 5실점 교체 [오!쎈 도쿄]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9wLUJzLWhiTHM2YnBORVMwdVRZblJBWDlqRjdRTXYxY2tTODlTejNzQmx4Wm82bmxxZEJxUzd2M3ZFWk1LNEd3TUwzUkZpZU1vOGU1T21vbEhNR2ZSRl9oVEpaOGtiTHhZQmFnRkE0SdIBb0FVX3lxTE9wLUJzLWhiTHM2YnBORVMwdVRZblJBWDlqRjdRTXYxY2tTODlTejNzQmx4Wm82bmxxZEJxUzd2M3ZFWk1LNEd3TUwzUkZpZU1vOGU1T21vbEhNR2ZSRl9oVEpaOGtiTHhZQmFnRkE0SQ?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-15T20:51+09:00",
-    "teams": [
-     "SSG"
-    ]
-   },
-   {
-    "title": "김건우 치명적인 1루 악송구→마사키에게 통한의 스리런포 헌납→4이닝 5실점 부진→韓 또 준우승 위기",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5lR3VxRmwtZ1lRcjc3NGVpYkhqREhnaDlOUXQtRmk0LW55VUpPcTZqZW9ESnNWd2Z6VzZmR3NHSU1IbkIxTExNM3djdmktRXFtaGlmUm44NWtpNVdvRl9zSg?oc=5",
+    "title": "양의지와 오태곤의 때아닌 ‘1호 계약’ 경쟁…두산과 SSG 이것은 몸 풀기, 진짜는 FA 최대어 구자욱",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE00SVZIaHJUUzBPbjhtSWozMU5kTDdLX3hXS3g4RnlVTzcyU2RnRW9RTFBwa2hvYTA4TjZydFR6ZFJrSmd6cVZsYjEzMHo1Z1hVX0hod3VzUnZIczNPMlMzcQ?oc=5",
     "source": "마이데일리",
-    "publishedAt": "2026-11-15T20:50+09:00",
+    "publishedAt": "2026-11-17T13:23+09:00",
+    "teams": [
+     "SSG",
+     "두산",
+     "삼성"
+    ]
+   },
+   {
+    "title": "‘1호 FA 경쟁부터 후끈’ 양의지 55억-오태곤 11억, FA 첫 날부터 66억 터졌다…역대급 스토브리그 예고편",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9WRVMtS0dBUlZ2ZmhPRlBYY0JPTks5aXNoTFNQck0teDhkcHdWMC1XaERTX2VYMG0xMzhfQzUxM0tTel9JMEZ1QjlhdERMdWZsWWNRZFdzRWxDbWFrNVMxdm5pYXMzMTNEa3fSAW9BVV95cUxNdlNCaFVIU2txeVN3U29QRGR3STRzZV9wX2pETWcxeGxTMzJVd0NPZjlxbVoyS080ejdVbDQtMUN4cGFtczQ3N1hDZlRxNGNnVWE5djg5aDVCYkVtNk1Kb3ppUzFKc05vQjlPQ2lwWlU?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T12:40+09:00",
+    "teams": [
+     "SSG",
+     "두산"
+    ]
+   },
+   {
+    "title": "'보도자료는 양의지 1등, 계약서는 오태곤 1등' 대체 누가 FA 1호 계약인가요?",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPMEZOLTM0WGVMSTVfSmRoM0x5NndDaGhVN19BTTdTNVI3WllvVHlUNFJFY2luTFZKZjZ3ME90cjNGYUs3Wm5STHR3SVRWRlczNnJDSlNTdHA4NWllQS1NM3Zzb2R5eVZiMU9CSlA1VlJhazFTWHZSbHlfOFZ4elBpSlp1WQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T11:50+09:00",
+    "teams": [
+     "SSG",
+     "두산"
+    ]
+   },
+   {
+    "title": "FA 시장 첫날은 ‘집토끼’부터… 두산은 안방, SSG는 살림꾼 지켰다",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1UdGlCTDBRYTZvRm96WGQ1d3BEQWRSOThUUktQTGJZTDF1azkzb2RpZFBvSnhEV1k4YXRpY2NOaUJZSk5sY1BaQzBoUGpoUXdNdU83WlNCRlVvdVp3U01HWnVn?oc=5",
+    "source": "스포츠월드",
+    "publishedAt": "2026-11-17T11:41+09:00",
+    "teams": [
+     "SSG",
+     "두산"
+    ]
+   },
+   {
+    "title": "‘FA C등급’ 오태곤, 원소속팀 SSG와 3년 11억원에 FA 계약",
+    "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPVlpwdFphLVlfRFp3ZHRCU3VXNE41Yld6c1ZhaGtqQ2p1Um5DWVdvbnMyUWQ5YmZLNjZuQ1pic0hvNEVPbzdNeDE4anZBcUVvREFvX2dNRG0xbVU4SElwT3dVNjV5c3Vna2FtNU5JajIyenFEdG1lRkk4YUdzZ3RFVU9vY3ltWGdRNGhTYzRBTElQa3F1UjAzME9KRk91UW9qWWY2c05odGllRE9fQkliaHItWl83VW9PV3lwR2FuX2NDSWxyX0U0RFVFVlNxMk4wVTZIcVFsemdIallfQ2NoaGRiTnNzc0ZSRDBhc1pR?oc=5",
+    "source": "데일리안",
+    "publishedAt": "2026-11-17T11:20+09:00",
+    "teams": [
+     "SSG"
+    ]
+   },
+   {
+    "title": "오태곤, SSG와 3년 총액 11억원 FA 계약…두 번째 동행 이어간다",
+    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9Md2lWRkY4SGVqUDU5cFZjLWtHdThXd3I4alVMTUx3NzRMMGRoNW5kMkU5a0Nxd0JsaDhnd0IyS2RvVVhNbTNxdjRyZURBLXpuMFVxMkZGQ2JJdlVzek5nQV9USEdZMmVyaU00bWFUQlZxV2dxUUlldkU4WC1DenPSAX9BVV95cUxPTHdpVkZGOEhlalA1OXBWYy1rR3U4V3dyOGpVTE1Mdzc0TDBkaDVuZDJFOWtDcXdCbGg4Z3dCMktkb1VYTW0zcXY0cmVEQS16bjBVcTJGRkNiSXZVc3pOZ0FfVEhHWTJlcmlNNG1hVEJWcVdncVFJZXZFOFgtQ3pz?oc=5",
+    "source": "데일리스포츠한국",
+    "publishedAt": "2026-11-17T10:58+09:00",
+    "teams": [
+     "SSG"
+    ]
+   },
+   {
+    "title": "양의지, ’2년 총액 55억’ 두산 잔류…SSG, 3년 총액 11억에 오태곤 잡아",
+    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1TQU5QTEJRQkJpV0ZZYVdyMVIyQmNQc3dJSjdWMnJtZGs3d2cwMXZjMnctVkRqSmdTQTJhMEFQakhETnBEUFE0LWQ4bngtUXVwZm9HODVmNE1qRjRmcDVXb0ZMS09DQkk?oc=5",
+    "source": "연합뉴스TV",
+    "publishedAt": "2026-11-17T10:47+09:00",
+    "teams": [
+     "SSG",
+     "두산"
+    ]
+   },
+   {
+    "title": "[공식발표] \"SSG는 내게 정말 특별한 팀\"...`전천후` 오태곤, 3년 총액 11억에 두 번째 FA도 `잔류`",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAtSTBoMXFjemNTLWNUam5KaVZWXzF0ZjRpS2hRM09nRU5XdE1zOF9sRkdIUTZ1b1pKbEZRdVVGNExoeGQzR3FycTlaYU1wOWZvN0h0ZlRZcnlXOXRuY1Jwdw?oc=5",
+    "source": "마이데일리",
+    "publishedAt": "2026-11-17T10:30+09:00",
     "teams": [
      "SSG"
     ]
    }
   ],
   "롯데": [
+   {
+    "title": "롯데 또 공 흘리고, 연타 맞고.. 한화전 연습경기 완전히 깨졌는데 → 이동욱 감독은 왜 \"잘했다\"고 했을까 [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYVNaQmtlWHMwd2Z1azNvM1Q4RVZhZnVzSVd6RGwyWTFHUHBIWkZjME1PanRSd2stZXFSNnFrOFhrVnhOWnNCSk1HYXVPWlR1Z2FkLUZhTFFLVFpvcThRaFE5U29wMzRJOTk5N0lMVzBiTjNmS0MyZjNBWU54Ynh2LVVqTQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T18:21+09:00",
+    "teams": [
+     "롯데",
+     "한화"
+    ]
+   },
+   {
+    "title": "\"밥 먹듯이 하는 수비\" 수비기계 나승엽? 가능하다…'주전 1루수 트레이드 불가' 무한 신뢰 선언, 악몽은 없다 [오!쎈 미야자키]",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1ldjl5QWxVdUVQRUEyMEs3WkNyOF8wQVdaODJlWG5YcHRxUzZRcUNSVmtxbmZ3cFNrNVhwNHZHVEJTeXdPd1U5R0k1eTdZRzd5N2phMUlacHVTUktLemktLVZYRHI0bmtrZXfSAW9BVV95cUxQc3Nfd2NsYlJtWlZJMXhES21WX3VoY1AyOUZPMDF3S1A3aHh0MHlGZlJlRnFFSmMwZ09QZDFoTC1ROVBTbnMxczlBRjFYSDdaOE9zdU44ekdQSUt6aUZlSFJCaHBtMXRZMU5sSHhud1k?oc=5",
+    "source": "머니투데이",
+    "publishedAt": "2026-11-17T18:19+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "다시 보는 롯데, SSG 마운드...2027시즌 희망 밝혔다",
+    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5GRmY0anN5WmthcjJ3WnRpb0F2UjVlQ0FZNzN0VFRzSzVwYVV0Vnh0Wk1Ra3NHRFBDX2l1OElGVmJjdGY2a1VGZHRzbHdfb25JY1VvZk5ZOFg4Ul9PeHVaaFZJNEFOYksyOXFFNQ?oc=5",
+    "source": "서울신문",
+    "publishedAt": "2026-11-17T18:03+09:00",
+    "teams": [
+     "롯데",
+     "SSG"
+    ]
+   },
+   {
+    "title": "[SW인터뷰] 밥 먹듯 자연스럽게, 수비도 그렇게…나승엽이 배운 ‘수저론’",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9TTXFEaU5mYXp6VGEtY1dSQXdkdFhNTWVnZFdpSjhTRHNZT3JSRGlWcEpGbHJ2Ym1mOWw3aUdYaGpYOHNDTHFjazI1MHQ0bkszS3p2TmtFYTg1SkExY0Y1WURn?oc=5",
+    "source": "스포츠월드",
+    "publishedAt": "2026-11-17T16:43+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "FA 뉴스 날아든 롯데 캠프 → 이동욱 감독 \"단장님과 계속 이야기 나누고 있다\" [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOZ0QydEdoaEYxQTJKeXZLSXV6OTk4cVMzR1JjSHkyamwzcENwUVR6Y2lKYW1uMjk3X0JFOTVlTjZOZEw1TnhNUHFCd3BoMTJ6SUFVdjVJN1U4bzQwa01RM3JybEZhcXJ0WVJpRFNBNnhobnpPX0szcFZ1VkZncjg2dnN2cw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T15:20+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "[SW인터뷰] 감사함만으론 부족하다…이준서의 마음가짐이 달라졌다",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fWDFTamNuY2ZDX19kSjVuNFh0eV9hRGQxN0JjRUluSjZZcW9BRFRRREl3S25LdkhHUVVBQ0JsaXdQOUtXRENSZVFqNktRU2l4UEJ5UTNUSUxOT0JjT1JIc01n?oc=5",
+    "source": "스포츠월드",
+    "publishedAt": "2026-11-17T14:23+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "'새 사령탑 선임' 한화·롯데, 류지현·이동욱에 '취임 선물' 안길까",
+    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE05ZFhLTXAtcW9SYVpNTDJMd1RLaXN5b0NVbXpfb2tMbEhxbC1oTXpqV1BZRm1DcXFVZ29BOVBkZWZvd0ZlNGlnS2xxWEFkbjIyVTM3cXVZRk5wNUc2dVZjazN4VlMxUmNJdTVrS0YyWTNJLWdLZlIwQtIBeEFVX3lxTE05ZFhLTXAtcW9SYVpNTDJMd1RLaXN5b0NVbXpfb2tMbEhxbC1oTXpqV1BZRm1DcXFVZ29BOVBkZWZvd0ZlNGlnS2xxWEFkbjIyVTM3cXVZRk5wNUc2dVZjazN4VlMxUmNJdTVrS0YyWTNJLWdLZlIwQg?oc=5",
+    "source": "뉴시스",
+    "publishedAt": "2026-11-17T13:42+09:00",
+    "teams": [
+     "롯데",
+     "한화"
+    ]
+   },
+   {
+    "title": "잘한 날도 안 웃던 나승엽, 새 환경서 미소 → \"자신감 잃고 경직된 적 많았다\" [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQQ1RtMmY1VkpCcUJzdFV0ZnZBRWE3aml6dHJ5V0tPbDZlVFo3ZzYtQ1F1TUFocXF2dE5qcWtNbXRkaGh4eHh1LUt6SzV6bmFSVGZjOEdHQ1dacHlvQ2ZpUmJYNGJvWXZpZ2N2MEtiTi1ITUQyWWJBckdTWkxLR2NpZU1vUQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T12:57+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "“나도 알려줘” 롯데 황성빈, 요미우리 주전 외야수와 밀도 높았던 나흘간의 동행 [SD 비하인드 베이스볼]",
+    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9WNzJ4ZlpTYmxuLVhEOU54MTd5WUkzQU9wdi1BSXlOZ21kWkZFcTFqZVNWaEhEQ3ZSM090aVB5N1FhVElyRjNuNGdwY2tmeUFuTFpDd3loM3JKckxqYW5sclhEQTAtbmRsRlNtWFc2QUV6UQ?oc=5",
+    "source": "스포츠동아",
+    "publishedAt": "2026-11-17T11:36+09:00",
+    "teams": [
+     "롯데"
+    ]
+   },
+   {
+    "title": "미야자키에 내리는 가을비...롯데-두산 연습경기 취소 [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRXFtT282cGJsVjd5UVMxTmxYRmNJLVlUVndBcDBFQnlqQTdYOHpOcmpYSjZadHV6NFg3UV92NXZlMVNNa0dtSEhGZlpGd0FWQi1LUzRSMzFXRnJOQjR6ZXliNEZXNXluNTAxY3lLa3J5eE0zTmpxdUFPVS1wT243TVBOcw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T09:13+09:00",
+    "teams": [
+     "롯데",
+     "두산"
+    ]
+   },
    {
     "title": "\"최고의 코치님\" 이렇게나 좋아하는데 경질했었다니…벌써 체감 중인 롯데, 허문회의 복귀 효과",
     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBuNWpvdGxSeVhXOHVRdDFRZTJ0R2VaRm5oRzlwZTZ4a1pFQ19DNURrS3VMTnZkWlh0TUhObkZZQ1BiV0R4MElZQlZGTHpBbGVMVFhfMG9Qb2ZVSDk0dnV5RHBhWDdwOEplY19hNDk3OGk?oc=5",
@@ -1064,16 +1219,16 @@
     "title": "\"나승엽 안 줘요\" 벌써 트레이드 불가 선언! 이승엽처럼 커다오 → 롯데 이동욱 감독의 절대 신뢰 [미야자키 현장]",
     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNMjVpUGd5ZTJoQXVGVWV6UjRqN2NVOWdQLWk0VFdNWWFCSUxnTk5xUUNsYzEyOGR1ZV9SYVE5NllBY09tbnVOMzEzWmp2RlRHZEtGbkdlYy1DemRwVWlpZENxWVZlc2J5QUZ5WXptRzExaWJlUWVpczM1dzVxWmZ5VVJZOA?oc=5",
     "source": "조선일보",
-    "publishedAt": "2026-11-17T01:13+09:00",
+    "publishedAt": "2026-11-17T01:15+09:00",
     "teams": [
      "롯데"
     ]
    },
    {
-    "title": "147㎞ 콰악! 제구 되는 강속구가 나타났다! → 롯데 김기중, 선발이냐 불펜이냐. 어디든 좋다 [미야자키 현장]",
+    "title": "147㎞ 콰악! 제구 되는 강속구가 나타났다! → 롯데 김기준, 선발이냐 불펜이냐. 어디든 좋다 [미야자키 현장]",
     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNWmF6NmpKcm1wYUxUUFoyNi16UjlGQlVKOXdVSmtEZks0bXBKazNMOHdvYlZNSmdFbGh2TWhMeEVaTjN6QzJnY1BicnA1NTl6Wm9rRXh4c2VjZU1FaWtuOXFNRDd6MGRhakJXbG9SS3cwS3Bjdm9jekN3cERaT0FCNDd5Zw?oc=5",
     "source": "조선일보",
-    "publishedAt": "2026-11-16T19:53+09:00",
+    "publishedAt": "2026-11-16T19:51+09:00",
     "teams": [
      "롯데"
     ]
@@ -1086,110 +1241,112 @@
     "teams": [
      "롯데"
     ]
-   },
-   {
-    "title": "롯데지주, 홍보 체제 정비…이강훈 홍보실장 선임",
-    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9iZWU1LWkwM0VtTW13M0VpbHRSbzQzS1BUdjRCT1RUSlVXR2V6ZnBwc2loczNtaGdfRE9kYUROREpXSmNmenhMWGREX1IzcmtaSVlHYkJlV0xCUEh6bTlYU1VnR2RtZW9ZNGFibTNkZ3pqZVZyeHV4Vlptb9IBe0FVX3lxTE9iZWU1LWkwM0VtTW13M0VpbHRSbzQzS1BUdjRCT1RUSlVXR2V6ZnBwc2loczNtaGdfRE9kYUROREpXSmNmenhMWGREX1IzcmtaSVlHYkJlV0xCUEh6bTlYU1VnR2RtZW9ZNGFibTNkZ3pqZVZyeHV4Vlptbw?oc=5",
-    "source": "디지틀조선일보",
-    "publishedAt": "2026-11-16T18:54+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
-    "title": "롯데 대졸 신인 이 정도였어? 박정민 야구만 잘하는 줄 알았더니…마인드는 더 대박이다 [APBC]",
-    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA0Vm9tS1M4UlVCaVl0YjA2U2ZpY2hITDhtOUEzdXQ1UzNjeGJDbDJDR1NSZjlDTXBXWDc4MTlzNVlNN0lxbnVxcklPcjVjbUFTbExQQ2tQUnY2NGZXa0ZWOEhJUjRWTzNzdUN6V3hFT1A?oc=5",
-    "source": "SPOTV NEWS",
-    "publishedAt": "2026-11-16T17:28+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
-    "title": "스리런 쾅쾅! 정우주 1실점 + 릴레이 호투 한화, 미야자키서 롯데 9-1 대파 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOallDYlFLb1U0MVE2S1lKUXc4WnFidDVMSWw5MU9aQXIwSlBVNmpyc1ctYW13bUg5TnpaNGY4VDRjbkRkQlR1TGlBaUVqN2ZJNWU2WHIzRzNLTjhTekJQR2w4aG5GMHJYYTB4X1ZLSm54MDZnOXE1WHFEWm9Ic3hWWERiWQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T17:26+09:00",
-    "teams": [
-     "롯데",
-     "한화"
-    ]
-   },
-   {
-    "title": "`홍창기 또는 김호령 잡을까` 롯데, FA 시장서 외야 전력 보강 여부에 관심",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE91b21WUm1oYzR5WF96MVFUOW41MlVMOWFBWUVEYnFnTlVmVkpWQ0JwVWVMalY1R3E3Zk95Vm5oQ25zNG1FTm83OXFfTjFFYk04Y0tqbFVHN1hMSThIb1FBMQ?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T16:05+09:00",
-    "teams": [
-     "롯데",
-     "KIA",
-     "LG"
-    ]
-   },
-   {
-    "title": "[단독] 롯데그룹, 非오너 '형제 CEO' 나란히 배출…권정근 자이언츠-권순근 글로벌로지스 대표 이례적 동반 승진",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9QWGZrbmg1a2NEV2l0b3k2VFVpQl9ianUzUWVsSVU0YlBVOUNJR0p2Ml9kTmE5RU4zVFp1Y0hnV0ZIdkdyUkI4U1MzeVNPVGdzNUpwWFc3Yi1wdzNaTGltWtIBeEFVX3lxTE8xU1VUMERscDc2TGF4VnhXWWg3VDhfMUxQNW1CZlBHSi1tZjNXYXhlRmtjZlo1NWNVTU1kQkxFN3NJZG9zS0FjbGQ1b2tTdVhDdXhhOWpHakJhU3pfcG44aVJBNEcxaUVfZ282UjFXNTZ4b1B1eWdKbw?oc=5",
-    "source": "뉴시스",
-    "publishedAt": "2026-11-16T15:28+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
-    "title": "170억 원의 족쇄 풀린 롯데…이번 스토브리그에서는 지갑 열까",
-    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8zTndrVjIwN1VpMHoxRHFDSUNudllkZWM4WGxLNV9YSlVkX0JZTGZBS2RGakk2R3FHbVZ1b2lDNmhhNVVoN1dDMEZhR1ZKc09WWWlvaVFfLTZpa2tyQ0HSAWNBVV95cUxPSUkxUnZkQzUtMFladURGRm9LNWFzSnA4YjFCdVFnVnJHQWVMRzlmcVJlMnVicVd6NXhNdl9Tb184bTBSMURBX0dOR3A5ckYyamRYQ0dtQmdkUFVDQ0FJb0lnU3c?oc=5",
-    "source": "스포츠경향",
-    "publishedAt": "2026-11-16T13:48+09:00",
-    "teams": [
-     "롯데"
-    ]
-   },
-   {
-    "title": "30개 던지면 이닝종료 → 한화 롯데 연습경기! 이동욱 감독 \"스캠 명단 가늠할 모의고사 성격\" [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdkFDeW5zcWh3STdBTlZBR09uamhtMlR2U3FQTVRSU0x0ZmlGMW8ycHFCZ1J5bUs3M2tuMHlSSm84RmlNZkx4ckUyeGtNbEtXYUlNNElNbVgzUHluSFhHMHhCV3JCenBNS1l5RGtiZ0hKem9HM3RIX1hBOUdXYngtemNQNA?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T11:54+09:00",
-    "teams": [
-     "롯데",
-     "한화"
-    ]
-   },
-   {
-    "title": "KBO, 2027년 FA 승인 선수 22명 공시...롯데·키움 내부 FA O명",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Bd1ZOSVh0YjBtbWlmUm9XemFzTEItMEg4OTdvT1hqV0NDU3lrejVSeWdxTzRmdXktY2h3bWZyb0tjNUlpVHVjNXpuM01JYUcwaE5DdWNPVkIyckk?oc=5",
-    "source": "일간스포츠",
-    "publishedAt": "2026-11-16T11:29+09:00",
-    "teams": [
-     "롯데",
-     "키움"
-    ]
-   },
-   {
-    "title": "류지현 vs 이동욱 첫 실전! → 한화 정우주 선발등판, 롯데 한태양 톱타자 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNaW82NmNIU3o0ME96V0ZGUUtDSXplNlRHeWJ4Wmp6QUJjaENQWXd0TU9EaUlvYnUtSU9TXy1hTnlZU0NDLUtud080V2ZUY2h4N2R6bkRscXBzSkZRT0twdUxGdEM3QVVEQmk0UDJHdDA2VEtHVTFzc2VSWFRGNVp3aERaRQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T11:28+09:00",
-    "teams": [
-     "롯데",
-     "한화"
-    ]
-   },
-   {
-    "title": "APBC 최대 수혜자는 롯데? 투타 맹활약 속 2027시즌 청신호",
-    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1HNnBRb1VxcjRYNjRVN0xvM2VEaWdObXJrV3pvb1pEODdHLXdmTkpRU2tMUDV2WkNKOTZxQ3J1dFJYb1VvN3BBZm5UOE1ybXBneXc?oc=5",
-    "source": "노컷뉴스",
-    "publishedAt": "2026-11-16T11:28+09:00",
-    "teams": [
-     "롯데"
-    ]
    }
   ],
   "한화": [
    {
+    "title": "한화 전방위 투자, FA만 하는 게 아니다… 이렇게 팍팍 밀어주는데 성적 나야 한다",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE50VVBFX3YtdG5NVWZ5VWpKcFlLQldPVFRYZzJqTXpPNzlHMVF4SWFXUGxzbGZUTy1JbEwzWmJ2eEVmRHFhTW9JT01MSWtsSmxiQnhYUnV0VXBHV1g3WFRzYnd2VW1xN0RVeHBCRXoxaVQ?oc=5",
+    "source": "SPOTV NEWS",
+    "publishedAt": "2026-11-17T19:00+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "롯데 또 공 흘리고, 연타 맞고.. 한화전 연습경기 완전히 깨졌는데 → 이동욱 감독은 왜 \"잘했다\"고 했을까 [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYVNaQmtlWHMwd2Z1azNvM1Q4RVZhZnVzSVd6RGwyWTFHUHBIWkZjME1PanRSd2stZXFSNnFrOFhrVnhOWnNCSk1HYXVPWlR1Z2FkLUZhTFFLVFpvcThRaFE5U29wMzRJOTk5N0lMVzBiTjNmS0MyZjNBWU54Ynh2LVVqTQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T18:21+09:00",
+    "teams": [
+     "한화",
+     "롯데"
+    ]
+   },
+   {
+    "title": "류현진 vs 이정후, 감독으로 맞대결 벌인다…12월 6일 ‘더 제너레이션 매치’ 격돌",
+    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5jRTQyV19YTWtjVWFSUnlJUVluVnQ3enJ2ZnZfUlpGdWxCcTR4NnZrcmI1NXdYZnNDSS16TDZoRlFOTG83VUVQSGlFRW1RQ2tLUGJTSS1SYlNIOXc3OFJfZGJVWUQ2RTRESXZxWlFRRjB3UQ?oc=5",
+    "source": "스포츠동아",
+    "publishedAt": "2026-11-17T16:38+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "한화 류현진 vs 샌프란시스코 이정후, 감독으로 맞붙는다…12월 6일 ‘더 제너레이션 매치’ 개최",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVk9sdnpqbGRSeVBNaVZWWFNoR0ZqRDlVSVFlS25JV1B3YmtxclhES1EteW0xSk5TMkRMQjNKenRGMzJEcVFvLW5nRU9hQ1pfMHZwM01iSWNnVGVzRkNGcDRlYzBia2NzOFdsTThiTHFNQWViYmRDc1BLSVR6eW9nLXdLWQ?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T15:04+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "류현진 vs 이정후, 내달 6일 '더 제너레이션 매치'서 감독 대결",
+    "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9FenFRa2x3bWtGQUcxZi1OVmhza3FZcHFpaWY5Qk13aEhHVHBteHVMZUlnX0ZfSlpqUUJZVnN3YWVnM01NanZBR1FxNjlmcklkeGtLcFRESQ?oc=5",
+    "source": "뉴스1",
+    "publishedAt": "2026-11-17T14:36+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "'새 사령탑 선임' 한화·롯데, 류지현·이동욱에 '취임 선물' 안길까",
+    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE05ZFhLTXAtcW9SYVpNTDJMd1RLaXN5b0NVbXpfb2tMbEhxbC1oTXpqV1BZRm1DcXFVZ29BOVBkZWZvd0ZlNGlnS2xxWEFkbjIyVTM3cXVZRk5wNUc2dVZjazN4VlMxUmNJdTVrS0YyWTNJLWdLZlIwQtIBeEFVX3lxTE05ZFhLTXAtcW9SYVpNTDJMd1RLaXN5b0NVbXpfb2tMbEhxbC1oTXpqV1BZRm1DcXFVZ29BOVBkZWZvd0ZlNGlnS2xxWEFkbjIyVTM3cXVZRk5wNUc2dVZjazN4VlMxUmNJdTVrS0YyWTNJLWdLZlIwQg?oc=5",
+    "source": "뉴시스",
+    "publishedAt": "2026-11-17T13:42+09:00",
+    "teams": [
+     "한화",
+     "롯데"
+    ]
+   },
+   {
+    "title": "양의지 잔류에 더 뜨거워진 '안방 전쟁'…LG·KIA·한화 '집토끼 단속' 비상",
+    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9jNFlnck5PemFGM3lOR3VvMkYwUFBNbmt3VG1EQXZMTWo4QzFNblVYZWtGcng4a2lLLXF1WjQxTjhQd2laNi0tOW1WZFhVLWNreXc?oc=5",
+    "source": "노컷뉴스",
+    "publishedAt": "2026-11-17T13:19+09:00",
+    "teams": [
+     "한화",
+     "KIA",
+     "LG",
+     "두산"
+    ]
+   },
+   {
+    "title": "한화 이글스 육성군 매니저 출신 김백류, 日 독립리그 국제팀 스카우트 활동",
+    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5KRER2SUMzOHY2YmtzazV3cGFJRzY0QUtNcnBUbXlkZGhXMHk5ZUNLSkNUZHpJM2ZTTHJXVkZvT0VCUjQ5dlFMVFBFTjNpTkF1WlBrQkpaLVREaVpJdTBZSVdn?oc=5",
+    "source": "일간스포츠",
+    "publishedAt": "2026-11-17T10:20+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
+    "title": "양의지 잔류→'FA 포수 최대어' 박동원 어디로 향하나! 야구계 초미의 관심사, 김태군·최재훈 거취에도 영향",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5MaFh0SnlsXzYtZXBDd2tjYk5qUS12UDY3OW5SRi1xWGQwdUJTSU1TaE93eFcwU2E4Q2pxNW9xU1FhaGFONkZZdTBRZ3V5RDBBTkZlbEVSd21WTkM0cFFjQXctcGxrZTRqbnVGMWc3YS1pcEczY3c?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-11-17T10:17+09:00",
+    "teams": [
+     "한화",
+     "KIA",
+     "LG",
+     "두산"
+    ]
+   },
+   {
+    "title": "한화 78억 투자, 이제는 웃을 수 있나… 2년간 2승 악몽 털어낸다, 류지현 구상은 어떻게 되나",
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE84dElKb3BBNVVmVzc0dmZpMFJ1RVdsY1BuMHF0ZEtKYkxnZ3Bkd2N2YjBsMkRoVzRlenV4bVdBWW5MQjhVUGZsZXhPTkN2bGNMM2wxSnZia0VRbDN1X2daUG9LZFZYVEYyXzVJV2pISlo?oc=5",
+    "source": "SPOTV NEWS",
+    "publishedAt": "2026-11-17T08:30+09:00",
+    "teams": [
+     "한화"
+    ]
+   },
+   {
     "title": "'문현빈 2루수' 사실상 4일이면 결판 → 류지현 감독이 기회 준 이유는 [미야자키 현장]",
     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNHo0dGYxOEk5dlo3T0pUV3F5M0VJSktrNzB5U1MtTlBvTVd3c1ZZUk4wamhEUTF4eG45Vy1IYUJqcXdLTmtGeFF2SlNweFYxQUlzX3JwVThZR1lfVjByYWw5ZkpNUnNNOFpIc3V3M29pMmR5YzlkQUlyYklyNFdUZ2lSaw?oc=5",
     "source": "조선일보",
-    "publishedAt": "2026-11-17T01:45+09:00",
+    "publishedAt": "2026-11-17T01:47+09:00",
     "teams": [
      "한화"
     ]
@@ -1230,103 +1387,37 @@
     "teams": [
      "한화"
     ]
-   },
-   {
-    "title": "“올해 기분 좋게 마무리했으면”…어두웠던 정우주의 2026년 최종전, 2이닝 1실점...2027년 더 웃을 수 있나 [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE4zeFZWbjBRZlFaTDhUNlJGRnEtc0R1U1lZSVpOZHpfaW4zbDlqWExlcU5OZ2tjejNVMHFlSExFdFkzaDNVMVk4bm1xbWxLVlNWdFVEdUJwbXY5Q2pfYnhwdzl3?oc=5",
-    "source": "미주중앙일보",
-    "publishedAt": "2026-11-16T15:20+09:00",
-    "teams": [
-     "한화"
-    ]
-   },
-   {
-    "title": "신호등 없으니 알아서 뛰어라! → 한화 코치들이 사라졌다! '꾀돌이' 류지현 감독 설명은 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTEpBNC1jd0dYT0dNNWpCcHc5RS1SemUwVExRNEFfa3RIekhfaXduQ2I4YXVFOGxxaThxcHFQT2tVVUZGWHh4U3AzcjFBTWRKTnVzdmpNc3duQnM4S3B2UkVfYm55dHUyOExJVElNZ0hrODVsRGZiSTVmUEVtUThMa3kySQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T15:10+09:00",
-    "teams": [
-     "한화"
-    ]
-   },
-   {
-    "title": "전대영 전 한화 2군 감독 암투병 중 세상 떠나…향년 64세",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBBSWJ3eHN2eGQ5UzJhMHRvVWgyTVpjREtWT2Vsc2JrYy1BY0IzaV9aYmpfZGdoQ0EzN2dCVEhVaEl5U0hDT1ZsYzZBSnM3bXFMWHJ6Rm82TUI5TWdVTWd5RA?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T14:54+09:00",
-    "teams": [
-     "한화"
-    ]
-   },
-   {
-    "title": "‘선동열 상대 홈런 2개’ 전대영 전 한화 2군 감독, 암 투병 끝 별세",
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9rRWtzYTBhLUNoc3Y4YnptaXoxTDc0ZVZPWGl6bFN6Wk1NOElremFpNk1uVkZrZVZKbVM1bklpbUR5NHJNajhYS01ZWlljNWtWeFI0V3U5X3o?oc=5",
-    "source": "스포츠서울",
-    "publishedAt": "2026-11-16T14:24+09:00",
-    "teams": [
-     "한화"
-    ]
-   },
-   {
-    "title": "LG는 한화로, 한화는 LG로...절묘한 코칭스태프 스와핑의 의미",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Pekd4clpOeXRZaFppanRWUTVZRUl6V3A4VzdvaVpvbEl6NnNGczlBaENfTE1SWDEyV2NNSjFNa3J0akpSRy1MdVczdXBQVjczTnRZNWtIRXA3ak5scGNlckp4SU1GNTVqZ3JJaQ?oc=5",
-    "source": "서울신문",
-    "publishedAt": "2026-11-16T12:52+09:00",
-    "teams": [
-     "한화",
-     "LG"
-    ]
-   },
-   {
-    "title": "'와이스 아니다' 한화는 왜 ML 데뷔전도 못 치른 투수를 영입했을까…\"韓에서 많은 돈 받는다, 몇 년 후에 메이저리그 기회 얻을 수 있다\"",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5kRkZiSjVzN3NseGVCa3l6WFdScUxkZVFkV3FSMTEyLWZ1SmQweWlMR0twS3EyRF8tRF9lenRtM1dwTWxhUUlidjBHX2NMeVFqMUFqNTZDZXMwaTc2NkNWMQ?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-16T12:01+09:00",
-    "teams": [
-     "한화"
-    ]
-   },
-   {
-    "title": "30개 던지면 이닝종료 → 한화 롯데 연습경기! 이동욱 감독 \"스캠 명단 가늠할 모의고사 성격\" [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdkFDeW5zcWh3STdBTlZBR09uamhtMlR2U3FQTVRSU0x0ZmlGMW8ycHFCZ1J5bUs3M2tuMHlSSm84RmlNZkx4ckUyeGtNbEtXYUlNNElNbVgzUHluSFhHMHhCV3JCenBNS1l5RGtiZ0hKem9HM3RIX1hBOUdXYngtemNQNA?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T11:54+09:00",
-    "teams": [
-     "한화",
-     "롯데"
-    ]
-   },
-   {
-    "title": "류지현 vs 이동욱 첫 실전! → 한화 정우주 선발등판, 롯데 한태양 톱타자 [미야자키 현장]",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNaW82NmNIU3o0ME96V0ZGUUtDSXplNlRHeWJ4Wmp6QUJjaENQWXd0TU9EaUlvYnUtSU9TXy1hTnlZU0NDLUtud080V2ZUY2h4N2R6bkRscXBzSkZRT0twdUxGdEM3QVVEQmk0UDJHdDA2VEtHVTFzc2VSWFRGNVp3aERaRQ?oc=5",
-    "source": "조선일보",
-    "publishedAt": "2026-11-16T11:28+09:00",
-    "teams": [
-     "한화",
-     "롯데"
-    ]
-   },
-   {
-    "title": "'1루수 나승엽-유격수 한태양' 이동욱 비공식 데뷔전 & 수비강화캠프 중간고사, \"선수들의 스마트함 보겠다\"…한화 정우주 선발 출격 [오!쎈 미야자키]",
-    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE94d2ZPdjdDN0VXUlhlMmwzaXVObW5vcUlaUUp1NTFxMFVidjdXNjRSN2ZBaDNQR0Q2WTlVNi1sNFg1TWtaN2JWYTdtSkFuY3k2ZEE1OUc5ckZXVWVfajE1VnQ1S2UwQVB5S3BtalRRd9IBb0FVX3lxTE94d2ZPdjdDN0VXUlhlMmwzaXVObW5vcUlaUUp1NTFxMFVidjdXNjRSN2ZBaDNQR0Q2WTlVNi1sNFg1TWtaN2JWYTdtSkFuY3k2ZEE1OUc5ckZXVWVfajE1VnQ1S2UwQVB5S3BtalRRdw?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-16T11:09+09:00",
-    "teams": [
-     "한화",
-     "롯데"
-    ]
-   },
-   {
-    "title": "美 언론 \"351홈런 거포 대신 25세 노시환?\"… 이상하게 자꾸 양키스랑 연결되네",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9oTEsxVE1mOXZoNVU5S3IwTVBUczRXeU5EQndIeTBKTFE1YW5pVUJYbkpNSmgtV0ppRF9zeGgwX19VbmpOX0tEcFZQZXFEMXJOeGJUTGxGTUhiZw?oc=5",
-    "source": "파이낸셜뉴스",
-    "publishedAt": "2026-11-16T11:00+09:00",
-    "teams": [
-     "한화"
-    ]
    }
   ],
   "NC": [
+   {
+    "title": "\"NC 잠시 다녀왔지만...\" 양의지는 두산에서 끝맺음을 해야하는 운명이었나 [미야자키 현장]",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1mbUY5NDlSMXcxb3Ruak5YXzh6aUJRdDh5N1RibDFmNGVmbGpDZURJV3Y3NEg4Uk80OVJVelNzN1llN2k4UTB2dkxJdUxoQXJpZXVEN0ZobDgxR252NHFtZ1pySjNXb3pzUlNRcnBBWUVCbEpSTWVFZjdsalJxUQ?oc=5",
+    "source": "스포츠조선",
+    "publishedAt": "2026-11-17T18:07+09:00",
+    "teams": [
+     "NC",
+     "두산"
+    ]
+   },
+   {
+    "title": "외야 보강 절실한 NC, 올겨울 FA 시장은 다를까",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1hNjBuVzZPTkJBWnRhYlVmVXZhUTFRc3RyY3VNdXdCenlXaTcwZWZ2V0g2Zng0VmVybmEyeU5xTWpXZmVreHc2OUk5VWJidHlGcVpnNGF1TEdHUm5Tc015WFNTQdIBY0FVX3lxTE1hNjBuVzZPTkJBWnRhYlVmVXZhUTFRc3RyY3VNdXdCenlXaTcwZWZ2V0g2Zng0VmVybmEyeU5xTWpXZmVreHc2OUk5VWJidHlGcVpnNGF1TEdHUm5Tc015WFNTQQ?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T14:04+09:00",
+    "teams": [
+     "NC"
+    ]
+   },
+   {
+    "title": "김주원 ML 진출하면? 초특급 기대주 두번 실패는 없다 \"1점 내고, 1점 막는 선수 되겠다\"",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUFA5cjZIamhldFBYa2Vwbm9VM1FfQ0laa29zT3ZHRVRxdExiTm53MHFlbWZZOVE5d0hfOVNWWXRIYXdPLUprSVVCd29ZYmlHdUFDMmR6czNLTVp4ZlYtUzE5LWdOOWlxNHZQLUhfa3B5RlEyMm01dGd0WHVaVkhlSG14cw?oc=5",
+    "source": "조선일보",
+    "publishedAt": "2026-11-17T13:35+09:00",
+    "teams": [
+     "NC"
+    ]
+   },
    {
     "title": "다시 NC 오빠된 손아섭…\"성적으로 얘기할게요\"",
     "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5wdG9kY05KRm1TcFdKMXFtQjNrWDBHalY4ZVRLbnpOZmh0UFBhdTA5anhsTlNtM1RlbXRUZk94OFNsazNZd2JTYUVpWFZwRnNjSlQtVDZNVmZXLXBpaEFucnNFdmNQTjA?oc=5",
@@ -1357,43 +1448,35 @@
     ]
    },
    {
-    "title": "‘박민우 vs 이재학’ 감독으로 맞붙는다…NC 창단 15주년, 전·현직 선수 총출동",
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5uQ3JtMTZnMHlDTWNRR2ZtU1hQRTVvNmZLYU5HWkJUTVMtQ3ZyRkFNTmNTSTEydjBKWFFTZU4wOG00M2lvUVFCcnJxeTB4R2I1bzZZMURYRk8?oc=5",
-    "source": "스포츠서울",
-    "publishedAt": "2026-11-13T15:16+09:00",
-    "teams": [
-     "NC"
-    ]
-   },
-   {
-    "title": "스크럭스 집 초대받은 어린이들 벌써 성인이라고? 오는 28일 엔팍서 애국가 부른다…NC, 2026 엔팍시리즈 'ROY 대전' 세부 사항 공개",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE92M2tibUozVkp2NGdKanBRTXp1ajBUcE8xOW9icVFGMlJWM0VyTDdWdERVUG96UFcwWnpwZ0VVbjA1d2tFWjViR2xIMGstSmxyUUpLa2NsdG1qNk1mdDVEbA?oc=5",
-    "source": "마이데일리",
-    "publishedAt": "2026-11-13T14:48+09:00",
-    "teams": [
-     "NC"
-    ]
-   },
-   {
-    "title": "창단 15주년 NC 다이노스, 2026 엔팍시리즈 ‘ROY 대전’ 프로그램 공개",
-    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9VZHdwU2FKLVp5VG9aUk5obF9SSDFDVFZtN011UmJkZjZvR3loMGJGSEpIN1pwMURENVQ1YUVXNDI3M3BrX2FnTkw2bUVoSFlxd0h2TkFURmFMVkZ6cjFZRWtNTEgtYy1V?oc=5",
-    "source": "일간스포츠",
-    "publishedAt": "2026-11-13T14:47+09:00",
-    "teams": [
-     "NC"
-    ]
-   },
-   {
-    "title": "'민우팀 VS 재학팀 격돌' NC다이노스, 창단 15주년 스페셜게임 개최... 특별 이벤트도 마련",
-    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1nSVdwd0RERUVxY3JiN0JhMXRhLWNFV1dQVG95U213S3NUUTAtUnhGRjJjRVREdmFxN2VTNDRRdE02MzU3UEQtaUZNNFN1QTczSjNka0lZdFQwZ1A4OGpGRkJlbnJObmR5TFHSAW9BVV95cUxQZnVfWklmR2ZNSkFvWlA1dUM2aFV1TVZYX2dDM3ItQmQ1a2NRWTE0c3lzcFFwYndGdXViMTgwWVZGRThKejlNYW9vNFZrZ0tudndqWVdVcl9PbjZPTmVwdm9ZamI4UlA4azJhSGFya2M?oc=5",
-    "source": "머니투데이",
-    "publishedAt": "2026-11-13T14:45+09:00",
+    "title": "'이게 또 뒤집히다니' 김휘집 8회 극적 동점 스리런, 韓 야구 기적 같았던 반격도 물거품 위기 [2026 APBC]",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBGU1RoM29sejF6Um1Xa3drSnJMTDFTbFlWdm1qVm5pTVh5eWtCM2psODRTakJWZExQcE12VGFZcnVKWVFaazUzSFRkcHpLWXJQNGJYYk41bGVNVWlKVEtwQzYySTlwdTBFS3A1d29RQkZVNFlkenc?oc=5",
+    "source": "스타뉴스",
+    "publishedAt": "2026-11-13T22:18+09:00",
     "teams": [
      "NC"
     ]
    }
   ],
   "키움": [
+   {
+    "title": "‘2+1+1’ 다년계약 옵션 연장 실패한 최주환, 내년에도 키움에서 뛸 수 있을까",
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5HVUtFX25QZzF2dEdXVmFjX29SR1E4N2QwWEtPZTQzWTFwMzlFTldFSXNrU0dqNXB2cVZnYXdPaGFONHo0c1NjNGN5WnFmcGpjMzZWY2gzOV9Cc2FkMkVDdU9ib9IBY0FVX3lxTE5HVUtFX25QZzF2dEdXVmFjX29SR1E4N2QwWEtPZTQzWTFwMzlFTldFSXNrU0dqNXB2cVZnYXdPaGFONHo0c1NjNGN5WnFmcGpjMzZWY2gzOV9Cc2FkMkVDdU9ibw?oc=5",
+    "source": "스포츠경향",
+    "publishedAt": "2026-11-17T10:40+09:00",
+    "teams": [
+     "키움"
+    ]
+   },
+   {
+    "title": "삼성 우승, 키움 지분이 크다?…후라도 '초대박'에 김태훈·전병우도 잘 데려왔다",
+    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5pLUYwa0g5cTJ4VE5kb0FfMnFDTGpTcHJ4VFNDdTJrY2xkZnJETW9JbnFsbmRpdlRWaWdoSTZSTUV0X3FtZ0RJVHZieXYtRkNzUDZTNw?oc=5",
+    "source": "엑스포츠뉴스",
+    "publishedAt": "2026-11-17T09:44+09:00",
+    "teams": [
+     "키움",
+     "삼성"
+    ]
+   },
    {
     "title": "KBO, 2027년 FA 승인 선수 22명 공시...롯데·키움 내부 FA O명",
     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Bd1ZOSVh0YjBtbWlmUm9XemFzTEItMEg4OTdvT1hqV0NDU3lrejVSeWdxTzRmdXktY2h3bWZyb0tjNUlpVHVjNXpuM01JYUcwaE5DdWNPVkIyckk?oc=5",
